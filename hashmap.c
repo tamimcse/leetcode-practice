@@ -1,3 +1,7 @@
+/*
+Implement hash map operations
+*/
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>

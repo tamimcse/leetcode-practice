@@ -1,6 +1,8 @@
-//#include <stdlib.h>
+/*
+Implement array in-place operation
+*/
+
 #include <stdio.h>
-//#include <stdbool.h>
 
 #define SIZE 11
 
