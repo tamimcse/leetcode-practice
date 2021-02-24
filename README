@@ -1,2 +1,4 @@
-array_inplace.c - Implement array in-place operation.
-hashmap.c       - Implement hash map operations.
+Implement array in-place operation      ------>    array_inplace.c 
+Implement hash map operations           ------>    hashmap.c
+Count the number of times an integer occurs in a sorted array in less than linear time. ------> occurance.c
+Reverse a linked list
