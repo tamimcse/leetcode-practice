@@ -1,5 +1,5 @@
 /*
-Reverse a linked list using recursion
+Reverse a linked list (recursive version)
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,21 +7,21 @@ Reverse a linked list using recursion
 struct node {
   int data;
   struct node *next;
-} *head = NULL;
+};
 
-void insert (int val)
+void insert (struct node **head, int val)
 {
   struct node *new_node = (struct node *)malloc (sizeof (*new_node));
   new_node->data = val;
-  if (!head) {
-    head = new_node;
+  if (!*head) {
+    *head = new_node;
   } else {
-    new_node->next = head;
-    head = new_node;
+    new_node->next = *head;
+    *head = new_node;
   }
 }
 
-void print ()
+static void print (struct node *head)
 {
   struct node *runner = head;
 
@@ -32,16 +32,16 @@ void print ()
   printf ("\n");
 }
 
-void reverse ()
+void reverse (struct node **head)
 {
   //the list is empty or have just one item
-  if (!head || !head->next) {
+  if (!*head || !(*head)->next) {
     return;
   }
 
   struct node *runner1, *runner2, *nxt_runner2;
-  runner1 = head;
-  runner2 = head->next;
+  runner1 = *head;
+  runner2 = (*head)->next;
   runner1->next = NULL;
   while (runner2) {
     nxt_runner2 = runner2->next;
@@ -49,16 +49,18 @@ void reverse ()
     runner1 = runner2;
     runner2 = nxt_runner2;
   }
-  head = runner1;
+  *head = runner1;
 }
 
 void main ()
 {
-  insert (3);
-  insert (5);
-  insert (8);
-  insert (10);
-  print ();
-  reverse ();
-  print ();
+  struct node *head = NULL;
+
+  insert (&head, 3);
+  insert (&head, 5);
+  insert (&head, 8);
+  insert (&head, 10);
+  print (head);
+  reverse (&head);
+  print (head);
 }
