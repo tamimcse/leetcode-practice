@@ -31,6 +31,22 @@ void print (struct node *head)
   printf ("\n");
 }
 
+void merge (struct node *head1, struct node **head2)
+{
+  struct node *runner1 = head1, *runner2;
+
+  while (runner1) {
+    //second list is empty
+    if (!*head2)
+      break;
+    runner2 = *head2;
+    *head2 = (*head2)->next;
+    runner2->next = runner1->next;
+    runner1->next = runner2;
+    runner1 = runner1->next->next;
+  }
+}
+
 void main ()
 {
   struct node *head1 = NULL, *head2 = NULL;
@@ -49,5 +65,9 @@ void main ()
 
   print (head1);
   print (head2);
+  
+  merge (head1, &head2);
 
+  print (head1);
+  print (head2);
 }
