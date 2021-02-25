@@ -1,5 +1,5 @@
 /*
-Implement array in-place operation
+Reverse array in-place
 */
 
 #include <stdio.h>
