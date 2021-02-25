@@ -32,6 +32,20 @@ static void print (struct node *head)
   printf ("\n");
 }
 
+struct node *reverse_internal (struct node **head, struct node *start)
+{
+  struct node *next = start->next;
+
+  //last node
+  if (!next->next) {
+    next->next = start;
+    *head = next;
+    return start;
+  }
+  next = reverse_internal (head, next);
+  next->next = start;
+}
+
 void reverse (struct node **head)
 {
   //the list is empty or have just one item
@@ -39,17 +53,12 @@ void reverse (struct node **head)
     return;
   }
 
-  struct node *runner1, *runner2, *nxt_runner2;
+  struct node *runner1, *runner2;
   runner1 = *head;
   runner2 = (*head)->next;
+  runner2 = reverse_internal (head, runner2);
+  runner2->next = runner1;
   runner1->next = NULL;
-  while (runner2) {
-    nxt_runner2 = runner2->next;
-    runner2->next = runner1;
-    runner1 = runner2;
-    runner2 = nxt_runner2;
-  }
-  *head = runner1;
 }
 
 void main ()
