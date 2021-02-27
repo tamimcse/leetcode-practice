@@ -73,6 +73,9 @@ int level_order (struct node *root)
   int count1 = 0;//index to stack1
   int count2 = 0;//index to stack2
 
+  if (!root)
+    return 0;
+
   //push root to stack
   stack1[count1++] = root;
 
@@ -132,4 +135,5 @@ void main ()
   insert_binary_search_tree (&root, 11);
 
   level_order (root);
+  printf ("\n");
 }

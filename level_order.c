@@ -51,6 +51,9 @@ int level_order (struct node *root)
   struct node *queue[QUEUE_SIZE] = {0};
   int start_ix = 0, end_ix = 0;
 
+  if (!root)
+    return 0;
+
   //insert root to queue
   queue[end_ix++] = root;
 
@@ -90,4 +93,5 @@ void main ()
   insert_binary_search_tree (&root, 11);
 
   level_order (root);
+  printf ("\n");
 }
