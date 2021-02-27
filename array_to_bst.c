@@ -105,19 +105,17 @@ void main ()
   int arr1 [] = {1, 2, 3, 4};
   int arr2 [] = {1,2,3,4,5,6,7};
 
-  struct node *root1 = NULL, *root2;
-  printf ("Here1\n");
+  struct node *root1 = NULL, *root2 = NULL;
+
   for (i = 0; i < sizeof (arr1) / sizeof (arr1[0]); i++) {
     insert_bst (&root1, arr1[i]);
   }
-  printf ("Here1\n");
-/*
+
   for (i = 0; i < sizeof (arr2) / sizeof (arr2[0]); i++) {
     insert_bst (&root2, arr2[i]);
   }
 
-  printf ("Here1\n");
-*/
+
   level_order (root1);
   printf ("\n");
   level_order (root2);
