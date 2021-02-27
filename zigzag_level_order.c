@@ -26,7 +26,6 @@ enum direction {ZIG, ZAG};
 
 struct node {
   int data;
-  enum direction dir;
   struct node *left, *right;
 };
 
@@ -35,7 +34,6 @@ void insert_binary_search_tree (struct node **root, int val)
   struct node *runner;
   struct node *new_node = (struct node *) malloc (sizeof (*new_node));
   new_node->data = val;
-  new_node->dir = ZIG;
   new_node->left = NULL;
   new_node->right = NULL;
 
@@ -65,48 +63,53 @@ void insert_binary_search_tree (struct node **root, int val)
   }
 }
 
-#define QUEUE_SIZE 100
+#define STACK_SIZE 100
 
 int level_order (struct node *root)
 {
   struct node *runner;
-  struct node *queue[QUEUE_SIZE] = {0};
-  int start_ix = 0, end_ix = 0;
+  struct node *stack1[STACK_SIZE] = {0};
+  struct node *stack2[STACK_SIZE] = {0};
+  int count1 = 0;//index to stack1
+  int count2 = 0;//index to stack2
 
-  root->dir = ZIG;
-  //insert root to queue
-  queue[end_ix++] = root;
+  //push root to stack
+  stack1[count1++] = root;
 
-  //queue is not empty
-  while (end_ix > start_ix) {
-    //dequeue
-    runner = queue[start_ix++];
-    printf ("%d ", runner->data);
-    //insert chieldren to queue
-    if (end_ix >= QUEUE_SIZE) {
-      printf ("Queue is full. Please increase the queue size\n");
-      return 1;
-    }
-    if (runner->dir == ZIG) {
-      if (runner->right) {
-        runner->right->dir = ZAG;
-        queue[end_ix++] = runner->right;
+  //both stack is not empty
+  while (count1 > 0 || count2 > 0) {
+    while (count1 > 0) {
+      //pop
+      runner = stack1[--count1];
+      printf ("%d ", runner->data);
+      //Stack is full
+      if (count1 >= STACK_SIZE) {
+        printf ("Stack1 is full. Please increase the stack size\n");
+        return 1;
       }
       if (runner->left) {
-        runner->left->dir = ZAG;
-        queue[end_ix++] = runner->left;
-      }
-    } else {
-      if (runner->left) {
-        runner->left->dir = ZIG;
-        queue[end_ix++] = runner->left;
+        stack2[count2++] = runner->left;
       }
       if (runner->right) {
-        runner->right->dir = ZIG;
-        queue[end_ix++] = runner->right;
+        stack2[count2++] = runner->right;
       }
     }
-
+    while (count2 > 0) {
+      //pop
+      runner = stack2[--count2];
+      printf ("%d ", runner->data);
+      //Stack is full
+      if (count2 >= STACK_SIZE) {
+        printf ("Stack2 is full. Please increase the stack size\n");
+        return 1;
+      }
+      if (runner->right) {
+        stack1[count1++] = runner->right;
+      }
+      if (runner->left) {
+        stack1[count1++] = runner->left;
+      }
+    }
   }
   return 0;
 }
