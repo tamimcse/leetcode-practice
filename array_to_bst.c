@@ -33,7 +33,7 @@ struct node {
   struct node *left, *right;
 };
 
-void insert_binary_search_tree (struct node **root, int val)
+void insert_bst (struct node **root, int val)
 {
   struct node *runner;
   struct node *new_node = (struct node *) malloc (sizeof (*new_node));
@@ -75,6 +75,9 @@ int level_order (struct node *root)
   struct node *queue[QUEUE_SIZE] = {0};
   int start_ix = 0, end_ix = 0;
 
+  if (!root)
+    return 0;
+
   //insert root to queue
   queue[end_ix++] = root;
 
@@ -98,20 +101,25 @@ int level_order (struct node *root)
 
 void main ()
 {
-  struct node *root = NULL;
+  int i;
+  int arr1 [] = {1, 2, 3, 4};
+  int arr2 [] = {1,2,3,4,5,6,7};
 
-  insert_binary_search_tree (&root, 15);
-  insert_binary_search_tree (&root, 25);
-  insert_binary_search_tree (&root, 30);
-  insert_binary_search_tree (&root, 20);
-  insert_binary_search_tree (&root, 35);
-  insert_binary_search_tree (&root, 40);
-  insert_binary_search_tree (&root, 1);
-  insert_binary_search_tree (&root, 0);
-  insert_binary_search_tree (&root, 10);
-  insert_binary_search_tree (&root, 12);
-  insert_binary_search_tree (&root, 14);
-  insert_binary_search_tree (&root, 11);
+  struct node *root1 = NULL, *root2;
+  printf ("Here1\n");
+  for (i = 0; i < sizeof (arr1) / sizeof (arr1[0]); i++) {
+    insert_bst (&root1, arr1[i]);
+  }
+  printf ("Here1\n");
+/*
+  for (i = 0; i < sizeof (arr2) / sizeof (arr2[0]); i++) {
+    insert_bst (&root2, arr2[i]);
+  }
 
-  level_order (root);
+  printf ("Here1\n");
+*/
+  level_order (root1);
+  printf ("\n");
+  level_order (root2);
+  printf ("\n");
 }
