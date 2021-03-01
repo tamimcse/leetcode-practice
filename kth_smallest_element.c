@@ -68,7 +68,7 @@ void print (int arr[], int size)
 int remove_min (int arr[], int *size)
 {
   int smallest = arr[0];
-  arr[0] = arr[--(*size)];
+  arr[0] = arr[--*size];
   heapify (arr, *size, 0);
   return smallest;
 }
