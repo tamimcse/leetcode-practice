@@ -65,9 +65,12 @@ void print (int arr[], int size)
   printf ("\n");
 }
 
-int remove_min ()
+int remove_min (int arr[], int *size)
 {
-  return 1;
+  int smallest = arr[0];
+  arr[0] = arr[--(*size)];
+  heapify (arr, *size, 0);
+  return smallest;
 }
 
 void main ()
@@ -90,7 +93,7 @@ void main ()
   print (arr, arr_size);
 
   for (i = 0; i < k; i++) {
-    kth_number = remove_min(); 
+    kth_number = remove_min(arr, &arr_size); 
   }
   printf ("%d-th smallest number is %d\n", k, kth_number);
 }
