@@ -21,15 +21,26 @@ array is 15.
 */
 #include <stdio.h>
 
-void heapify (int arr[], int size, int idx)
+void heapify (int arr[], int size, int i)
 {
-  int left_child, right_chield;//left and right chield index
+  int left_chield, right_chield;//left and right chield index
+  int tmp;
+  int smaller_index = -1;
 
-  left_child = (i << 1) + 1;
-  right_child = (i << 1) + 2;
-  //min-heap property is violated
-  if (arr[left_child] < arr[i] || arr[right_child] < arr[i]) {
-    heapify (int arr[], int size, i);
+  left_chield = (i << 1) + 1;
+  right_chield = (i << 1) + 2;
+  if (left_chield < size && arr[left_chield] < arr[i])
+    smaller_index = left_chield;
+  else
+    smaller_index = i;
+  if (right_chield < size && arr[right_chield] < arr[smaller_index])
+    smaller_index = right_chield;
+  //heap property is violated
+  if (smaller_index != i) {
+    tmp = arr[i];
+    arr[i] = arr[smaller_index];
+    arr[smaller_index] = tmp;
+    heapify (arr, size, smaller_index);
   }
 }
 
@@ -44,7 +55,23 @@ void build_min_heap (int arr[], int size)
   }
 }
 
+void print (int arr[], int size)
+{
+  int i;
+
+  for (i = 0; i < size; i++) {
+    printf ("%d ", arr[i]);
+  }
+  printf ("\n");
+}
+
 void main ()
 {
-  int arr[] = {7, 10, 4, 3, 20, 15, 20, 1, 24, 30};
+  int arr[] = {100, 90, 80, 70, 7, 10, 4, 3, 20, 15, 1, 24, 30};
+  int arr_size = sizeof (arr) / sizeof (arr[0]);
+
+  build_min_heap (arr, arr_size);
+  printf ("Printing heap = ");
+  print (arr, arr_size);
+  
 }
