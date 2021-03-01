@@ -65,13 +65,32 @@ void print (int arr[], int size)
   printf ("\n");
 }
 
+int remove_min ()
+{
+  return 1;
+}
+
 void main ()
 {
+  int i;
+  int k;
+  int kth_number;
   int arr[] = {100, 90, 80, 70, 7, 10, 4, 3, 20, 15, 1, 24, 30};
   int arr_size = sizeof (arr) / sizeof (arr[0]);
+
+  printf ("Enter the value of k = ");
+  scanf ("%d", &k);  
+  if (k > arr_size) {
+    printf ("The value of k exceeds the size of the array\n");
+    return;
+  }
 
   build_min_heap (arr, arr_size);
   printf ("Printing heap = ");
   print (arr, arr_size);
-  
+
+  for (i = 0; i < k; i++) {
+    kth_number = remove_min(); 
+  }
+  printf ("%d-th smallest number is %d\n", k, kth_number);
 }
