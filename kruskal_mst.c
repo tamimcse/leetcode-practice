@@ -31,19 +31,22 @@ struct graph *create_graph (int v, int e)
   return g;
 }
 
-struct edge* kruskal_mst (struct graph *g)
+void print_edges (struct graph *g)
 {
-  //sort the edges
-  qsort (g->edges, g->num_edges, sizeof (struct edge), edge_cmp);
+  int i;
 
-  //print the edges
-/*
   for (i = 0; i < g->num_edges; i++) {
     printf ("%d ", g->edges[i].weight);
   }
   printf ("\n");
-*/
+}
 
+struct edge* kruskal_mst (struct graph *g)
+{
+  //sort the edges
+  qsort (g->edges, g->num_edges, sizeof (struct edge), edge_cmp);
+  print_edges (g);
+  return NULL;
 }
 
 int main ()
