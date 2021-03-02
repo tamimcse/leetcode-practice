@@ -14,10 +14,13 @@ void bubble_sort (int arr[], int len)
 {
   int i, j;
 
-  for (j = len; j >= 1; j--) {
-    for (i = 1; i < j; i++) {
-      if (arr[i] < arr[i - 1])
-        swap (&arr[i], &arr[i - 1]);
+  for (i = 1; i < len; i++) {
+    if (arr[i] < arr[i - 1]) {
+      int to_insert = arr[i];
+      for (j = i - 1; j >= 0 && (arr[j] > to_insert); j--) {
+        arr[j + 1] = arr[j];
+      }
+      arr[j + 1] = to_insert;
     }
   }
 }
