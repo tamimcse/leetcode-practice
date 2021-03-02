@@ -21,15 +21,20 @@ struct graph {
   struct edge *edges;
 };
 
+struct graph *create_graph (int v, int e)
+{
+  struct graph *g = (struct graph *) malloc (sizeof (*g));
+  g->num_vertices = v;
+  g->num_edges = e;
+  g->edges = (struct edge *) malloc (g->num_edges * sizeof (*(g->edges)));
+  return g;
+} 
 
 int main ()
 {
   int i;
   //Init the graph at https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
-  struct graph *g = (struct graph *) malloc (sizeof (*g));
-  g->num_vertices = 9;
-  g->num_edges = 14;
-  g->edges = (struct edge *) malloc (g->num_edges * sizeof (*(g->edges)));
+  struct graph *g = create_graph (9, 14);
   //edge 0
   g->edges[0].v1 = 0; g->edges[0].v2 = 1; g->edges[0].weight = 4;
   //edge 1
@@ -67,5 +72,6 @@ int main ()
     printf ("%d ", g->edges[i].weight);
   }
   printf ("\n");
+
 
 }
