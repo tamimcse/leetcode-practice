@@ -55,25 +55,25 @@ void print_graph (struct graph *g)
   }
 }
 
-int check_cycle_inner (struct graph *g, int i, int *visit_arr)
+int check_cycle_inner (struct graph *g, int i, int *nodes_visited)
 {
   int res;
 
   struct edge *runner = g->adjacency_list[i];
   //the graph has a cycle
-  if (visit_arr[i])
+  if (nodes_visited[i])
     return 1;
   //mark the source node visited
-  visit_arr[i] = 1;
+  nodes_visited[i] = 1;
   while (runner) {
-    res = check_cycle_inner (g, runner->v2, visit_arr);
+    res = check_cycle_inner (g, runner->v2, nodes_visited);
     //cycle found
     if (res)
       return 1;
     runner = runner->next;
   }
   //unmark the source
-  visit_arr[i] = 0;
+  nodes_visited[i] = 0;
   return 0;
 }
 
@@ -81,13 +81,14 @@ int check_cycle (struct graph *g)
 {
   int res;
 
-  int *visit_arr = (int *) calloc (g->num_vertices, sizeof (visit_arr));
+  //This array keeps track of the nodes that are visited
+  int *nodes_visited = (int *) calloc (g->num_vertices, sizeof (nodes_visited));
   if (g && g->num_vertices) {
-    res = check_cycle_inner (g, 0, visit_arr);
+    res = check_cycle_inner (g, 0, nodes_visited);
   } else {
     res = 0;
   }
-  free (visit_arr);
+  free (nodes_visited);
   return res;
 }
 
