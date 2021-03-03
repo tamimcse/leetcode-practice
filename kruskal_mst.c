@@ -41,12 +41,25 @@ void print_edges (struct graph *g)
   printf ("\n");
 }
 
+int check_cycle (struct edge* head, struct edge* new_edge)
+{
+
+}
+
 struct edge* kruskal_mst (struct graph *g)
 {
+  struct edge* head = NULL;
+  int i;
+  int num_vertices_mst = 0;//Number of vertices in MST
   //sort the edges
   qsort (g->edges, g->num_edges, sizeof (struct edge), edge_cmp);
-  print_edges (g);
-  return NULL;
+  //print_edges (g);
+  
+  for (i = 0; i < g->num_edges; i++) {
+    
+  }
+
+  return head;
 }
 
 int main ()
