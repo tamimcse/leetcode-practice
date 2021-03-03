@@ -10,7 +10,6 @@ struct edge {
   struct edge *next;
 };
 
-
 struct graph {
   int num_vertices;
   struct edge **adjacency_list;
@@ -55,23 +54,74 @@ void print_graph (struct graph *g)
     printf ("\n");
   }
 }
-/*
-int check_cycle (struct edge* head, struct edge* new_edge)
-{
 
+int check_cycle_inner (struct graph *g, int i, int *visit_arr)
+{
+  int res;
+
+  struct edge *runner = g->adjacency_list[i];
+  //the graph has a cycle
+  if (visit_arr[i])
+    return 1;
+  //mark the source node visited
+  visit_arr[i] = 1;
+  while (runner) {
+    res = check_cycle_inner (g, runner->v2, visit_arr);
+    //cycle found
+    if (res)
+      return 1;
+    runner = runner->next;
+  }
+  //unmark the source
+  visit_arr[i] = 0;
+  return 0;
 }
-*/
+
+int check_cycle (struct graph *g)
+{
+  int res;
+
+  int *visit_arr = (int *) calloc (g->num_vertices, sizeof (visit_arr));
+  if (g && g->num_vertices) {
+    res = check_cycle_inner (g, 0, visit_arr);
+  } else {
+    res = 0;
+  }
+  free (visit_arr);
+  return res;
+}
 
 int main ()
 {
   int i;
+  int res;
+  struct graph *g1, *g2;
   //Init the graph at https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
-  struct graph *g = create_graph (4);
-  insert_edge (g, 0, 1);
-  insert_edge (g, 1, 2);
-  insert_edge (g, 2, 0);
-  insert_edge (g, 0, 2);
-  insert_edge (g, 2, 3);
-  insert_edge (g, 3, 3);
-  print_graph (g);
+
+  g1 = create_graph (4);
+  insert_edge (g1, 0, 1);
+  insert_edge (g1, 1, 2);
+  insert_edge (g1, 2, 0);
+  insert_edge (g1, 0, 2);
+  insert_edge (g1, 2, 3);
+  insert_edge (g1, 3, 3);
+  print_graph (g1);
+  res = check_cycle (g1);
+  if (res)
+    printf ("Cycle exists in g1!!\n");
+  else
+    printf ("Cycle does not exist in g1!!\n");
+
+  g2 = create_graph (4);
+  insert_edge (g2, 0, 1);
+  insert_edge (g2, 1, 2);
+  insert_edge (g2, 2, 3);
+  insert_edge (g2, 0, 2);
+//  insert_edge (g, 3, 3);
+  print_graph (g2);
+  res = check_cycle (g2);
+  if (res)
+    printf ("Cycle exists in g2!!\n");
+  else
+    printf ("Cycle does not exist in g2!!\n");
 }
