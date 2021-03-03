@@ -5,6 +5,8 @@ Detect a cycle in a graph
 #include <stdlib.h>
 
 struct edge {
+  //assign each edge an ID so that they can be locate directly like a vertex
+  int id;
   int v1;
   int v2;
   struct edge *next;
@@ -12,6 +14,7 @@ struct edge {
 
 struct graph {
   int num_vertices;
+  int num_edges;
   struct edge **adjacency_list;
 };
 
@@ -19,6 +22,7 @@ struct graph *create_graph (int v)
 {
   struct graph *g = (struct graph *) malloc (sizeof (*g));
   g->num_vertices = v;
+  g->num_edges = 0;
   g->adjacency_list = (struct edge **) calloc (g->num_vertices, sizeof (*g->adjacency_list));
   return g;
 }
@@ -31,6 +35,7 @@ int insert_edge (struct graph *g, int i, int j)
     return 1;
 
   struct edge *new_edge = (struct edge *) malloc (sizeof (*new_edge));
+  new_edge->id = g->num_edges++;
   new_edge->v1 = i;
   new_edge->v2 = j;
   new_edge->next = g->adjacency_list[i];
@@ -55,7 +60,8 @@ void print_graph (struct graph *g)
   }
 }
 
-int check_cycle_inner (struct graph *g, int i, int *nodes_visited)
+int check_cycle_inner (struct graph *g, int i, int *nodes_visited,
+                       int *edges_visited)
 {
   int res;
 
@@ -66,10 +72,14 @@ int check_cycle_inner (struct graph *g, int i, int *nodes_visited)
   //mark the source node visited
   nodes_visited[i] = 1;
   while (runner) {
-    res = check_cycle_inner (g, runner->v2, nodes_visited);
-    //cycle found
-    if (res)
-      return 1;
+    //if the edge is not already visited
+    if (!edges_visited[runner->id]) {
+      edges_visited[runner->id] = 1;
+      res = check_cycle_inner (g, runner->v2, nodes_visited, edges_visited);
+      //cycle found
+      if (res)
+        return 1;
+    }
     runner = runner->next;
   }
   //unmark the source
@@ -81,14 +91,17 @@ int check_cycle (struct graph *g)
 {
   int res;
 
-  //This array keeps track of the nodes that are visited
+  //These arrays keeps track of the nodes and edges that are visited
   int *nodes_visited = (int *) calloc (g->num_vertices, sizeof (nodes_visited));
+  int *edges_visited = (int *) calloc (g->num_edges, sizeof (edges_visited));
+
   if (g && g->num_vertices) {
-    res = check_cycle_inner (g, 0, nodes_visited);
+    res = check_cycle_inner (g, 0, nodes_visited, edges_visited);
   } else {
     res = 0;
   }
   free (nodes_visited);
+  free (edges_visited);
   return res;
 }
 
