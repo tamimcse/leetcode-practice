@@ -67,7 +67,7 @@ int check_cycle_inner (struct graph *g, int i, int *nodes_visited,
 
   struct edge *runner = g->adjacency_list[i];
   //the graph has a cycle
-  if (nodes_visited[i])
+  if (nodes_visited[i] == 1)
     return 1;
   //mark the source node visited
   nodes_visited[i] = 1;
@@ -83,22 +83,30 @@ int check_cycle_inner (struct graph *g, int i, int *nodes_visited,
     runner = runner->next;
   }
   //unmark the source
-  nodes_visited[i] = 0;
+  nodes_visited[i] = 2;
   return 0;
 }
 
 int check_cycle (struct graph *g)
 {
-  int res;
+  int res = 0;
+  int i;
+  
+  if (!g)
+    return 0;
 
   //These arrays keeps track of the nodes and edges that are visited
   int *nodes_visited = (int *) calloc (g->num_vertices, sizeof (nodes_visited));
   int *edges_visited = (int *) calloc (g->num_edges, sizeof (edges_visited));
 
-  if (g && g->num_vertices) {
-    res = check_cycle_inner (g, 0, nodes_visited, edges_visited);
-  } else {
-    res = 0;
+  for (i = 0; i < g->num_vertices; i++) {
+    //never visited
+    if (!nodes_visited[i]) {
+      res = check_cycle_inner (g, i, nodes_visited, edges_visited);
+      //cycle found
+      if (res)
+        break;
+    }    
   }
   free (nodes_visited);
   free (edges_visited);
