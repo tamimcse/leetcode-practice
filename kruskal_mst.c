@@ -12,12 +12,9 @@ struct edge {
   int weight;
 };
 
-
 struct graph {
   int num_vertices;
   int num_edges;
-  //adjacency matrix
-  struct edge **ad_matrix;
   struct edge *edges;
 };
 
@@ -42,7 +39,7 @@ struct graph1 *create_graph1 (int v, int e)
   struct graph1 *g = (struct graph1 *) malloc (sizeof (*g));
   g->num_vertices = v;
   g->num_edges = e;
-  g1->ad_matrix = (struct edge **) calloc (g->num_vertices * g->num_vertices, sizeof (*g->ad_matrix));
+  g->ad_matrix = (struct edge **) calloc (g->num_vertices * g->num_vertices, sizeof (*g->ad_matrix));
   return g;
 }
 
@@ -60,7 +57,6 @@ int insert_edge (struct graph *g, int idx, int i, int j, int weight)
 
   return 0;
 } 
-
 
 int edge_cmp (const void *e1, const void *e2) {
    return ((struct edge *)e1)->weight - ((struct edge *)e2)->weight;
@@ -116,7 +112,7 @@ void kruskal_mst (struct graph *g)
   int i, j;
   struct edge *e;
   //new graph which will be MST
-  struct graph1 *g1 = create_graph (g->num_vertices, g->num_edges);
+  struct graph1 *g1 = create_graph1 (g->num_vertices, g->num_edges);
 
   //sort the edges
   qsort (g->edges, g->num_edges, sizeof (*g->edges), edge_cmp);
