@@ -8,17 +8,13 @@ struct edge {
   int v1;
   int v2;
   int weight;
-  struct edge *next;
 };
 
-int edge_cmp (const void *e1, const void *e2)
-{
-  return ((struct edge *)e1)->weight - ((struct edge *)e2)->weight; 
-}
 
 struct graph {
   int num_vertices;
   int num_edges;
+  struct edge **adjacency_matrix;
   struct edge *edges;
 };
 
@@ -27,80 +23,116 @@ struct graph *create_graph (int v, int e)
   struct graph *g = (struct graph *) malloc (sizeof (*g));
   g->num_vertices = v;
   g->num_edges = e;
-  g->edges = (struct edge *) malloc (g->num_edges * sizeof (*(g->edges)));
+  g->edges = (struct edge *) calloc (g->num_edges, sizeof (*g->edges));
+  g->adjacency_matrix = (struct edge **) calloc (g->num_vertices * g->num_vertices, sizeof (*g->adjacency_matrix));
   return g;
 }
 
-void print_edges (struct graph *g)
+int insert_edge (struct graph *g, int idx, int i, int j, int weight)
 {
-  int i;
+  struct edge *runner;
 
-  for (i = 0; i < g->num_edges; i++) {
-    printf ("%d ", g->edges[i].weight);
+  if (i >= g->num_vertices || j >= g->num_vertices || idx >= g->num_edges)
+    return 1;
+
+  g->edges[idx].v1 = i;
+  g->edges[idx].v2 = j;
+  g->edges[idx].weight = weight;
+
+  g->adjacency_matrix[i * g->num_vertices + j] = &g->edges[idx];
+  g->adjacency_matrix[j * g->num_vertices + i] = &g->edges[idx];
+
+  return 0;
+} 
+
+void print_graph (struct graph *g)
+{
+  int i, j;
+
+  printf ("Number of vertices %d\n", g->num_vertices);
+  printf ("Edges: \n");
+  for (i = 0; i < g->num_vertices; i++) {
+    for (j = 0; j < g->num_vertices; j++) {
+      struct edge *e = g->adjacency_matrix[i * g->num_vertices + j];
+      if (e) {
+        printf ("%d,%d. %d->%d:%d\n", i, j, e->v1, e->v2, e->weight);
+      }
+    }
   }
-  printf ("\n");
+}
+/*
+int check_cycle_inner (struct graph *g, int i, int *nodes_visited,
+                       int *edges_visited)
+{
+  int res;
+
+  struct edge *runner = g->adjacency_list[i];
+  //the graph has a cycle
+  if (nodes_visited[i] == 1)
+    return 1;
+  //mark the source node visited
+  nodes_visited[i] = 1;
+  while (runner) {
+    //if the edge is not already visited
+    if (!edges_visited[runner->id]) {
+      edges_visited[runner->id] = 1;
+      res = check_cycle_inner (g, runner->v2, nodes_visited, edges_visited);
+      //cycle found
+      if (res)
+        return 1;
+    }
+    runner = runner->next;
+  }
+  //unmark the source
+  nodes_visited[i] = 2;
+  return 0;
 }
 
-int check_cycle (struct edge* head, struct edge* new_edge)
+int check_cycle (struct graph *g)
 {
-
-}
-
-struct edge* kruskal_mst (struct graph *g)
-{
-  struct edge* head = NULL;
+  int res = 0;
   int i;
-  int num_vertices_mst = 0;//Number of vertices in MST
-  //sort the edges
-  qsort (g->edges, g->num_edges, sizeof (struct edge), edge_cmp);
-  //print_edges (g);
   
-  for (i = 0; i < g->num_edges; i++) {
-    
-  }
+  if (!g)
+    return 0;
 
-  return head;
+  //These arrays keeps track of the nodes and edges that are visited
+  int *nodes_visited = (int *) calloc (g->num_vertices, sizeof (nodes_visited));
+  int *edges_visited = (int *) calloc (g->num_edges, sizeof (edges_visited));
+
+  for (i = 0; i < g->num_vertices; i++) {
+    //never visited
+    if (!nodes_visited[i]) {
+      res = check_cycle_inner (g, i, nodes_visited, edges_visited);
+      //cycle found
+      if (res)
+        break;
+    }    
+  }
+  free (nodes_visited);
+  free (edges_visited);
+  return res;
 }
+*/
 
 int main ()
 {
   int i;
   //Init the graph at https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
   struct graph *g = create_graph (9, 14);
-  //edge 0
-  g->edges[0].v1 = 0; g->edges[0].v2 = 1; g->edges[0].weight = 4; g->edges[0].next = NULL;
-  //edge 1
-  g->edges[1].v1 = 1; g->edges[1].v2 = 2; g->edges[1].weight = 8; g->edges[1].next = NULL;
-  //edge 2
-  g->edges[2].v1 = 2; g->edges[2].v2 = 3; g->edges[2].weight = 7; g->edges[2].next = NULL;
-  //edge 3
-  g->edges[3].v1 = 3; g->edges[3].v2 = 4; g->edges[3].weight = 9; g->edges[3].next = NULL;
-  //edge 4
-  g->edges[4].v1 = 4; g->edges[4].v2 = 5; g->edges[4].weight = 10; g->edges[4].next = NULL;
-  //edge 5
-  g->edges[5].v1 = 5; g->edges[5].v2 = 6; g->edges[5].weight = 2; g->edges[5].next = NULL;
-  //edge 6
-  g->edges[6].v1 = 6; g->edges[6].v2 = 7; g->edges[6].weight = 1; g->edges[6].next = NULL;
-  //edge 7
-  g->edges[7].v1 = 7; g->edges[7].v2 = 0; g->edges[7].weight = 8; g->edges[7].next = NULL;
-  //edge 8
-  g->edges[8].v1 = 7; g->edges[8].v2 = 1; g->edges[8].weight = 11; g->edges[8].next = NULL;
-  //edge 9
-  g->edges[9].v1 = 7; g->edges[9].v2 = 8; g->edges[9].weight = 7; g->edges[9].next = NULL;
-  //edge 10
-  g->edges[10].v1 = 6; g->edges[10].v2 = 8; g->edges[10].weight = 6; g->edges[10].next = NULL;
-  //edge 11
-  g->edges[11].v1 = 2; g->edges[11].v2 = 8; g->edges[11].weight = 2; g->edges[11].next = NULL;
-  //edge 12
-  g->edges[12].v1 = 2; g->edges[12].v2 = 5; g->edges[12].weight = 4; g->edges[12].next = NULL;
-  //edge 13
-  g->edges[13].v1 = 3; g->edges[13].v2 = 5; g->edges[13].weight = 14; g->edges[13].next = NULL;
-
-  struct edge *head = kruskal_mst (g);
-  //print the list
-  while (head) {
-    printf ("%d -> %d : %d\n", head->v1, head->v2, head->weight);
-    head = head->next;
-  }
-
+  insert_edge (g, 0, 0, 1, 4);
+  insert_edge (g, 1, 1, 2, 8);
+  insert_edge (g, 2, 2, 3, 7);
+  insert_edge (g, 3, 3, 4, 9);
+  insert_edge (g, 4, 4, 5, 10);
+  insert_edge (g, 5, 5, 6, 2);
+  insert_edge (g, 6, 6, 7, 1);
+  insert_edge (g, 7, 7, 0, 8);
+  insert_edge (g, 8, 7, 1, 11);
+  insert_edge (g, 9, 7, 8, 7);
+  insert_edge (g, 10, 8, 2, 2);
+  insert_edge (g, 11, 8, 6, 6);
+  insert_edge (g, 12, 2, 5, 4);
+  insert_edge (g, 13, 3, 5, 14);
+  print_graph (g);
 }
