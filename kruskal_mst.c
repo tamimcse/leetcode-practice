@@ -3,6 +3,7 @@ Minimum spanning tree (MST) using kruskal's algoritgm
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct edge {
   int v1;
@@ -60,60 +61,23 @@ void print_graph (struct graph *g)
     }
   }
 }
-/*
-int check_cycle_inner (struct graph *g, int i, int *nodes_visited,
-                       int *edges_visited)
-{
-  int res;
 
-  struct edge *runner = g->adjacency_list[i];
-  //the graph has a cycle
-  if (nodes_visited[i] == 1)
-    return 1;
-  //mark the source node visited
-  nodes_visited[i] = 1;
-  while (runner) {
-    //if the edge is not already visited
-    if (!edges_visited[runner->id]) {
-      edges_visited[runner->id] = 1;
-      res = check_cycle_inner (g, runner->v2, nodes_visited, edges_visited);
-      //cycle found
-      if (res)
-        return 1;
-    }
-    runner = runner->next;
-  }
-  //unmark the source
-  nodes_visited[i] = 2;
-  return 0;
+int edge_cmp (const void *e1, const void *e2) {
+   return ((struct edge *)e1)->weight - ((struct edge *)e2)->weight;
 }
-
-int check_cycle (struct graph *g)
+ 
+void kruskal_mst (struct graph *g)
 {
-  int res = 0;
   int i;
-  
-  if (!g)
-    return 0;
 
-  //These arrays keeps track of the nodes and edges that are visited
-  int *nodes_visited = (int *) calloc (g->num_vertices, sizeof (nodes_visited));
-  int *edges_visited = (int *) calloc (g->num_edges, sizeof (edges_visited));
-
-  for (i = 0; i < g->num_vertices; i++) {
-    //never visited
-    if (!nodes_visited[i]) {
-      res = check_cycle_inner (g, i, nodes_visited, edges_visited);
-      //cycle found
-      if (res)
-        break;
-    }    
+  struct edge *edge_arr = (struct edge *) malloc (g->num_edges * sizeof (*edge_arr));
+  memcpy (edge_arr, g->edges, g->num_edges * sizeof (*edge_arr));
+  qsort (edge_arr, g->num_edges, sizeof (*edge_arr), edge_cmp);
+  printf ("Edges after sorting....\n");
+  for (i = 0; i < g->num_edges; i++) {
+    printf ("%d->%d:%d\n", edge_arr[i].v1, edge_arr[i].v2, edge_arr[i].weight);
   }
-  free (nodes_visited);
-  free (edges_visited);
-  return res;
 }
-*/
 
 int main ()
 {
@@ -135,4 +99,5 @@ int main ()
   insert_edge (g, 12, 2, 5, 4);
   insert_edge (g, 13, 3, 5, 14);
   print_graph (g);
+  kruskal_mst (g);
 }
