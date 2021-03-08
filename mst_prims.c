@@ -49,7 +49,8 @@ void graph_print (struct graph *g)
 }
 
 struct node {
-  int node_id;
+  int v1;
+  int v2;
   int weight;
 };
 
@@ -64,7 +65,7 @@ struct heap* create_heap (int size)
   struct heap* h = (struct heap*) malloc (sizeof (*h));
   h->count = 0;
   h->size = size;
-  h->arr = (int *) calloc (size, sizeof (*(h->arr)));
+  h->arr = (struct node *) calloc (size, sizeof (*(h->arr)));
   return h;
 }
 
@@ -87,20 +88,21 @@ int minheap_move_up (struct heap* h, int idx)
     tmp = h->arr[idx];
     h->arr[idx] = h->arr[min_idx];
     h->arr[min_idx] = tmp;
-    int parent_idx = cell((idx - 2) >> 1);
+    int parent_idx = (idx - 1) >> 1;
     minheap_move_up (h, parent_idx);
   }
 }
 
-int minheap_insert (struct heap* h, int node_id, int weight)
+int minheap_insert (struct heap* h, int v1, int v2, int weight)
 {
   if (!h || h->count >= h->size)
     return -1;
 
-  heap->arr[count].node_id = node_id;
-  heap->arr[count].weight = weight;
-  int parent_idx = cell((count - 2) >> 1);
-  count++;
+  h->arr[h->count].v1 = v1;
+  h->arr[h->count].v2 = v2;
+  h->arr[h->count].weight = weight;
+  int parent_idx = (h->count - 1) >> 1;
+  h->count++;
   minheap_move_up (h, parent_idx);
   return 0;
 }
@@ -134,34 +136,38 @@ void minheap_move_down (struct heap* h, int idx)
 
 struct node minheap_delete (struct heap* h)
 {
-  if (!h || !h->count)
-    return -1;
   struct node to_return = h->arr[0];
   h->arr[0] = h->arr[--(h->count)];
   minheap_move_down (h, 0);
   return to_return;
 }
 
-
-
-void mst_prims (struct graph *g)
+struct graph * mst_prims (struct graph *g)
 {
   int i;
   struct node curr_node;
   struct graph *mst = create_graph (g->num_vertices);  
   int *nodes_visited = (int *) calloc (g->num_vertices, sizeof (*nodes_visited));
   struct heap *h = create_heap (g->num_vertices);
-  minheap_insert (h, 0, 0);
-  while (is_heap_empty (h)) {
+  minheap_insert (h, 0, 0, 0);
+
+  while (!is_heap_empty (h)) {
     curr_node = minheap_delete (h);
-    nodes_visited[curr_node.node_id] = 1;
+    if (nodes_visited[curr_node.v2])
+      continue;
+    nodes_visited[curr_node.v2] = 1;
+//    printf ("Current node %d->%d:%d\n", curr_node.v1, curr_node.v2, curr_node.weight);
+    insert_edge (mst, curr_node.v1, curr_node.v2, curr_node.weight);
 
     for (i = 0; i < g->num_vertices; i++) {
-      int weight = g->adjacency_matrix[curr_node.node_id * g->num_vertices + i];
-      if (weight && !nodes_visited[i])
-        minheap_insert (h, i, weight);
+      int weight = g->adjacency_matrix[curr_node.v2 * g->num_vertices + i];
+      if (weight && !nodes_visited[i]) {
+        minheap_insert (h, curr_node.v2, i, weight);
+        //nodes_visited[i] = 1;
+      }
     }
   }
+  return mst;
 }
 
 void main ()
@@ -183,4 +189,7 @@ void main ()
   insert_edge (g, 2, 5, 4);
   insert_edge (g, 3, 5, 14);
   graph_print (g);
+  struct graph *mst = mst_prims (g);
+  printf ("MST =\n");
+  graph_print (mst); 
 }
