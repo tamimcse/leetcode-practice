@@ -15,7 +15,7 @@ in the array whose sum is 9.
 #include <stdbool.h>
 #include <stdlib.h>
 
-bool triplet_sum (int arr[], int len, int target)
+bool triplet_sum1 (int arr[], int len, int target)
 {
   int i, j;
 
@@ -38,10 +38,42 @@ bool triplet_sum (int arr[], int len, int target)
   return false;
 }
 
+int cmp_int (const void *a, const void *b)
+{
+  return *((int *)a) - *((int *)b); 
+}
+
+bool triplet_sum2 (int arr[], int len, int target)
+{
+  int i, j, start, end, to_find, inner_sum;
+  qsort (arr, len, sizeof (arr[0]), cmp_int);
+
+  for (i = 0; i < len; i++) {
+    to_find = target - arr[i];
+    start = i + 1;
+    end = len - 1;
+    while (end >= start) {
+      inner_sum = arr[start] + arr[end];
+      if (inner_sum == to_find) {
+        printf ("Target = %d, output = %d %d %d \n", target, arr[i], arr[start], arr[end]);
+        return true;
+      } else if (inner_sum < to_find) {
+        start++;
+      } else {
+        end--;
+      }
+    }
+  }
+  printf ("Triplet not found \n");
+  return false;
+}
+
 void main ()
 {
   int arr [] = {12, 3, 4, 1, 6, 9};
   int len = sizeof (arr) / sizeof (arr[0]);
 
-  triplet_sum (arr, len, 24);
+  triplet_sum1 (arr, len, 24);
+
+  triplet_sum2 (arr, len, 24);
 }
