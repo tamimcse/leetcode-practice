@@ -51,6 +51,19 @@ void print_graph (struct graph *g)
   }
 }
 
+void bfs (struct graph *g, int start)
+{
+  int queue [SIZE];
+  int start = 0, end = 0;
+  int curr_v;
+
+  queue[end++] = start;
+
+  while (end > start) {
+    curr_v = queue [start++];
+  }
+  
+}
 
 int snake_ladder (int move[], int size)
 {
