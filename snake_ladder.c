@@ -51,18 +51,54 @@ void print_graph (struct graph *g)
   }
 }
 
-void bfs (struct graph *g, int start)
+void bfs (struct graph *g, int start_node)
 {
+  int i;
   int queue [SIZE];
   int start = 0, end = 0;
-  int curr_v;
+  int curr_v, adj_v;
+  struct edge *runner = NULL;
+  int *sortest_path = (int *) calloc (g->num_vertices, sizeof (*sortest_path));
+  for (i = 0; i < g->num_vertices; i++) {
+    sortest_path[i] = SIZE + 1;//infinite
+  }
 
-  queue[end++] = start;
+  int *prev = (int *) calloc (g->num_vertices, sizeof (*prev));
+  for (i = 0; i < g->num_vertices; i++) {
+    prev[i] = -1;
+  }
 
+  sortest_path[start_node] = 0;
+  //enqueue start node
+  queue[end++] = start_node;
   while (end > start) {
-    curr_v = queue [start++];
+    curr_v = queue [start++]; 
+    runner = g->adj_list[curr_v];
+    while (runner) {
+      adj_v = runner->v2;
+      printf ("processin edge %d->%d\n", curr_v, adj_v);
+      if (sortest_path[adj_v] > (sortest_path[curr_v] + 1)) {
+        sortest_path[adj_v] = sortest_path[curr_v] + 1;
+        prev[adj_v] = curr_v;
+        queue[end++] = adj_v;
+      }
+      if (end >= SIZE) {
+        printf ("Queue is full \n");
+        exit (1);
+      }
+      runner = runner->next;
+    }
   }
   
+  printf ("Shortest path is %d \n", sortest_path[g->num_vertices - 1]);
+  printf ("The path is = ");
+
+  int node = g->num_vertices - 1;
+  while (prev[node] != -1) {
+    printf ("%d ", prev[node] + 1);
+    node = prev[node];
+  }
+
 }
 
 int snake_ladder (int move[], int size)
@@ -85,6 +121,8 @@ int snake_ladder (int move[], int size)
   }
 
   print_graph(&g);
+
+  bfs (&g, 0);
 }
 
 void main ()
