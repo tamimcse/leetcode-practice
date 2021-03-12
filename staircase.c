@@ -14,6 +14,7 @@ Output: 5
 (1, 1, 1, 1), (1, 1, 2), (2, 1, 1), (1, 2, 1), (2, 2)
 */
 #include <stdio.h>
+#include <stdlib.h>
 
 int stair_case(int n)
 {
@@ -30,9 +31,24 @@ int stair_case(int n)
   }
 }
 
+int stair_case_dp(int n)
+{
+  int *dp_arr = (int *) calloc (n + 1, sizeof (*dp_arr));
+  dp_arr[0] = 0;
+  dp_arr[1] = 1;
+  dp_arr[2] = 2;
+  int i;
+
+  for (i = 3; i <= n; i++) {
+    dp_arr[i] = dp_arr[i - 1] + dp_arr[i - 2];
+  }
+  return dp_arr[n];
+}
+
 void main ()
 {
   int n = 9;
   int res = stair_case (n);
-  printf ("Number of ways to reach %d stairs with maximum 2 step is %d \n", n, res);
+  int dp_res = stair_case_dp (n);
+  printf ("Number of ways to reach %d stairs with maximum 2 step is %d DP result %d \n", n, res, dp_res);
 }
