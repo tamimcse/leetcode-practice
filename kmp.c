@@ -32,6 +32,11 @@ void kmp (char *str, char *match)
   int match_len = strlen (match);
   int *prefix_lens = (int *) calloc (match_len, sizeof (*prefix_lens));
 
+  for (i = 0; i < match_len; i++) {
+    prefix_lens[i] = max_prex_len (match, i + 1);
+    printf("prefix_lens[%d] = %d\n", i, prefix_lens[i]);
+  }
+
   i = 0;
   j = 0;
   while (i < str_len) {
@@ -40,25 +45,22 @@ void kmp (char *str, char *match)
       j++;
       if (j == match_len) {
         printf ("Match found at index %d !!! \n", i - match_len);
+        j = prefix_lens[match_len - 1];
       }
-      j = prefix_lens[match_len - 1];
+    } else if (match[j]) {
+      j = match[j];
     } else {
-      
+      j = 0;
+      i++;
     }
-    
   }
-
-/*
-  for (i = 0; i < match_len; i++) {
-    prefix_lens[i] = max_prex_len (match, i + 1);
-    printf("prefix_lens[%d] = %d\n", i, prefix_lens[i]);
-  }
-*/  
+  
   free (prefix_lens);
 }
 
 void main ()
 {
-  char *str = "cabcbbb", *match = "cabca";
+//  char *str = "cabcbbb", *match = "cabcb";
+  char *str = "AABAACAADAABAABA", *match = "AABA";
   kmp (str, match);
 }
