@@ -5,3 +5,109 @@ https://difftek.wordpress.com/interview/bcm/02-02/
 https://leetcode.com/problemset/algorithms/
 https://careercup.com/page?pid=cisco-systems-interview-questions
 https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions
+
+Print all the substrings which occurs more than one time in the string
+
+Rotating a linked list ‘k’ times to the right.
+
+Returning the word form of any number, e.g: 231: Two hundred thirty-one, I solved this one using a map.
+
+I was given an array and I had to find out the first maximum and 2-second maximum number.
+
+Infix evaluation
+
+The puzzle was, I was given an 8*8 chessboard and the top rightmost box and bottom leftmost boxes were removed, and I was given a rectangle of 2*1 dimension. So I was asked that whether I could fill the above chessboard with the given rectangle completely or not.   
+
+The second puzzle he asked me was what is the probability of getting all correct answers in an MCQ quiz in which each question has 4 choices and there are 50 questions in total.
+
+Stock Buy Sell to Maximize Profit
+
+1. You were given a list of strings which indicated at what time of the day an employee of a company checked in and checked out of the company on a particular day.  Input was in the form of <Employee_Name>, <In_Time>, <Out_Time> (comma separated).
+Eg:       
+Alice,10:23:02,13:04:45
+Bob,09:00:43,12:03:21
+The time was always in HH:MM:SS 24-hours format. You were given a time of the day as query <Query_Time> Eg: 11:00:56. We have to determine how many numbers of employees were present inside the company at the point in time (Query_Time). In these examples, o/p should be 2 (Reason: Alice and Bob both are inside the office at time 11:00:56).
+
+2. You were given a 3×3 matrix consisting of numbers between 1- 9. Finally, you have to arrange the matrix in the following format
+1 2 3
+4 5 6
+7 8 9
+In the original matrix, only the following operations were allowed to convert the matrix.
+Operation – You can exchange two adjacent numbers only if their sum is a prime number.
+Find the minimum number of exchanges needed to reach the final(goal) matrix.
+
+3. The question was to print a pattern based on an integer. 
+Eg:
+I/P:  4   O/P: 4321 - 4321 - 4321 - 4321
+
+I/P:  3   O/P: 321 - 321 - 321
+The interviewer checked for all the corner cases and made sure it worked for a set of inputs.
+Then he switched over to theory questions:
+
+4. An array implementation problem wherein you were supposed to find the number of intervals inside the target interval.
+
+5. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
+
+6. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+
+7. https://www.geeksforgeeks.org/reverse-a-doubly-linked-list/
+
+8. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
+
+7. Stack(implementation),  
+
+8.  Conversion of Queue to Stack,
+
+9. Diamond Problem
+
+10. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
+
+11. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
+
+12. find the middle element(s) of the linked list. (India)
+
+13. find the longest palindromic substring. (India)
+
+14. Find distance between two nodes in a tree. (India)
+
+15. Find height of the given tree.
+
+16. Find the output of the given mathematical expression like {(3*4)+(5/6)}. (Stack based approach)
+
+17. How many times does the minute and hour hand of a watch cross each other?
+
+18. find duplicates in  an array
+
+19. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+
+20. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
+
+21. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+
+this is variation of matrix chain multiplication.
+
+22. Given an array of size[1……1000] there are 2 numbers missing find them
+
+23. K-th largest element using BST
+
+24.  Asked a general puzzle, where I’ll be given weight balancing machine and 8 stones, out of all the stones, one will be of weight less than all other stones. How will you find the stone with min number of attempts?( 2 attempts ).
+
+25. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+
+26.  Linked list question to sort into odd and even.
+
+27. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
+
+28. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
+
+29. Last nth element from a linklist
+
+30. Find whether a given tree is a sub-tree of another
+
+31. Perform an in-place removal of all the spaces in a string.
+
+32. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
+
+33. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
+
+
