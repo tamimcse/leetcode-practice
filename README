@@ -8,8 +8,6 @@ https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions
 
 Print all the substrings which occurs more than one time in the string
 
-Returning the word form of any number, e.g: 231: Two hundred thirty-one, I solved this one using a map.
-
 Infix evaluation
 
 The puzzle was, I was given an 8*8 chessboard and the top rightmost box and bottom leftmost boxes were removed, and I was given a rectangle of 2*1 dimension. So I was asked that whether I could fill the above chessboard with the given rectangle completely or not.   
