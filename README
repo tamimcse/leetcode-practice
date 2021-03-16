@@ -16,7 +16,6 @@ The puzzle was, I was given an 8*8 chessboard and the top rightmost box and bott
 
 The second puzzle he asked me was what is the probability of getting all correct answers in an MCQ quiz in which each question has 4 choices and there are 50 questions in total.
 
-Stock Buy Sell to Maximize Profit
 
 1. You were given a list of strings which indicated at what time of the day an employee of a company checked in and checked out of the company on a particular day.  Input was in the form of <Employee_Name>, <In_Time>, <Out_Time> (comma separated).
 Eg:       
