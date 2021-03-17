@@ -31,8 +31,6 @@ I/P:  3   O/P: 321 - 321 - 321
 The interviewer checked for all the corner cases and made sure it worked for a set of inputs.
 Then he switched over to theory questions:
 
-4. An array implementation problem wherein you were supposed to find the number of intervals inside the target interval.
-
 5. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
 
 6. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
