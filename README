@@ -31,56 +31,54 @@ I/P:  3   O/P: 321 - 321 - 321
 The interviewer checked for all the corner cases and made sure it worked for a set of inputs.
 Then he switched over to theory questions:
 
-5. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
+4. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
 
-6. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+5. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
 
-7. https://www.geeksforgeeks.org/reverse-a-doubly-linked-list/
+6. https://www.geeksforgeeks.org/reverse-a-doubly-linked-list/
 
-8. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
+7. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
 
-9. Diamond Problem
+8. Diamond Problem
 
-10. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
+9. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
 
-11. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
+10. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
 
-12. find the middle element(s) of the linked list. (India)
+11. find the middle element(s) of the linked list. (India)
 
-13. find the longest palindromic substring. (India)
+12. find the longest palindromic substring. (India)
 
-14. Find distance between two nodes in a tree. (India)
+13. Find distance between two nodes in a tree. (India)
 
-15. Find height of the given tree.
+14. Find height of the given tree.
 
-19. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+15. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-20. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
+16. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 
-21. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+17. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-22. Given an array of size[1……1000] there are 2 numbers missing find them
+18. Given an array of size[1……1000] there are 2 numbers missing find them
 
-23. K-th largest element using BST
+19. K-th largest element using BST
 
-24.  Asked a general puzzle, where I’ll be given weight balancing machine and 8 stones, out of all the stones, one will be of weight less than all other stones. How will you find the stone with min number of attempts?( 2 attempts ).
+21. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
 
-25. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+22.  Linked list question to sort into odd and even.
 
-26.  Linked list question to sort into odd and even.
+23. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
 
-27. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
+24. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
 
-28. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
+25. Find whether a given tree is a sub-tree of another
 
-30. Find whether a given tree is a sub-tree of another
+26. Perform an in-place removal of all the spaces in a string.
 
-31. Perform an in-place removal of all the spaces in a string.
+27. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
 
-32. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
-
-33. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
+28. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
 
 op rightmost box and bottom leftmost boxes were removed
