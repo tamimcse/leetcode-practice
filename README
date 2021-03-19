@@ -49,30 +49,30 @@ Then he switched over to theory questions:
 
 12. find the longest palindromic substring. (India)
 
-15. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+13. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-16. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
+14. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 
-17. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+15. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-19. K-th largest element using BST
+16. K-th largest element using BST
 
-21. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+17. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
 
-22.  Linked list question to sort into odd and even.
+18.  Linked list question to sort into odd and even.
 
-23. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
+19. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
 
-24. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
+20. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
 
-25. Find whether a given tree is a sub-tree of another
+21. Find whether a given tree is a sub-tree of another
 
-26. Perform an in-place removal of all the spaces in a string.
+22. Perform an in-place removal of all the spaces in a string.
 
-27. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
+23. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
 
-28. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
+24. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
 
 op rightmost box and bottom leftmost boxes were removed
