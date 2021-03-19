@@ -9,36 +9,21 @@ struct node {
   struct node *right;
 };
 
-bool is_descendent (struct node *root, int n)
-{
-  if (!root)
-    return false;
-  if (root->value == n)
-    return true;
-  return is_descendent (root->left, n) || is_descendent (root->right, n);
-}
-
-struct node* LCA (struct node *root, int n1, int n2)
+struct node* lca (struct node *root, int n1, int n2)
 {
   if (!root)
     return NULL;
-  if (!root->left || !root->right)
-    return NULL;
 
-  struct node *left_subtree = NULL, *right_subtree = NULL;
-  left_subtree = 
-
-  if (root->left->value == n1 && root->right->value == n2)
+  if (root->value == n1 || root->value == n2)
     return root;
 
-  int left_hieght, right_hieght, h;
-  if (!root || (!(root->left) && !(root->right)))
-    return 0;
+  struct node* left_res = lca (root->left, n1, n2);
+  struct node* right_res = lca (root->right, n1, n2);
 
-  left_hieght = height (root->left);
-  right_hieght = height (root->right);
-  h = left_hieght > right_hieght ? left_hieght : right_hieght;
-  return h + 1;
+  if (left_res && right_res)
+    return root;
+  else
+    return left_res ? left_res : right_res;
 }
 
 void main ()
@@ -58,6 +43,6 @@ void main ()
 
   //printf("%d %d %d \n", n1.value, n1.left->value, n1.right->value);
 
-  int res = LCA (&n1, 4, 11);
-  printf ("height of the tree is %d \n", res);
+  int res = lca (&n1, 4, 11)->value;
+  printf ("The LCA of the nodes is %d \n", res);
 }
