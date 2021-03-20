@@ -20,7 +20,13 @@ void print (struct node *head)
 
 void reverse_double_ll (struct node **head)
 {
+  struct node *runner1 = *head, *runner2 = *head, *runner3;
+  if (runner2)
+    runner2 = runner2->next;
 
+  while (runner2) {
+
+  }
 }
 
 void main ()
