@@ -35,32 +35,32 @@ Then he switched over to theory questions:
 
 5. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
 
-7. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
+6. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
 
-8. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
+7. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
 
-9. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
+8. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
 
-10. find the longest palindromic substring. (India)
+9. find the longest palindromic substring. (India)
 
-11. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+10. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-12. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
+11. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 
-13. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+12. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-14. K-th largest element using BST
+13. K-th largest element using BST
 
-15. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+14. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
 
-17. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
+15. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
 
-18. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
+16. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
 
-19. Find whether a given tree is a sub-tree of another
+17. Find whether a given tree is a sub-tree of another
 
-20. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
+18. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
 
-21. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
+19. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
