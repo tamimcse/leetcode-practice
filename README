@@ -23,14 +23,6 @@ In the original matrix, only the following operations were allowed to convert th
 Operation – You can exchange two adjacent numbers only if their sum is a prime number.
 Find the minimum number of exchanges needed to reach the final(goal) matrix.
 
-3. The question was to print a pattern based on an integer. 
-Eg:
-I/P:  4   O/P: 4321 - 4321 - 4321 - 4321
-
-I/P:  3   O/P: 321 - 321 - 321
-The interviewer checked for all the corner cases and made sure it worked for a set of inputs.
-Then he switched over to theory questions:
-
 4. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
 
 5. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
