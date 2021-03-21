@@ -23,34 +23,34 @@ In the original matrix, only the following operations were allowed to convert th
 Operation – You can exchange two adjacent numbers only if their sum is a prime number.
 Find the minimum number of exchanges needed to reach the final(goal) matrix.
 
-4. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
+3. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
 
-5. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+4. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
 
-6. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
+5. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
 
-7. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
+6. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
 
-8. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
+7. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
 
-9. find the longest palindromic substring. (India)
+8. find the longest palindromic substring. (India)
 
-10. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+9. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-11. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
+10. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 
-12. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+11. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-13. K-th largest element using BST
+12. K-th largest element using BST
 
-14. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+13. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
 
-15. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
+14. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
 
-16. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
+15. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
 
-17. Find whether a given tree is a sub-tree of another
+16. Find whether a given tree is a sub-tree of another
 
-19. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
+17. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
