@@ -61,6 +61,4 @@ this is variation of matrix chain multiplication.
 
 17. Find whether a given tree is a sub-tree of another
 
-18. I said that suppose there is a postman who needs to visit 7 cities and deliver posts with a constraint of covering the minimum distance in doing so. Such a scenario can be represented using Graphs. His next counter question was Can you help the postman? I said Yes I can I can generate the minimum spanning tree using the Prim’s or Kruskal’s Algorithm and ask the postman to go accordingly. Then he asked me Can you explain how these algorithms work? I was unable to answer this question since I had not prepared this part. But I said that sir I can explain the Dijkstra Algorithm to find the minimum distance from a source to a destination, and I explained that to him.
-
 19. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
