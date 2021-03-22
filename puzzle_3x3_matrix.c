@@ -104,6 +104,8 @@ void solve_puzzle (struct state *start_state)
   struct state *curr_state, *nxt_state;
   struct state *queue[10000];
   int start = 0, end = 0;
+  struct state *stack[100];
+  int stack_idx = 0;
 
   queue [end++] = start_state;
   while (end > start) {
@@ -130,8 +132,12 @@ void solve_puzzle (struct state *start_state)
 finish:
   curr_state = nxt_state;
   while (curr_state != start_state) {
-    printf ("(%d, %d) ", curr_state->swap_v1, curr_state->swap_v2);
+    stack[stack_idx++] = curr_state;
     curr_state = curr_state->prev_state;
+  }
+  while (stack_idx > 0) {
+    curr_state = stack[--stack_idx];
+    printf ("(%d, %d) ", curr_state->swap_v1, curr_state->swap_v2);
   }
   printf ("\n");
 }
