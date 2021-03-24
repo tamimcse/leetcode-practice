@@ -3,7 +3,7 @@ https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
 */
 #include <stdio.h>
 
-int swap_every_two_bits (int a)
+int swap_every_two_bits1 (int a)
 {
   int i;
   
@@ -18,9 +18,15 @@ int swap_every_two_bits (int a)
   return a;
 }
 
+int swap_every_two_bits2 (int a)
+{
+  return ((a & 0b10101010101010101010101010101010) >> 1) | ((a & 0b01010101010101010101010101010101) << 1);
+}
+
 void main ()
 {
   int a = 0b101010011011;
-  int res = swap_every_two_bits (a);
-  printf ("%d res = %d \n", a, res);
+  int res1 = swap_every_two_bits1 (a);
+  int res2 = swap_every_two_bits2 (a);
+  printf ("%d res1 = %d res2 = %d\n", a, res1, res2);
 }
