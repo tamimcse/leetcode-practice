@@ -91,14 +91,48 @@ int huristic (char arr[][3])
   return (distance >> 1);
 }
 
+struct swap_index {
+  int i1;
+  int j1;
+  int i2;
+  int j2;
+};
+
 void solve_puzzle (char arr[][3]) {
   struct state *vertices = (struct state *) calloc (NUM_VERTICES, sizeof (*vertices));
-  struct state *open_list = NULL;
-
+  struct state *open_list_head = NULL;
+  struct pair pars[] = {{0, 0, 0, 1}, {0, 1, 0, 2}, {0, 0, 1, 0}, {1, 0, 2, 0}, {1, 0, 1, 1}, {1, 1, 0, 1}, {1, 1, 1, 2}, {1, 1, 2, 1}, {0, 2, 1, 2},
+                        {2, 0, 2, 1}, {2, 1, 2, 2}, {1, 2, 2, 2}}; 
+  int i, j;
   long unsigned long idx = hash (arr);
   memcpy (vertices[idx].arr, arr, sizeof (arr));
   vertices[idx].g = 0;
   vertices[idx].h = 0;
+  open_list_head = &vertices[idx];
+
+  while (open_list_head) {
+    //find the vertex with smallest f
+    struct state *runner = open_list_head, *min_state = open_list_head, *prev = NULL;
+    int min_f = runner->g + runner->h;
+    while (runner->next) {
+      if ((runner->next->g + runner->next->h) < min_f) {
+        prev = runner;
+        min_f = runner->next->g + runner->next->h;
+        min_state = runner->next;
+      }
+      runner = runner->next;
+    }
+    //remove the vertex
+    if (open_list_head == min_state)
+      open_list_head = open_list_head->next;
+    else
+      prev->next = min_state->next;
+    //check each possible edges from the vertex
+    for (i = 0; i < 12; i++) {
+      struct pair *idx = &pars[i];
+      if (is_prime (min_state->arr[idx->i1][idx->j1] + min_state->arr[idx->i2][idx->j2]))
+    }
+  }
 }
 
 void main (void)
