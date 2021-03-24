@@ -15,42 +15,34 @@ Alice,10:23:02,13:04:45
 Bob,09:00:43,12:03:21
 The time was always in HH:MM:SS 24-hours format. You were given a time of the day as query <Query_Time> Eg: 11:00:56. We have to determine how many numbers of employees were present inside the company at the point in time (Query_Time). In these examples, o/p should be 2 (Reason: Alice and Bob both are inside the office at time 11:00:56).
 
-2. You were given a 3×3 matrix consisting of numbers between 1- 9. Finally, you have to arrange the matrix in the following format
-1 2 3
-4 5 6
-7 8 9
-In the original matrix, only the following operations were allowed to convert the matrix.
-Operation – You can exchange two adjacent numbers only if their sum is a prime number.
-Find the minimum number of exchanges needed to reach the final(goal) matrix.
+2. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
 
-3. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
+3. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
 
-4. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+4. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
 
-5. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
+5. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
 
-6. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
+6. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
 
-7. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
+7. find the longest palindromic substring. (India)
 
-8. find the longest palindromic substring. (India)
+8. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-9. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+9. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 
-10. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
-
-11. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+10. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-12. K-th largest element using BST
+11. K-th largest element using BST
 
-13. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+12. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
 
-14. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
+13. https://www.geeksforgeeks.org/sum-of-the-multiples-of-two-numbers-below-n/
 
-15. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
+14. https://www.geeksforgeeks.org/find-sum-of-a-number-and-its-maximum-prime-factor/
 
-16. Find whether a given tree is a sub-tree of another
+15. Find whether a given tree is a sub-tree of another
 
-17. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
+16. https://www.geeksforgeeks.org/swap-every-two-bits-bytes/
