@@ -48,6 +48,7 @@ void inorder2(struct node *r)
   }
 }
 
+
 void main ()
 {
   struct node n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
@@ -66,6 +67,5 @@ void main ()
   inorder1 (&n1);
   printf ("\n");
   printf ("In order travarsal (non recursive) = ");
-  inorder1 (&n1);
-  printf ("\n");
+  inorder2 (&n1);
 }
