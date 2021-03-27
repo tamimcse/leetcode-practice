@@ -2,6 +2,7 @@
 https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
 */
 #include <stdio.h>
+#include <stdlib.h>
 
 struct node {
   int data;
@@ -48,6 +49,60 @@ void inorder2(struct node *r)
   }
 }
 
+struct node_stack {
+  struct node *n;
+  struct node_stack *next;
+};
+
+void push (struct node_stack **head, struct node *n)
+{
+  struct node_stack *new_node = (struct node_stack *) malloc (sizeof (*new_node));
+  new_node->n = n;
+  new_node->next = *head;
+  *head = new_node;
+}
+
+struct node* pop (struct node_stack **head)
+{
+  struct node *res;
+  struct node_stack *tmp;
+
+  if (!(*head))
+    return NULL;
+  res = (*head)->n;
+  tmp = *head;
+  *head = (*head)->next;
+  free (tmp);
+  return res;
+}
+
+
+void inorder3(struct node *r)
+{
+  struct node *curr_node;
+  struct node_stack *stack = NULL;
+
+  if (!r)
+    return;
+
+  curr_node = r;
+  while (1) {
+    if (!curr_node) {
+      curr_node = pop (&stack);
+      if (!curr_node)
+        break;
+      printf ("%d ", curr_node->data);
+      curr_node = curr_node->right;
+    } else if (curr_node->left) {
+      push (&stack, curr_node);
+      curr_node = curr_node->left;
+    } else {
+      printf ("%d ", curr_node->data);
+      curr_node = curr_node->right;
+    }
+  }
+}
+
 
 void main ()
 {
@@ -68,4 +123,8 @@ void main ()
   printf ("\n");
   printf ("In order travarsal (non recursive) = ");
   inorder2 (&n1);
+  printf ("\n");
+  printf ("In order travarsal (non recursive - following geekforgeeks) = ");
+  inorder3 (&n1);
+  printf ("\n");
 }
