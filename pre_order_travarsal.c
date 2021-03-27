@@ -53,20 +53,15 @@ void preorder2 (struct node *root)
   
   curr_node = root;
   while (1) {
-    if (curr_node) {
-      printf ("%d ", curr_node->data);
-      if (curr_node->right)
-        push (&stack, curr_node->right);
-      curr_node = curr_node->left;
-    } else {
+    if (!curr_node) {
       curr_node = pop (&stack);
       if (!curr_node)
         break;
-      printf ("%d ", curr_node->data);
-      if (curr_node->right)
-        push (&stack, curr_node->right);
-      curr_node = curr_node->left;      
     }
+    printf ("%d ", curr_node->data);
+    if (curr_node->right)
+      push (&stack, curr_node->right);
+    curr_node = curr_node->left;
   }
 }
 
