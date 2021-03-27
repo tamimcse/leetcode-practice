@@ -68,7 +68,7 @@ bool is_equal (struct node *r1, struct node *r2)
   }
 }
 
-bool is_subtree (struct node *r1, struct node *r2)
+bool is_subtree1 (struct node *r1, struct node *r2)
 {
   struct node *curr_node;
   struct node_stack *stack = NULL;
@@ -96,6 +96,28 @@ bool is_subtree (struct node *r1, struct node *r2)
   return false;
 }
 
+bool is_subtree2 (struct node *r1, struct node *r2)
+{
+  bool res;
+  if (!r2)
+    return true;
+  if (!r1)
+    return false;
+  if (r1->data == r2->data) {
+    res = is_equal (r1, r2);
+    if (res)
+      return true;
+  } else {
+    res = is_subtree2 (r1->left, r2);
+    if (res)
+      return true;
+    res = is_subtree2 (r1->right, r2);
+    if (res)
+      return true;
+    return false;
+  }
+}
+
 void main ()
 {
   //tree 1
@@ -118,8 +140,14 @@ void main ()
   m9 = (struct node) {9, NULL, NULL};
   m10 = (struct node) {10, NULL, NULL};
 
-  bool res = is_subtree (&n1, &m5);
+  bool res = is_subtree1 (&n1, &m5);
   if (res)
+    printf ("Subtree\n");
+  else
+    printf ("Not Subtree\n");
+
+  bool res1 = is_subtree2 (&n1, &m5);
+  if (res1)
     printf ("Subtree\n");
   else
     printf ("Not Subtree\n");
