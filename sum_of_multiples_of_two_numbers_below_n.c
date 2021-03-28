@@ -15,7 +15,7 @@ int gcd (int a, int b)
   int devisor = a;
   int devident = b;
   while (devident % devisor) {
-    devisor = devident % devisor;W
+    devisor = devident % devisor;
     devident = devisor;
   }
   return devisor;
