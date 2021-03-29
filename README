@@ -9,30 +9,24 @@ https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions
 Print all the substrings which occurs more than one time in the string
 
 
-1. You were given a list of strings which indicated at what time of the day an employee of a company checked in and checked out of the company on a particular day.  Input was in the form of <Employee_Name>, <In_Time>, <Out_Time> (comma separated).
-Eg:       
-Alice,10:23:02,13:04:45
-Bob,09:00:43,12:03:21
-The time was always in HH:MM:SS 24-hours format. You were given a time of the day as query <Query_Time> Eg: 11:00:56. We have to determine how many numbers of employees were present inside the company at the point in time (Query_Time). In these examples, o/p should be 2 (Reason: Alice and Bob both are inside the office at time 11:00:56).
+1. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
 
-2. https://www.geeksforgeeks.org/diagonal-sum-binary-tree/
+2. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
 
-3. https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/
+3. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
 
-4. https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/
+4. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
 
-5. https://www.geeksforgeeks.org/program-for-armstrong-numbers/
+5. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
 
-6. https://www.geeksforgeeks.org/print-all-possible-combinations-of-the-string-by-replacing-with-any-other-digit-from-the-string/
+6. find the longest palindromic substring. (India)
 
-7. find the longest palindromic substring. (India)
+7. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-8. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
+8. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 
-9. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
-
-10. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+9. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-11. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+10. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
