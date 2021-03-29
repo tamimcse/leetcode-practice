@@ -17,10 +17,8 @@ Print all the substrings which occurs more than one time in the string
 
 4. https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
-5. https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
-
-6. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
+5. the expression paranthesised in such a way that it give max value for the expression. Expression has +, -, *
 
 this is variation of matrix chain multiplication.
 
-7. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
+6. https://www.geeksforgeeks.org/check-if-a-queen-can-attack-a-given-cell-on-chessboard/
