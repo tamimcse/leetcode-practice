@@ -51,9 +51,42 @@ int lps_rec (char str[])
   return res;
 }
 
+int lps_dp (char str[])
+{
+  int i, x_idx, y_idx;
+  int len = strlen (str);
+  int *dp_arr = (int *) calloc (len * len, sizeof (*dp_arr));
+
+  for (i = 0; i < len; i++)
+    dp_arr[i * len + i] = 0;
+
+  int distance = 0;
+  for (i = 0; i < len; i++) {
+    distance++;
+//    printf ("distance = %d ", distance);
+    for (x_idx = 0; x_idx < len - distance; x_idx++) {
+      y_idx = x_idx + distance;
+      if (str[x_idx] == str[y_idx]) {
+        dp_arr[x_idx * len + y_idx] = 2 + dp_arr[(x_idx + 1) * len + (y_idx - 1)];
+      } else {
+        int left = dp_arr[x_idx * len + (y_idx - 1)];
+        int down = dp_arr[(x_idx + 1) * len + y_idx];
+        dp_arr[x_idx * len + y_idx] = left > down ? left : down;
+      }
+//      printf ("(%d, %d) = %d ", x_idx, y_idx, dp_arr[x_idx * len + y_idx]);
+    }
+//    printf ("\n");
+  }
+  return dp_arr[len - 1];
+}
+
 void main ()
 {
   char str[] = "ilovecinncinati";
+//  char str[] = "cincinatici";
   int res = lps_rec (str);
   printf ("Longest palindrom substring is of length %d \n", res);
+
+  int res1 = lps_dp (str);
+  printf ("Longest palindrom substring is of length %d \n", res1);
 }
