@@ -27,8 +27,6 @@ void matrix_chain_multiplication (int arr[], int num_matrix)
   }
 
   printf ("Value of result is %d \n", dp_arr[num_matrix - 1]);
-  row = 0;
-  col = num_matrix - 1;
 }
 
 void main ()
