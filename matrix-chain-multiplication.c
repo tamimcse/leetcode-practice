@@ -8,11 +8,9 @@ void matrix_chain_multiplication (int arr[], int num_matrix)
 {
   int i, j, row, col, res1, res2;
   int *dp_arr = (int *) calloc (num_matrix * num_matrix, sizeof (*dp_arr));
-  char *dp_arr_dir = (char *) calloc (num_matrix * num_matrix, sizeof (*dp_arr_dir));
 
   for (i = 0; i < num_matrix; i++) {
     dp_arr[i * num_matrix + i] = 0;
-    dp_arr_dir[i * num_matrix + i] = 'E';
   }
 
   for (i = 1; i < num_matrix; i++) {
@@ -20,7 +18,6 @@ void matrix_chain_multiplication (int arr[], int num_matrix)
       res1 = (arr[row] * arr[col] * arr[col + 1]) + dp_arr[row * num_matrix + col - 1];
       res2 = (arr[row] * arr[row + 1] * arr[col + 1]) + dp_arr[(row + 1) * num_matrix + col];
       dp_arr[row * num_matrix + col] = res1 < res2 ? res1 : res2;
-      dp_arr_dir[row * num_matrix + col] = res1 < res2 ? 'L' : 'D';
       //printf ("(%d, %d) = %d ", row, col, dp_arr[row * num_matrix + col]);
     }
     //printf ("\n");
