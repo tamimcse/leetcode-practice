@@ -3,7 +3,7 @@ https://www.geeksforgeeks.org/maximum-minimum-values-algebraic-expression/
 
 Here, we assume that 1 <= n,m <= 10. 1 <= X_i, Y_i <= 10
 
-Note that, this is not a DP problem.
+Note that, this is not a DP problem. You can use backtracking to fill up the array. Then use the prescribed method to calculate the maximum.
 */
 #include <stdio.h>
 
