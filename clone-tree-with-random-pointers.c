@@ -1,5 +1,7 @@
 /*
 https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
+
+https://practice.geeksforgeeks.org/problems/clone-a-binary-tree/1/?company[]=Synopsys&company[]=Synopsys&page=1&query=company[]Synopsyspage1company[]Synopsys
 */
 #include <stdio.h>
 #include <stdlib.h>
