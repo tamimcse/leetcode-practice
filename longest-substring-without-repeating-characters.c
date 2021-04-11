@@ -14,8 +14,8 @@ int len_of_longest_substr_without_repeating_chars(char *str)
   dp [0] = 1;
   for (i = 1; str[i]; i++) {
     count = 1;
-    for (j = i - 1; j >= 0; j--) {
-      if (str[i] != str[j])
+    for (j = 0; j < dp[i - 1]; j++) {
+      if (str[i] != str[i - 1 - j])
         count++;
       else
         break;
@@ -24,9 +24,11 @@ int len_of_longest_substr_without_repeating_chars(char *str)
   }
 
   for (i = 0; i < len; i++) {
+//    printf ("%d ", dp[i]);
     if (dp[i] > max_substr_len)
       max_substr_len = dp[i];
   }
+//  printf ("\n");
   return max_substr_len;
 }
 
