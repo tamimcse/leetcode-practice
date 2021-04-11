@@ -15,7 +15,15 @@ struct node {
 
 struct node* clone (struct node *r)
 {
-
+  struct node *left = NULL, *right = NULL, *new_node;
+  if (r->left)
+    left = clone (r->left);
+  if (r->right)
+    right = clone (r->right);
+  new_node = (struct node*) malloc (sizeof (*new_node));
+  new_node->data = r->data;
+  new_node->left = left;
+  new_node->right = right;
 }
 
 void print (struct node *r)
@@ -44,5 +52,11 @@ void main ()
   n7 = (struct node) {7, NULL, NULL, &n3};
   printf ("Original tree = ");
   print (&n1);
+  printf ("\n");
+
+  struct node *res = clone (&n1);
+
+  printf ("Cloned tree = ");
+  print (res);
   printf ("\n");
 }
