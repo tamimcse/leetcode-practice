@@ -21,6 +21,34 @@ int* rotate (int *mat, int N)
   return res; 
 }
 
+void rotate_inplace (int *mat, int N)
+{
+  int i, j, m, n, extra, start = 1, end = N - 1, circle = 0, tmp, tmp1, row, col;
+
+  while (end >= start) {
+    for (i = start; i <= end; i++) {
+      row = circle;
+      col = i;
+      tmp = mat[row * N + col];
+      while (1) {
+        m = N - 1 - col;
+        n = row;
+        tmp1 = mat[m * N + n];
+        mat[m * N + n] = tmp;
+        tmp = tmp1;
+        row = m;
+        col = n;
+        //circle finished
+        if (row == circle && col == i)
+          break;
+      }
+    }
+    start++;
+    end++;
+    circle++;
+  }
+}
+
 void print (int *mat, int N)
 {
   int i, j;
@@ -52,5 +80,9 @@ void main ()
 
   printf ("Result matrix = \n");
   print (res, N);
+
+  rotate_inplace (mat, N);
+  printf ("Result of rotate inplace = \n");
+  print (mat, N);
 }
 
