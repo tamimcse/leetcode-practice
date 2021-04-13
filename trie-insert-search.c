@@ -20,8 +20,6 @@ void insert (struct node *root, char *str)
   int idx = 0;
   int child_idx;
 
-  printf ("Inserting %s \n", str);
-
   while (1) {
     child_idx = str[idx] - 'a';
     if (!runner->children[child_idx]) {
@@ -36,9 +34,30 @@ void insert (struct node *root, char *str)
   }
 }
 
+bool search (struct node *root, char *str)
+{
+  struct node *child, *new_node;
+  struct node *runner = root;
+  int idx = 0;
+  int child_idx;
+
+  while (1) {
+    child_idx = str[idx] - 'a';
+    if (!runner->children[child_idx])
+      return false;
+    if (!str[idx + 1])
+      return runner->children[child_idx]->end_of_the_word;
+    runner = runner->children[child_idx];
+    idx++;
+  }
+  return false;
+}
+
 void main ()
 {
   int i;
+  char *key;
+  bool res;
   char *strs[] = {"the", "a", "there", "answer", "any", "by", "bye", "their"};
   int strs_len = sizeof (strs) / sizeof (strs[0]);
 
@@ -47,4 +66,8 @@ void main ()
 
   for (i = 0; i < strs_len; i++)
     insert (&root, strs[i]);
+
+  key = "their";
+  res = search (&root, key);
+  printf ("%s %s found \n", key, res ? "is" : "is not");
 }
