@@ -44,7 +44,7 @@ void rotate_inplace (int *mat, int N)
       }
     }
     start++;
-    end++;
+    end--;
     circle++;
   }
 }
@@ -62,7 +62,7 @@ void print (int *mat, int N)
 
 void main ()
 {
-  int N = 4;
+  int N = 6;
   int *mat = (int *)malloc(N * N * sizeof (*mat));
   int *res;
   int i, j, cur;
