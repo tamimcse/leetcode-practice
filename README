@@ -8,8 +8,6 @@ https://www.geeksforgeeks.org/tag/arista-networks/
 
 https://www.geeksforgeeks.org/barracuda-networks-interview-experience/
 
-https://www.geeksforgeeks.org/tag/alcatel-lucent/
-
 https://www.geeksforgeeks.org/tag/brocade/
 
 https://practice.geeksforgeeks.org/explore/?company%5B%5D=Google&page=1&company%5B%5D=Google
@@ -69,6 +67,16 @@ You are getting a running stream of integers. This running stream is a input to 
 
 you have 3 files and you need to print the output of operations inside those files onto log files.
 Like some other 4th files come , then your code should be able to print its operation output with minimal change in code.
+
+
+Nokia
+------------------------------------------------------------------------------------
+arrange first half array in increasing and then other in decreasing order.
+
+https://www.geeksforgeeks.org/gcd-two-array-numbers/
+
+
+
 
 
 
