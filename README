@@ -4,7 +4,6 @@ https://www.geeksforgeeks.org/geeksquiz-home/
 
 https://www.geeksforgeeks.org/category/puzzles/
 
-https://www.geeksforgeeks.org/tag/arista-networks/
 
 https://www.geeksforgeeks.org/barracuda-networks-interview-experience/
 
@@ -42,6 +41,70 @@ https://www.geeksforgeeks.org/quicksort-on-singly-linked-list/
 https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
 
 https://www.geeksforgeeks.org/merge-one-array-of-size-n-into-another-one-of-size-mn/
+
+Arista Network
+-------------------
+
+Minimum time required to reach a given cell (x, y) from (0,0). A particular cell may have a wall i.e. you cannot go to that particular cell. (0,0) and (x, y) does not have a wall. 
+Solution: We just have to do BFS from (0,0) and keep storing the time also of every particular cell when it is pushed back in the BFS queue.
+
+Given many messages. messages consist of (Type, Port, “message”, message_length), you have to sort (on the basis of decreasing length of messages) in such a way that different messages with the same Type and Port will combine i.e. the message will concatenate and message length will be the length of message 1 + length of message 2. Output final messages.
+Eg. 
+Message 1- <"xyz", 1234, "hello", 5>, 
+Message 2- <"abc", 222, "Arista", 5>, 
+Message 3- <"xyz", 1234, "World", 5>.
+Output will be- <"xyz", 1234, "helloWorld", 10>
+                <"abc", 222, "Arista", 5>
+
+https://www.geeksforgeeks.org/merging-intervals/
+
+Design an app like Zomato given queries like which restaurant is serving a particular dish. For e.g. if a user types pizza your program should output all the nearby restaurants serving pizza.
+First I gave him a map-based approach, but he asked me to think of a different data structure that can do this better. Then I gave him Trie based approach he was satisfied with the approach then he added 2-3 more queries they were also manageable by the same data structure.
+
+https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/
+
+https://www.geeksforgeeks.org/node-maximum-sum-immediate-children-n-ary-tree/
+
+Remove duplicate elements from a circular linked list and the duplicates occur consecutively in the list. It was tricky because of the edge case that the last element could be equal to the first element and since linked list is circular.
+
+How would you optimize the space complexity in trie ?
+How can we check whether a given key is present in the trie without going upto the depth of the trie i.e. in less number of iterations ?
+He was expecting a linked list to be maintained at each node sort of solution. I answered it using a compressed trie which is generally used in suffix tries (though he wasn’t expecting that much).
+Basically the question was if we are given a large IP address how can we perform operation on a trie with less number of computations. I told him that instead of modifying the trie we could even modify the address by converting into a different base probably a larger base – means a shorted equivalent address.
+
+Then he asked me the phonebook problem. How do we implement the system in our phones that maintain the contact list i.e. phone numbers and names of people?
+The problem’s solution is to use a trie so that for each prefix of the string we could easily find the names and numbers associated with it.
+How do we implement the frequently called list that maintains the list of people whom we contact frequently ?
+Solution is to use a heap and pop out the most frequently used k contacts whenever required. Heap because updation and insertion operations are fast.
+
+Remove adjacent elements from circular linked list if they are same.
+
+     eg - Input - 1 1 2 2 3 4 1
+            Output- 1 2 3 4 
+Tricky part was that the last element is adjacent to first element in Circular Linked List
+
+
+Given a string and numbers decrypt it and find pattern for encrypting other strings.
+Pattern was like 158-a 157-b …. 133-z
+
+Given – heab (151 154 158 157)
+just observe the pattern
+
+Input – abc
+Output- 158 157 156
+
+topological sort
+
+ Implement Web Crawler(Gave him a DFS based approach)
+
+https://www.geeksforgeeks.org/print-binary-tree-vertical-order/
+
+If you are given a small pattern of bits which is to be searched in potentially infinite ,continuous text of bits. How will you search the pattern? Remember the text cannot be stored since it is potentially infinite in length and the bits are coming one by one.
+Follow up question –
+Now if the pattern length can be between 500-12000 bits. How will you do the above question in O(n) time?
+
+How are files and directories organised in a Linux system? How will you implement it in C. Design a data structure for it.
+
 
 Huawei
 -------------------------------------------------------------------------------------
