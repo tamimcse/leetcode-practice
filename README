@@ -75,6 +75,148 @@ arrange first half array in increasing and then other in decreasing order.
 
 https://www.geeksforgeeks.org/gcd-two-array-numbers/
 
+Synopsys
+-------------------------------------------------------------------------------
+https://leetcode.com/problems/is-graph-bipartite/
+
+https://www.geeksforgeeks.org/puzzle-1-how-to-measure-45-minutes-using-two-identical-wires/
+
+https://www.geeksforgeeks.org/puzzle-mislabeled-jars/
+
+https://leetcode.com/problems/validate-binary-search-tree/
+
+Scan Sweep Algorithm
+
+https://www.hackerrank.com/challenges/game-of-two-stacks
+
+Create Singly link list to Doubly link list.
+
+Create Singly link list to Doubly link list where prev pointer of an ith node will be pointing to (i- step)th node, the step will be given in run-time. 
+for all i < step, prev will be null.
+
+Find a cycle in a Directed Graph.
+
+
+Given Sum and Count. You can use the only integer from 1-9 (can use more than one time) to make the Sum. The restriction is that the number of the element should be equal to Count. Find all possible combinations.
+Example:
+Sum = 10 and Count = 2
+Result is (1, 9), (2, 8), (3, 7), (4, 6) and (5, 5)
+1 + 9 = 10
+2 + 8 = 10
+3 + 7 = 10
+4 + 6 = 10
+5 + 5 = 10
+
+Colour all the countries or states of Geographical maps where no two adjacent countries/states cannot be assigned the same color.
+
+https://practice.geeksforgeeks.org/problems/picks-up-a-random-song-from-the-playlist-and-plays-it
+
+Create 32×1 MUX using 2×1 MUX.
+
+In how many different ways can the letters of the word ‘CORPORATION’ be arranged so that the vowels always come together?
+
+Construct Balance Binary Tree from a sorted link list
+
+From a stream of integer do the operation getMax(). getMax() returns the max value from the stream and next time this function will return the max from the rest of the elements.
+
+The efficient way to traverse 2D array(column vs row traverse)
+
+https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
+
+https://www.geeksforgeeks.org/minimum-steps-reach-end-array-constraints/
+
+https://www.geeksforgeeks.org/relationship-number-nodes-height-binary-tree/
+
+https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
+
+Find all nodes between two given nodes in a tree.
+
+Find a non repeating number in an array if other numbers are repeating twice
+
+https://www.geeksforgeeks.org/merge-two-sorted-lists-place/
+
+https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
+
+How can you design a hash which can have million entries with minimising collision?
+
+Given a sorted array and a value k which is number of buckets. Divide array elements into buckets so that the difference of bucket sum is minimum.
+
+Given a large number in form of linked list, also given a digit. Add the digit to linked list.
+
+1000 coins/ 10 bags, distribute the coins so that each number can be made between 1 to 1000.
+
+https://www.geeksforgeeks.org/frequency-substring-string/
+
+https://www.geeksforgeeks.org/puzzle-5-finding-the-injection-for-anesthesia/
+
+https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/
+
+https://www.geeksforgeeks.org/write-one-line-functions-for-strcat-and-strcmp/
+
+Find longest path in DAG
+
+how do we check for valid input that means no cycle in given graph.
+
+https://www.geeksforgeeks.org/queue-using-stacks/
+
+https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
+
+https://www.geeksforgeeks.org/given-array-strings-find-strings-can-chained-form-circle/
+
+How to represent a large number[100 digits], convert a large number into binary, provide bits in a particular ranges[eg but 45 to 78] for a 200 digit number
+
+https://www.geeksforgeeks.org/puzzle-23-days-of-month-using-2-dice/
+
+https://www.cut-the-knot.org/SimpleGames/EightDigitPuzzle.shtml
+
+https://www.geeksforgeeks.org/puzzle-set-35-2-eggs-and-100-floors/
+
+Array of infinite numbers containing 0 and 1 , find out the transition point of 0 becoming 1 in O(logn) time
+
+Write a method which accepts 2 Integer Arrays and their size N . Element B[j] for j=0..N should be equal to product of all the elements A[i] i=0..n such that i!=j .Eg : A : {2,5,4,10} B should be {200,80,100,40 }.
+Time Complexity O(N)
+
+Derive an upper bound for height of a balanced binary tree with N Nodes.
+
+Program to check whether a BST is balanced or not .
+
+https://www.geeksforgeeks.org/puzzle-13-100-prisoners-with-redblack-hats/
+
+https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
+
+Given a 2D array having 0s and 1s where all 0s in each row preceed before all 1s. Find a row having max nos of 1s .
+
+Given two integers which can be represented as 32bit numbers and a start index and an end index, copy the bits of one integer to another within the given start and end index
+
+Given n intervals with start and finish time and a global interval [globalStart, globalFinish], find all intervals which overlaps with the global interval.
+
+There is a pipe dealer who has got pipes of different lengths (two pipes may be of same length). He wants to sell his stock. He can only sell his stock such that the length of each pipe will be same. For eg. If length of pipes in his inventory are a=14, b=7, c=6 and he decides to sell pipes of length 7, then he can sell pipe b unchanged. He can cut pipe a, to get two pipes of length 7 each. But the pipe c=6 will be wasted. Suppose that the cost of each unit length of pipe is x and the cost of cutting a rod is y per cut ( so if we have d=21 then we need two cuts, so cost of cutting will be 2y). The cost for cutting is a loss to the dealer. We need to find the optimum length which he can sell to achieve maximum profit.
+Note : say there are pipes of length 7, 11, 13 etc. he may choose selling length=7.56 i.e a length corresponding to which no pipe is present i.e every pipe needs to be cut.
+
+Given an array which was sorted initially but then it was rotated at a point, find an element in it
+
+Perform BFS traversal using recursion
+
+Suppose there are 3 players and 1 coin(with Head and Tail). Devise a strategy such that we can have a clear winner. Probability of winning should be same for every player. The coin may be tossed any number of times.
+
+N sorted arrays are given. Combine them to get an overall sorted array. You can assume arrays to be of same size.
+
+Say we have a register of n bits. the character ‘A’ occupies 1 bit, character ‘B’ occupies 2 bit. How many different words can be formed?
+
+	        e.g n=3 :
+		possibilities : 	AB, AAA, BA 
+		Output: 3
+		hint : Think Recursive
+
+
+Given n intervals, each interval having start and end time, check if any two intervals overlap or not.
+
+
+
+
+
+
+
 
 
 
