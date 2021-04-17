@@ -5,14 +5,10 @@ https://www.geeksforgeeks.org/geeksquiz-home/
 https://www.geeksforgeeks.org/category/puzzles/
 
 
-https://www.geeksforgeeks.org/barracuda-networks-interview-experience/
-
-https://www.geeksforgeeks.org/tag/brocade/
-
-https://practice.geeksforgeeks.org/explore/?company%5B%5D=Google&page=1&company%5B%5D=Google
 https://practice.geeksforgeeks.org/explore/?company%5B%5D=Amazon&page=1&company%5B%5D=Amazon
 https://practice.geeksforgeeks.org/explore/?company%5B%5D=Microsoft&page=1&company%5B%5D=Microsoft
-https://practice.geeksforgeeks.org/explore/?company%5B%5D=Facebook&page=1&company%5B%5D=Facebook
+
+https://www.geeksforgeeks.org/barracuda-networks-interview-experience/
 
 
 https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/
@@ -41,6 +37,17 @@ https://www.geeksforgeeks.org/quicksort-on-singly-linked-list/
 https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
 
 https://www.geeksforgeeks.org/merge-one-array-of-size-n-into-another-one-of-size-mn/
+
+Brocade
+----------------
+https://www.geeksforgeeks.org/merge-two-sorted-arrays-in-o1-extra-space-using-quicksort-partition/
+
+how will you search a sequence of bits over array of bytes
+
+Design Qs: You have an incoming stream of bits. You have infinite memory, processing power. Design a system that will check for viruses. You have all the viruses signatures.
+
+https://www.geeksforgeeks.org/merge-one-array-of-size-n-into-another-one-of-size-mn/
+
 
 Arista Network
 -------------------
