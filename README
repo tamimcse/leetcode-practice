@@ -18,9 +18,6 @@ Juniper
 
 Sort the Doubly Link List.
 
-Given a string representing binary number toggle the nth bit.
-
-
 Given a link list divide the link list equally, divide the list at a given value.
 
 https://www.geeksforgeeks.org/split-a-circular-linked-list-into-two-halves/
