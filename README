@@ -13,6 +13,11 @@ https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/
 https://www.geeksforgeeks.org/word-break-problem-dp-32/
 https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 
+Nokia
+------------------------------------------------------------------------------------
+arrange first half array in increasing and then other in decreasing order.
+
+https://www.geeksforgeeks.org/gcd-two-array-numbers/
 
 Arista Network
 -------------------
@@ -103,12 +108,6 @@ You are getting a running stream of integers. This running stream is a input to 
 you have 3 files and you need to print the output of operations inside those files onto log files.
 Like some other 4th files come , then your code should be able to print its operation output with minimal change in code.
 
-
-Nokia
-------------------------------------------------------------------------------------
-arrange first half array in increasing and then other in decreasing order.
-
-https://www.geeksforgeeks.org/gcd-two-array-numbers/
 
 Synopsys
 -------------------------------------------------------------------------------
