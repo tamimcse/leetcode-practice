@@ -1,5 +1,11 @@
 /*
 https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
+
+https://www.geeksforgeeks.org/merge-two-sorted-arrays-in-o1-extra-space-using-quicksort-partition/
+
+https://www.geeksforgeeks.org/efficiently-merging-two-sorted-arrays-with-o1-extra-space/
+
+This is a very common question!!
 */
 #include <stdio.h>
 
