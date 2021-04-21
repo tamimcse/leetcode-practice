@@ -17,14 +17,6 @@ https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 Arista Network
 -------------------
 
-Given many messages. messages consist of (Type, Port, “message”, message_length), you have to sort (on the basis of decreasing length of messages) in such a way that different messages with the same Type and Port will combine i.e. the message will concatenate and message length will be the length of message 1 + length of message 2. Output final messages.
-Eg. 
-Message 1- <"xyz", 1234, "hello", 5>, 
-Message 2- <"abc", 222, "Arista", 5>, 
-Message 3- <"xyz", 1234, "World", 5>.
-Output will be- <"xyz", 1234, "helloWorld", 10>
-                <"abc", 222, "Arista", 5>
-
 https://www.geeksforgeeks.org/merging-intervals/
 
 https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/

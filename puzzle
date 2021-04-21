@@ -47,3 +47,11 @@ Solution is to use a heap and pop out the most frequently used k contacts whenev
 
 19. Design an app like Zomato given queries like which restaurant is serving a particular dish. For e.g. if a user types pizza your program should output all the nearby restaurants serving pizza.
 First I gave him a map-based approach, but he asked me to think of a different data structure that can do this better. Then I gave him Trie based approach he was satisfied with the approach then he added 2-3 more queries they were also manageable by the same data structure.
+
+20. Given many messages. messages consist of (Type, Port, “message”, message_length), you have to sort (on the basis of decreasing length of messages) in such a way that different messages with the same Type and Port will combine i.e. the message will concatenate and message length will be the length of message 1 + length of message 2. Output final messages.
+Eg. 
+Message 1- <"xyz", 1234, "hello", 5>, 
+Message 2- <"abc", 222, "Arista", 5>, 
+Message 3- <"xyz", 1234, "World", 5>.
+Output will be- <"xyz", 1234, "helloWorld", 10>
+                <"abc", 222, "Arista", 5>
