@@ -88,11 +88,6 @@ Given two integers x and y. Find the no of multiples of x between x and y
 
 Find Longest palindrome 
 
-You are getting a running stream of integers. This running stream is a input to a multithreaded environment and many thread are working parallely on this running stream of integers to print the numbers but the number printed by one thread should not be printed by other threads
-
-you have 3 files and you need to print the output of operations inside those files onto log files.
-Like some other 4th files come , then your code should be able to print its operation output with minimal change in code.
-
 
 Synopsys
 -------------------------------------------------------------------------------
