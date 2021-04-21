@@ -82,10 +82,6 @@ Huawei
 -------------------------------------------------------------------------------------
 https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 
-Find the next 2 numbers in the following question:
-
-7, 8, 10, 12, 16, 18, __, __.
-
 Swap nodes in a linked list without swapping the data
 
 Given two integers x and y. Find the no of multiples of x between x and y
