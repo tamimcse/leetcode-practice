@@ -17,9 +17,6 @@ https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 Arista Network
 -------------------
 
-Minimum time required to reach a given cell (x, y) from (0,0). A particular cell may have a wall i.e. you cannot go to that particular cell. (0,0) and (x, y) does not have a wall. 
-Solution: We just have to do BFS from (0,0) and keep storing the time also of every particular cell when it is pushed back in the BFS queue.
-
 Given many messages. messages consist of (Type, Port, “message”, message_length), you have to sort (on the basis of decreasing length of messages) in such a way that different messages with the same Type and Port will combine i.e. the message will concatenate and message length will be the length of message 1 + length of message 2. Output final messages.
 Eg. 
 Message 1- <"xyz", 1234, "hello", 5>, 

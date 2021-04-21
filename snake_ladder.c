@@ -2,6 +2,11 @@
 Snake and Ladder Problem: Given a snake and ladder board, find the minimum number of dice throws required to reach the destination or last cell from source or 1st cell. Basically, the player has total control over outcome of dice throw and wants to find out minimum number of throws required to reach last cell.
 
 https://www.geeksforgeeks.org/snake-ladder-problem-2/
+
+The question can also be asked as following:
+
+Minimum time required to reach a given cell (x, y) from (0,0). A particular cell may have a wall i.e. you cannot go to that particular cell. (0,0) and (x, y) does not have a wall. 
+Solution: We just have to do BFS from (0,0) and keep storing the time also of every particular cell when it is pushed back in the BFS queue.
 */
 #include <stdio.h>
 #include <stdlib.h>
