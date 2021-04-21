@@ -40,11 +40,6 @@ https://www.geeksforgeeks.org/node-maximum-sum-immediate-children-n-ary-tree/
 Remove duplicate elements from a circular linked list and the duplicates occur consecutively in the list. It was tricky because of the edge case that the last element could be equal to the first element and since linked list is circular.
 
 
-Then he asked me the phonebook problem. How do we implement the system in our phones that maintain the contact list i.e. phone numbers and names of people?
-The problem’s solution is to use a trie so that for each prefix of the string we could easily find the names and numbers associated with it.
-How do we implement the frequently called list that maintains the list of people whom we contact frequently ?
-Solution is to use a heap and pop out the most frequently used k contacts whenever required. Heap because updation and insertion operations are fast.
-
 Remove adjacent elements from circular linked list if they are same.
 
      eg - Input - 1 1 2 2 3 4 1

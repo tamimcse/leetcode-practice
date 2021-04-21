@@ -39,3 +39,8 @@ Now if the pattern length can be between 500-12000 bits. How will you do the abo
 How can we check whether a given key is present in the trie without going upto the depth of the trie i.e. in less number of iterations ?
 He was expecting a linked list to be maintained at each node sort of solution. I answered it using a compressed trie which is generally used in suffix tries (though he wasn’t expecting that much).
 Basically the question was if we are given a large IP address how can we perform operation on a trie with less number of computations. I told him that instead of modifying the trie we could even modify the address by converting into a different base probably a larger base – means a shorted equivalent address.
+
+18. Then he asked me the phonebook problem. How do we implement the system in our phones that maintain the contact list i.e. phone numbers and names of people?
+The problem’s solution is to use a trie so that for each prefix of the string we could easily find the names and numbers associated with it.
+How do we implement the frequently called list that maintains the list of people whom we contact frequently ?
+Solution is to use a heap and pop out the most frequently used k contacts whenever required. Heap because updation and insertion operations are fast.
