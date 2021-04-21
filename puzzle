@@ -44,3 +44,6 @@ Basically the question was if we are given a large IP address how can we perform
 The problem’s solution is to use a trie so that for each prefix of the string we could easily find the names and numbers associated with it.
 How do we implement the frequently called list that maintains the list of people whom we contact frequently ?
 Solution is to use a heap and pop out the most frequently used k contacts whenever required. Heap because updation and insertion operations are fast.
+
+19. Design an app like Zomato given queries like which restaurant is serving a particular dish. For e.g. if a user types pizza your program should output all the nearby restaurants serving pizza.
+First I gave him a map-based approach, but he asked me to think of a different data structure that can do this better. Then I gave him Trie based approach he was satisfied with the approach then he added 2-3 more queries they were also manageable by the same data structure.
