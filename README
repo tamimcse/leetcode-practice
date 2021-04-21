@@ -67,15 +67,7 @@ Output- 158 157 156
 
 topological sort
 
- Implement Web Crawler(Gave him a DFS based approach)
-
 https://www.geeksforgeeks.org/print-binary-tree-vertical-order/
-
-If you are given a small pattern of bits which is to be searched in potentially infinite ,continuous text of bits. How will you search the pattern? Remember the text cannot be stored since it is potentially infinite in length and the bits are coming one by one.
-Follow up question –
-Now if the pattern length can be between 500-12000 bits. How will you do the above question in O(n) time?
-
-How are files and directories organised in a Linux system? How will you implement it in C. Design a data structure for it.
 
 
 
