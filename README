@@ -86,8 +86,6 @@ Swap nodes in a linked list without swapping the data
 
 Given two integers x and y. Find the no of multiples of x between x and y
 
-Find Longest palindrome 
-
 
 Synopsys
 -------------------------------------------------------------------------------
