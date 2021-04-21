@@ -17,8 +17,6 @@ https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 Arista Network
 -------------------
 
-https://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place/
-
 https://www.geeksforgeeks.org/node-maximum-sum-immediate-children-n-ary-tree/
 
 Remove duplicate elements from a circular linked list and the duplicates occur consecutively in the list. It was tricky because of the edge case that the last element could be equal to the first element and since linked list is circular.
