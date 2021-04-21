@@ -41,17 +41,8 @@ Remove adjacent elements from circular linked list if they are same.
 
      eg - Input - 1 1 2 2 3 4 1
             Output- 1 2 3 4 
+
 Tricky part was that the last element is adjacent to first element in Circular Linked List
-
-
-Given a string and numbers decrypt it and find pattern for encrypting other strings.
-Pattern was like 158-a 157-b …. 133-z
-
-Given – heab (151 154 158 157)
-just observe the pattern
-
-Input – abc
-Output- 158 157 156
 
 topological sort
 
