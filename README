@@ -31,20 +31,8 @@ for all i < step, prev will be null.
 Find a cycle in a Directed Graph.
 
 
-Given Sum and Count. You can use the only integer from 1-9 (can use more than one time) to make the Sum. The restriction is that the number of the element should be equal to Count. Find all possible combinations.
-Example:
-Sum = 10 and Count = 2
-Result is (1, 9), (2, 8), (3, 7), (4, 6) and (5, 5)
-1 + 9 = 10
-2 + 8 = 10
-3 + 7 = 10
-4 + 6 = 10
-5 + 5 = 10
-
 Colour all the countries or states of Geographical maps where no two adjacent countries/states cannot be assigned the same color.
 
-
-Create 32×1 MUX using 2×1 MUX.
 
 In how many different ways can the letters of the word ‘CORPORATION’ be arranged so that the vowels always come together?
 
