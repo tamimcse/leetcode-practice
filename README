@@ -42,11 +42,7 @@ Find all nodes between two given nodes in a tree.
 
 Find a non repeating number in an array if other numbers are repeating twice
 
-https://www.geeksforgeeks.org/merge-two-sorted-lists-place/
-
 https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
-
-How can you design a hash which can have million entries with minimising collision?
 
 Given a sorted array and a value k which is number of buckets. Divide array elements into buckets so that the difference of bucket sum is minimum.
 
