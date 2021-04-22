@@ -89,8 +89,6 @@ Program to check whether a BST is balanced or not .
 
 https://www.geeksforgeeks.org/puzzle-13-100-prisoners-with-redblack-hats/
 
-https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
-
 
 Suppose there are 3 players and 1 coin(with Head and Tail). Devise a strategy such that we can have a clear winner. Probability of winning should be same for every player. The coin may be tossed any number of times.
 
