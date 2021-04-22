@@ -18,27 +18,17 @@ Synopsys
 -------------------------------------------------------------------------------
 https://leetcode.com/problems/is-graph-bipartite/
 
+Find a cycle in a Directed Graph.
+
+Colour all the countries or states of Geographical maps where no two adjacent countries/states cannot be assigned the same color.
 
 Scan Sweep Algorithm
 
 https://www.hackerrank.com/challenges/game-of-two-stacks
 
-Create Singly link list to Doubly link list.
-
-Create Singly link list to Doubly link list where prev pointer of an ith node will be pointing to (i- step)th node, the step will be given in run-time. 
-for all i < step, prev will be null.
-
-Find a cycle in a Directed Graph.
-
-
-Colour all the countries or states of Geographical maps where no two adjacent countries/states cannot be assigned the same color.
-
-
-In how many different ways can the letters of the word ‘CORPORATION’ be arranged so that the vowels always come together?
 
 Construct Balance Binary Tree from a sorted link list
 
-From a stream of integer do the operation getMax(). getMax() returns the max value from the stream and next time this function will return the max from the rest of the elements.
 
 The efficient way to traverse 2D array(column vs row traverse)
 
