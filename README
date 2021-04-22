@@ -70,28 +70,15 @@ https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
 
 https://www.geeksforgeeks.org/given-array-strings-find-strings-can-chained-form-circle/
 
-How to represent a large number[100 digits], convert a large number into binary, provide bits in a particular ranges[eg but 45 to 78] for a 200 digit number
-
 https://www.geeksforgeeks.org/puzzle-23-days-of-month-using-2-dice/
 
 https://www.cut-the-knot.org/SimpleGames/EightDigitPuzzle.shtml
 
 https://www.geeksforgeeks.org/puzzle-set-35-2-eggs-and-100-floors/
 
-Array of infinite numbers containing 0 and 1 , find out the transition point of 0 becoming 1 in O(logn) time
-
-Write a method which accepts 2 Integer Arrays and their size N . Element B[j] for j=0..N should be equal to product of all the elements A[i] i=0..n such that i!=j .Eg : A : {2,5,4,10} B should be {200,80,100,40 }.
-Time Complexity O(N)
-
-Derive an upper bound for height of a balanced binary tree with N Nodes.
-
 Program to check whether a BST is balanced or not .
 
 https://www.geeksforgeeks.org/puzzle-13-100-prisoners-with-redblack-hats/
-
-
-Suppose there are 3 players and 1 coin(with Head and Tail). Devise a strategy such that we can have a clear winner. Probability of winning should be same for every player. The coin may be tossed any number of times.
-
 
 
 
