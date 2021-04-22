@@ -38,8 +38,6 @@ https://www.geeksforgeeks.org/relationship-number-nodes-height-binary-tree/
 
 https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
 
-https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
-
 Given a sorted array and a value k which is number of buckets. Divide array elements into buckets so that the difference of bucket sum is minimum.
 
 1000 coins/ 10 bags, distribute the coins so that each number can be made between 1 to 1000.
