@@ -50,8 +50,6 @@ How can you design a hash which can have million entries with minimising collisi
 
 Given a sorted array and a value k which is number of buckets. Divide array elements into buckets so that the difference of bucket sum is minimum.
 
-Given a large number in form of linked list, also given a digit. Add the digit to linked list.
-
 1000 coins/ 10 bags, distribute the coins so that each number can be made between 1 to 1000.
 
 https://www.geeksforgeeks.org/frequency-substring-string/
