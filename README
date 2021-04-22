@@ -50,8 +50,6 @@ Find longest path in DAG
 
 how do we check for valid input that means no cycle in given graph.
 
-https://www.geeksforgeeks.org/queue-using-stacks/
-
 https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
 
 https://www.geeksforgeeks.org/given-array-strings-find-strings-can-chained-form-circle/
