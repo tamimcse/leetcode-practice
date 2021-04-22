@@ -17,16 +17,6 @@ https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 Arista Network
 -------------------
 
-Remove duplicate elements from a circular linked list and the duplicates occur consecutively in the list. It was tricky because of the edge case that the last element could be equal to the first element and since linked list is circular.
-
-
-Remove adjacent elements from circular linked list if they are same.
-
-     eg - Input - 1 1 2 2 3 4 1
-            Output- 1 2 3 4 
-
-Tricky part was that the last element is adjacent to first element in Circular Linked List
-
 topological sort
 
 
