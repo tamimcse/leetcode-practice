@@ -1,5 +1,5 @@
 /*
-Detect a cycle in a graph
+https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
 */
 #include <stdio.h>
 #include <stdlib.h>

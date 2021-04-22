@@ -17,8 +17,6 @@ https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 Synopsys
 -------------------------------------------------------------------------------
 
-Find a cycle in a Directed Graph.
-
 Colour all the countries or states of Geographical maps where no two adjacent countries/states cannot be assigned the same color.
 
 Scan Sweep Algorithm
@@ -46,8 +44,6 @@ https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/
 https://www.geeksforgeeks.org/write-one-line-functions-for-strcat-and-strcmp/
 
 Find longest path in DAG
-
-how do we check for valid input that means no cycle in given graph.
 
 https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
 
