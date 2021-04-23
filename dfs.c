@@ -23,6 +23,7 @@ void insert_edge (struct graph *g, int v1, int v2)
   new_edge->v = v2;
   new_edge->next = g->adj_list[v1];
   g->adj_list[v1] = new_edge;
+  g->edges_num++;
 }
 
 void dfs_rec_inner (struct graph *g, int v, int *visited)
@@ -43,10 +44,33 @@ void dfs_rec (struct graph *g)
   dfs_rec_inner (g, 0, visited);
 }
 
+void dfs_itr (struct graph *g)
+{
+  int *visited = (int *) calloc (g->vertices_num, sizeof (*visited));
+  int *stack = (int *) calloc (g->edges_num, sizeof (*stack));
+  int s_idx = 0, cur_node;
+  struct edge *runner;
+
+  stack[s_idx++] = 0;
+  while (s_idx) {
+    cur_node = stack[--s_idx];
+    printf ("%d ", cur_node);
+    visited[cur_node] = 1;
+    runner = g->adj_list[cur_node];
+    while (runner) {
+      if (!visited[runner->v])
+        stack[s_idx++] = runner->v;
+      runner = runner->next;
+    }
+  }
+}
+
+
 void main ()
 {
   struct graph g;
   g.vertices_num = 7;
+  g.edges_num = 0;
   g.adj_list = (struct edge **) calloc (g.vertices_num, sizeof (*(g.adj_list)));
   insert_edge (&g, 0, 1);
   insert_edge (&g, 1, 2);
@@ -58,5 +82,8 @@ void main ()
   insert_edge (&g, 4, 3);
 
   dfs_rec (&g);
+  printf ("\n");
+
+  dfs_itr (&g);
   printf ("\n");
 }
