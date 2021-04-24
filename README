@@ -21,6 +21,8 @@ Scan Sweep Algorithm
 
 https://www.hackerrank.com/challenges/game-of-two-stacks
 
+https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
+
 Construct Balance Binary Tree from a sorted link list
 
 https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
@@ -34,8 +36,6 @@ Given a sorted array and a value k which is number of buckets. Divide array elem
 1000 coins/ 10 bags, distribute the coins so that each number can be made between 1 to 1000.
 
 https://www.geeksforgeeks.org/write-one-line-functions-for-strcat-and-strcmp/
-
-https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
 
 https://www.geeksforgeeks.org/given-array-strings-find-strings-can-chained-form-circle/
 
