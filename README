@@ -33,8 +33,6 @@ Given a sorted array and a value k which is number of buckets. Divide array elem
 
 1000 coins/ 10 bags, distribute the coins so that each number can be made between 1 to 1000.
 
-
-
 https://www.geeksforgeeks.org/write-one-line-functions-for-strcat-and-strcmp/
 
 https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
