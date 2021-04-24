@@ -1,5 +1,7 @@
 /*
-String matching using KMP algorithm
+https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+
+https://www.geeksforgeeks.org/frequency-substring-string/
 */
 #include <stdio.h>
 #include <string.h>
