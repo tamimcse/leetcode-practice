@@ -55,3 +55,5 @@ Message 2- <"abc", 222, "Arista", 5>,
 Message 3- <"xyz", 1234, "World", 5>.
 Output will be- <"xyz", 1234, "helloWorld", 10>
                 <"abc", 222, "Arista", 5>
+
+21. https://www.geeksforgeeks.org/puzzle-13-100-prisoners-with-redblack-hats/ (could not understand)
