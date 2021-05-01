@@ -19,8 +19,6 @@ Synopsys
 
 https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/
 
-https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
-
 Given a sorted array and a value k which is number of buckets. Divide array elements into buckets so that the difference of bucket sum is minimum.
 
 1000 coins/ 10 bags, distribute the coins so that each number can be made between 1 to 1000.
