@@ -14,11 +14,6 @@ https://www.geeksforgeeks.org/word-break-problem-dp-32/
 https://www.geeksforgeeks.org/word-break-problem-using-backtracking/
 
 
-Synopsys
--------------------------------------------------------------------------------
-
-Given a sorted array and a value k which is number of buckets. Divide array elements into buckets so that the difference of bucket sum is minimum.
-
 
 
 
