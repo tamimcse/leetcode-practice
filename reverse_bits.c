@@ -38,6 +38,22 @@ unsigned int reverse_bit (unsigned int a)
   return out;
 } 
 
+/*
+//https://leetcode.com/problems/reverse-bits/solution/
+
+uint32_t reverseBits(uint32_t n) {
+  int i, tmp;
+  uint32_t res = 0;
+  
+  for (i = 0; i < 32; i++) {
+    tmp = n & 1;
+    n = n >> 1;
+    res = (res << 1) | tmp;
+  }
+  return res;
+}
+*/
+
 void main ()
 {
   unsigned int a = 1, b = 5;
