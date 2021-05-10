@@ -52,6 +52,28 @@ void reverse ()
   head = runner1;
 }
 
+/*
+struct ListNode* reverseList(struct ListNode* head){
+  struct ListNode *r1, *r2, *r3;
+  
+  if (!head)
+    return NULL;
+  
+  r1 = head;
+  r2 = head->next;
+  if (!r2)
+    return head;
+  while (r2) {
+    r3 = r2->next;
+    r2->next = r1;
+    r1 = r2;
+    r2 = r3;
+  }
+  head->next = NULL;
+  return r1;
+}
+*/
+
 void main ()
 {
   insert (3);
