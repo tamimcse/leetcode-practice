@@ -18,3 +18,7 @@ int cmp (const void *a, const void *b)
 6. Note that, you need to include 'string.h' in order to use memcpy.
 
 7. memcpy prototype: memcpy(void *dest, const void * src, size_t n);
+
+8. remember that there are sprintf () and scanf ().
+
+9. ASCII table has 256 characxters
