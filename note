@@ -1,3 +1,20 @@
 1. To include "match.h", need to use -lm to compile
 
 2. In backtracking algorithms, the inner algorithm should not return anything. The inner algorithm should return the outout as input.
+
+3. cmp in qsort():
+
+int cmp (const void *a, const void *b)
+{
+  return *((int *)a) - *((int *)b);
+}
+
+3. qsort prototype: qsort(arr, len, sizeof(arr[0]), cmp);
+
+4. When returning char *, note that char * should also include '\0'. So, when allocating it, allocate one character extra.
+
+5. when assigning NULL to an element of char *, assign '\0' instead;
+
+6. Note that, you need to include 'string.h' in order to use memcpy.
+
+7. memcpy prototype: memcpy(void *dest, const void * src, size_t n);
