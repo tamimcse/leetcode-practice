@@ -1,0 +1,3 @@
+1. To include "match.h", need to use -lm to compile
+
+2. In backtracking algorithms, the inner algorithm should not return anything. The inner algorithm should return the outout as input.
