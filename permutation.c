@@ -34,7 +34,7 @@ void permute_inner (int* nums, int numsSize, int *arr, int arr_cnt, int **res, i
 int** permute(int* nums, int numsSize, int* returnSize, int** returnColumnSizes){
   int **res = (int **) calloc (46656, sizeof (*res));
   int *arr = (int *) calloc (numsSize, sizeof (*arr));
-  int i, res_cnt;
+  int i, res_cnt = 0;
   
   for (i = 0; i < numsSize; i++) {
     int hash[21] = {0};
