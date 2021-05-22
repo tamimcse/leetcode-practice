@@ -27,4 +27,6 @@ int cmp (const void *a, const void *b)
 
 10. Remember what palindrome and anagram means.
 
+11. *returnColumnSizes[i] is not right . It should be (*returnColumnSizes)[i].
+
 
