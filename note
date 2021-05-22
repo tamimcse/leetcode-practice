@@ -22,3 +22,7 @@ int cmp (const void *a, const void *b)
 8. remember that there are sprintf () and scanf ().
 
 9. ASCII table has 256 characxters
+
+9. When dealing with equation with index, double check if your equation needs "- 1".
+
+
