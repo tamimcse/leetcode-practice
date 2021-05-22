@@ -25,4 +25,6 @@ int cmp (const void *a, const void *b)
 
 9. When dealing with equation with index, double check if your equation needs "- 1".
 
+10. Remember what palindrome and anagram means.
+
 
