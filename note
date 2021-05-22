@@ -25,7 +25,7 @@ int cmp (const void *a, const void *b)
 
 9. When dealing with equation with index, double check if your equation needs "- 1".
 
-10. Remember what palindrome and anagram means.
+10. Remember what palindrome and anagram means. Two strings are anagrams if their character count of each character is same for the two string. For instance, eat, ate and tea are anagram. 
 
 11. *returnColumnSizes[i] is not right . It should be (*returnColumnSizes)[i].
 

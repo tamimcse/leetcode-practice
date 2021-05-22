@@ -85,7 +85,7 @@ char *** groupAnagrams(char **strs, int strsSize, int* returnSize, int** returnC
 
 void main ()
 {
-  char *strs[] = {"eat","tea","tan","ate","nat","bat"};
+  char *strs[] = {"bdddddddddd","bbbbbbbbbbc"};
   int len = sizeof (strs) / sizeof (strs[0]);
   int res_size;
   int *returnColumnSizes;
