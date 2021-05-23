@@ -28,7 +28,7 @@ bool canJump(int* nums, int numsSize){
     }
   }
   
-  char *inserted = (int *) calloc (numsSize, sizeof (*inserted));
+  char *inserted = (char *) calloc (numsSize, sizeof (*inserted));
   int *queue = (int *) malloc ((numsSize + 1) * sizeof (*queue));
   int q_start = 0, q_end = 0;
   queue[q_end++] = 0;
