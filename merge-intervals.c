@@ -31,6 +31,41 @@ int merge_intervals (int arr[][2], int len, int *res, int *res_cnt)
   *res_cnt = i + 1;
 }
 
+/*
+https://leetcode.com/problems/merge-intervals/
+
+int cmp (const void *a, const void *b)
+{
+  return (*((int **)a))[0] - (*((int **)b))[0];
+}
+
+int** merge(int** intervals, int intervalsSize, int* intervalsColSize, int* returnSize, int** returnColumnSizes){
+  qsort (intervals, intervalsSize, sizeof (int) * 2, cmp);
+  int **res = (int **) calloc (intervalsSize, sizeof (*res));
+  int res_cnt = 0;
+  int i, j;
+  
+  for (i = 0; i < intervalsSize;) {
+    j = i + 1;
+    while (j < intervalsSize && intervals[j][0] <= intervals[i][1]) {
+      if (intervals[j][1] > intervals[i][1])
+        intervals[i][1] = intervals[j][1];
+      j++;
+    }
+    res[res_cnt] = (int *) malloc (2 * sizeof (int));
+    res[res_cnt][0] = intervals[i][0];
+    res[res_cnt][1] = intervals[i][1];
+    i = j;
+    res_cnt++;
+  }
+  *returnSize = res_cnt;
+  *returnColumnSizes = (int *) malloc (res_cnt * sizeof (int));
+  for (i = 0; i < res_cnt; i++)
+    (*returnColumnSizes)[i] = 2;
+  return res;
+}
+*/
+
 void main ()
 {
   int arr[][2] = {{1, 3}, {5, 7}, {2, 4}, {6, 8}};
@@ -46,3 +81,5 @@ void main ()
   }
   printf ("\n");
 }
+
+
