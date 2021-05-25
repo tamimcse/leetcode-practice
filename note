@@ -32,6 +32,14 @@ int cmp (const void *a, const void *b)
 
 12. Adjacency matrix may look easier than adjacency list, but they are really not. So, don't try to use adjacency matrix because it's easier. Besides, adjacency matrix requires looping through each element to the matrix row which cause to exceed time limit for large matrix.
 
-13. Sometimes, a problem can be solved using graph. But, it can be solved not using graph and the version is more efficient.
+13. Sometimes, a problem can be solved using graph. But, it can be solved not using graph and the version is more efficient. 
+
+14. Sometimes, a problem can be solved using graph. and should be solved using graph. But, not really creating graph data structure. Remember the "word search" problem. Apply DFS without creating the graph.
+
+15. Instead of checking col < num_col - 1, check if col + 1 < num_col.
+
+16. If you need visit array for a 2D array (each element of the array is a node), create a 2D visit array, instead of a single array representing a 2D array. It produces cleaner code.
+
+ 
 
 
