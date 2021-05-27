@@ -42,6 +42,8 @@ int cmp (const void *a, const void *b)
 
 17. Think in terms of array length instead of index. This results clear code and easy to think of.
 
+18. Instead of checking num_chars_grouped <= len - 2, check num_chars_grouped + 2 <= len.
+
  
 
 
