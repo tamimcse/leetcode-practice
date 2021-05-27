@@ -40,6 +40,8 @@ int cmp (const void *a, const void *b)
 
 16. If you need visit array for a 2D array (each element of the array is a node), create a 2D visit array, instead of a single array representing a 2D array. It produces cleaner code.
 
+17. Think in terms of array length instead of index. This results clear code and easy to think of.
+
  
 
 
