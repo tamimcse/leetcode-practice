@@ -44,6 +44,8 @@ int cmp (const void *a, const void *b)
 
 18. Instead of checking num_chars_grouped <= len - 2, check num_chars_grouped + 2 <= len.
 
+19. For instance, you have two characters containing digits. Need to check if they corresponds to 1-26. You can check the first character and the  check if the second characters are within certain range. Instead, convert the string to its numerical value. 
+
  
 
 
