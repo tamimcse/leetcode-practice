@@ -48,6 +48,8 @@ int cmp (const void *a, const void *b)
 
 20. Sometimes, a problem may look like backtracking. Then look carefully if there is overlapping substructure. If there is, they can be optimized by memorization or even better can be implemented by DP. 
 
+21. We can create zig zag pattern using two stacks.
+
  
 
 
