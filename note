@@ -50,6 +50,8 @@ int cmp (const void *a, const void *b)
 
 21. We can create zig zag pattern using two stacks.
 
+22. Check if you can use a fixed number for stack or queue. If yes, alllocate it statically instead of dynamicly.
+
  
 
 
