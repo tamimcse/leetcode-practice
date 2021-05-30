@@ -100,6 +100,9 @@ In heapify, first compare the two chieldren. Find the smallest children. Then co
 
 Given an array, how to construct a heap from that? First, find the parent to the last element. Apply heapify for that element and all the prior element in bottom up fashion.
 
+Note that, wheather you do top down or bottom up, the heapify function is same.
+
+Take a look at kth_smallest_element.c and kth_largest_stream.c.
 
 
 
