@@ -96,7 +96,9 @@ Now, how to remove element from min-heap? remove the root. Replace the root with
 
 How to insert a new node to the heap> Add the new node to the end of the array (make it right most leaf). Then push it up to restore the heap properties (heapify). 
 
-In heapify, first compare the two chieldren. Find the smallest children. Then compare if the node is larger than the smallest children. If yes, swap them.
+In heapify, first compare the two chieldren. Find the smallest children. Then compare if the node is larger than the smallest children. If yes, swap them. Note that, there can be only one children. So, implement it properly.
+
+Given an array, how to construct a heap from that? First, find the parent to the last element. Apply heapify for that element and all the prior element in bottom up fashion.
 
 
 
