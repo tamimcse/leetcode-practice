@@ -55,7 +55,9 @@ int cmp (const void *a, const void *b)
 23. In min heap, each node is smaller than its chieldren. Index to the children can be found as:
 
                            idx1 = 2 * i + 1;//same as chield1 = 2n
-                           idx2 = 2* i + 2;//same as chield1 = 2n + 1
+                           idx2 = 2 * i + 2;//same as chield1 = 2n + 1
+
+Again, to get the index of parent from a chield, use i = floor ((n - 1)/2); Can be implemented as i = (last_idx - 1) >> 1;
 
 Note that, a heap is also a complete tree. A complete tree is where all the levels are completely filled except the last level. Example of banced tree is:
 
