@@ -104,6 +104,8 @@ Note that, wheather you do top down or bottom up, the heapify function is same.
 
 Take a look at kth_smallest_element.c and kth_largest_stream.c.
 
+24. If you need to compare k elements at each step to get the largest or smallest element, use min or max heap. Remember merging of k linked list or arrays..
+ 
 
 
 
