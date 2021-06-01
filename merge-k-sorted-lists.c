@@ -1,9 +1,11 @@
 /*
 https://leetcode.com/problems/merge-k-sorted-lists/
+
+Use min-heap to achieve O (nlogk) solution
 */
 
 #define INF 100000
-
+//O (nk) solution
 struct ListNode* mergeKLists(struct ListNode** lists, int listsSize){
   struct ListNode **runners = (struct ListNode **) malloc (listsSize * sizeof (*runners));
   int i, j;
