@@ -45,6 +45,7 @@ int stair_case_dp(int n)
   return dp_arr[n];
 }
 
+//check beneath main
 void main ()
 {
   int n = 9;
@@ -52,3 +53,23 @@ void main ()
   int dp_res = stair_case_dp (n);
   printf ("Number of ways to reach %d stairs with maximum 2 step is %d DP result %d \n", n, res, dp_res);
 }
+
+/*
+https://leetcode.com/problems/climbing-stairs/
+
+int climbStairs(int n){
+  int i;
+  int *dp = (int *) malloc (n * sizeof (*dp));
+  
+  if (n >= 1)
+    dp[0] = 1;
+  if (n >= 2)
+    dp[1] = 2;
+  
+  for (i = 2; i < n; i++) {
+    dp[i] = dp[i-1] + dp[i-2];
+  }
+  
+  return dp[n-1];
+}
+*/
