@@ -108,7 +108,13 @@ Take a look at kth_smallest_element.c and kth_largest_stream.c.
  
 26. char* strstr(char *s, char *pattern) returns pointer to the first occurance of the string pattern in string s. If pattern does not occur, it returns NULL.
 
+27. sscanf usage:
 
- 
+   int day, year;
+   char weekday[20], month[20], dtm[100];
+   strcpy( dtm, "Saturday March 25 1989" );
+   sscanf( dtm, "%s %s %d  %d", weekday, month, &day, &year );
+   printf("%s %d, %d = %s\n", month, day, year, weekday );
 
+28. There is no function called isnum(). There is however isdigit(char c); 
 
