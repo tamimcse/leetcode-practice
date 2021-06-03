@@ -155,6 +155,67 @@ bool valid_ipv4 (char * IP)
   return num_dot == 4;
 }
 
-30. To implement DFS using stack, keep these in mind. You only need one color to color the visit array, not 2 colors. When insert the first element to the stack, don't color it. In while loop, get the top of the stack (don't pop it immediately). If the ToS is colored then pop it. Otherwise, color the node. Then push all the adjacent nodes. When pushing adjacent nodes, check if the nodes have been colored yet. Pushing an adjacent node only if it's not colored helps us to avoid adding same node multiple times. 
+30. To implement DFS using stack, keep these in mind. 
+
+First off, your stack may need more elements than the number of nodes. So, make the stack size twice as big as the number of nodes.
+
+Second, you need two colors to color the visit array, not one color. When insert the first element to the stack, don't color it. In while loop, get the top of the stack (don't pop it immediately). If the ToS is colored as 1 then pop it and color as 2 (marked as visited). Otherwise, color the node with 1 (on the path). Then push all the adjacent nodes. When pushing adjacent nodes, check if the nodes have been colored yet (with 1 or 2). If the node we are inserting is 1, it means a cycle. You may add it or not depending on the application. If the node you are inserting is colored 2, that means, it's already visited and removed from the stack before. No need to add it back to stack.
+
+Note that, when you are popping from the stack, it means backtracking. You need to add add continue (I often forget this) so that it processes the next from the stack.
+
+Course scadule Example:
+
+struct edge {
+  int v2;
+  struct edge *next;
+};
+
+bool canFinish(int numCourses, int** prerequisites, int prerequisitesSize, int* prerequisitesColSize){
+  struct edge **adj_list = (struct edge **) calloc (numCourses, sizeof (*adj_list));
+  int i, j, curr;
+  struct edge *new_edge;
+  int *in_degrees = (int *) calloc (numCourses, sizeof (*in_degrees));
+  int *visit = (int *) calloc (numCourses, sizeof (*visit));
+  int *stack = (int *) malloc (numCourses * 2 * sizeof (*stack));
+  int s_idx;
+  struct edge *runner;
+  
+  for (i = 0; i < prerequisitesSize; i++) {
+    new_edge = (struct edge *) malloc (sizeof (*new_edge));
+    new_edge->v2 = prerequisites[i][1];
+    new_edge->next = adj_list[prerequisites[i][0]];
+    adj_list[prerequisites[i][0]] = new_edge;
+  }
+  
+  for (i = 0; i < prerequisitesSize; i++) {
+    in_degrees[prerequisites[i][1]]++;
+  }
+  
+  for (i = 0; i < numCourses; i++) {
+    if (visit[i] == 2)
+      continue;
+    s_idx = 0;
+    stack[s_idx++] = i;
+    while (s_idx) {
+      curr = stack[s_idx - 1];
+      if (visit[curr] == 1) {
+        s_idx--;
+        visit[curr] = 2;
+        continue;
+      }
+      visit[curr] = 1;
+      runner = adj_list[curr];
+      while (runner) {
+        if (visit[runner->v2] == 1)
+          return false;
+        //not already visited
+        if (visit[runner->v2] != 2)
+          stack[s_idx++] = runner->v2;
+        runner = runner->next;
+      }
+    }
+  }
+  return true;
+}
 
 
