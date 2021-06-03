@@ -123,5 +123,36 @@ Take a look at kth_smallest_element.c and kth_largest_stream.c.
   char s[4][20];
   int count = sscanf (IP, "%s.%s.%s.%s", &s[0][0], &s[1][0], &s[2][0], &s[3][0]);
 
-  here, &s[0][0] gets the whole IP string.  &s[1][0], &s[2][0], &s[3][0] get garbage value. So, parse the string manually instead.
+  here, &s[0][0] gets the whole IP string.  &s[1][0], &s[2][0], &s[3][0] get garbage value. So, parse the string manually instead. 
+
+for instance, see the following function:
+
+bool valid_ipv4 (char * IP)
+{
+  int i, j, k, sum, num_dot = 0;
+  int len = strlen (IP);
+  
+  for (i = 0, j = 0; i <= len; i++) {
+    if (IP[i] == '.' || IP[i] == '\0') {
+      num_dot++;
+      if (i - j > 3 || i == j)
+        return false;
+      if (i - j >= 2 && IP[j] == '0')
+        return false;
+      sum = 0;
+      for (k = j; k < i; k++) {
+        sum = sum * 10 + (IP[k] - '0');
+      }
+      if (sum > 255)
+        return false;
+      j = i + 1;
+      continue;
+    }
+    if (!isdigit(IP[i]))
+      return false;
+  }
+  
+  return num_dot == 4;
+}
+
 
