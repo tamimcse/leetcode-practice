@@ -33,9 +33,54 @@ void reverse_words (char *str)
 
 }
 
+//check beneath main
 void main ()
 {
   char str[] = "I love Kent";
   reverse_words (str);
   printf ("Result is %s \n", str);
 }
+
+/*
+https://leetcode.com/problems/reverse-words-in-a-string/
+
+char * reverseWords(char * s){
+  int i, j, k, len = strlen (s), start, end, m, n;
+  bool ignore_space = true;
+  char tmp;
+
+  
+  for (i = 0, k = 0; s[i]; i++) {
+    if (ignore_space && s[i] == ' ')
+      continue;
+    s[k++] = s[i];
+    if (s[i] == ' ')
+      ignore_space = true;
+    else
+      ignore_space = false;
+  }
+  if (k > 0 && s[k-1] == ' ')
+    s[--k] = '\0';
+  else
+    s[k] = '\0';
+  
+  for (i = 0, j = k - 1; i < j; i++, j--) {
+    tmp = s[i];
+    s[i] = s[j];
+    s[j] = tmp;
+  }
+  
+  for (i = 0, start = 0; i <= k; i++) {
+    if (s[i] == ' ' || s[i] == '\0') {
+      end = i - 1;
+      for (m = start, n = end; n > m; m++, n--) {
+        tmp = s[m];
+        s[m] = s[n];
+        s[n] = tmp;
+      }
+      start = i + 1;
+    }
+  }
+  return s;
+}
+*/
