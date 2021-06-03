@@ -68,6 +68,7 @@ bool triplet_sum2 (int arr[], int len, int target)
   return false;
 }
 
+//check beneath main
 void main ()
 {
   int arr [] = {12, 3, 4, 1, 6, 9};
@@ -77,3 +78,58 @@ void main ()
 
   triplet_sum2 (arr, len, 24);
 }
+
+/*
+https://leetcode.com/problems/3sum/
+
+int cmp (const void *a, const void *b)
+{
+  return *((int *)a) - *((int *)b);
+}
+
+bool binary_search (int* nums, int start, int end, int to_find)
+{
+  int mid;
+  
+  while (end >= start) {
+    mid = (start + end) >> 1;
+    if (nums[mid] == to_find)
+      return true;
+    if (to_find > nums[mid])
+      start = mid + 1;
+    else
+      end = mid - 1;
+  }
+  return false;
+}
+
+int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes){
+  int i, j, to_find;
+  int **res = (int **) malloc (pow (numsSize, 2) * sizeof (*res));
+  int res_cnt = 0;
+  
+  qsort (nums, numsSize, sizeof (int), cmp);
+  
+  for (i = 0; i < numsSize - 2; i++) {
+    if (i > 0 && nums[i] == nums[i-1])
+      continue;
+    for (j = i + 1; j < numsSize - 1; j++) {
+      if (j > i + 1 && nums[j] == nums[j-1])
+        continue;
+      to_find = 0 - nums[i] - nums[j];
+      if (!binary_search (nums, j + 1, numsSize - 1, to_find))
+        continue;
+      res[res_cnt] = (int *) malloc (3 * sizeof (int));
+      res[res_cnt][0] = nums[i];
+      res[res_cnt][1] = nums[j];
+      res[res_cnt][2] = to_find;
+      res_cnt++;
+    }
+  }
+  *returnSize = res_cnt;
+  *returnColumnSizes = (int *) malloc (res_cnt * sizeof (int));
+  for (i = 0; i < res_cnt; i++)
+    (*returnColumnSizes)[i] = 3;
+  return res;
+}
+*/
