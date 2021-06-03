@@ -20,6 +20,8 @@ int cmp (const void *a, const void *b)
 7. memcpy prototype: memcpy(void *dest, const void * src, size_t n);
    memset prototype: memset(void *str, int c, size_t n);
 
+Note that, memset is good for setting character to a string, but not suitable for setting an integer to an integer array.
+
 8. remember that there are sprintf () and scanf ().
 
 9. ASCII table has 256 characxters
