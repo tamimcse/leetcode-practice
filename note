@@ -155,4 +155,6 @@ bool valid_ipv4 (char * IP)
   return num_dot == 4;
 }
 
+30. To implement DFS using stack, keep these in mind. You only need one color to color the visit array, not 2 colors. When insert the first element to the stack, don't color it. In while loop, get the top of the stack (don't pop it immediately). If the ToS is colored then pop it. Otherwise, color the node. Then push all the adjacent nodes. When pushing adjacent nodes, check if the nodes have been colored yet. Pushing an adjacent node only if it's not colored helps us to avoid adding same node multiple times. 
+
 
