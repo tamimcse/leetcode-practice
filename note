@@ -218,4 +218,9 @@ bool canFinish(int numCourses, int** prerequisites, int prerequisitesSize, int* 
   return true;
 }
 
+31. For instance, you want to reverse each word in  a string. Here, you should iterate from 0 to strlen(s) + 1. If i-th character is a space or NULL, then reverse the string.
+
+32. If you are asked need to reverse a string, note that, your pointer should be i = 0, j = strlen(s). Often I take j = strlen (s) + 1.
+
+33. For instance, You need to remove leading and trailing spaces. You also need to remove extra spaces between words. you can do it by maintaining a state variable called ignore_space. Initially it should be true. If you get a character, make it false. Again if you get a space, make it true.
 
