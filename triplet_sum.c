@@ -10,6 +10,13 @@ Input: array = {1, 2, 3, 4, 5}, sum = 9
 Output: 5, 3, 1
 Explanation: There is a triplet (5, 3 and 1) present 
 in the array whose sum is 9. 
+
+Note that, this can be done using:
+
+ two nested loop + hash
+ two nested loop + binary search
+ one loop + tuple search using two pointers.
+
 */
 #include <stdio.h>
 #include <stdbool.h>
