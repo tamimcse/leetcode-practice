@@ -226,3 +226,15 @@ bool canFinish(int numCourses, int** prerequisites, int prerequisitesSize, int* 
 
 33. For instance, You need to remove leading and trailing spaces. You also need to remove extra spaces between words. you can do it by maintaining a state variable called ignore_space. Initially it should be true. If you get a character, make it false. Again if you get a space, make it true.
 
+34. If you print each trhiplet of an array, it should be like:
+
+  i : 0 to len - 3
+    j : i + 1 to len - 2
+      k : j + 1 to len - 1
+
+Not, 
+
+  i : 0 to len - 1
+    j : i + 1 to len -1
+      k : j + 1 to len - 1
+
