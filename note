@@ -118,7 +118,7 @@ Take a look at kth_smallest_element.c and kth_largest_stream.c.
 
 28. There is no function called isnum(). There is however isdigit(char c); 
 
-29. parsing multiple string from a string using sscanf can be trricky. For instance,
+29. parsing multiple string from a string using sscanf can be tricky. For instance,
 
   char s[4][20];
   int count = sscanf (IP, "%s.%s.%s.%s", &s[0][0], &s[1][0], &s[2][0], &s[3][0]);
