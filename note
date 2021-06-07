@@ -246,3 +246,5 @@ Quick sort partion does the same thing in an uniform way. It also uses two indic
 
 For details, take a look at https://www.geeksforgeeks.org/quick-sort/ 
 
+36. if (a & 1 == 0) will not work!!!!. It should be if ((a & 1) == 0)
+
