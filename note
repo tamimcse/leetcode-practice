@@ -251,3 +251,9 @@ For details, take a look at https://www.geeksforgeeks.org/quick-sort/
 36. if (a & 1 == 0) will not work!!!!. It should be if ((a & 1) == 0)
 
 37. isalpha() checks if a character is an alphabet
+
+38. It is possible to use sizeof () to calculate the amount of memory a string is consuming. But, you may get wrong results sometimes. So, you strlen instead of sizeof () to calculate the memory size of a string.
+
+https://stackoverflow.com/questions/18525272/getting-wrong-string-length
+
+
