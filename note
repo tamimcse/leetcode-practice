@@ -256,4 +256,10 @@ For details, take a look at https://www.geeksforgeeks.org/quick-sort/
 
 https://stackoverflow.com/questions/18525272/getting-wrong-string-length
 
+39. Sometimes you may want to implement a circular array (e.g. hit counter problem). Mapping an element to an index of an array can be tricky. For instance, you want to access i-th element (index starts from 1) where length of the array in len. You can do so by
+
+idx = (i - 1) % len; Not idx = (i % len) - 1.
+
+Also iterating circular array can be tricky. 
+
 
