@@ -273,7 +273,9 @@ Also note how we are checking if we reached to the end. Checking if i < len will
 
 Again, for instance, you have two index i and j. You want to check if (i == j - 1), i.e. if i is the preceding element of j. You cannot do it directly because arr[len-1] is the preceeding element of arr[len-1]. To check such case, you can do this:
 
-if ((i + 1) % len == j) 
+if ((i + 1) % len == j)
+
+Also note that, idx_new_elem > idx_last_inserted_elem + len. That is, you are rounding the whole array. So, you may want to store that last inserted element.
 
 40. Don't update input parameters as local variable. Create your own. It is less error prone.
 
