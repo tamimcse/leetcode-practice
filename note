@@ -271,4 +271,6 @@ for (i = start; i != end; i = (i + 1) % len) {
 Note how we are incrementing i.
 Also note how we are checking if we reached to the end. Checking if i < len will not work because if start > end, then i needs to be increase to end, then become 0 and then reach the end.
 
+40. Don't update input parameters as local variable. Create your own. It is less error prone.
+
 
