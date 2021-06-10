@@ -279,4 +279,11 @@ Also note that, idx_new_elem > idx_last_inserted_elem + len. That is, you are ro
 
 40. Don't update input parameters as local variable. Create your own. It is less error prone.
 
+41. If you need to calculate sum or multiplication of int, check if you need double to store it. Otherwise overflow happens. If you need double, also change the expression to make sure that double is stored. For instance,
+
+int a, b;
+double sum;
+
+sum = (double)a + b; 
+
 
