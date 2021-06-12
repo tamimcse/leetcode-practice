@@ -304,4 +304,6 @@ So, if you need a special condition, check if you can find a pattern where the s
 
 Also note that you may need to revisit the equation later if the equation works for all the cases.
 
+44. Sometimes, in DP, I make O(n^2) solution where I could make O(n) solution (for instance house robber 1 and 2). In DP, you should not need to look much further in the DP table. You should only need to look for few previous elements to calculate the new element. If you need to look all the previous elements, double check if you could formulate DP such that that is not needed.
+
 
