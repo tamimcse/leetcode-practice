@@ -312,4 +312,5 @@ One DP table always stores the best solution so far. It calculates the next entr
 
 Another DP table stores the best solution using the current node. In this case, to calculate the value of a new entry, we need to iterate all the previous entry to get the best solution.
 
+45. Sometimes, a complex problem can be break into simpler problems. Then solve the simpler problem. For instance, break the circular array of house robber II problem into two linear arrays.
 
