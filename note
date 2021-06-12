@@ -40,7 +40,7 @@ Note that, memset is good for setting character to a string, but not suitable fo
 
 15. Instead of checking col < num_col - 1, check if col + 1 < num_col.
 
-16. If you need visit array for a 2D array (each element of the array is a node), create a 2D visit array, instead of a single array representing a 2D array. It produces cleaner code.
+16. If you need visit array for a 2D array (each element of the array is a node), create a 2D visit array, instead of a single array representing a 2D array. It produces cleaner code. (added later having single array is not bad either)
 
 17. Think in terms of array length instead of index. This results clear code and easy to think of.
 
@@ -219,6 +219,10 @@ bool canFinish(int numCourses, int** prerequisites, int prerequisitesSize, int* 
   }
   return true;
 }
+
+Added later:
+
+This is not always the case. In some cases, in DFS, you can just pop from the stack (like DFS). For instance, number-of-islands problem can be solved using that. 
 
 31. For instance, you want to reverse each word in  a string. Here, you should iterate from 0 to strlen(s) + 1. If i-th character is a space or NULL, then reverse the string.
 
