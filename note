@@ -302,4 +302,6 @@ This can be simplified to
 
 So, if you need a special condition, check if you can find a pattern where the speacial condition goes away.
 
+Also note that you may need to revisit the equation later if the equation works for all the cases.
+
 

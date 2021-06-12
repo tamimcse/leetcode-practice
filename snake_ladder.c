@@ -130,6 +130,7 @@ int snake_ladder (int move[], int size)
   bfs (&g, 0);
 }
 
+//check beneath main()
 void main ()
 {
   int moves[SIZE];
@@ -152,3 +153,52 @@ void main ()
 
   snake_ladder (moves, SIZE);
 }
+
+
+/*
+https://leetcode.com/problems/snakes-and-ladders/
+
+void get_cell (int num, int row_size, int *row, int *col)
+{
+  *row = row_size - 1 - (num - 1) / row_size;
+  if ((*row & 1) == ((row_size - 1) & 1)) {
+    *col = (num - 1) % row_size;
+  } else {
+    *col = row_size - 1 - ((num - 1) % row_size);
+  }
+}
+
+int snakesAndLadders(int** board, int boardSize, int* boardColSize){
+  int num_row = boardSize, i, j;
+  int *queue = (int *) malloc (num_row * num_row * 2 * sizeof (*queue));
+  int *level_queue = (int *) malloc (num_row * num_row * 2 * sizeof (*level_queue));
+  int q_start = 0, q_end = 0;
+  int curr, curr_level, row, col, num_to_add;
+  int *visit = (int *) calloc (num_row * num_row, sizeof (*visit));
+  
+  queue[q_end] = 1;
+  level_queue[q_end] = 0;
+  q_end++;
+  while (q_end > q_start) {
+    curr = queue[q_start];
+    curr_level = level_queue[q_start];
+    q_start++;
+    if (curr == num_row * num_row)
+      return curr_level;
+    for (i = 1; i <= 6; i++) {
+      if (curr + i > num_row * num_row)
+        continue;
+      get_cell (curr + i, num_row, &row, &col);
+      //printf ("Num = %d row = %d col = %d \n", curr + i, row, col);
+      num_to_add = board[row][col] == -1 ? curr + i : board[row][col];
+      if (visit[num_to_add - 1])
+        continue;
+      queue[q_end] = num_to_add;
+      level_queue[q_end] = curr_level + 1;
+      q_end++;
+      visit[num_to_add - 1] = 1;
+    }
+  }
+  return -1;
+}
+*/
