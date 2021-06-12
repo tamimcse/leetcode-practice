@@ -288,4 +288,18 @@ sum = (long long)a + b;
 
 42. To print long long, using %lld. To print unsigned long long, use %llu
 
+43. In snake ladder problem, it will be easier to solve the problem by considering each cell a number rather than a row and column. This patterns hold for many cases. If you have a 2D array, think if you can treat each cell as number instead of row col.
+
+Sometimes, number to row-column conversion can be simplified by using slightly differnet equation. For instance, you can do the following:
+
+  row = num / 6;
+  if (num % 6 == 0)
+    row--;
+
+This can be simplified to 
+
+  row = (num - 1) / 6;
+
+So, if you need a special condition, check if you can find a pattern where the speacial condition goes away.
+
 
