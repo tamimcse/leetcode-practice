@@ -7,20 +7,10 @@ int rob(int* nums, int numsSize){
   
   dp[0] = nums[0];
   if (numsSize > 1)
-    dp[1] = nums[1];
+    dp[1] = nums[1] > nums[0] ? nums[1] : nums[0];
   for (i = 2; i < numsSize; i++) {
-    max = -1;
-    for (j = i - 2; j >= 0; j--) {
-      if (nums[i] + dp[j] > max)
-        max = nums[i] + dp[j];
-    }
-    dp[i] = max;
+    dp[i] = nums[i] + dp[i-2] > dp[i-1] ? nums[i] + dp[i-2] : dp[i-1];
   }
-  
-  max = dp[0];
-  for (i = 1; i < numsSize; i++) {
-    if (dp[i] > max)
-      max = dp[i];
-  }
-  return max;
+
+  return dp[numsSize-1];
 }
