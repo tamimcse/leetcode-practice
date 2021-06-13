@@ -326,3 +326,11 @@ Another DP table stores the best solution using the current node. In this case, 
 48. abs() returns absolute value. not mod(). sqrt() calculates square root, not sqart().
 
 49. Sometimes, in DFS and BFS, we also need to store level in a separate array than stack/queue.
+
+50. For instance, you are given a position of a knite in chess (horse). There are 8 possible next moves of the knite. You can find all the possible next move manually by add 1/2/-1/-2... But, better approach is store those numbers in an array and calculate the next index uniformly. Example:
+
+int nm [8][2] = {{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {1, -2}, {-1, 2}, {-1, -2}};
+
+Then add the corresponding element.
+
+ 
