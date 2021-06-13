@@ -318,3 +318,5 @@ Another DP table stores the best solution using the current node. In this case, 
 
 45. Sometimes, a complex problem can be break into simpler problems. Then solve the simpler problem. For instance, break the circular array of house robber II problem into two linear arrays.
 
+
+46. atoi () returns 0 if convertion is not sucessful. If it returns non-zero, then conversion was sucessfull. Note that we cannot convert "0" with atoi. We need to check that manually.
