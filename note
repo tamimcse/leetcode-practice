@@ -320,3 +320,5 @@ Another DP table stores the best solution using the current node. In this case, 
 
 
 46. atoi () returns 0 if convertion is not sucessful. If it returns non-zero, then conversion was sucessfull. Note that we cannot convert "0" with atoi. We need to check that manually. Note that if you pass a string "2+1+3" to atoi(), it returns 2. So, don't use to check if a string is a number or not.
+
+47. Sometimes, you need to find all possible cases of something. You won't need backtracking. But, you can use divide and conquar to break the problem into smaller problems. Then combine the results. You can implement that using recursion. For instance, different-ways-to-add-parentheses problem.
