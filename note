@@ -118,7 +118,7 @@ Take a look at kth_smallest_element.c and kth_largest_stream.c.
    sscanf( dtm, "%s %s %d  %d", weekday, month, &day, &year );
    printf("%s %d, %d = %s\n", month, day, year, weekday );
 
-28. There is no function called isnum(). There is however isdigit(char c); 
+28. There is no function called isnum() or isnumeric(). There is however isdigit(char c); 
 
 29. parsing multiple string from a string using sscanf can be tricky. For instance,
 
