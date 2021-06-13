@@ -52,7 +52,7 @@ Note that, memset is good for setting character to a string, but not suitable fo
 
 21. We can create zig zag pattern using two stacks.
 
-22. Check if you can use a fixed number for stack or queue. If yes, alllocate it statically instead of dynamicly.
+22. Check if you can use a fixed number for stack or queue. If yes, alllocate it statically instead of dynamicly. But, implementing dynamically works fine in case you need to expand it.. (let's do that by default)
 
 23. In min heap, each node is smaller than its chieldren. Index to the children can be found as:
 
