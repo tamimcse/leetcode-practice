@@ -1,5 +1,7 @@
 /*
 https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
+
+Note that we should use DP here
 */
 #include <stdio.h>
 
@@ -25,6 +27,7 @@ int coin_change (int coins [], int num_coins, int V)
   return min_coins;
 }
 
+//check beneath main
 void main ()
 {
   int coins [] = {1, 5, 10, 14, 15, 20, 25};
@@ -33,3 +36,31 @@ void main ()
   int res = coin_change (coins, num_coins, V);
   printf ("Result is %d \n", res);
 }
+
+/*
+https://leetcode.com/problems/coin-change/
+
+int coinChange(int* coins, int coinsSize, int amount){
+  if (amount == 0)
+    return 0;
+  int i, j, min;
+  int *dp = (int *) malloc ((amount+1) * sizeof (*dp));
+  dp[0] = 0;
+  for (i = 1; i <= amount; i++) {
+    min = 50000;
+    for (j = 0; j < coinsSize; j++) {
+      if (coins[j] == i) {
+        min = 1;
+        break;
+      } else if (coins[j] > i) {
+        continue;
+      } else {
+        if (dp[i - coins[j]] > 0 && dp[i - coins[j]] + 1 < min)
+          min = dp[i - coins[j]] + 1;
+      }
+    }
+    dp[i] = min != 50000 ? min : -1;
+  }
+  return dp[amount];
+}
+*/
