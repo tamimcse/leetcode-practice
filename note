@@ -335,4 +335,13 @@ Then add the corresponding element.
 
 51. Sometimes, you may tend to use dynamic array to implement the visit array of DFS or BFS. But, don't do that. It causes TLE (lookup in o(n)). Figure out a way to implement array, 2D array or hash to implement the visit array so that lookup in O(1).
 
+52. BFS does not always need queue. You may need to use heap (priority queue) instead. Specially, we need to use heap in BFS in case of A* search. Note that, in A* search, each node will also have a heuristic value. The value is calculated based on two functions: 1) How far it is from start node 2) How far it is from the destination node.
+
+We pick up the node with the lowest heuristic value from the heap.
+
+Note that, the heuristic functiuon can be manhatan distance (abs(x1-x2) + abs (y1-y2)) or euclidian distance (sqrt (pow (x1-x2, 2) + pow (y1-y2, 2))).
+Manhantan distance is preferable if we only are allowed to go vertically or horizontally. If we are allowed to go diagonally, euclidean distance is prefereable.
+
+Note, the Dijekstra is a special case for A* search (and BFS). Here, heuristic function only contains the distance from the start node (does not contain distance from that node to end node). In Dijekstra, we can also use a heap to extract the node with lowest weight. 
+
  
