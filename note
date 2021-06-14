@@ -333,4 +333,6 @@ int nm [8][2] = {{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {1, -2}, {-1, 2}, {
 
 Then add the corresponding element.
 
+51. Sometimes, you may tend to use dynamic array to implement the visit array of DFS or BFS. But, don't do that. It causes TLE (lookup in o(n)). Figure out a way to implement array, 2D array or hash to implement the visit array so that lookup in O(1).
+
  
