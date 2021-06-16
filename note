@@ -224,6 +224,12 @@ Added later:
 
 This is not always the case. In some cases, in DFS, you can just pop from the stack (like DFS). For instance, number-of-islands problem can be solved using that. This is the case when you do not need to keep track of backtracking. If you need to keep track of backtracking (i.e. do sometimething during back tracking), you cannot pop from the stack immedidiately.
 
+Added later: 
+
+One color is very ofen fine. Just use a visit array. When you visit a node and add all adjacent node, mark it as 1 in the visit array. So, you won't expand it later. Note that, you should not mark a node just after adding to the stack. You should mark it after visit it from the stack (i.e. expanding it). Now, when you get a node from stack and it is marked, it means you are backtracking. So, simply remove it from the stack and add continue (so that you don't proceed further).
+
+Note that sometimes, you may need to implement real backtracking algorithm in DFS. For instance, all-paths-from-source-to-target problem. In that case, you need to implement real backtracking algorithm in DFS. Recall that, in backstracking, when you backtrack, you need to unset the previous state. IN the same way, we need to unset the visit array so that DFS + Backtracking will visit previously visited node again (THis is very very interesting!!!!).
+
 31. For instance, you want to reverse each word in  a string. Here, you should iterate from 0 to strlen(s) + 1. If i-th character is a space or NULL, then reverse the string.
 
 32. If you are asked need to reverse a string, note that, your pointer should be i = 0, j = strlen(s). Often I take j = strlen (s) + 1.
