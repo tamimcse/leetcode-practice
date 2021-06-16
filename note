@@ -222,7 +222,7 @@ bool canFinish(int numCourses, int** prerequisites, int prerequisitesSize, int* 
 
 Added later:
 
-This is not always the case. In some cases, in DFS, you can just pop from the stack (like DFS). For instance, number-of-islands problem can be solved using that. 
+This is not always the case. In some cases, in DFS, you can just pop from the stack (like DFS). For instance, number-of-islands problem can be solved using that. This is the case when you do not need to keep track of backtracking. If you need to keep track of backtracking (i.e. do sometimething during back tracking), you cannot pop from the stack immedidiately.
 
 31. For instance, you want to reverse each word in  a string. Here, you should iterate from 0 to strlen(s) + 1. If i-th character is a space or NULL, then reverse the string.
 
