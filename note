@@ -363,4 +363,19 @@ runner->right = deleteNode (runner->right, succ->val);
 
 
 57. Also note that, you cannot compare an int and float. You should consider using floar(), ceil() or using double instead. I am not sure how to do that yet. Have to look more.
+
+58. Given two ranges: [x1:x2] and [y1:y2]. They overlap if x1 <= y2 && y1 <= x2. Yes! this is true!!!
+
+https://stackoverflow.com/questions/3269434/whats-the-most-efficient-way-to-test-two-integer-ranges-for-overlap
+
+https://stackoverflow.com/questions/325933/determine-whether-two-date-ranges-overlap/325964#325964
+
+So, in summery, the ranges does not overlap if y1 > x2 || x1 > y2. So, they do not overlap if !(y1 > x2 || x1 > y2) is true.
+
+According to, De Morgan's law, !(A  or B) = !A and !B. So, two interval will overlap if !(y1 > x2) && !(x1 > y2) is true. 
+In other words, (y1 <= x2) && (x1 <= y2) is true.
+
+Note that, here instead of checking if two intervals overlap or not, we are checking if two interval does not overlap or not and that makes it way simpler.
+
+
  
