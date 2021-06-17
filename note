@@ -377,5 +377,7 @@ In other words, (y1 <= x2) && (x1 <= y2) is true.
 
 Note that, here instead of checking if two intervals overlap can be very complicated. Here, we are checking if two interval does not overlap or not and that makes it way simpler.
 
+58. If you have interval or point, think in terms of [x1, x2] and [y1, y2]. This is easier to think about than [start1, end1] and [start2, end2]. I think, they are also easier than topleftx1, bottomrightx2, ....
+
 
  
