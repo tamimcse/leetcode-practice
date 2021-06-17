@@ -375,7 +375,7 @@ So, in summery, the ranges does not overlap if y1 > x2 || x1 > y2. So, they do n
 According to, De Morgan's law, !(A  or B) = !A and !B. So, two interval will overlap if !(y1 > x2) && !(x1 > y2) is true. 
 In other words, (y1 <= x2) && (x1 <= y2) is true.
 
-Note that, here instead of checking if two intervals overlap or not, we are checking if two interval does not overlap or not and that makes it way simpler.
+Note that, here instead of checking if two intervals overlap can be very complicated. Here, we are checking if two interval does not overlap or not and that makes it way simpler.
 
 
  
