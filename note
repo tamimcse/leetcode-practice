@@ -390,5 +390,7 @@ Now, check if this can be implemeneted using DP. Note that, this may seem diffic
 https://www.geeksforgeeks.org/coin-change-dp-7/
 https://leetcode.com/problems/coin-change-2/solution/
 
+When you use DP, also write the equation on the paper. For instance, dp[i] = dp[i] + dp[i - dp[j]]; Note that, in each iteration, we are just consideing one more element (coin) than previous step. That one more element is dp[j] here.
+
 
  
