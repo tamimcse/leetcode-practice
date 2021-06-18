@@ -67,3 +67,14 @@ Output will be- <"xyz", 1234, "helloWorld", 10>
 25. https://www.geeksforgeeks.org/puzzle-11-1000-coins-and-10-bags/
 
 26. https://math.stackexchange.com/questions/5595/taking-seats-on-a-plane
+
+27. https://sites.google.com/site/yunrockqu/blog/conditional-probability?authuser=0
+
+28. https://www.statisticshowto.com/probability-and-statistics/monty-hall-problem/
+
+29. Note that, 
+
+P (A|B) = P(A and B)/P(B)
+P(A or B) = P(A) + P(B) - P (A and B)
+
+Source: https://en.wikipedia.org/wiki/Conditional_probability
