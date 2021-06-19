@@ -392,5 +392,9 @@ https://leetcode.com/problems/coin-change-2/solution/
 
 When you use DP, also write the equation on the paper. For instance, dp[i] = dp[i] + dp[i - dp[j]]; Note that, in each iteration, we are just consideing one more element (coin) than previous step. That one more element is dp[j] here.
 
+60. Sometimes dealing with intervals, we can project start and endtime of the intervals into an array to calculate the number of overlap across different time (e.g. meeting-rooms-ii). 
+
+61. Sometimes, problem will give you diffeerent interval and ask how many meeting rooms will you need to accomodate the interval. The problem may sound like backtracking or greedy approach (e.g. meeting-rooms-ii). But, if you think carefully, you will see that this is same as asking the maximum number of overlapping intervals. 
+
 
  
