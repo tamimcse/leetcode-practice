@@ -394,7 +394,9 @@ When you use DP, also write the equation on the paper. For instance, dp[i] = dp[
 
 60. Sometimes dealing with intervals, we can project start and endtime of the intervals into an array to calculate the number of overlap across different time (e.g. meeting-rooms-ii). 
 
-61. Sometimes, problem will give you diffeerent interval and ask how many meeting rooms will you need to accomodate the interval. The problem may sound like backtracking or greedy approach (e.g. meeting-rooms-ii). But, if you think carefully, you will see that this is same as asking the maximum number of overlapping intervals. 
+61. Sometimes, problem will give you diffeerent interval and ask how many meeting rooms will you need to accomodate the interval. The problem may sound like backtracking or greedy approach (e.g. meeting-rooms-ii). But, if you think carefully, you will see that this is same as asking the maximum number of overlapping intervals.
+
+62. Note that, sometimes the problem may seem and is very hard. You can always find the brutforce solution. That involves having several loop or recursion. For instance, maximum-profit-in-job-scheduling or weighted-job-scheduling problem.  
 
 
  
