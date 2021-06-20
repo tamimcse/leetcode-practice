@@ -416,5 +416,5 @@ Do this:
 ----|------|-----|------|-------------
  1      2     3      4
 
-
+64. Note that, there are fmin(), fmax() that can calculate min/max, however they are in cmath header (C++)
  
