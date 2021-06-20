@@ -11,6 +11,8 @@ int cmp (const void *a, const void *b)
 
 3. qsort prototype: qsort(arr, len, sizeof(arr[0]), cmp);
 
+I often forget which one come first, lenght or size of the element. Remember, length comes first.
+
 4. When returning char *, note that char * should also include '\0'. So, when allocating it, allocate one character extra.
 
 5. when assigning NULL to an element of char *, assign '\0' instead;
