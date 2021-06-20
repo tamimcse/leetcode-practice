@@ -404,7 +404,17 @@ Now, always write the recursive equation on the paper!!!
 
 Then check if this eqation can be implemented as DP. If yes, implement that. keep in mind that DP always works like magic. The code is simple. And it works!!! Have faith and don't panic :-) The code most of the time works in the first few attempts.
 
-63. Sometimes, you cannot draw points using traditional X-Y axis. Sometimes, the element at position is not on the points rather they are on the space between two points. For instance, trapping-rain-water problem.
+63. Sometimes, you cannot draw points using traditional X-Y axis. Sometimes, the element at position is not on the points rather they are on the space between two points. For instance, trapping-rain-water problem. In that case, you need to number the space between two poaints rather the points.
+
+For instance, instead of doing:
+
+----|------|-----|------|-------------
+    1      2     3      4
+
+Do this:
+
+----|------|-----|------|-------------
+ 1      2     3      4
 
 
  
