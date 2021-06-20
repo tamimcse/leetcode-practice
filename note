@@ -399,6 +399,10 @@ When you use DP, also write the equation on the paper. For instance, dp[i] = dp[
 61. Sometimes, problem will give you diffeerent interval and ask how many meeting rooms will you need to accomodate the interval. The problem may sound like backtracking or greedy approach (e.g. meeting-rooms-ii). But, if you think carefully, you will see that this is same as asking the maximum number of overlapping intervals.
 
 62. Note that, sometimes the problem may seem and is very hard. You can always find the brutforce solution. That involves having several loop or recursion. For instance, maximum-profit-in-job-scheduling or weighted-job-scheduling problem.  
+ 
+Now, always write the recursive equation on the paper!!!
+
+Then check if this eqation can be implemented as DP. If yes, implement that. keep in mind that DP always works like magic. The code is simple. And it works!!! Have faith and don't panic :-) The code most of the time works in the first few attempts.
 
 
  
