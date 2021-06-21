@@ -417,4 +417,21 @@ Do this:
  1      2     3      4
 
 64. Note that, there are fmin(), fmax() that can calculate min/max, however they are in cmath header (C++)
+
+65. char *strcat(char *dest, const char *src)
+
+Here, it appends src to dest. Note that, dest has to be large enough to store the appended string. This is very similar to sprintf ();
+
+I would use sprinf() instead. 
+
+Here, is an examle of strcat().
+
+   char src[50], dest[50];
+
+   strcpy(src,  "This is source");
+   strcpy(dest, "This is destination");
+
+   strcat(dest, src);
+
+   printf("Final destination string : |%s|", dest);
  
