@@ -447,7 +447,22 @@ This is not!!!
 
 sprintf (out, "%s %s", str, out);
 
-This will produce "str str"!!! So, use another string or use strcat...
+This will produce "str str"!!! You can use another string or use strcat..., but don't do that! Write the logic in a way that you pass out as the first parameter!!!!!
+
+68. Sometimes, logic requires like (e.g. integer-to-english-words problem):
+
+sprintf (out, "%s%s%s", empty ? "" : out, empty ? "" : " ", str);
+
+This makes it complicated. Try to write the logic using if-else... Like..
+
+  if (ten) {
+    sprintf (out, "%s", ten_str);
+    if (one) {
+      sprintf (out, "%s %s", out, one_str);
+    }
+  } else {
+    sprintf (out, "%s", one_str);
+  }
 
 
  
