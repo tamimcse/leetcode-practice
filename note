@@ -436,4 +436,18 @@ Here, is an examle of strcat().
    printf("Final destination string : |%s|", dest);
 
 66. Always initialize a pointer/string if you are not sure if it will always be assigned before use. You may think that you will add it later if needed. But, doing it in the first place doesn't do any harm and saves a lot of debug time.
+
+67. A catch!!!!!!!
+
+This is fine..
+ 
+sprintf (out, "%s %s", out, str);
+
+This is not!!!
+
+sprintf (out, "%s %s", str, out);
+
+This will produce "str str"!!! So, use another string or use strcat...
+
+
  
