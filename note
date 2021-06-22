@@ -471,7 +471,7 @@ This makes it complicated. Try to write the logic using if-else... Like..
     //Reverse nodes from runner1 to runner2
     runner2 = runner1->next;
 
-70. When writting iterator for linked list, use runner1, runner2, runner3... in code, but write r1, r2, r3..on paper.
+70. When writting iterator for linked list, use runner1, runner2, runner3... in code, but write r1, r2, r3..on paper. Don't use names like prev_node or temp node...even though you are using them as temp (actually this is more of my habit..)
 
 
  
