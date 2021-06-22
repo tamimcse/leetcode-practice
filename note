@@ -464,5 +464,14 @@ This makes it complicated. Try to write the logic using if-else... Like..
     sprintf (out, "%s", one_str);
   }
 
+69. Sometimes it's nice to write comment in code while coding...
+
+    if (end)
+      break;
+    //Reverse nodes from runner1 to runner2
+    runner2 = runner1->next;
+
+70. When writting iterator for linked list, use runner1, runner2, runner3... in code, but write r1, r2, r3..on paper.
+
 
  
