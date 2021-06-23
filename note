@@ -479,4 +479,6 @@ This makes it complicated. Try to write the logic using if-else... Like..
 
 73. Sometimes, solving a problem in a human way is very complex. First step is to find an intuitation to solve the problem. Sometimes, going to solve the intuition can be very difficult. For instance, trapping-rain-water problem. Instead of solving the problem for the whole space, try to solve it for a point in the space. If we can do it, solving for the whole speace is just repeating for each point. So, if a problem looks too dificult, see if you can solve the problem for a point of the problem space.
 
+74. Also note that sometimes, an equation can be simpler when you have min/max in your equation. For instance, in trapping-rain-water problem, you need to know the maximum to the left and maximum to the right. In reality, this is not the case. But,as we take minimum of the two, our equation is still valid. 
+
  
