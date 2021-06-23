@@ -481,4 +481,14 @@ This makes it complicated. Try to write the logic using if-else... Like..
 
 74. Also note that sometimes, an equation can be simpler when you have min/max in your equation. For instance, in trapping-rain-water problem, you need to know the maximum to the left and maximum to the right. In reality, this is not the case. But,as we take minimum of the two, our equation is still valid. 
 
+75. Sometimes, you may inclined to represent intervals as :
+
+----|------|-----|------|-------------
+ 1      2     3      4
+
+But, you shouldn't! You should represent it as:
+
+----|------|-----|------|-------------
+    1      2     3      4
+
  
