@@ -475,5 +475,6 @@ This makes it complicated. Try to write the logic using if-else... Like..
 
 71. Sometime linked list problem get TLE because program  does not set the next of the last node to NULL. Remember to set the next of the last node to NULL.
 
+72. Anytime, you need to check if the index is >= 0 or < arr_length, always check like idx + 1 < arr_len or idx - 1 >= 0. I tend to check with idx which makes it complicated!!!! Keep this in mind. You will do it even though you think you wont :-)
 
  
