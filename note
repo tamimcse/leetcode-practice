@@ -491,4 +491,6 @@ But, you shouldn't! You should represent it as:
 ----|------|-----|------|-------------
     1      2     3      4
 
+76. Also note that, although an interval is represented as [x, y], it is really [x, y)
+
  
