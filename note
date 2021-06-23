@@ -477,6 +477,6 @@ This makes it complicated. Try to write the logic using if-else... Like..
 
 72. Anytime, you need to check if the index is >= 0 or < arr_length, always check like idx + 1 < arr_len or idx - 1 >= 0. I tend to check with idx which makes it complicated!!!! Keep this in mind. You will do it even though you think you wont :-)
 
-73. Sometimes, solving a problem in a human way is very complex. First step is to find an intuitation to solve the problem. Sometimes, going to solve the intuition can be very difficult. For instance, trapping-rain-water problem. Instead of solving the problem for the whole space, try to solve it for a point in the space. If we can do it, solving for the whole speace is just repeating for each point. 
+73. Sometimes, solving a problem in a human way is very complex. First step is to find an intuitation to solve the problem. Sometimes, going to solve the intuition can be very difficult. For instance, trapping-rain-water problem. Instead of solving the problem for the whole space, try to solve it for a point in the space. If we can do it, solving for the whole speace is just repeating for each point. So, if a problem looks too dificult, see if you can solve the problem for a point of the problem space.
 
  
