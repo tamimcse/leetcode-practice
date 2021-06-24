@@ -495,4 +495,6 @@ But, you shouldn't! You should represent it as:
 
 77. Remember that, in some case, in DFS, you may want to set visit to false again in case of backtracking. For instance, word-search.
 
+78. Note that, in DFS, when adding adjacent nodes to the stack, check if they are already visited. 
+
  
