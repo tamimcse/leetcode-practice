@@ -499,6 +499,8 @@ But, you shouldn't! You should represent it as:
 
 79. Sometimes, in DFS, before adding adjacent node to the stack, you can check if you really should add it. For instance, in word-search problem, you know the next letter you will be looking for. So, if the adjacent node is not the next letter, you don't really need to add it. 
 
+Note that, this is same as performing DFS recursively like flood water problem (At each node, we make recursive call on adjacent node). If adjacent node is not the next expecting node, we don't need to make the call. Also node that, here, we pass the visit array as a function parameter or global array so that all the recursive call gets the latest value of the visit array (passing as parameter is preferable). 
+
 80. Trie node:
 
 struct trie_node {
