@@ -493,4 +493,6 @@ But, you shouldn't! You should represent it as:
 
 76. Also note that, although an interval is represented as [x, y], it is really [x, y)
 
+77. Remember that, in some case, in DFS, you may want to set visit to false again in case of backtracking. For instance, word-search.
+
  
