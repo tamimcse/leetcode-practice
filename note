@@ -495,6 +495,25 @@ But, you shouldn't! You should represent it as:
 
 77. Remember that, in some case, in DFS, you may want to set visit to false again in case of backtracking. For instance, word-search.
 
-78. Note that, in DFS, when adding adjacent nodes to the stack, check if they are already visited. 
+78. Note that, in DFS, when adding adjacent nodes to the stack, check if they are already visited.
 
- 
+79. Sometimes, in DFS, before adding adjacent node to the stack, you can check if you really should add it. For instance, in word-search problem, you know the next letter you will be looking for. So, if the adjacent node is not the next letter, you don't really need to add it. 
+
+80. Trie node:
+
+struct trie_node {
+  bool leaf;
+  struct trie_node *child[26];
+};
+
+Note that, trie node may not need value, because select the index to the next node based on the value. The root of of trie is often empty. This is how a trie looks like:
+
+           root
+           / | \
+         c/  |b \a
+         /   |   \
+       node node node
+       / | \
+     c/  |b \a
+     /   |   \
+  node node node
