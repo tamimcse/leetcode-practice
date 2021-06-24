@@ -519,3 +519,7 @@ Note that, trie node may not need value, because select the index to the next no
      c/  |b \a
      /   |   \
   node node node
+
+81. Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
+
+82. While visiting Trie, we also need an array that keeps track of the string of the corresponding node.
