@@ -563,7 +563,10 @@ https://www.geeksforgeeks.org/word-break-problem-dp-32/
 
 https://www.geeksforgeeks.org/word-break-problem-trie-solution/
 
-This problem can be solved using memorization. So, if you solve a problem once, save the result.
+This problem can be solved using memorization. So, if you solve a problem once, save the result. This may look trivial.but don't do it!!!!!!!
+
+
+Yes, don't do it!!!!!! Once you figure how to use recursion, try to figure DP. It's way ceasier. And way easier to implement!! Yes, it's way easier to implement!!! So, don't try to implement a DP problem with recursion!!!!! DP is way easier.
 
 89. Sometimes, I may send different pointer when making recursive call. Like: 
 
