@@ -504,7 +504,7 @@ Note that, this is same as performing DFS recursively like flood water problem (
 80. Trie node:
 
 struct trie_node {
-  bool leaf;
+  bool leaf;//not really a leaf. It should be end-of-word
   struct trie_node *child[26];
 };
 
@@ -535,4 +535,46 @@ Note that, trie node may not need value, because select the index to the next no
 87. Merging the intervals by projecting them on an array is an efficient solution. But, if each interval is very large, this may not be a good solution. You may want to merge the intervals manually in that case. You want to sort the intervals by start time in that case.
 
 https://www.geeksforgeeks.org/merging-intervals/
+
+88. Some problems are conventionally known as DP. You can also implement via recursion with memoraziation. For intsnace, in word-break problem, you can encode a dictionary with a trie. But, Trie search may need to make recursive call on a subproblem when you reach a node that denotes end of a word. This is because this node may not a leaf. So, you may want look further. So, the psudocode is like:
+
+call search for the rest of the subproblem. If it returns true, then return true. Otherwise, proceed to the child of the current node.
+
+This recursive call many same subproblem when trie is like:
+
+   root
+    |
+    |a
+    |
+   node
+    |
+    |a
+    |
+   node
+    |
+    |a
+    |
+   node
+
+For instance, if input is aaab, it will call search function for aaab, aab, ab, a, b, b, ab...
+
+
+https://www.geeksforgeeks.org/word-break-problem-dp-32/
+
+https://www.geeksforgeeks.org/word-break-problem-trie-solution/
+
+This problem can be solved using memorization. So, if you solve a problem once, save the result.
+
+89. Sometimes, I may send different pointer when making recursive call. Like: 
+
+trie_search (root, &s[i+1], mem);
+
+Don't do it! Do this instead:
+
+trie_search (root, s, i+1, mem);
+
+
+
+
+
 
