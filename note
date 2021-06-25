@@ -531,3 +531,8 @@ Note that, trie node may not need value, because select the index to the next no
 85. Don't use *ret_size because it may not initialized properly. Use your own res_cnt. Then update *ret_size.
 
 86. When inserting multiple strings to a trie, don't create a node if it already exists. That's the point of trie. But, I often create node for each character in each string.
+
+87. Merging the intervals by projecting them on an array is an efficient solution. But, if each interval is very large, this may not be a good solution. You may want to merge the intervals manually in that case. You want to sort the intervals by start time in that case.
+
+https://www.geeksforgeeks.org/merging-intervals/
+
