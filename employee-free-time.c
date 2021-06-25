@@ -48,6 +48,10 @@ public:
 };
 */
 
+/*
+
+//Here, I am merging the intervals by projecting them on an array. This can be a very good solution. But, if each interval is very large this may not be a good solution. You may want to merge the intervals manually in that case. 
+
 class Solution {
 public:
     vector<Interval> employeeFreeTime(vector<vector<Interval>> schedule) {
@@ -88,3 +92,5 @@ public:
       return res;
     }
 };
+
+*/
