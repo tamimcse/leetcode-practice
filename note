@@ -527,3 +527,5 @@ Note that, trie node may not need value, because select the index to the next no
 83. When copying output to res (pointer), make sure that they are allocated in memory. Sometimes, you may just want to return pointer. You don't need to allocate memory in that case.
 
 84. Don't forget to check nengivate condition first and then continue or return. If you proceed, that means you find a positive case. This requires fewer nested indentation.
+
+85. Don't use *ret_size because it may not initialized properly. Use your own res_cnt. Then update *ret_size.
