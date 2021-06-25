@@ -73,24 +73,16 @@ public:
       for (i = 1; i < arr_len; i++) {
         cnt[i] += cnt[i-1];
       }
-      /*
-      for (i = 0; i < arr_len; i++)
-        cout << i << ". " << cnt[i] << endl;
-      cout << endl;*/
       
       vector<Interval> res;
       for (i = 0; i < arr_len - 1; i++) {
-       // cout << "iterating idx " << i << endl;
         if (!cnt[i] && cnt[i-1]) {
           Interval intv;
           intv.start = i + start;
-         // cout << "inserting start " << i << endl;
           res.push_back(intv);
         }
         if (!cnt[i] && cnt[i+1]) {
-         // cout << "inserting end " << i << endl;
           res.back().end = i + 1 + start;
-          //cout << "done \n";
         }
       }
       return res;
