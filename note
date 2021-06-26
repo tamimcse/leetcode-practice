@@ -584,7 +584,7 @@ Note that, when you are asked to find all combinations, it's generally backtrack
 
 Note that, backtracking can also be think of as recursion or DFS. Sometimes, you may have an array. You may think you need to implemenet DFS/BFS on the array, but, they can be implemented as recursion (aka DFS). For instance, word-break-ii
 
-91. When iterating a trie using runner, if you find a match, you should move the runner to the next node immediately because that's the actual node
+91. When iterating a trie using runner, if you find a match, you should move the runner to the next node immediately because that's the actual node. Then you can check if that node denotes the end of a word.
 
 
 
