@@ -578,6 +578,8 @@ trie_search (root, s, i+1, mem);
 
 90. Sometimes, you may be asked to produce all combination of something. You need to know that finding all combination of something requires you to identify something first. For instance, in word-break-ii, you are asked to find all the ways you can break a string according to a dictionary. To solve the problem, we can solve word-break first, then use that to find all the combinations.
 
+Now, if you do this, it will be very overly complicated. I may think this way, but there is a better way. try to find algorithm in fresh mind.
+
 
 
 
