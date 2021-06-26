@@ -598,6 +598,16 @@ Also note that if you use memcpy(), be sure to add NULL manually.
 
 94. It can be more convinient to try to solve a problem based on bottom up approach. This is actaully DP. This actually way easier. A lot complicated problem can become surprisingly simple if you think in bottom up approach. For instance, count-of-range-sum.. So, think bottom up!!!!!!
 
+95. When DPing half of a 2D array in diagonal mannager, use row, col for index along with i. For instance,
+
+  for (i = 1; i < numsSize; i++) {
+    for (row = 0, col = i; col < numsSize; row++, col++) {
+      idx = row * numsSize + col;
+      dp[idx] = dp[idx - 1] + nums[col];
+    }
+  }
+
+Here, we are filling top-right part of the matrix.
 
 
 
