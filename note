@@ -582,6 +582,8 @@ Now, if you do this, it will be very overly complicated. I may think this way, b
 
 Note that, when you are asked to find all combinations, it's generally backtracking algorithm. So, try to use backtracking...
 
+Note that, backtracking can also be think of as recursion or DFS. Sometimes, you may have an array. You may think you need to implemenet DFS/BFS on the array, but, they can be implemented as recursion (aka DFS). For instance, word-break-ii
+
 
 
 
