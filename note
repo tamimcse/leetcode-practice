@@ -584,6 +584,8 @@ Note that, when you are asked to find all combinations, it's generally backtrack
 
 Note that, backtracking can also be think of as recursion or DFS. Sometimes, you may have an array. You may think you need to implemenet DFS/BFS on the array, but, they can be implemented as recursion (aka DFS). For instance, word-break-ii
 
+Now, note that, anytime you have a recursive solution, check if there is overlapping subproblems. This tend to be very expensive. If there can be overlapping subproblems, implemenet them using DP. Besides, DP is a lot more easier than implementing recursion. In recursion, you are taking a complex problem, and dividing into smaller problem (top-down). On the other hand, in DP, you are starting with a smaller problem, and solving the bigger problem with smaller problem (bottom-up). This tend to be way easier!!!!!!!!
+
 91. When iterating a trie using runner, if you find a match, you should move the runner to the next node immediately because that's the actual node. Then you can check if that node denotes the end of a word.
 
 92. If you want to create a substring from a string, you can use memcpy() or strncpy().
@@ -592,7 +594,7 @@ strncpy(char* dest, char* src, int n) is from <cstring>.
 
 Also note that if you use memcpy(), be sure to add NULL manually.
 
-
+93. Sometimes you may need list of string. You don't have vector in C. So, what you do is have large ***str_list. Allocate them dynamically and use them like an array. This is not much difficult to do compared to vector. Only problem is you need to be aware to pre-allocate as much memory as you might need.
 
 
 
