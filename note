@@ -586,6 +586,12 @@ Note that, backtracking can also be think of as recursion or DFS. Sometimes, you
 
 91. When iterating a trie using runner, if you find a match, you should move the runner to the next node immediately because that's the actual node. Then you can check if that node denotes the end of a word.
 
+92. If you want to create a substring from a string, you can use memcpy() or strncpy().
+
+strncpy(char* dest, char* src, int n) is from <cstring>.
+
+Also note that if you use memcpy(), be sure to add NULL manually.
+
 
 
 
