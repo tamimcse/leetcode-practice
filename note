@@ -596,6 +596,8 @@ Also note that if you use memcpy(), be sure to add NULL manually.
 
 93. Sometimes you may need list of string. You don't have vector in C. So, what you do is have large ***str_list. Allocate them dynamically and use them like an array. This is not much difficult to do compared to vector. Only problem is you need to be aware to pre-allocate as much memory as you might need.
 
+94. It can be more convinient to try to solve a problem based on bottom up approach. This is actaully DP. This actually way easier. A lot complicated problem can become surprisingly simple if you think in bottom up approach. For instance, count-of-range-sum.. So, think bottom up!!!!!!
+
 
 
 
