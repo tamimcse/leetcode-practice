@@ -580,6 +580,8 @@ trie_search (root, s, i+1, mem);
 
 Now, if you do this, it will be very overly complicated. I may think this way, but there is a better way. try to find algorithm in fresh mind.
 
+Note that, when you are asked to find all combinations, it's generally backtracking algorithm. So, try to use backtracking...
+
 
 
 
