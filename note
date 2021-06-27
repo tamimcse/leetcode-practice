@@ -609,5 +609,21 @@ Also note that if you use memcpy(), be sure to add NULL manually.
 
 Here, we are filling top-right part of the matrix.
 
+95. How a negative number is stored in computer? It's store in two's complement format. For instance, 4 = 100. -4 = 1111111...1100 (one's complement is 11..1011. two's complement is 11..1100)
+
+Again, 20 = 10100. -20 = 111...01100. 
+
+So, there are several lessons:
+
+a. If a number starts with 1, it's a negative number.
+b. Content of a positive and negative number may differ in more than just sign field (MSB).
+c. If a number is power of two, it's positive and negative number will only differ in signfield (and 111)
+d. You can unset the right-most set bit by n - (n & -n). This is used in Binary index tree to calculate index to the parent.
+
+https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/
+
+
+So, basicly, two's complement store the same number
+
 
 
