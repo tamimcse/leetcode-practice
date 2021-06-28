@@ -625,5 +625,9 @@ https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/
 
 So, basicly, two's complement store the same number
 
+96. If you are asked to develop range sum, you should ask if the array is immutatble. If the array is immutatble, the create prefix sum and suffix sum. Then, you can calculate any range sum at O(1). 
+
+But, if the array is not mutable, then you need to create Binary Index Tree (BIT). BIT supports range query and update at O (logn)
+
 
 
