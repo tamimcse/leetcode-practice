@@ -629,5 +629,7 @@ So, basicly, two's complement store the same number
 
 But, if the array is not mutable, then you need to create Binary Index Tree (BIT). BIT supports range query and update at O (logn)
 
+97. Sometimes, it's ok to create an array that is 1 eleenet larger (1 based array) if that makes the logic simpler.
+
 
 
