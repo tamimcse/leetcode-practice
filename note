@@ -633,5 +633,8 @@ But, if the array is not mutable, then you need to create Binary Index Tree (BIT
 
 98. In merge sort, you can merge two arrays in place. This is more efficient. But, sometimes, you may need to implement additional logic. It's OK to use an extra array to merge two arrays and implement that logic if that make the logic simpler (counting the number of smaller elements to the right). 
 
+99. Sometimes, itrating array forward to caluclate O(n) while iterating the array backwords needs O(1). For instance, merging two arrays to calculate the number of smaller elements to the right, iterating array from the right allows us to caluclate the number at O(1). 
+
+
 
 
