@@ -627,9 +627,11 @@ So, basicly, two's complement store the same number
 
 96. If you are asked to develop range sum, you should ask if the array is immutatble. If the array is immutatble, the create prefix sum. Then, you can calculate any range sum at O(1). 
 
-But, if the array is not mutable, then you need to create Binary Index Tree (BIT). BIT supports range query and update at O (logn)
+But, if the array is not mutable, then you need to create Binary Index Tree (BIT). BIT supports range query and update at O (logn). You can also use merge sort to implement this. Merge sort is more efficient, i think.
 
 97. Sometimes, it's ok to create an array that is 1 eleenet larger (1 based array) if that makes the logic simpler.
+
+98. In merge sort, you can merge two arrays in place. This is more efficient. But, sometimes, you may need to implement additional logic. It's OK to use an extra array to merge two arrays and implement that logic if that make the logic simpler (counting the number of smaller elements to the right). 
 
 
 
