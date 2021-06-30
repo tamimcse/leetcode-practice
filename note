@@ -664,3 +664,19 @@ tmp = (long long)nums[j] * 2;
 103. Note that, left-shift and right shift of negative number is undefined. So, don't use them if the number can be negative. Instead multiply by 2 or 5 or use division.... (plain old)
 
 
+104. You don't really need a temporary long long variable. You can just cast in-place and compare. For intance:
+
+if ((long long)nums[hi] * 2 >= nums[i]) is fine!!!!
+
+105. Suppose, in merge sort approach, you often need to compute something based on two sorted arrays. For instance, in reverse-pairs problem, you will have two sorted arrays A and B. You need to count the number of pairs for which B[j] * 2 > A[i].
+
+You can do this by following code:
+
+  int hi = end;//only need to initialize once. In next iteration, start from when we stopped 
+  for (i = mid; i >= start; i--) {
+    while (hi >= mid + 1 && (long long)nums[hi] * 2 >= nums[i])
+      hi--;
+    if (hi >= mid + 1)
+      *count += (hi - mid);
+  }
+
