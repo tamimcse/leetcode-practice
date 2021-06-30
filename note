@@ -637,6 +637,24 @@ But, if the array is not mutable, then you need to create Binary Index Tree (BIT
 
 100. In merge sort, you can pass a preallocated temp array so that you don't need to alloccate a new array in every recursive call.
 
+101. Suppose you have two sorted arrays A and B. You need to find the number of pairs such that lower <= B[j] - A[i] <= upper. We came across this problem in count-of-range-sum problem. 
+
+Here, we will maintain a variable lo which indicates the index to the first element B for which B[lo] - A[i] >= lower for an iteration. Note that lo is not initialized to 0 in each iteration. It rather starts from where it stopped in the last iteration. We can do this because A is sorted. So, elemements to the left of lo will produce even lower B[j] - A[i] for the next element of A.
+
+Algorithm:
+
+  lo = 0;
+  for (i = 0; i < A_len; i++) {
+    while (lo < B_len && B[lo] - A[i] < lower)
+      lo++;
+    for (j = lo; j < B_len; j++) {
+      if (B[j] - A[i] <= upper)
+        count++;
+      else
+        break;//Once we reach an element where difference is larger than the upper, no need to go further because the differtence will increase
+    }
+  }
+
 
 
 
