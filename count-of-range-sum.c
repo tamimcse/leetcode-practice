@@ -1,7 +1,5 @@
 /*
 https://leetcode.com/problems/count-of-range-sum/
-
-My merge sort is also getting TLE.
 */
 
 /*
@@ -29,8 +27,7 @@ int countRangeSum(int* nums, int numsSize, int lower, int upper){
 */
 void merge_sort (long *arr, int start, int end, int *count, int lower, int upper, long *tmp_arr)
 {
-  //printf ("start = %d end = %d \n", start, end);
-  int i, j, k, m, sum;
+  int i, j, k, m, sum, hi, lo;
   if (start == end) {
     if (arr[start] >= lower && arr[start] <= upper)
       (*count)++;
@@ -40,15 +37,16 @@ void merge_sort (long *arr, int start, int end, int *count, int lower, int upper
   merge_sort (arr, start, mid, count, lower, upper, tmp_arr);
   merge_sort (arr, mid + 1, end, count, lower, upper, tmp_arr);
   //count
+  hi = mid + 1;
   for (i = start; i <= mid; i++) {
-    int hi = mid + 1;
     while (hi <= end && arr[hi] - arr[i] < lower)
       hi++;
-    int lo = end;
-    while (lo >= hi && arr[lo] - arr[i] > upper)
-      lo--;
-    if (lo >= hi)
-      *count += lo - hi + 1;
+    for (j = hi; j <= end; j++) {
+      if (arr[j] - arr[i] <= upper)
+        (*count)++;
+      else
+        break;
+    }
   }
   //merge
   i = start;
