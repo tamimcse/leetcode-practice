@@ -655,6 +655,10 @@ Algorithm:
     }
   }
 
+102. Sometimes, long is not enough. You need long long specially when multiplying by 2.. Note that, you can compare an int and long long. So, when comparing two variables, both does not have to be the same type. 
 
+Also keep in mind that changing variable type to long long from int does not help by itself. You also need to perform casting in the original operation. For instance:
+
+tmp = (long long)nums[j] * 2;
 
 
