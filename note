@@ -661,4 +661,6 @@ Also keep in mind that changing variable type to long long from int does not hel
 
 tmp = (long long)nums[j] * 2;
 
+103. Note that, left-shift and right shift of negative number is undefined. So, don't use them if the number can be negative. Instead multiply by 2 or 5 or use division.... (plain old)
+
 
