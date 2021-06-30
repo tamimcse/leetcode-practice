@@ -635,6 +635,8 @@ But, if the array is not mutable, then you need to create Binary Index Tree (BIT
 
 99. Sometimes, itrating array forward to caluclate O(n) while iterating the array backwords needs O(1). For instance, merging two arrays to calculate the number of smaller elements to the right, iterating array from the right allows us to caluclate the number at O(1). 
 
+100. In merge sort, you can pass a preallocated temp array so that you don't need to alloccate a new array in every recursive call.
+
 
 
 
