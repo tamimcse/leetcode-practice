@@ -680,3 +680,5 @@ You can do this by following code:
       *count += (hi - mid);
   }
 
+106. Sometime, we iterate from i: 1-n to move each element one step left and insert a new element. Note that if array size is 1, this loop will not enter at all. Need to keep in mind to write the moving logic
+
