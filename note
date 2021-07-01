@@ -620,6 +620,8 @@ b. Content of a positive and negative number may differ in more than just sign f
 c. If a number is power of two, it's positive and negative number will only differ in signfield (and 111)
 d. You can unset the right-most set bit by n - (n & -n). This is used in Binary index tree to calculate index to the parent.
 
+On a similar note, n & (n - 1) unsets right-most set bit.
+
 https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/
 
 
