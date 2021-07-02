@@ -691,3 +691,22 @@ You can do this by following code:
 109. When grouping string or list, check that if need to sort them first. For instance, when making group of anagrams, you don't need to check strings with different lengths. So, sorting the string first helps!!!
 
 110. Don't use itoa() to convert int to char*. Use sprintf () instead.
+
+111. When sorting a 2D arry using qsort (), you need to pass the size of the pointer instead of the size of the internal array. For instance, 
+
+  char **num_str = (char **) malloc (numsSize * sizeof (*num_str));
+  for (i = 0; i < numsSize; i++) {
+    num_str[i] = (char *) calloc (12, sizeof (char));
+    sprintf (num_str[i], "%d", nums[i]);
+  }
+
+  The qsort should look like:
+
+qsort (num_str, numsSize, sizeof (char *), cmp);
+
+It should not look like!!!!:
+
+qsort (num_str, numsSize, 12 * sizeof (char), cmp);
+
+
+112. When comparing character, I often forget '' more specially if the character is a digit. For instance, do ch == '0', not ch == 0
