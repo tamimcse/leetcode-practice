@@ -1,27 +1,15 @@
 /*
 https://leetcode.com/problems/group-anagrams/
-
-For some reason, leetcode is running out of time althrough we are using efficient algorithm to check anagram.
 */
 
-bool is_anagram (char *s1, char *s2)
+struct str_with_len {
+  char *str;
+  int len;
+};
+
+int cmp (const void *a, const void *b)
 {
-  int i, idx;
-  int hash[26] = {0};
-  
-  for (i = 0; s1[i]; i++)
-    hash[s1[i] - 'a'] += 1;
-  
-  for (i = 0; s2[i]; i++) {
-    idx = s2[i] - 'a';
-    hash[idx] -= 1;
-  } 
-  
-  for (i = 0; i < 26; i++) {
-    if (hash[i] != 0)
-      return false;
-  }
-  return true;
+  return ((struct str_with_len *)a)->len - ((struct str_with_len *)b)->len;
 }
 
 /**
@@ -33,36 +21,46 @@ char *** groupAnagrams(char **strs, int strsSize, int* returnSize, int** returnC
   char ***res = (char ***) malloc (strsSize * sizeof (*res));
   int *colsizes = (int *) calloc (strsSize, sizeof (int));
   int res_cnt = 0;
-  int i, j, k, count;
-  int *included = (int *) calloc (strsSize, sizeof (*included));
-  char *anagrams_idx = (char *) calloc (strsSize, sizeof (*anagrams_idx));
-    
+  int i, j, k, count, len, col_num;
+  struct str_with_len *arr = (struct str_with_len *) malloc (strsSize * sizeof (*arr));
+  char *added = (char *) calloc (strsSize, sizeof (*added));
+  
   for (i = 0; i < strsSize; i++) {
-    if (included[i])
+    arr[i].str = strs[i];
+    arr[i].len = strlen (strs[i]);
+  }
+  qsort (arr, strsSize, sizeof (struct str_with_len), cmp);
+  
+  for (i = 0; i < strsSize; i++) {
+    if (added[i])
       continue;
-    memset (anagrams_idx, 0, strsSize * sizeof (*anagrams_idx));
-    anagrams_idx[i] = 1;
-    included[i] = 1;    
-    count = 1;
+    res[res_cnt] = (char **) malloc (strsSize * sizeof (char *));
+    col_num = 0;
+    res[res_cnt][col_num++] = arr[i].str;
+    int hash[26] = {0};
+    for (j = 0; arr[i].str[j]; j++)
+      hash[arr[i].str[j] - 'a']++;
     for (j = i + 1; j < strsSize; j++) {
-      if (included[j])
-        continue;
-      if (is_anagram (strs[i], strs[j])) {
-        anagrams_idx[j] = 1;
-        included[j] = 1;
-        count++;
+      if (arr[i].len != arr[j].len)
+        break;
+      int hash1[26];
+      memcpy (hash1, hash, sizeof (int) * 26);
+      for (k = 0; arr[j].str[k]; k++) {
+        int idx = arr[j].str[k] - 'a';
+        hash1[idx]--;
+        if (hash1[idx] < 0)
+          goto done;
       }
-    }
-    colsizes[res_cnt] = count;
-    res[res_cnt] = (char **) malloc (count * sizeof (char *));
-    for (j = 0, k = 0; j < strsSize; j++) {
-      if (anagrams_idx[j]) {
-        //res[res_cnt][k] = strs[j];
-        res[res_cnt][k] = (char *) malloc ((strlen (strs[i]) + 1) * sizeof (char));
-        strcpy (res[res_cnt][k], strs[j]);
-        k++;
+      for (k = 0; k < 26; k++) {
+        if (hash1[k])
+          goto done;
       }
+      res[res_cnt][col_num++] = arr[j].str;
+      added[j] = 1;
+done:
+      continue;
     }
+    colsizes[res_cnt] = col_num;
     res_cnt++;
   }
   *returnSize = res_cnt;
