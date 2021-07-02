@@ -688,3 +688,5 @@ You can do this by following code:
 
 108. Sometimes, don't be too quick to judge between stack or queue. Play a simulation. Sometimes, it seems you need a queue, but you really need a stack..
 
+109. When grouping string or list, check that if need to sort them first. For instance, when making group of anagrams, you don't need to check strings with different lengths. So, sorting the string first helps!!!
+
