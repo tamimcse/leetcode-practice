@@ -708,5 +708,24 @@ It should not look like!!!!:
 
 qsort (num_str, numsSize, 12 * sizeof (char), cmp);
 
+Also, in this case: the cmp will be passed char**. So, it should look like:
+
+int cmp (const void *a, const void *b)
+{
+  int i, j;
+  char *num1 = *((char **)a);
+  char *num2 = *((char **)b);
+ .......
+}
+
+Not :
+
+int cmp (const void *a, const void *b)
+{
+  int i, j;
+  char *num1 = (char *)a;
+  char *num2 = (char *)b;
+ .......
+}
 
 112. When comparing character, I often forget '' more specially if the character is a digit. For instance, do ch == '0', not ch == 0
