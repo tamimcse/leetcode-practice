@@ -742,3 +742,12 @@ Return value meaning
 
 
 113. Note that, strcpy () is strcpy (char *dst, char *src). It does not need size of the string like memcpy. I often add an extra parameter string len * sizeof (char) which is not right.
+
+114. Sometimes, implementing a logic can be too complicated. We can make it simple by creating extra data structure and compare them. For instance, in largest-number problem, we have two strings: x and y and we need to determine if xy > yx..
+
+One solution is two have two pointers one pointing x and another pointing y..At each iteration we compare the value of the pointer. If the values are not the same, we get our answer. When the first pointer reach the end of x, make it to point y. In the same way, when the second pointer reach the end of y, make it point to the x.... But, this logic can be still compilcated to decide which one is better.
+
+Another simpler solution is to just create xy and yx string and compare them. 
+
+
+The first approach is obviously better, but the second approach is simpler!
