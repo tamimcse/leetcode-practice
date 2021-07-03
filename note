@@ -739,3 +739,6 @@ Return value meaning
 
 
 112. When comparing character, I often forget '' more specially if the character is a digit. For instance, do ch == '0', not ch == 0
+
+
+113. Note that, strcpy () is strcpy (char *dst, char *src). It does not need size of the string like memcpy. I often add an extra parameter string len * sizeof (char) which is not right.
