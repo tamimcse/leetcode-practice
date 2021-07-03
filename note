@@ -772,3 +772,6 @@ do {
 } while ();
 
 117. If you need to perform bitwise operation, the operand cannot be negative. Make them positive by abs() and handle negative and positive values separately.
+
+
+118. I often get confused with Xor (^) operation. I feel like preceeding 0s of a number will produce preceeding 1s in the result. But, actually preceeding 0s creates preceeding 0s in the result because 0 ^ 0 = 0.
