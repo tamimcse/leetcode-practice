@@ -770,3 +770,5 @@ The first approach is obviously better, but the second approach is simpler!
 do {
 
 } while ();
+
+117. If you need to perform bitwise operation, the operand cannot be negative. Make them positive by abs() and handle negative and positive values separately.
