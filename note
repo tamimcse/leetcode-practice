@@ -762,3 +762,5 @@ The first approach is obviously better, but the second approach is simpler!
 0100 - 4
 -----------
 0111 - 7
+
+115. To return a negative of a variable, we can do this: "return -a;" No need to do "return a * -1;"
