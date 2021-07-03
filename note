@@ -751,3 +751,14 @@ Another simpler solution is to just create xy and yx string and compare them.
 
 
 The first approach is obviously better, but the second approach is simpler!
+
+115. Binary Subtraction:
+0 – 0 = 0
+1 – 0 = 1
+1 – 1 = 0
+0 – 1 = 1 (Borrow 1)
+
+1011 - 11
+0100 - 4
+-----------
+0111 - 7
