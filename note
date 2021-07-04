@@ -775,3 +775,7 @@ do {
 
 
 118. I often get confused with Xor (^) operation. I feel like preceeding 0s of a number will produce preceeding 1s in the result. But, actually preceeding 0s creates preceeding 0s in the result because 0 ^ 0 = 0.
+
+119. if (!head || !(head->next)) is fine. We don't need to write if (!head || (head && !(head->next)))
+
+Right side of the || will only execute if !head is false 
