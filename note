@@ -783,3 +783,5 @@ Right side of the || will only execute if !head is false
 120. Sometimes, it ,may seem that initiazing to sometihing to -1 makes more sense than initializing to 0. Think hard if this is really the case. I often find later that initializing to 0 is just fine and works even better. Implementation is often simpler.
 
 On an another note, sometimes, it may seem that storing partial result - 1 is more convinient and then get the final result by partial result + 1. But, this is often unnecessary. In many cases, I found that storing the actual result is just fine.
+
+121. When doing DFS, think if you need to visit a previously visited node again. It depends on the application. Sometimes, you may want to backtrack and visit a previously visited node. In that case, when backtracking, you need to set visit[node] = 0 while backtracking. 
