@@ -1,79 +1,51 @@
 /*
 https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+
+This is DFS + Memorization. This cannot be solved using DFS iterative approach. Need to use recursive approach.
 */
 
-int neigh[][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+int dfs (int** matrix, int num_row, int num_col, int **res, int row, int col)
+{
+  int i, adj_row, adj_col;
+  int neigh[][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+  int ret = 0, res1;
+  
+  for (i = 0; i < 4; i++) {
+    adj_row = row + neigh[i][0];
+    adj_col = col + neigh[i][1];
+    if (adj_row >= 0 && adj_row < num_row && adj_col >= 0 && adj_col < num_col &&
+       matrix[adj_row][adj_col] > matrix[row][col]) {
+      res1 = res[adj_row][adj_col] ? 
+        res[adj_row][adj_col] : dfs (matrix, num_row, num_col, res, adj_row, adj_col);
+      if (res1 > ret)
+        ret = res1;
+    }
+  }
+  res[row][col] = ret + 1;
+  return res[row][col];
+}
 
 int longestIncreasingPath(int** matrix, int matrixSize, int* matrixColSize){
-  int i, j, k, row, col;
-  int num_row = matrixSize, num_col = matrixColSize[0]; 
-  char *visit = (char *) calloc (num_row * num_col, sizeof (*visit));
-  int *stack = (int *) malloc (num_row * num_col * 2 * sizeof (*stack));
-  int *path_len = (int *) calloc (num_row * num_col, sizeof (*path_len));
-  int s_idx = 0, curr, curr_row, curr_col, curr_level, last_level, max, res = 0;
-  bool max_level_found;
+  int i, j, k, num_row = matrixSize, num_col = matrixColSize[0], ret;
+  int **res = (int *) calloc (num_row, sizeof (*res));
+  
+  for (i = 0; i < num_row; i++)
+    res[i] = (int *) calloc (num_col, sizeof (int));
   
   for (i = 0; i < num_row; i++) {
     for (j = 0; j < num_col; j++) {
-      if (path_len[i * num_col + j])
-        continue;
-      stack[s_idx] = i * num_col + j;
-      s_idx++;
-      curr_level = 0;
-      max_level_found = false;
-      printf ("starting at %d \n", i * num_col + j);
-      while (s_idx) {
-        curr = stack[s_idx - 1];
-        printf ("Visiting %d \n", curr);
-        if (visit[curr]) {
-          if (!max_level_found) {
-            last_level = curr_level;
-            printf ("last level = %d \n", last_level);
-            max_level_found = true;
-          }
-          printf ("Setting path_len[%d] = %d \n", curr, curr_level);
-          if (!path_len[curr]) {
-            path_len[curr] = last_level - curr_level + 1;  
-          }
-
-          visit[curr] = 0;
-          --s_idx;
-          curr_level--;
-          continue;
-        }
-        if (path_len[curr]) {
-          if (!max_level_found) {
-            last_level = curr_level + path_len[curr];
-            printf ("last level = %d \n", last_level);
-            max_level_found = true;
-          }
-          curr_level--;
-          --s_idx;
-          continue;
-        }
-        curr_level++;
-        curr_row = curr / num_col;
-        curr_col = curr % num_col;
-        for (k = 0; k < 4; k++) {
-          row = curr_row + neigh[k][0];
-          col = curr_col + neigh[k][1];
-          if (col >= 0 && row >= 0 && col < num_col && row < num_row &&
-             matrix[row][col] > matrix[curr_row][curr_col]) {
-            stack[s_idx] = row * num_col + col;
-            s_idx++;
-          }
-        }
-        visit[curr] = 1;
+      if (!res[i][j]) {
+        dfs (matrix, num_row, num_col, res, i, j);
       }
     }
   }
-  
-  res = path_len[0];
+
+  ret = res[0][0];
   for (i = 0; i < num_row; i++) {
     for (j = 0; j < num_col; j++) {
-      if (path_len[i * num_col + j] > res)
-        res = path_len[i * num_col + j];
+      if (res[i][j] > ret)
+        ret = res[i][j];
     }
   }
-  return res;
+  return ret;
 }
