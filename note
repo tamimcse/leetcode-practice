@@ -785,3 +785,5 @@ Right side of the || will only execute if !head is false
 On an another note, sometimes, it may seem that storing partial result - 1 is more convinient and then get the final result by partial result + 1. But, this is often unnecessary. In many cases, I found that storing the actual result is just fine.
 
 121. When doing DFS, think if you need to visit a previously visited node again. It depends on the application. Sometimes, you may want to backtrack and visit a previously visited node. In that case, when backtracking, you need to set visit[node] = 0 while backtracking. 
+
+122. Sometimes, iterative implementation of DFS/BFS can be too difficult. You may consider recursive implementation. For instance, longest-increasing-path-in-a-matrix problem. I came across similar issues before.
