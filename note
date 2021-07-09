@@ -793,3 +793,9 @@ Sometimes, iterative implementation is not adequete at all!!!! For instance, thi
 123. If your input is a matrix, don't use 1-D array for visit or string anything. It may seem convinient, but believe me, it will make the code look uglier later. Instead create a 2D matrix. It's also easy to implement and produces easier code.
 
 124. Sometimes, you can solve a problem with recursion (like backtracking). You can also notice that you can solve the problem in bottom-up manner like DP. But, in that case, in each entry, you need to store 2^n values. This means that you are not actually reducing computation. Here, DP = Recursion. This is need to be done by recursion because you need to check all the combinations. Example of such problem is target-sum problem.
+
+125. Sometimes, it may seem that constructing graph is the right choice because graph algorithm may need to access adjacent nodes which may noyt be readily avaiulable. In that case, you may wonder how do we map data to node. One way to do is, just use original data's index as node index. Don't worry about original data at all. Simply use data's index as node ID to create adjacency list. Note that, adjacent list can simply contain the index. And we can get the corresponding data from the index. One such example is word-ladder problem.
+
+Now think really hard? Do you really need to construct a graph. Once you have a graph, you can access all the adjacent nodes usimng a simple for loop. That's all a graph does for you. You actually ran some sorts of for loop to create the adjacency list anyway. So, actually you don't really need to create the adjacency list anyway even though you think you do. You can simply iterate over the data to get the adjacent nodes.
+
+Moral: You almnost never need to construct a graph data structure. Implement you graph algorithm on the data directly.
