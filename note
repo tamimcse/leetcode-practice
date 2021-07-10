@@ -801,3 +801,7 @@ Now think really hard? Do you really need to construct a graph. Once you have a 
 Moral: You almnost never need to construct a graph data structure. Implement you graph algorithm on the data directly.
 
 126. vector.size() can be used to iterate a vector. There is no vector.count(). Note that, there is also vector::capacity...
+
+127. For instance, you are given bunch of intervals. You are asked to calculate free intervals. For instance: employee-free-time problem.
+
+This can be solved by projecting all the intervals onto an array. But, not that this process is not cheap. Specually if an interval itself is very large. It can be more easy and efficient to handle intervals manually. For instance, you can sort sort the intervals by start time. Then keep track of end time you found so far. If next interval start time is larger than the current end time, we found a free time (simple!!)
