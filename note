@@ -800,4 +800,4 @@ Now think really hard? Do you really need to construct a graph. Once you have a 
 
 Moral: You almnost never need to construct a graph data structure. Implement you graph algorithm on the data directly.
 
-126. vector.count() can be used to iterate a vector
+126. vector.size() can be used to iterate a vector. There is no vector.count(). Note that, there is also vector::capacity...
