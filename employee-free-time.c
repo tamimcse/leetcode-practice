@@ -96,3 +96,52 @@ public:
 };
 
 */
+
+/*
+Note that, finding free time can be simply calculate by keeping track of end time. Sort all the intervals by start time. Then keep track of end time you found so far. If next interval start time is larger than the current end time, we found a free time (simple!!)
+*/
+
+/*
+// Definition for an Interval.
+class Interval {
+public:
+    int start;
+    int end;
+
+    Interval() {}
+
+    Interval(int _start, int _end) {
+        start = _start;
+        end = _end;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<Interval> employeeFreeTime(vector<vector<Interval>> schedule) {
+      vector<Interval> flatten_intervals;
+      vector<Interval> res;
+      
+      for (auto s : schedule) {
+        for (auto i : s) {
+          flatten_intervals.push_back (i);
+        }
+      }
+      
+      sort (flatten_intervals.begin(), flatten_intervals.end(), 
+            [](Interval &a, Interval &b) {return a.start < b.start;});
+      
+      int end = flatten_intervals[0].end;
+      for (int i = 1; i < flatten_intervals.size(); i++) {
+        if (flatten_intervals[i].start > end) {
+          res.push_back (Interval(end, flatten_intervals[i].start));
+          end = flatten_intervals[i].end;
+        } else {
+          if (flatten_intervals[i].end > end)
+            end = flatten_intervals[i].end;
+        }
+      }
+      return res;
+    }
+};
