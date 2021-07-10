@@ -799,3 +799,5 @@ Sometimes, iterative implementation is not adequete at all!!!! For instance, thi
 Now think really hard? Do you really need to construct a graph. Once you have a graph, you can access all the adjacent nodes usimng a simple for loop. That's all a graph does for you. You actually ran some sorts of for loop to create the adjacency list anyway. So, actually you don't really need to create the adjacency list anyway even though you think you do. You can simply iterate over the data to get the adjacent nodes.
 
 Moral: You almnost never need to construct a graph data structure. Implement you graph algorithm on the data directly.
+
+126. vector.count() can be used to iterate a vector
