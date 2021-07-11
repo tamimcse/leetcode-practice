@@ -815,3 +815,11 @@ for (i = 0; i < num_row; i++) {
 } 
 
 That is, iterate row first. Then iterate columns.
+
+129. Sometimes, recursive formulation follows like edit distance. If I have two string s1 and s2. Their edit-distance d[i][j] indicates edit distance of first i characters of s1 and j characters of s2. The formula here is:
+
+d[i][j] = d[i-1][j-1] if s1[i] == s2[j]
+d[i][j] = min (d[i-1][j], d[i][j-1]) + 1 if s1[i] != s2[j]
+
+Note that, we consume both characters only if both are same. If both are not same, we don't consume both. We keep one same, and consume other and do the opposite and then take minimum.
+
