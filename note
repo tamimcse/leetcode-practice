@@ -823,3 +823,13 @@ d[i][j] = min (d[i-1][j], d[i][j-1]) + 1 if s1[i] != s2[j]
 
 Note that, we consume both characters only if both are same. If both are not same, we don't consume both. We keep one same, and consume other and do the opposite and then take minimum.
 
+I think, this..but, above formulation is wrong!!!!!!!!!!!!!
+
+It should be:
+
+d[i][j] = min (d[i-1][j-1], d[i][j-1] + 1, d[i-1][j] + 1) if s1[i] == s2[j]
+d[i][j] = min (d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + 1) if s1[i] != s2[j]
+
+For details, take a look at edit-distance problem!!!
+
+
