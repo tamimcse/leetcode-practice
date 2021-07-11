@@ -840,4 +840,17 @@ Please see https://leetcode.com/problems/edit-distance/solution/
 
 130. Common trick: If solution does not work for a complex input, find a minimal input for which the program also breaks
 
+131. You are asked to design twitter (e.g. design-twitter problem). Here, user can follow and unfollow and post tweets. In user's feed, 10 latest tweets of this own who he is following ought to be shown. 
+
+In this case, you can design it in two way:
+
+a. Design a data structure where each user's feed is precaluclated.
+b. Design a data structure where each user's tweet is store and feed is calculated at runtime.
+
+Approach (a) may be tempting, but note that problem with that is, when a user unfollow someone, the feed has to be updated. So, we need to remove that followee's tweet from the feed. On top of that, you need to fill the empty spaces of the feed with tweets of his own or his followees.. In a word, it makes it very complicated to unfollow someone.
+
+On the other hand, in approach (b), you simply need to store the tweets. The feed is calculated at runtime. So, unfollowing process is not comlicated at all.
+
+131.  
+
 
