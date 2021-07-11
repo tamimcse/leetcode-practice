@@ -851,6 +851,6 @@ Approach (a) may be tempting, but note that problem with that is, when a user un
 
 On the other hand, in approach (b), you simply need to store the tweets. The feed is calculated at runtime. So, unfollowing process is not comlicated at all.
 
-131.  
+131. For instance, you need to store 10 latest items. You can implement this using circular array, dequeueu or double linked list. Double linked list can be used as dequeue (i.e. insert to the front and remove from the end) 
 
 
