@@ -832,6 +832,12 @@ d[i][j] = min (d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + 1) if s1[i] != s2[j]
 
 For details, take a look at edit-distance problem!!!
 
+Another issue!!!
+
+In edit distance, you need to measure assume that string can be empty. If you try to use m x n mattrix where m and n are lengths of the string, it will not work. you should consider empty string as well. So, the matrix should be m + 1 x n + 1.
+
+Please see https://leetcode.com/problems/edit-distance/solution/
+
 130. Common trick: If solution does not work for a complex input, find a minimal input for which the program also breaks
 
 
