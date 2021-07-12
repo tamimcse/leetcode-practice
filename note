@@ -859,4 +859,6 @@ There is better approach!!!!
 
 Use heap of size k. Insert the first element of each list into the heap. Then in each iteration, extract the minimum from heap amd insert the next element from the list where the extracted element belong to. This approach requires, O(nlogk)
 
+133. Sometimes, a problem may involve doing sometihing with even/odd index, but the problem does not say it explicitly. For instance, wiggle-sort. If there is some sorts of pattern, the problem can be solve using even/odd patterns. 
+
 
