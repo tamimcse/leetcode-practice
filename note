@@ -871,4 +871,4 @@ The problem may become easier if you sort them. For instance, in case of wiggle-
 
 Sometimes, you don't really need order. In that case, a map of character with their count may help. For instance, reorganize-string problem.
 
-
+135. A tree can be travarsed two ways. DFS and BFS. Pre-order, in-order, post-order travarsals are variants of DFS. Again, recursively calling a function on left and right subtree can be think of as preorder or in order travarsal. But, sometimes you may need to do BFS as well. For instance, you need to travarse level order. You can do that by BFS.
