@@ -861,4 +861,10 @@ Use heap of size k. Insert the first element of each list into the heap. Then in
 
 133. Sometimes, a problem may involve doing sometihing with even/odd index, but the problem does not say it explicitly. For instance, wiggle-sort. If there is some sorts of pattern, the problem can be solve using even/odd patterns. 
 
+134. Sometimes, you may try to solve a problem by rearranging the elements. But, that will require O(n^2) and still may not be solvable. There may not be a predicatable results in interaative approach. In iterative approach, you may need to iterate forward and backword. They are not easy as sorting. Example of such proble include wiggle-sort and reorganize-string. 
+
+The problem may become easier if you sort them. For instance, in case of wiggle-sort.
+
+Sometimes, you don't really need order. In that case, a map of character with their count may help. For instance, reorganize-string problem.
+
 
