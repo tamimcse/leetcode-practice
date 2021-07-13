@@ -1,5 +1,8 @@
 /*
 https://www.geeksforgeeks.org/sort-array-wave-form-2/
+
+
+Note that, it will only work if all the elements are distinct. If some elements are same, it will not work. For details, take a look at the note.
 */
 #include <stdio.h>
 #include <stdlib.h>

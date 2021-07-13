@@ -886,3 +886,13 @@ Now, note this this will not work if input has many same element. For instance,
 1 1 1             -> 1 1   1 
 
 One solution to this problem is: notice that all the odd indeices will contain larger elements and even indices will contain smaller elements (or otherwise)
+
+I tried to solve this without extra space, but I found it tooooooooooo tough through it seems not. This is what I tried:
+
+I sorted the array. Then find out where the larger number will begin. Now, all I need to do is fill up the odd indices with the larger numbers. But, this is easier said than done.
+
+For instance, I iterate odd indices from left and iterate larger numbers from right and swap in every iteration. But, this does not work because a large element will be swapped out.
+
+So, I iterate odd indices from the left and large elements from left. It works for some cases, but still results in same element being placed adjacently. To solve the problem, I tried to reverse the larger numbers. That solves the problem for some cases, but problem still exists. Then tried to reverse smaller problems. It solves the problem, but still problem exists.
+
+So, I give up in place wiggle sort!!!!! Need to try using extra space.
