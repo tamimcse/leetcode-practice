@@ -3,7 +3,7 @@ https://leetcode.com/problems/wiggle-sort-ii/
 
 Tried to solve in place. Look simple, but toooo tough!!
 
-
+Take a look at the note for details
 */
 void swap (int *arr, int i, int j)
 {

@@ -896,3 +896,18 @@ For instance, I iterate odd indices from left and iterate larger numbers from ri
 So, I iterate odd indices from the left and large elements from left. It works for some cases, but still results in same element being placed adjacently. To solve the problem, I tried to reverse the larger numbers. That solves the problem for some cases, but problem still exists. Then tried to reverse smaller problems. It solves the problem, but still problem exists.
 
 So, I give up in place wiggle sort!!!!! Need to try using extra space.
+
+Now, wiggle sort can be thought as we have two sorted array A and B (A contains smaller elements and B contains larger element). We need to merge this two arrays by taking one element from each array at a time and placing them adjacently. There are 4 differert ways we can do that:
+
+A           B
+---------------
+L-R        L-R  (should work, but doesn't in leetcode)
+L-R        R-L  (Not good)
+R-L        L-R  (Not good)
+R-L        R-L  (good)    
+
+Note that, largest element of A can be same as smallest element of B. 
+
+If we do R-L for B and L-R for A, then there is a good chance that same element will be placed adjacently. So, if we do R-L for B, we should do R-L for A.
+
+Again, if we do L-R for B and R-L for A, then there is a good chance that same element will be placed adjacently. But, L-R for A and B should work, but not for small array. And I found it does not work in leetcode test code.
