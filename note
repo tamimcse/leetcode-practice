@@ -872,3 +872,17 @@ The problem may become easier if you sort them. For instance, in case of wiggle-
 Sometimes, you don't really need order. In that case, a map of character with their count may help. For instance, reorganize-string problem.
 
 135. A tree can be travarsed two ways. DFS and BFS. Pre-order, in-order, post-order travarsals are variants of DFS. Again, recursively calling a function on left and right subtree can be think of as preorder or in order travarsal. But, sometimes you may need to do BFS as well. For instance, you need to travarse level order. You can do that by BFS.
+
+136. In wiggle sort (wave-like sort), you can simply sort an array and then the swap every two adjacent elements.
+
+           4                     4 
+       3                             3  
+    2             ->       2     
+ 1                            1   
+
+Now, note this this will not work if input has many same element. For instance,
+
+      2 2 2 2            2   2 2 2
+1 1 1             -> 1 1   1 
+
+One solution to this problem is: notice that all the odd indeices will contain larger elements and even indices will contain smaller elements (or otherwise)
