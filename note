@@ -911,3 +911,5 @@ Note that, largest element of A can be same as smallest element of B.
 If we do R-L for B and L-R for A, then there is a good chance that same element will be placed adjacently. So, if we do R-L for B, we should do R-L for A.
 
 Again, if we do L-R for B and R-L for A, then there is a good chance that same element will be placed adjacently. But, L-R for A and B should work, but not for small array. And I found it does not work in leetcode test code.
+
+136. In post order, root is visited at the last. But, it sounds linke something else.
