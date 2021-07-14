@@ -913,3 +913,13 @@ If we do R-L for B and L-R for A, then there is a good chance that same element 
 Again, if we do L-R for B and R-L for A, then there is a good chance that same element will be placed adjacently. But, L-R for A and B should work, but not for small array. And I found it does not work in leetcode test code.
 
 136. In post order, root is visited at the last. But, it sounds linke something else.
+
+137. In-order, pre-order, etc can be same for differenet trees. But, in-order and post-order would be unique for a tree. So, you may be asked to construct a tree from inorder and postorder travarsal.
+
+Try to think first before looking at the solution.
+
+If look carefully for a while, you will find that root of a tree will always come at last in post order travarsal. We can use this property to split the tree into two subtrees. This is how we can construct the tree recursively by splitting...here post order travarsal will give us the root.
+
+Also note that inorder and post order travarsals are also aligned. In inorder, the whole left subtree is travarsed, then root is travarsed and the whole right subtree is travarsed. On the otherhad, in postorder, the whole left subtree is travarsed, then whole right subtree is travarsed and then the root is travarsed. So, both travarsal are kinda alighned. So, you can split those arrays at the same time to produce subtrees.
+
+I shoud note that problem can be asked to generate a tree from preorder and inorder travarsal. The solution is alsomost the same except in preorder, we will find the root at the beginning (instead at the end in case of postorder).
