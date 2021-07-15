@@ -940,4 +940,10 @@ Here, i corresponds n and j corresponds k. It may sound trivial, but it may seem
 
 140. If needed, sometime, you can create min()/max() macro yourself, like #define max(a,b) (a < b ? b : a)
 
-141. 
+141. In egg-drop problem, we need to count what would the minimum number to steps needed for a given number of floors (n) and eggs (k). Note that, we don't need to find out the floor. If you needed to find the floor, we could do binary search like approach. But, here, the problem is different. We need to count the minimum number of steps, and counting minimum number of step through binary search like approach (checking the mid element first) may not need least amount of steps. In some cases, I found checking one-third-th element first will require fewer number of steps. So, here the equation is more complicated that binary search. We need to check for each floor to find the minimum # of steps.
+
+Now, we need to write down the function that checks all the floor to find the minimum like:
+
+https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/
+
+Then peform DP instead of recursion.
