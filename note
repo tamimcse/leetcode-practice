@@ -947,3 +947,6 @@ Now, we need to write down the function that checks all the floor to find the mi
 https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/
 
 Then peform DP instead of recursion.
+
+142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp,
+......
