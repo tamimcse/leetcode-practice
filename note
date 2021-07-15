@@ -948,5 +948,20 @@ https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/
 
 Then peform DP instead of recursion.
 
+Now, note that, do you really need to check for all the floors? 
+
+https://leetcode.com/problems/super-egg-drop/solution/ 
+
+The link shows you don't...
+
+If you have two functions f1 and f2. f1 is always increasing and f2 is always decresing and you are taking the min of max of them (like the link), you can apply binary search like approach!!!! So, I guess, we are eventually using binary search, but not in the way I thought I would be....
+
+\   /
+ \ /
+  /\
+ /  \
+/    \
+f1   f2
+
 142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp,
 ......
