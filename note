@@ -963,5 +963,8 @@ If you have two functions f1 and f2. f1 is always increasing and f2 is always de
 /    \
 f1   f2
 
-142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp,
-......
+142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, cnt, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp, stack, queue, s_idx, q_start, q_end, runner1, runner2, r1, r2, r1_nxt, r2_nxt, elem, left_idx, right_idx, parent_idx,......
+
+143.   char *str = "aabbcaad"; ..is fine..no need to do char str[] = {...};
+
+144. Sometimes, you will need a data structure where we store count of each element. We extract an element with largest/smallest count from the data structure and decrement the count...Heap is a perfect data structure for this kinds of problems. For instance: reorganize-string problem.
