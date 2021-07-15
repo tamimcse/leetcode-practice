@@ -938,6 +938,6 @@ Here, i corresponds n and j corresponds k. It may sound trivial, but it may seem
 
 139. Sometimes, in 2D array, you may create (n + 1) X (k + 1) array instead of n X k array. Instead of mapping an element to appropiate index by subtracting 1, we can use the element to map directly to the array element.
 
-140. If needed, sometime, you can create min()/max() function or macro yourself. You can also write the logic in-place.
+140. If needed, sometime, you can create min()/max() macro yourself, like #define max(a,b) (a < b ? b : a)
 
 141. 
