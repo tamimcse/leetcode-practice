@@ -1,35 +1,50 @@
 /*
 https://leetcode.com/problems/super-egg-drop/
+
+Details would be found in notes.
+
+https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/
+
+https://leetcode.com/problems/super-egg-drop/solution/
 */
-#include <stdio.h>
-
-int superEggDrop_inner(int k, int start, int end)
-{
-  int mid, res1, res2, max;
-  printf ("k = %d start = %d end = %d \n", k, start, end);
-
-  if (end < start)
-    return 0;
-  if (start == end)
-    return 1;
-  if (k == 1)
-    return end - start + 1;
-  mid = (start + end) >> 1;
-  res1 = superEggDrop_inner (k, mid + 1, end);
-  res2 = superEggDrop_inner (k - 1, start, mid-1);
-  max = res1 > res2 ? res1 : res2;
-  return max + 1;
-}
+#define max(a,b) (a < b ? b : a)
 
 int superEggDrop(int k, int n){
-  return superEggDrop_inner (k, 1, n);
-}
-
-void main  ()
-{
-  int n = 14, k = 3;
-
-  int res = superEggDrop (k, n);
-
-  printf ("res = %d \n", res);
+  int i, j, m, min, res, start, end, mid;
+  int **dp = (int **) calloc (k + 1, sizeof (*dp)); 
+  
+  for (i = 0; i <= k; i++)
+    dp[i] = (int *) calloc (n + 1, sizeof (int));
+  
+  for (i = 1; i <= n; i++)
+    dp[1][i] = i;
+  
+  for (i = 2; i <= k; i++)
+    dp[i][1] = 1;
+  
+  for (i = 2; i <= k; i++) {
+    for (j = 2; j <= n; j++) {
+      start = 1;
+      end = j;
+      min = 10000000;
+      while (start <= end) {
+        mid = (start + end) >> 1;
+        if (dp[i-1][mid-1] < dp[i][j-mid]) {
+          start = mid + 1;
+          if (dp[i][j-mid] < min)
+            min = dp[i][j-mid];
+        } else if (dp[i-1][mid-1] > dp[i][j-mid]) {
+          end = mid - 1;
+          if (dp[i-1][mid-1] < min)
+            min = dp[i-1][mid-1];
+        } else {
+          if (dp[i-1][mid-1] < min)
+            min = dp[i-1][mid-1];
+          break;
+        }
+      }
+      dp[i][j] = min + 1;
+    }
+  }
+  return dp[k][n];
 }
