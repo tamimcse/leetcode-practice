@@ -925,3 +925,19 @@ Also note that inorder and post order travarsals are also aligned. In inorder, t
 I shoud note that problem can be asked to generate a tree from preorder and inorder travarsal. The solution is alsomost the same except in preorder, we will find the root at the beginning (instead at the end in case of postorder).
 
 Another very important point!!!!: note that inorder and postorder array are not properly aligned. So, using index of one to caluclate index of the other will result wrong result. But, this problem can be solved using a simple technique. From the previous discussion, it is clear that the size of inorder and postorder array would be same as they corresponds to a subtree. Thus we can calculate how many elements are there in the left subtree. We can use that to calculate the index of the inorder and postorder arrays.
+
+138. For instance, I have a n X k 2D array. I'm iterating them as:
+
+for (i = 0; i < n; i++) {
+  for (j = 0; j < k; j++) {
+
+  }
+}
+
+Here, i corresponds n and j corresponds k. It may sound trivial, but it may seem confusing sometime. Inside the loops, we need to use i and j instead of n and k.. Also, you may use 'row' and 'col' instead of i and j.
+
+139. Sometimes, in 2D array, you may create (n + 1) X (k + 1) array instead of n X k array. Instead of mapping an element to appropiate index by subtracting 1, we can use the element to map directly to the array element.
+
+140. If needed, sometime, you can create min()/max() function or macro yourself. You can also write the logic in-place.
+
+141. 
