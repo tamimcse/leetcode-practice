@@ -9,6 +9,7 @@ Both solution of geeksforgeeks are elegant.
 #include <string.h>
 #include <stdlib.h>
 
+
 struct elem {
   char ch;
   int cnt;
@@ -73,12 +74,16 @@ char * reorganizeString(char * s){
     heapify (heap, 26, i);
   } 
   for (i = 0; i < len; i += 2) {
+    if (heap[0].cnt == 0)
+      return "";
     res[i] = heap[0].ch;
     tmp_elem1 = heap[0];
     tmp_elem1.cnt--;
     heap[0] = heap[25];
     heapify (heap, 25, 0);
     if (s[i+1]) {
+      if (heap[0].cnt == 0)
+        return "";
       res[i+1] = heap[0].ch;
       tmp_elem2 = heap[0];
       tmp_elem2.cnt--;
