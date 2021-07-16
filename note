@@ -982,3 +982,13 @@ We need to add an extra check before the expression. If idx == 0, then there is 
 Note that, this creates a VERY hard to find bug..
 
 146. May be I am reapeating, but don't try to create a 1D array to represent a 2D array. 2D array produces much cleaner code.
+
+147. When checking if we can place a queen in two positions, I write the logic like:
+
+return !(x1 == x2 || y1 == y2 || (x2 - x1) == (y2 - y1));  
+
+But, it should be:
+
+return !(x1 == x2 || y1 == y2 || abs (x2 - x1) == abs (y2 - y1));
+
+Because, diagonal can be right-down and right-up.  
