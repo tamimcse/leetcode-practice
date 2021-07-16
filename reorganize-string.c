@@ -34,6 +34,8 @@ void heapify (struct elem *heap, int size, int idx)
 
 void push_up (struct elem *heap, int size, int idx)
 {
+  if (!idx)
+    return;
   int parent_idx = (idx - 1) >> 1;
   int left_idx = (parent_idx << 1) + 1, right_idx = (parent_idx << 1) + 2;
   int largest_child_idx = -1;
@@ -66,51 +68,26 @@ char * reorganizeString(char * s){
   for (i = 0; s[i]; i++) {
     heap[s[i]-'a'].cnt++;
   }
-
-  for (i = 0; i < 26; i++)
-    printf ("%c: %d ", heap[i].ch, heap[i].cnt);
-  printf ("\n");
-
-  //Buils the heap starting from the last parent
+  //Builds the heap starting from the last parent
   for (i = 25 >> 1; i >= 0; i--) {
     heapify (heap, 26, i);
-  }
-
-  printf ("After constructing heap....\n");
-  for (i = 0; i < 26; i++)
-    printf ("%c: %d ", heap[i].ch, heap[i].cnt);
-  printf ("\n");
-  
+  } 
   for (i = 0; i < len; i += 2) {
-    printf ("Getting char %c \n", heap[0].ch);
     res[i] = heap[0].ch;
     tmp_elem1 = heap[0];
     tmp_elem1.cnt--;
     heap[0] = heap[25];
     heapify (heap, 25, 0);
-  printf ("After extracting first char from heap....\n");
-  for (j = 0; j < 26; j++)
-    printf ("%c: %d ", heap[j].ch, heap[j].cnt);
-  printf ("\n");
     if (s[i+1]) {
-    printf ("Getting char %c \n", heap[0].ch);
       res[i+1] = heap[0].ch;
       tmp_elem2 = heap[0];
       tmp_elem2.cnt--;
       heap[0] = heap[24];
       heapify (heap, 24, 0);
-  printf ("After extracting second char from heap....\n");
-  for (j = 0; j < 26; j++)
-    printf ("%c: %d ", heap[j].ch, heap[j].cnt);
-  printf ("\n");
       heap[24] = tmp_elem1;
       push_up (heap, 25, 24);
       heap[25] = tmp_elem2;
       push_up (heap, 26, 25);
-  printf ("After adding two chars to heap....\n");
-  for (j = 0; j < 26; j++)
-    printf ("%c: %d ", heap[j].ch, heap[j].cnt);
-  printf ("\n");
     }
   }
   res[len] = '\0';
