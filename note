@@ -978,3 +978,7 @@ Now, we use this expression to calculate the parent index of a tree. Now, if idx
 int parent_idx = (idx - 1) / 2;
 
 We need to add an extra check before the expression. If idx == 0, then there is no parent... 
+
+Note that, this creates a VERY hard to find bug..
+
+146. May be I am reapeating, but don't try to create a 1D array to represent a 2D array. 2D array produces much cleaner code.
