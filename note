@@ -993,4 +993,4 @@ return !(x1 == x2 || y1 == y2 || abs (x2 - x1) == abs (y2 - y1));
 
 Because, diagonal can be right-down and right-up.
 
-148. If you need to check eqaulity of float or double, note that it would not work. For instance, in max-points-on-a-line, we need to create a map where key is the tangent of two points (y2-y1/x2-x1). To solve this issue, I should store y2-y1 and x2-x1 separately as int and use them as key.
+148. If you need to check eqaulity of float or double, note that it would not work. For instance, in max-points-on-a-line, we need to create a map where key is the tangent of two points (y2-y1/x2-x1). To solve this precision problem, I should store y2-y1 and x2-x1 separately as int and use them as key.
