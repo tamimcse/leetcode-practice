@@ -1006,3 +1006,9 @@ To solve the problem, we need to calculate GCD of 6 and 8 and divide the numbers
 void list_insert (struct value **head, int val)
 
 Inside the function, you should use *head to use the head.
+
+Orrrrr, you can do this:
+
+struct value* list_insert (struct value *head, int val);
+
+It will return new head!! I that case, you can use head directly and not use *head.
