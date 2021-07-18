@@ -1012,3 +1012,5 @@ Orrrrr, you can do this:
 struct value* list_insert (struct value *head, int val);
 
 It will return new head!! I that case, you can use head directly and not use *head.
+
+151. Suppose, you want to compare two numbers: x/y > a/b. Here all of them are int. This will not work. You should cast lhs and rhs to double.
