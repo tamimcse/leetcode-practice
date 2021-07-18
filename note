@@ -997,4 +997,12 @@ Because, diagonal can be right-down and right-up.
 
 Now, problem is how can I tell (3,4) and (6,8) are the same key? One apparent solution is to check if 6/3 == 8/4...But, note that this would not work for all the inputs. For instance, 6/3 == 9/4..
 
-To solve the problem, we need to calculate GCD of 6 and 8 and divide the numbers by the GCD. That is, we will always store key as the reduced value like (2, 3) or (3,4) and so on. 
+To solve the problem, we need to calculate GCD of 6 and 8 and divide the numbers by the GCD. That is, we will always store key as the reduced value like (2, 3) or (3,4) and so on.
+
+149. Note that, you often need to create a list of something and check if an element already exists in the list. For instance, max-points-on-a-line problem. You can use map (balananced binary tree or binary tree) or hash to implement that. If there is an order between key, you can create a binary tree, I think.
+
+150. Note that, list_insert should look like following:
+
+void list_insert (struct value **head, int val)
+
+Inside the function, you should use *head to use the head.
