@@ -1001,6 +1001,8 @@ To solve the problem, we need to calculate GCD of 6 and 8 and divide the numbers
 
 149. Note that, you often need to create a list of something and check if an element already exists in the list. For instance, max-points-on-a-line problem. You can use map (balananced binary tree or binary tree) or hash to implement that. If there is an order between key, you can create a binary tree, I think.
 
+Note that, to begin with, we can simply create a list.. and later change it to hash or map which is appropiate.
+
 150. Note that, list_insert should look like following:
 
 void list_insert (struct value **head, int val)
@@ -1014,3 +1016,9 @@ struct value* list_insert (struct value *head, int val);
 It will return new head!! I that case, you can use head directly and not use *head.
 
 151. Suppose, you want to compare two numbers: x/y > a/b. Here all of them are int. This will not work. You should cast lhs and rhs to double.
+
+152. In max-points-on-a-line problem, I may store tangent (y2-y1/x2-x1) as key as suggested in geeksforgeeks. But, note that tangent is not enough to check if some points are one a line. Specially tangent of two point pairs can be 0 or INFINITE and they may not be on the same line. Right question to ask here is how to check if three points are on the same line? In that case, we need to store 2 points. If we store (x1, y1) and (x2, y2), we can tell if another point is on the line. 
+
+We do that by checking if x1 == x2, in that case we check if new point x == x1..Same for y axis. We also check following if x1 != x2 and y1 != y2:
+
+(x - x1)/(x1 - x2) = (y - y1)/(y1 - y2).
