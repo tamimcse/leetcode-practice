@@ -1022,3 +1022,9 @@ It will return new head!! I that case, you can use head directly and not use *he
 We do that by checking if x1 == x2, in that case we check if new point x == x1..Same for y axis. We also check following if x1 != x2 and y1 != y2:
 
 (x - x1)/(x1 - x2) = (y - y1)/(y1 - y2).
+
+153. Hot brownie helps to keep brain cool.
+
+154. Sometimes, towards the end of the day, I look at a problem. It may seem quite tough. I try to come up with some solution on paper. The solution does not work. In the next moring, I start fresh. Look at the solution little differently. Now, the solution look easy. 
+
+Moral: Sometimes it takes a fresh rethinking to solve a problem. 
