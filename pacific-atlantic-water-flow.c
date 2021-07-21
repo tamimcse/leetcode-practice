@@ -1,50 +1,17 @@
 /*
 https://leetcode.com/problems/pacific-atlantic-water-flow/
+
+Initially, I thought I will do DFS starting from each (unvisited) node. But, if you look carefully, we need to start from the ocean. In other words, we need to do DFS startinhg from the nodes adjacent to ocean. 
 */
-bool is_adj_pacific (int** heights, int row, int col)
-{
-  int i;
-  
-  if (row == 0 || col == 0)
-    return true;
-  for (i = col - 1; i >= 0; i--) {
-    if (heights[row][i] > heights[row][i+1])
-      break;
-  }
-  if (i < 0)
-    return true;
-  for (i = row - 1; i >= 0; i--) {
-    if (heights[i][col] > heights[i+1][col])
-      break;
-  }
-  return i < 0;
-}
-
-bool is_adj_atlanic (int** heights, int row, int col, int num_row, int num_col)
-{
-  int i;
-  
-  if (row == num_row - 1 || col == num_col - 1)
-    return true;
-  for (i = col + 1; i < num_col; i++) {
-    if (heights[row][i] > heights[row][i-1])
-      break;
-  }
-  if (i == num_col)
-    return true;
-  for (i = row + 1; i < num_row; i++) {
-    if (heights[i][col] > heights[i-1][col])
-      break;
-  }
-  return i == num_row;
-}
-
 int adj [][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-void dfs (int** heights, char **res, int row, int col, int num_row, int num_col)
+void dfs_pacific (int** heights, char **res, int row, int col, int num_row, int num_col)
 {
   int i, j, k, adj_row, adj_col;
   
+  if (res[row][col])
+    return;
+
   res[row][col] = 1;
   for (i = 0; i < 4; i++) {
     adj_row = row + adj[i][0];
@@ -54,7 +21,34 @@ void dfs (int** heights, char **res, int row, int col, int num_row, int num_col)
     if (res[adj_row][adj_col])
       continue;
     if (heights[adj_row][adj_col] >= heights[row][col]) {
-      dfs (heights, res, adj_row, adj_col, num_row, num_col);
+      dfs_pacific (heights, res, adj_row, adj_col, num_row, num_col);
+    }
+  }
+}
+
+void dfs_atlantic (int** heights, char **res, int row, int col, int num_row, int num_col)
+{
+  int i, j, k, adj_row, adj_col;
+  
+  if (res[row][col] == 2)
+    return;
+  
+  if (res[row][col] == 3)
+    return;
+
+  if (res[row][col] == 1)
+    res[row][col] = 2;
+  else
+    res[row][col] = 3;
+  for (i = 0; i < 4; i++) {
+    adj_row = row + adj[i][0];
+    adj_col = col + adj[i][1];
+    if (adj_row < 0 || adj_row >= num_row || adj_col < 0 || adj_col >= num_col)
+      continue;
+    if (res[adj_row][adj_col] == 3 || res[adj_row][adj_col] == 2)
+      continue;
+    if (heights[adj_row][adj_col] >= heights[row][col]) {
+      dfs_atlantic (heights, res, adj_row, adj_col, num_row, num_col);
     }
   }
 }
@@ -75,20 +69,26 @@ int** pacificAtlantic(int** heights, int heightsSize, int* heightsColSize, int* 
     res[i] = (char *) calloc (num_col, sizeof (char));
   }
   
-  for (row = 0; row < num_row; row++) {
-    for (col = 0; col < num_col; col++) {
-      if (!is_adj_pacific (heights, row, col))
-        continue;
-      if (!is_adj_atlanic (heights, row, col, num_row, num_col))
-        continue;
-      dfs (heights, res, row, col, num_row, num_col);
-    }
-  }
+  //visit first row
+  for (i = 0; i < num_col; i++)
+    dfs_pacific (heights, res, 0, i, num_row, num_col);
+  
+  //visit first column
+  for (i = 1; i < num_row; i++)
+    dfs_pacific (heights, res, i, 0, num_row, num_col);
+  
+  //visit last column
+  for (i = 0; i < num_row; i++)
+    dfs_atlantic (heights, res, i, num_col-1, num_row, num_col);
+  
+  //visit last row
+  for (i = 0; i < num_col-1; i++)
+    dfs_atlantic (heights, res, num_row-1, i, num_row, num_col);
   
   ret_cnt = 0;
   for (row = 0; row < num_row; row++) {
     for (col = 0; col < num_col; col++) {
-      if (res[row][col])
+      if (res[row][col] == 2)
         ret_cnt++;
     }
   }
@@ -104,7 +104,7 @@ int** pacificAtlantic(int** heights, int heightsSize, int* heightsColSize, int* 
   i = 0;
   for (row = 0; row < num_row; row++) {
     for (col = 0; col < num_col; col++) {
-      if (res[row][col]) {
+      if (res[row][col] == 2) {
         ret[i][0] = row;
         ret[i][1] = col;
         i++;
