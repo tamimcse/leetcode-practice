@@ -1058,3 +1058,5 @@ Instead of
       
     }
   }
+
+160. Sometimes, it's critical to choose where do we start DFS from. For instance, in pacific-atlantic-water-flow problem, it is natual to start doing DFS from nodes one by one if they are unvisited. But, this lead to visiting same node many times. But, if you think carefully, all the water goes to ocean. So, we can simply start DFS from ocean (nodes adjacent to ocean)
