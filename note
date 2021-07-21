@@ -1042,3 +1042,19 @@ This is how you can initialize a hash or pointer array.
 157. Note that, implementing hash should be pretty easy. And you have access to your hash function, so it's better than using C++ built-in hash!! :-)
 
 158. When accessing hash, check if you element can be negative or not. If they can be negative, you need to make them positive.
+
+159. When iterating a matrix, we can follow this paradigm:
+
+  for (row = 0; row < num_row; row++) {
+    for (col = 0; col < num_col; col++) {
+      
+    }
+  }
+
+Instead of
+
+  for (i = 0; i < num_row; i++) {
+    for (j = 0; j < num_col; j++) {
+      
+    }
+  }
