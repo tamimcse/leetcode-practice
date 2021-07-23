@@ -1064,3 +1064,5 @@ Instead of
 Note, that kind of problem (e.g. pacific-atlantic-water-flow) may appear to be solved  by a simple DP. But, if you look carefully, if you are using DP, you are not considering all the adjacent nodes (in all 4 directions). You are only considering 2 (left and up). So, it will not work.
 
 161. Sometimes, in stack, you may not need to pop from the stack. You rather insert and modify the stack. For instance, longest-valid-parentheses problem.
+
+162. "Window of substring of a string" == "substring of a string" == "window of a string". The wording can be confusing.
