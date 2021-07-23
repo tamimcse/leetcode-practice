@@ -1070,3 +1070,9 @@ Note, that kind of problem (e.g. pacific-atlantic-water-flow) may appear to be s
 163. To check if a character is lower or upper case, there is a function: int islower(int c);
 
 It returns non-zero if c is a lower case, it returns 0 if c is an uppercase.
+
+164. There is no function to create a subtring from a string (index i to j). You can create your own:
+
+char subbuff[5];
+memcpy( subbuff, &buff[10], 4 );
+subbuff[4] = '\0';
