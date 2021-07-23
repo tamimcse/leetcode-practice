@@ -1060,3 +1060,7 @@ Instead of
   }
 
 160. Sometimes, it's critical to choose where do we start DFS from. For instance, in pacific-atlantic-water-flow problem, it is natual to start doing DFS from nodes one by one if they are unvisited. But, this lead to visiting same node many times. But, if you think carefully, all the water goes to ocean. So, we can simply start DFS from ocean (nodes adjacent to ocean)
+
+Note, that kind of problem (e.g. pacific-atlantic-water-flow) may appear to be solved  by a simple DP. But, if you look carefully, if you are using DP, you are not considering all the adjacent nodes (in all 4 directions). You are only considering 2 (left and up). So, it will not work.
+
+161. Sometimes, in stack, you may not need to pop from the stack. You rather insert and modify the stack. For instance, longest-valid-parentheses problem.
