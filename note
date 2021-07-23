@@ -1073,6 +1073,10 @@ It returns non-zero if c is a lower case, it returns 0 if c is an uppercase.
 
 164. There is no function to create a subtring from a string (index i to j). You can create your own:
 
-char subbuff[5];
-memcpy( subbuff, &buff[10], 4 );
-subbuff[4] = '\0';
+  int res_len = min_end - min_start + 1;
+  char *res = (char *) malloc ((res_len + 1) * sizeof (char));
+  res[res_len] = '\0';
+  memcpy (res, s + min_start, res_len * sizeof (char));
+  return res;
+
+Also note that, we don't need to use calloc to initialize all elements to 0.
