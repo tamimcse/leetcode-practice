@@ -1111,3 +1111,6 @@ The details of slinding window algorithm would be found at:
 https://leetcode.com/problems/minimum-window-substring/solution/
 
 Note that, in this algorithm, the left pointer should not reach to the end. If lengths of string s and t are s_len and t_len respectively, left pointer should go up to (s_len - t_len). If s_len goes till end, it will still work, but it will be highly inefficient specially if t_len is pretty high. 
+
+
+168. Note, that we may need to keep track of minimmum window len, window start and window end (e.g. minimum-window-substring problem). We don't need to three variables to do that. But, I often use three variables. Instead, you can use start and min_window_len to do that.
