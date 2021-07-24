@@ -1103,3 +1103,11 @@ Problem with this is you skip all the characters, so you will get segfault. So, 
   }
 
 Anytime, you increase an index in a while loop or for loop (mostly happen in while loop in my case), be sure to check if the index is a valid index or not.
+
+167. We you have substring matching type problem (e.g. minimum-window-substring), you we perform sliding window type algorithm. There, we maintain two variables: left and right. Note that, sliding window algorithm is similar to KMP string matching algorithm (not 100% sure). 
+
+The details of slinding window algorithm would be found at:
+
+https://leetcode.com/problems/minimum-window-substring/solution/
+
+Note that, in this algorithm, the left pointer should not reach to the end. If lengths of string s and t are s_len and t_len respectively, left pointer should go up to (s_len - t_len). If s_len goes till end, it will still work, but it will be highly inefficient specially if t_len is pretty high. 
