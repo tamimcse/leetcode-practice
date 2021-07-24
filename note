@@ -1171,3 +1171,8 @@ https://leetcode.com/problems/minimum-window-substring/discuss/1360317/Simple-c%
         
         if(minl==INT_MAX) return "";
         return s.substr(minstart, minl);
+
+
+very important point!!!!!!
+------------------------------
+Note that, hash can keep track of what charater we need to look for in the sliding window. The hash also can keep track of what character we need to skip.
