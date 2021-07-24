@@ -1119,6 +1119,8 @@ Note that, in this algorithm, the left pointer should not reach to the end. If l
 
 Now, think carefully, sometimes, it is possioble to use the hash so intellegently that you don't need a separate copy of the hash. You can modify the hash as you go..For instance, this is a solution to minimum-window-substring problem:
 
+https://leetcode.com/problems/minimum-window-substring/discuss/1360317/Simple-c%2B%2B-solution-or-Sliding-Window-or-Hashmap-or-Explained-clearly-with-comments
+
  string minWindow(string s, string t) {
         // Initialize minl as INT_MAX
         int minl = INT_MAX;
