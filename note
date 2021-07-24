@@ -1114,3 +1114,58 @@ Note that, in this algorithm, the left pointer should not reach to the end. If l
 
 
 168. Note, that we may need to keep track of minimmum window len, window start and window end (e.g. minimum-window-substring problem). We don't need to three variables to do that. But, I often use three variables. Instead, you can use start and min_window_len to do that.
+
+169. Sometimes, it may seem that you need a copy of your hash function and modify that.. and in some point you need to create a fresh copy of the hash. For instance, minimum-window-substring problem. 
+
+Now, think carefully, sometimes, it is possioble to use the hash so intellegently that you don't need a separate copy of the hash. You can modify the hash as you go..For instance, this is a solution to minimum-window-substring problem:
+
+ string minWindow(string s, string t) {
+        // Initialize minl as INT_MAX
+        int minl = INT_MAX;
+        
+        // Map to keep count of all characters of t 
+        unordered_map <int, int> mp;
+        for(auto ch: t) mp[ch]++;
+        
+        // Sliding Window Approach
+        // Let c be the count of chars of t in a particular window. Initialize as 0
+        // start be the start of the current window
+        // end be the end of current window
+        // minstart be the start for the minimum window found yet.
+        
+        int c = 0;
+        
+        int start = 0;
+        int minstart = 0;
+        
+        for(int end = 0; end<s.length(); end++)
+        {
+            if(mp[s[end]]>0) c++;
+            mp[s[end]]--; 
+            
+            // continue untill c equals length of t or when current window has all characters of t in it
+            if(c==t.length())
+            {
+                // Note that negative values in map indicate the key char is not present in t, but present in s. And hence leading chars in s with negative values are insignificant.
+                
+                while(start<end && mp[s[start]]<0){
+                    mp[s[start]]++;
+                    start++;
+                }
+                
+                if(end-start+1<minl)
+                {
+                    minl = end-start+1;
+                    minstart = start;
+                }
+                
+                // reduce the window size by incrementing start, reducing mp[s[start]] value, and reducing c
+    
+                mp[s[start]]++;
+                start++;
+                c--;
+            }
+        }
+        
+        if(minl==INT_MAX) return "";
+        return s.substr(minstart, minl);
