@@ -1080,3 +1080,10 @@ It returns non-zero if c is a lower case, it returns 0 if c is an uppercase.
   return res;
 
 Also note that, we don't need to use calloc to initialize all elements to 0.
+
+165. Just for quickness sake, rememember that, to iterate all the elements of a string based on string length, you need to do this:
+
+int len = strlen (s);
+for (i = 0; i < len; i++) {
+
+}
