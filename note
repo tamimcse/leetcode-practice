@@ -1087,3 +1087,19 @@ int len = strlen (s);
 for (i = 0; i < len; i++) {
 
 }
+
+166. Sometimes, you may want to skip the beginning of an array. You may do that as:
+
+  left = 0;
+  while (!exist (hash, s[left])) {
+    left++;
+  }
+
+Problem with this is you skip all the characters, so you will get segfault. So, it should be:
+
+  left = 0;
+  while (left < s_len && !exist (hash, s[left])) {
+    left++;
+  }
+
+Anytime, you increase an index in a while loop or for loop (mostly happen in while loop in my case), be sure to check if the index is a valid index or not.
