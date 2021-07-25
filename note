@@ -1119,6 +1119,45 @@ https://leetcode.com/problems/minimum-window-substring/solution/
 
 Note that, in this algorithm, the left pointer should not reach to the end. If lengths of string s and t are s_len and t_len respectively, left pointer should go up to (s_len - t_len). If s_len goes till end, it will still work, but it will be highly inefficient specially if t_len is pretty high. 
 
+Note that, implementation of slinding window can be treaky. You can implement it like:
+
+  while (1) {
+    //need to expand the right
+    while (1) {
+      if (right >= s_len)
+        goto done;
+      if (exist (hash, s[right])) {
+        match_cnt++;
+        if (match_cnt == t_len)
+          break;
+      }
+      delete (hash, s[right]);
+      right++;
+    };
+    //need to expand the left
+    if (right - left + 1 < min_window_len) {
+      min_window_len = right - left + 1;
+      min_start = left;
+      min_end = right;
+    }
+    insert (hash, s[left]);
+    left++;
+    match_cnt--;
+    while (left <= s_len - t_len && get_value (hash, s[left]) < 0)
+      left++;
+    if (left > s_len - t_len)
+      goto done;
+    if (left > right) {
+      right = left;
+      break;
+    }
+  }  
+done:
+  if (min_start == -1) {
+    return "";
+  }
+
+But, it becomes very messy. But, you can still think of it as substring matchig. So, your left visit from 0 to s_len - t_len. And then expand right internally.
 
 168. Note, that we may need to keep track of minimmum window len, window start and window end (e.g. minimum-window-substring problem). We don't need to three variables to do that. But, I often use three variables. Instead, you can use start and min_window_len to do that.
 
