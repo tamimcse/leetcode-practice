@@ -1157,7 +1157,31 @@ done:
     return "";
   }
 
-But, it becomes very messy. But, you can still think of it as substring matchig. So, your left visit from 0 to s_len - t_len. And then expand right internally.
+But, it becomes very messy. But, you can still think of it as substring matchig. So, your left visit from 0 to s_len - t_len. And then expand right internally. The above code can be implemented as:
+
+  while (left <= s_len - t_len) {
+    while (right < s_len && match_cnt < t_len) {
+      if (get_value (hash, s[right]) > 0)
+        match_cnt++;
+      delete (hash, s[right]);
+      right++;
+    }
+    if (match_cnt < t_len)
+      break;
+    while (get_value (hash, s[left]) < 0)
+      left++;
+    if (right - left + 1 < min_window_len) {
+      min_window_len = right - left + 1;
+      min_start = left;
+      min_end = right;
+    }
+    insert (hash, s[left]);
+    left++;
+    match_cnt--;
+  }
+
+Note that, unconditional while can be simplified by moving internal breaking condition to condition.
+
 
 168. Note, that we may need to keep track of minimmum window len, window start and window end (e.g. minimum-window-substring problem). We don't need to three variables to do that. But, I often use three variables. Instead, you can use start and min_window_len to do that.
 
