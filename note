@@ -1168,12 +1168,14 @@ But, it becomes very messy. But, you can still think of it as substring matchig.
     }
     if (match_cnt < t_len)
       break;
-    while (get_value (hash, s[left]) < 0)
-      left++;
-    if (right - left + 1 < min_window_len) {
-      min_window_len = right - left + 1;
+    while (get_value (hash, s[left]) < 0) {
+      insert (hash, s[left]);
+      left++;      
+    }
+    if (right - left < min_window_len) {
+      min_window_len = right - left;
       min_start = left;
-      min_end = right;
+      min_end = right - 1;
     }
     insert (hash, s[left]);
     left++;
