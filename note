@@ -1104,6 +1104,13 @@ Problem with this is you skip all the characters, so you will get segfault. So, 
 
 Anytime, you increase an index in a while loop or for loop (mostly happen in while loop in my case), be sure to check if the index is a valid index or not.
 
+Note that, you also need to add following:
+
+  if (left >= s_len)
+    return "";
+
+So, if left really exceeds array length, you want to write what you want to do.
+
 167. We you have substring matching type problem (e.g. minimum-window-substring), you we perform sliding window type algorithm. There, we maintain two variables: left and right. Note that, sliding window algorithm is similar to KMP string matching algorithm (not 100% sure). 
 
 The details of slinding window algorithm would be found at:
