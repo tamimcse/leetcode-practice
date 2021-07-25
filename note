@@ -1248,3 +1248,13 @@ https://leetcode.com/problems/minimum-window-substring/discuss/1360317/Simple-c%
 very important point!!!!!!
 ------------------------------
 Note that, hash can keep track of what charater we need to look for in the sliding window. The hash also can keep track of what character we need to skip.
+
+170. A very common mistake and hard to find bug!!!!
+
+If you need to set array of characters where the array elemements are number (e.g. sudoku-solver). I often do:
+
+board[i][j] = k;
+
+But, I should have done:
+
+board[i][j] = '0' + k;
