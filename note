@@ -1258,3 +1258,35 @@ board[i][j] = k;
 But, I should have done:
 
 board[i][j] = '0' + k;
+
+171. Sometimes, in backtracking, there can more different types of return condition. For instance, in sudoku-solver, there are two return statements:
+
+void solveSudoku_inner(char** board, int num_row, int num_col, int row, int col, bool *done)
+{
+  int i, j, k;
+  
+  for (i = 0; i < num_row; i++) {
+    for (j = 0; j < num_col; j++) {
+      if (board[i][j] != '.')
+        continue;
+      int hash[10] = {0};
+      get_valid_values (board, num_row, num_col, i, j, hash);
+
+      for (k = 1; k <= 9; k++) {
+        if (!hash[k]) {
+          board[i][j] = '0' + k;
+          solveSudoku_inner (board, num_row, num_col, i, j, done);
+          if (*done)
+            return;
+          board[i][j] = '.';
+        }
+      }
+      ///Needed!!!! Coming here means we couldn't find appropiate value, so backtrack.
+      return;
+    }
+  }
+  //This return found a solution
+  *done = true;
+}
+
+
