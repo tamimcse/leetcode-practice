@@ -1308,3 +1308,4 @@ Also, I forget to check "max_child_idx >=0" in following. This causes segfault!!
     push_down (arr, len, max_child_idx);
   }
 
+173. How would you update an elemnement of a heap? One thing you can do (from my common sense, not sure if it's correct) is perform push_down() at that index assumeing that index is a parent. If the new number is larger than previous number, also perform push_down() for all the prior indices of the index. It's like we are creating the heap again. But, instead of starting from the very last parent, we start at the index where the value is updated.
