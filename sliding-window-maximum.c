@@ -3,6 +3,31 @@ https://leetcode.com/problems/sliding-window-maximum/
 
 It gets TLE. It suggests to use Dequeue instead of heap. But, I can see, heap will outperform Dequeue in some cases.
 */
+void push_up (int *arr, int len, int child_idx)
+{
+  if (!child_idx)
+    return;
+  int parent_idx = (child_idx - 1) >> 1;
+  
+  int left_idx = (parent_idx << 1) + 1, right_idx = (parent_idx << 1) + 2;
+  int max_child_idx = -1, tmp;
+  
+  if (left_idx < len)
+    max_child_idx = left_idx;
+  
+  if (right_idx < len && arr[right_idx] > arr[max_child_idx]) {
+    max_child_idx = right_idx;
+  }
+  
+  if (max_child_idx >=0 && arr[max_child_idx] > arr[parent_idx]) {
+    tmp = arr[parent_idx];
+    arr[parent_idx] = arr[max_child_idx];
+    arr[max_child_idx] = tmp;
+    push_up (arr, len, parent_idx);
+  }
+}
+
+
 void push_down (int *arr, int len, int parent_idx)
 {
   int left_idx = (parent_idx << 1) + 1, right_idx = (parent_idx << 1) + 2;
@@ -33,15 +58,6 @@ void construct_heap (int *arr, int len)
   }
 }
 
-void construct_heap_from_idx (int *arr, int len, int start)
-{
-  int i;
-  
-  for (i = start; i >= 0; i--) {
-    push_down (arr, len, i);
-  }
-}
-
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -65,7 +81,7 @@ int* maxSlidingWindow(int* nums, int numsSize, int k, int* returnSize){
         if (heap[j] == to_remove) {
           heap[j] = nums[i + k];
           if (nums[i + k] > to_remove)
-            construct_heap_from_idx (heap, k, j);
+            push_up (heap, k, j);
           else 
             push_down (heap, k, j);
           break;
