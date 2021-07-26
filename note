@@ -1297,5 +1297,14 @@ void push_down (int *arr, int len, int parent_idx)
   ...
 }
 
-Also you need to keep track of min child. Check the left child first, then check the right right. Checking right child first makes things complicated, because right child may not exist...you know what, checking anyone at first is fine...
+Also you need to keep track of min child. Check the left child first, then check the right right. Checking right child first makes things complicated, because right child may not exist...you know what, checking anyone at first is fine... but, checking left first ofcourse makes it easier!
+
+Also, I forget to check "max_child_idx >=0" in following. This causes segfault!!!: 
+
+  if (max_child_idx >=0 && arr[max_child_idx] > arr[parent_idx]) {
+    tmp = arr[parent_idx];
+    arr[parent_idx] = arr[max_child_idx];
+    arr[max_child_idx] = tmp;
+    push_down (arr, len, max_child_idx);
+  }
 
