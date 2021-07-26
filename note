@@ -1289,4 +1289,13 @@ void solveSudoku_inner(char** board, int num_row, int num_col, int row, int col,
   *done = true;
 }
 
+172. In heapify () or min_heap, name like parent_idx, left_idx, right_idx:
+
+void push_down (int *arr, int len, int parent_idx)
+{
+  int left_idx = (parent_idx << 1) + 1, right_idx = (parent_idx << 1) + 2;
+  ...
+}
+
+Also you need to keep track of min child. Check the left child first, then check the right right. Checking right child first makes things complicated, because right child may not exist...you know what, checking anyone at first is fine...
 
