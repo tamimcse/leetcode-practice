@@ -1316,8 +1316,17 @@ What you should do is:
 
 If the new number is larger than before, perform push_down(). If the new number is smaller than before, perform push_up (). This is in min-heap.
 
+Now, this is inefficient either!!!!!!!!!!
+
+Note that, you update an heap at each iteration, you are using O(log n) everytime. Heap is more efficinet if you don't update heap in every iteration. For instance, take sliding-window-maximum problem as an example. It may seem that you should have a fixed size heap of size k. In every iteration, you should remove one element and add another element. Or you simply can update the ulemment. If you do that, you will get TLE because it's not so efficienet. 
+
+What you should do instead is you should have a large heap and update size of the heap at runtime. In each iteration, you shoud add a new element. Then you should check if top of the heap is out of the window; if yes, remove it. In this approach, we also need to store index along with value. In this approach, we don't need to remove element at each iteration. 
+
+Thus, if you need heap_update() , you should think if you really should do that. You should think if you can solve the problem such that you just need heap_add() and heap_delete()
+
 174. Sometimes, you may need to create an struct object. The simplest syntax for that is:
 
   struct node n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
   n1 = (struct node) {1, &n2, &n3};
+
 

@@ -2,6 +2,8 @@
 https://leetcode.com/problems/sliding-window-maximum/
 
 It's a very interesting problem!!! You can use heap, but may not the way as it seems at the beginning. Simple heap may lead to TLE
+
+You will find details discussion in note.
 */
 struct elem {
   int val;
