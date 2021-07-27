@@ -1329,4 +1329,5 @@ Thus, if you need heap_update() , you should think if you really should do that.
   struct node n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
   n1 = (struct node) {1, &n2, &n3};
 
+175. "stack buffer underflow" happens when you try to read to the left of an array. 
 
