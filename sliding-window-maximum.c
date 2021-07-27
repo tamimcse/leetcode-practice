@@ -1,25 +1,31 @@
 /*
 https://leetcode.com/problems/sliding-window-maximum/
 
-It gets TLE. It suggests to use Dequeue instead of heap. But, I can see, heap will outperform Dequeue in some cases.
+It's a very interesting problem!!! You can use heap, but may not the way as it seems at the beginning. Simple heap may lead to TLE
 */
-void push_up (int *arr, int len, int child_idx)
+struct elem {
+  int val;
+  int idx;
+};
+  
+void push_up (struct elem *arr, int len, int child_idx)
 {
   if (!child_idx)
     return;
   int parent_idx = (child_idx - 1) >> 1;
   
   int left_idx = (parent_idx << 1) + 1, right_idx = (parent_idx << 1) + 2;
-  int max_child_idx = -1, tmp;
+  int max_child_idx = -1;
+  struct elem tmp;
   
   if (left_idx < len)
     max_child_idx = left_idx;
   
-  if (right_idx < len && arr[right_idx] > arr[max_child_idx]) {
+  if (right_idx < len && arr[right_idx].val > arr[max_child_idx].val) {
     max_child_idx = right_idx;
   }
   
-  if (max_child_idx >=0 && arr[max_child_idx] > arr[parent_idx]) {
+  if (max_child_idx >=0 && arr[max_child_idx].val > arr[parent_idx].val) {
     tmp = arr[parent_idx];
     arr[parent_idx] = arr[max_child_idx];
     arr[max_child_idx] = tmp;
@@ -28,19 +34,20 @@ void push_up (int *arr, int len, int child_idx)
 }
 
 
-void push_down (int *arr, int len, int parent_idx)
+void push_down (struct elem *arr, int len, int parent_idx)
 {
   int left_idx = (parent_idx << 1) + 1, right_idx = (parent_idx << 1) + 2;
-  int max_child_idx = -1, tmp;
+  int max_child_idx = -1;
+  struct elem tmp;
   
   if (left_idx < len)
     max_child_idx = left_idx;
   
-  if (right_idx < len && arr[right_idx] > arr[max_child_idx]) {
+  if (right_idx < len && arr[right_idx].val > arr[max_child_idx].val) {
     max_child_idx = right_idx;
   }
   
-  if (max_child_idx >=0 && arr[max_child_idx] > arr[parent_idx]) {
+  if (max_child_idx >=0 && arr[max_child_idx].val > arr[parent_idx].val) {
     tmp = arr[parent_idx];
     arr[parent_idx] = arr[max_child_idx];
     arr[max_child_idx] = tmp;
@@ -48,7 +55,7 @@ void push_down (int *arr, int len, int parent_idx)
   }
 }
 
-void construct_heap (int *arr, int len)
+void construct_heap (struct elem *arr, int len)
 {
   int last_idx = len - 1, i, j;
   int last_parent_idx = (last_idx - 1) >> 1;
@@ -58,34 +65,50 @@ void construct_heap (int *arr, int len)
   }
 }
 
+void heap_add (struct elem *arr, int size, int *len, struct elem to_add)
+{
+  if (*len == size)
+    return;
+  arr[*len] = to_add;
+  (*len)++;
+  push_up (arr, *len, *len - 1);
+}
+
+void heap_pop_root (struct elem *arr, int *len)
+{
+  arr[0] = arr[*len - 1];
+  (*len)--;
+  push_down (arr, *len, 0);
+}
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* maxSlidingWindow(int* nums, int numsSize, int k, int* returnSize){
   int i, j;
-  int *heap = (int *) malloc (k * sizeof (int));
+  struct elem *heap = (struct elem *) malloc (numsSize * sizeof (*heap));
+  int heap_len;
   int res_cnt = numsSize - k + 1;
   *returnSize = res_cnt;
   int *res = (int *) malloc (res_cnt * sizeof (int));
   int to_remove;
-  
-  memcpy (heap, nums, k * sizeof (int));
+  struct elem to_add;
+    
+  for (i = 0; i < k; i++) {
+    heap[i].val = nums[i];
+    heap[i].idx = i;
+    heap_len++;
+  }
 
-  construct_heap (heap, k);  
+  construct_heap (heap, heap_len);  
   
   for (i = 0; i <= numsSize - k; i++) {
-    res[i] = heap[0];
+    res[i] = heap[0].val;
     if (i + k < numsSize) {
-      to_remove = nums[i];
-      for (j = 0; j < k; j++) {
-        if (heap[j] == to_remove) {
-          heap[j] = nums[i + k];
-          if (nums[i + k] > to_remove)
-            push_up (heap, k, j);
-          else 
-            push_down (heap, k, j);
-          break;
-        }
+      to_add = (struct elem) {nums[i + k], i + k};
+      heap_add (heap, numsSize, &heap_len, to_add);
+      while (heap[0].idx <= i) {
+        heap_pop_root (heap, &heap_len);
       }
     }
   }
