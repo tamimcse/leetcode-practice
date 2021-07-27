@@ -1003,6 +1003,9 @@ To solve the problem, we need to calculate GCD of 6 and 8 and divide the numbers
 
 Note that, to begin with, we can simply create a list.. and later change it to hash or map which is appropiate.
 
+Note that, you will find much better performance with hash than binary tree. So, if you have an option to use hash or binary tree, go for hash (even though there are order among the numbers)!!!!!
+
+
 150. Note that, list_insert should look like following:
 
 void list_insert (struct value **head, int val)
