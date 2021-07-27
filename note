@@ -1315,3 +1315,9 @@ This however would be very inefficient!!!!!
 What you should do is:
 
 If the new number is larger than before, perform push_down(). If the new number is smaller than before, perform push_up (). This is in min-heap.
+
+174. Sometimes, you may need to create an struct object. The simplest syntax for that is:
+
+  struct node n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
+  n1 = (struct node) {1, &n2, &n3};
+
