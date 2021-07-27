@@ -1338,3 +1338,5 @@ Thus, if you need heap_update() , you should think if you really should do that.
 
 https://leetcode.com/problems/max-points-on-a-line/solution/
 
+Sometimes, it does not seem clear with which respect we do something. In those situations, we can consider similar solution.
+
