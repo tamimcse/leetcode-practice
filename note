@@ -1334,3 +1334,7 @@ Thus, if you need heap_update() , you should think if you really should do that.
 
 175. "stack buffer underflow" happens when you try to read to the left of an array. 
 
+176. Sometimes, a data structure is needed for each iteration rather than all iteration. For instance, max-points-on-a-line problem require maintaining a hash where keys are tangent. But, note we can use tangent to tell if a point is one a line if one of the point is fixed. So, we will need a hash for each iteration. In other words, we need a hash for each point. Each hash will contain tangets of other points with respect to that point.
+
+https://leetcode.com/problems/max-points-on-a-line/solution/
+
