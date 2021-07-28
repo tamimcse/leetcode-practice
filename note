@@ -1357,3 +1357,32 @@ Again, check if you really need a varuable? For instance, find-median-from-data-
 
 Also, having a separete counter may save some operation during computation, it also means, you are maintaining an extra new state. Getting rif of that will certainly simplify the code.
 
+178. In find-median-from-data-stream, you can define the data structure as following:
+
+typedef struct {
+  int *max_heap;
+  int *min_heap;
+  int max_heap_cnt;
+  int min_heap_cnt;
+} MedianFinder;
+
+You can also declare it as following:
+
+struct heap {
+  int *arr;
+  int count;
+};
+
+typedef struct {
+  struct heap *max_heap;
+  struct heap *min_heap;
+} MedianFinder;
+
+
+What are the pros and cons abount the above approaches?
+
+Second approach is better for implementing generic heap functions. In first approach, client code has to keep track of the heap length. 
+
+Buuuuuut, in first approach, we need fewer indirections. For instance, in second approach, we need to write code like "obj->min_heap.arr", ""obj->min_heap.count"" which seems ugly. So, writing code with fewer indirection definately produces cleaner code!!! Favor that!!!
+
+In large projects, this problem can be fixed by writting simple macros to access the inner elements...
