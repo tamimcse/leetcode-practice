@@ -1340,3 +1340,14 @@ https://leetcode.com/problems/max-points-on-a-line/solution/
 
 Sometimes, it does not seem clear with which respect we do something. In those situations, we can consider similar solution.
 
+Also, note that, you may need to store counter per hash entry or a global counter. For instance, in max-points-on-a-line problem, you are considering one point at a time. Now the points can be as following:
+
+
+
+          e
+     d
+
+a        b          c
+
+Here, there are three points on the same line when considering point a. Note that, here, we need to store count per slope. If we use global cointer, the counter will wrongly return 5 instead of 3.
+
