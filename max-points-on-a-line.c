@@ -1,49 +1,56 @@
 /*
 https://leetcode.com/problems/max-points-on-a-line/
 */
-struct value {
-  int val;
-  struct value *next;
+#define CAPACITY 100
+
+struct elem {
+  int dx;
+  int dy;
+  int count;
+  struct elem *next;
 };
 
-//check if val exist, if not insert it
-struct value* insert_value (struct value *head, int val)
+int bucket_no (int dx, int dy)
 {
-  struct value *new_val;
-  struct value *runner;
-
-  if (!head) {
-    new_val = (struct value *) malloc (sizeof (*new_val));
-    new_val->val = val;
-    new_val->next = NULL;
-    return new_val;
-  }
-  
-  runner = head;
-  while (runner) {
-    //already exist
-    if (runner->val == val)
-      return head;
-    if (runner->next) {
-      runner = runner->next;
-    } else {
-      new_val = (struct value *) malloc (sizeof (*new_val));
-      new_val->val = val;
-      new_val->next = NULL;
-      runner->next = new_val;
-      return head;
-    }
-  }
-  return head;
+  return (abs (dx) * abs (dy)) % CAPACITY;  
 }
 
-struct key_value {
-  int x1;
-  int x2;
-  int y1;
-  int y2;
-  struct value *list_head;
-};
+struct elem* find (struct elem **hash, int dx, int dy) 
+{
+  struct elem *runner;
+  int bucket = bucket_no (dx, dy);
+  
+  bool sign = (dx > 0 && dy > 0) || (dx < 0 && dy < 0);
+  bool runner_sign;
+  
+  runner = hash[bucket];
+  while (runner) {
+    runner_sign = (runner->dx > 0 && runner->dy > 0) ||
+      (runner->dx < 0 && runner->dy < 0);
+    if (!dy && !(runner->dy))
+      return runner;
+    if (!dx && !(runner->dx))
+      return runner;
+    if (abs (runner->dx) == abs (dx) && 
+        abs (runner->dy) == abs (dy) &&
+        sign == runner_sign)
+      return runner;
+    runner = runner->next;
+  }
+  return NULL;
+}
+
+void insert (struct elem **hash, int dx, int dy) 
+{
+  struct elem *new_node = (struct elem *) malloc (sizeof (*new_node));
+  int bucket = bucket_no (dx, dy);
+  
+  new_node->dx = dx;
+  new_node->dy = dy;
+  new_node->count = 2;
+  new_node->next = hash[bucket];
+  hash[bucket] = new_node;
+}
 
 int gcd (int a, int b)
 {
@@ -65,49 +72,35 @@ int gcd (int a, int b)
   return devisor;
 }
 
-void inorder (struct key_value *root, int *max)
-{
-  int count = 0;
-  struct value *runner;
-  
-  if (!root)
-    return;
-  runner = root->head;
-  while (runner) {
-    count++;
-    runner = runner->next;
-  }
-  if (count > *max)
-    *max = count;
-  inorder (root->left, max);
-  inorder (root->right, max);
-}
-
 int maxPoints(int** points, int pointsSize, int* pointsColSize){
-  struct key_value *ret;
+  struct elem* ret;
   int i, j, k, max = 0;
   int dx, dy, div;
-  struct value *val;
-  struct key_value vec[2000];
-  int vec_cnt = 0;
+  
+  if (pointsSize <= 2)
+    return pointsSize;
   
   for (i = 0; i < pointsSize; i++) {
+    struct elem *hash[CAPACITY] = {NULL};
     for (j = i + 1; j < pointsSize; j++) {
       dx = points[j][0] - points[i][0];
       dy = points[j][1] - points[i][1];
-      div = gcd (dx, dy);
-      dx = dx / div;
-      dy = dy / div;
-      ret = find (root, dx, dy);
+      if (dx && dy) {
+        div = gcd (abs (dx), abs (dy));
+        dx = dx / div;
+        dy = dy / div; 
+      }
+      ret = find (hash, dx, dy);
       if (ret) {
-        ret->head = insert_value (ret->head, i);
-        ret->head = insert_value (ret->head, j);
+        ret->count++;
+      if (ret->count > max)
+        max = ret->count;
       } else {
-        root = tree_insert (root, dx, dy, i, j);
+        insert (hash, dx, dy);
+        if (max < 2)
+          max = 2;
       }
     }
   }
-  
-  inorder (root, &max);
   return max;
 }
