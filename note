@@ -1351,3 +1351,5 @@ a        b          c
 
 Here, there are three points on the same line when considering point a. Note that, here, we need to store count per slope. If we use global cointer, the counter will wrongly return 5 instead of 3.
 
+177. Sometimes, I use flag to store state. For instance, in ind-median-from-data-stream problem, I tend to use a flag (enum) to store which heap the data was inserted last. But, if you think carefully, it's not needed. You can use heap's size to infer which heap was inserted last. I guess, similar approach can be used elsewhere. Any time you use a flag (enum) to store state, think again if you really need that.
+
