@@ -1386,3 +1386,11 @@ Second approach is better for implementing generic heap functions. In first appr
 Buuuuuut, in first approach, we need fewer indirections. For instance, in second approach, we need to write code like "obj->min_heap.arr", ""obj->min_heap.count"" which seems ugly. So, writing code with fewer indirection definately produces cleaner code!!! Favor that!!!
 
 In large projects, this problem can be fixed by writting simple macros to access the inner elements...
+
+Now, we should use first approach which uses fewer indirection. But, with nice API, we can avoid clinent code having to do with increamenting max_heap_cnt, min_heap_cnt count..
+
+For instance, 
+
+void heap_add (struct elem *arr, int *len, int to_add)
+
+Here, max_heap_cnt, min_heap_cnt would be passed as a reference and incremented internally.
