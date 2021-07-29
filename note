@@ -1398,3 +1398,5 @@ Here, max_heap_cnt, min_heap_cnt would be passed as a reference and incremented 
 179. In find-median-from-data-stream problem, we need to maintain two heaps. To decide, to which heap we add a new data, we check the size of both heaps. If the size of both heaps are the same, it's easy to decide where to add the new number. If the size of the two heaps are not the same, one heap has one more item than the other. In that case, it is not hard to decide to which heap the new data should be added. But, think about it. If one heap has 1 element and the other heap has 0 element, the heap with 0 element has random value at 0-th element. So, we should not compare that with the number to be added., We should compare the number_to_be_added with the first element of the heap with 1 element. Otherwise, it causes a bug.
 
 180. Never under estimate the value of a long walk, clearing the head,... suddenly nice and clear solution comes to your mind!!!!!!
+
+181. Writting code often takes around 30-45 minues (including bug fixes..). Clearing the head and coming up with a nearly good solution takes 1.5 hours...
