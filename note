@@ -1400,3 +1400,14 @@ Here, max_heap_cnt, min_heap_cnt would be passed as a reference and incremented 
 180. Never under estimate the value of a long walk, clearing the head,... suddenly nice and clear solution comes to your mind!!!!!!
 
 181. Writting code often takes around 30-45 minues (including bug fixes..). Clearing the head and coming up with a nearly good solution takes 1.5 hours...
+
+182. To calculate sub-array sum (i.e. subarray-sum-equals-k problem), we cab do:
+
+  for (i = 0; i < numsSize; i++) {
+    sum = 0;
+    for (j = i; j < numsSize; j++) {
+      sum += nums[j];
+      if (sum == k)
+        count++;
+    }
+  }
