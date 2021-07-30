@@ -1429,4 +1429,8 @@ Now, the prefix sum approach can be improved by using hashmap. We should store t
 
 https://leetcode.com/problems/subarray-sum-equals-k/solution/ 
 
+In other words, we need to find touples for which A_i - A_j == Target.
+
+If store all As in a hash map, given a Target, We can find all the touples in O (n). (Very intersting!!!!!!!!)
+
 
