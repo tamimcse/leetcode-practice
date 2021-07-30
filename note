@@ -1433,4 +1433,6 @@ In other words, we need to find touples for which A_i - A_j == Target.
 
 If store all As in a hash map, given a Target, We can find all the touples in O (n). (Very intersting!!!!!!!!)
 
+Note that, here we need to store number of occurance of a prefix sum, otherwise it will not work. I tend to only store the prefix sum. But, without the number of occurance, we will get wrong result.
+
 
