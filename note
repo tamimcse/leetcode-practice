@@ -1411,3 +1411,16 @@ Here, max_heap_cnt, min_heap_cnt would be passed as a reference and incremented 
         count++;
     }
   }
+
+We can also solve this issue with prefix sum as:
+
+  for (i = 0; i < numsSize; i++) {
+    if (prefix_sum[i] == k)
+      count++;
+    for (j = 0; j < i; j++) {
+      if (prefix_sum[i] - prefix_sum[j] == k)
+        count++;
+    }
+  }
+
+Note that, they are not better than each other. Both are O (n^2)
