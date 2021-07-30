@@ -963,7 +963,7 @@ If you have two functions f1 and f2. f1 is always increasing and f2 is always de
 /    \
 f1   f2
 
-142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, cnt, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp, stack, queue, s_idx, q_start, q_end, runner1, runner2, r1, r2, r1_nxt, r2_nxt, elem, left_idx, right_idx, parent_idx, list_head, num_bucket, backet, to_find, to_insert, adj_row, adj_col, ...... struct elem, struct cell, truct tuple, key, value, new_node, node
+142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, cnt, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp, stack, queue, s_idx, q_start, q_end, runner1, runner2, r1, r2, r1_nxt, r2_nxt, elem, left_idx, right_idx, parent_idx, list_head, num_bucket, backet, to_find, to_insert, adj_row, adj_col, ...... struct elem, struct cell, truct tuple, key, value, new_node, node, bucket, bucket_no, 
 
 143.   char *str = "aabbcaad"; ..is fine..no need to do char str[] = {...};
 
