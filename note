@@ -1424,3 +1424,9 @@ We can also solve this issue with prefix sum as:
   }
 
 Note that, they are not better than each other. Both are O (n^2)
+
+Now, the prefix sum approach can be improved by using hashmap. We should store the prefix sum in hash map. Every time we insert a prefxi sum, we also should check if target - prefix_sum exists in the hashmap. Using that approach, we can solve the problem in O (n). For details, take a look at approach #4 at:
+
+https://leetcode.com/problems/subarray-sum-equals-k/solution/ 
+
+
