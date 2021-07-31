@@ -1439,4 +1439,15 @@ Note that, here we need to store number of occurance of a prefix sum, otherwise 
 
 In the same way, if you need to use KMP string matching algorithm, use Sliding Window algorithm instead. It's easier that way.
 
-184. When using DFS, think if the graph is connected. Connected graph means this a path among every nodes in the graph.
+184. When using DFS, think if the graph is connected. Connected graph means this a path among every nodes in the graph. If the graph is not connected, you can simply do that as following:
+
+  for (j = 0; j < numCourses; j++) {
+    if (visit[j] || indegrees[j])
+      continue;
+    //actual DFS
+    start = j;
+    stack[s_idx++] = start;
+    while (s_idx) {
+   
+    }
+  }
