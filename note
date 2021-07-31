@@ -792,6 +792,8 @@ On an another note, sometimes, it may seem that storing partial result - 1 is mo
 
 If you don't want to visit a previously visited node again (e.g. course-schedule-ii problem), you may want to store visit[node] = 2 when visiting that node. Later, if you encounter visit[node] == 2, it means you already expanded and vsited and added to the result. If you encounter again, just skip this.
 
+If you want to check cycle in DFS, when exapnding face (adding successors to stack), check if it's already visited; if yes, it's a cycle.
+
 122. Sometimes, iterative implementation of DFS/BFS can be too difficult. You may consider recursive implementation. For instance, longest-increasing-path-in-a-matrix problem. I came across similar issues before.
 
 Sometimes, iterative implementation is not adequete at all!!!! For instance, think about a situation where you need to make a decision based on different branches of DFS. For instance, in longest-increasing-path-in-a-matrix problem, we need to keep track of longest path originating from each node. That is, we need to handle multiple braches at each node and then make decision on the branches. Iterative solution will simply iterarte nodes of each brach one at a time. Although it can detect backtracking, but it's hard to track where we are staring to visit aother brach... Implementing longest-increasing-path-in-a-matrix in iterative mode is very hard to implement. On the other hand, it's switable to be implemented using recursive approach because recursive approach handle multiple branches separately and then process themm...
