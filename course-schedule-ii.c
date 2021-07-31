@@ -6,18 +6,18 @@ https://leetcode.com/problems/course-schedule-ii/
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
 int* findOrder(int numCourses, int** prerequisites, int prerequisitesSize, int* prerequisitesColSize, int* returnSize){
   int *res = (int *) malloc (numCourses * sizeof (int));
   int res_cnt = numCourses;
   int i, j, k;
-  int *indegrees = (int *) calloc (numCourses, sizeof (int));
   int *visit = (int *) calloc (numCourses, sizeof (int));
   int *stack = (int *) malloc (numCourses * 2 * sizeof (int));
   int start = -1, s_idx = 0, cur;
-  
-  for (i = 0; i < prerequisitesSize; i++) {
-    indegrees[prerequisites[i][0]]++;
-  } 
 
   for (j = 0; j < numCourses; j++) {
     if (visit[j])
