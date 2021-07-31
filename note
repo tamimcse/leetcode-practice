@@ -1435,4 +1435,8 @@ If store all As in a hash map, given a Target, We can find all the touples in O 
 
 Note that, here we need to store number of occurance of a prefix sum, otherwise it will not work. I tend to only store the prefix sum. But, without the number of occurance, we will get wrong result.
 
+183. If you need to do topological sorting, try to use DFS to implement that. It is much to remember the actaul toplogical sorting algorithm. 
 
+In the same way, if you need to use KMP string matching algorithm, use Sliding Window algorithm instead. It's easier that way.
+
+184. When using DFS, think if the graph is connected. Connected graph means this a path among every nodes in the graph.
