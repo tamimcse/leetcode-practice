@@ -98,7 +98,7 @@ Example of balanced tree is:
 
 Now, how to remove element from min-heap? remove the root. Replace the root with the last element (right most leaf). Then push down the root to maintain the heap property (also known as heapify in coremen's book, it's called bubble down in Skiena's book).
 
-How to insert a new node to the heap? Add the new node to the end of the array (make it right most leaf). Then push it up to restore the heap properties. It is known as bubble up in Skiena's book. This is not heapify.
+How to insert a new node to the heap? Add the new node to the end of the array (make it right most leaf). Then push it up to restore the heap properties. It is known as bubble up in Skiena's book. This is not heapify. Note that, insertion needs push_up instead of push_down() needed in heap_delete().
 
 In heapify, first compare the two chieldren. Find the smallest children. Then compare if the node is larger than the smallest children. If yes, swap them. Note that, there can be only one children. So, implement it properly.
 
