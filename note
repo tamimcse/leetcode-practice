@@ -1557,3 +1557,10 @@ Note that, here we need to store mapping between user ID and followers/followees
 194. If you are asked a design question, https://leetcode.com/problems/design-twitter/ is a good example..
 
 195. Note that, we often use heap as a temporary data structure. So, we preallocate heap as an array. But, we also maintain a heap_len
+
+196. You can implement heaps in two ways:
+
+1. heap_delete and heap_construct(). Both of them will need push_down()
+2. heap_delete() and heap_add(). heap_delete() will need push_down() whereas heap_add() will need push_up().
+
+Choose one of the two ways depending on your need. Sometimes, you will construct the heap only once. And then only do heap_delete(). In that case, you can use process 1. But, if you need to perform head_add() run time (e.g. design-twitter problem), you can use process 2.
