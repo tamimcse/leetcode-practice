@@ -1466,3 +1466,5 @@ Note that, I tend to add another condition as folowing in the above code:
       continue;
 
 But, this is not needed!!!!!!! We can start DFS at any node, it does not have to have an indegree of 0. Moreover, adding indegree to the logic will cause bug. The reason is, there may be a graph or connected subgraph which does not have a node with in-degree 0. We may want to start with any node in that case...... THis is a very important issue!!!!!!!!!!!
+
+185. If you are asked separate stack/queue code from client code, you can create your own stack/queue struct and associated function.
