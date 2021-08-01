@@ -967,7 +967,7 @@ If you have two functions f1 and f2. f1 is always increasing and f2 is always de
 /    \
 f1   f2
 
-142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, cnt, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp, stack, queue, s_idx, q_start, q_end, runner1, runner2, r1, r2, r1_nxt, r2_nxt, elem, left_idx, right_idx, parent_idx, list_head, num_bucket, backet, to_find, to_insert, adj_row, adj_col, ...... struct elem, struct cell, truct tuple, key, value, new_node, node, bucket, bucket_no, node_queue, len_queue, cur_node, cur_len, val, tweetId, userId,
+142. Common variable names: i, j, k, m, n, row, col, res, tmp, ret, mid, hi, lo, start, end, count, cnt, res_cnt, num_col, num_row, mat, arr, s, ch, str, dp, stack, queue, s_idx, q_start, q_end, runner1, runner2, r1, r2, r1_nxt, r2_nxt, elem, left_idx, right_idx, parent_idx, list_head, num_bucket, backet, to_find, to_insert, adj_row, adj_col, ...... struct elem, struct cell, truct tuple, key, value, new_node, node, bucket, bucket_no, node_queue, len_queue, cur_node, cur_len, val, tweetId, userId, heap_len.
 
 struct followee* f;
 struct tweet *t;
@@ -1555,3 +1555,5 @@ This means that, you are not designing TwitterUser class (I mistakenly thought I
 Note that, here we need to store mapping between user ID and followers/followees. We also need to store mapping between user ID and tweet IDs. We generally store these mapping in Database. But, here we are storing them in application.
 
 194. If you are asked a design question, https://leetcode.com/problems/design-twitter/ is a good example..
+
+195. Note that, we often use heap as a temporary data structure. So, we preallocate heap as an array. But, we also maintain a heap_len
