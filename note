@@ -1467,4 +1467,35 @@ Note that, I tend to add another condition as folowing in the above code:
 
 But, this is not needed!!!!!!! We can start DFS at any node, it does not have to have an indegree of 0. Moreover, adding indegree to the logic will cause bug. The reason is, there may be a graph or connected subgraph which does not have a node with in-degree 0. We may want to start with any node in that case...... THis is a very important issue!!!!!!!!!!!
 
-185. If you are asked separate stack/queue code from client code, you can create your own stack/queue struct and associated function.
+185. If you are asked separate stack/queue code from client code, you can create your own stack/queue struct and associated function. Like:
+
+struct Queue {
+  struct TreeNode* nodes[CAPACITY];
+  int len[CAPACITY];
+  int start;
+  int end;
+};
+
+struct Queue* queue_init (struct Queue *q)
+{
+  q->start = 0;
+  q->end = 0;
+}
+
+struct Queue* enqueue (struct Queue *q, struct TreeNode* n, int len)
+{
+  q->nodes[q->end] = q;
+  q->len[q->end] = len;
+  q->end++;
+}
+
+void dequeue (struct Queue *q, struct TreeNode** n, int *len)
+{
+  *n = q->nodes[q->start];
+  *len = q->len[q->start];
+}
+
+bool queue_empty (struct Queue *q)
+{
+  return q->end > q->start;
+}
