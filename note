@@ -1525,5 +1525,7 @@ Think which one you need. I often found exist() is not enough and I need find().
 
 hash_insert(), hash_find()...etc
 
+190. If you need top k elements of n, it's more efficient to use heap instead of sorting because it would be klogn. If k is much smaller than n, it will be good!
+
 
 
