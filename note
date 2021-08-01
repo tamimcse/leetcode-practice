@@ -1502,3 +1502,11 @@ bool queue_empty (struct Queue *q)
 }
 
 186. For hash, using #define CAPACITY 1000 is fine.
+
+187. Define hash elements as following:
+
+struct elem {
+  int key; //use key ...
+  int freq;
+  struct elem *next;
+};
