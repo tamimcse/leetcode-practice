@@ -1528,4 +1528,11 @@ hash_insert(), hash_find()...etc
 190. If you need top k elements of n, it's more efficient to use heap instead of sorting because it would be klogn. If k is much smaller than n, it will be good!
 
 
+191. You can implement heap interface as:
 
+
+void construct_heap (struct elem **heap, int len);
+
+struct elem* heap_pop_root (struct elem **heap, int *len)
+
+Note that, in second function, you are passing the len as pointer. So, client code don't need to worry about maintaining the length.
