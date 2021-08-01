@@ -859,7 +859,7 @@ Approach (a) may be tempting, but note that problem with that is, when a user un
 
 On the other hand, in approach (b), you simply need to store the tweets. The feed is calculated at runtime. So, unfollowing process is not comlicated at all.
 
-131. For instance, you need to store 10 latest items. You can implement this using circular array, dequeueu or double linked list. Double linked list can be used as dequeue (i.e. insert to the front and remove from the end) 
+131. For instance, you need to store 10 latest items. You can implement this using circular array, dequeueu or double linked list. Double linked list can be used as dequeue (i.e. insert to the front and remove from the end). BUt, you simply can store them as a list and always insert at the beginning. If you need to implement a dequeue, you can use double linked list. That way, you can delete from tail. 
 
 132. Suppose, you have k sorted list. Now, you need to retrieve n smallest elements from there list. This is a very common problem appears within a problem. Common way to solve this is to have k pointers each pointing a list. In each iteration, we need to compare k elements where pointers are pointing. That's how we get the smallest element. We will increase the pointer with smallest element. THis solution will take o(nk).
 
