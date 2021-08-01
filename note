@@ -1536,3 +1536,9 @@ void construct_heap (struct elem **heap, int len);
 struct elem* heap_pop_root (struct elem **heap, int *len)
 
 Note that, in second function, you are passing the len as pointer. So, client code don't need to worry about maintaining the length.
+
+192. When implementing hash, do:
+
+ int bucket = abs (key) % CAPACITY;
+
+I often forget abs() which cause problem if key is negative.
