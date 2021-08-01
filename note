@@ -1542,3 +1542,9 @@ Note that, in second function, you are passing the len as pointer. So, client co
  int bucket = abs (key) % CAPACITY;
 
 I often forget abs() which cause problem if key is negative.
+
+193. Suppose, you are supposed to design a twitter class (e.g. design-twitter problem). Your twitter class should have:
+
+postTweet(int userId, int tweetId);
+
+This means that, you are not designing TwitterUser class (I mistakenly thought I was). Both Tweet and TwitterUser classes are external. Here, we are going use those classes' ID to implement basic functionality. 
