@@ -1507,7 +1507,7 @@ bool queue_empty (struct Queue *q)
 
 struct elem {
   int key; //use key ...
-  int freq;
+  int val;
   struct elem *next;
 };
 
