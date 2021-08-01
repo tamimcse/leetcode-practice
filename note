@@ -1476,15 +1476,15 @@ struct Queue {
   int end;
 };
 
-struct Queue* queue_init (struct Queue *q)
+void queue_init (struct Queue *q)
 {
   q->start = 0;
   q->end = 0;
 }
 
-struct Queue* enqueue (struct Queue *q, struct TreeNode* n, int len)
+void enqueue (struct Queue *q, struct TreeNode* n, int len)
 {
-  q->nodes[q->end] = q;
+  q->nodes[q->end] = n;
   q->len[q->end] = len;
   q->end++;
 }
@@ -1493,9 +1493,11 @@ void dequeue (struct Queue *q, struct TreeNode** n, int *len)
 {
   *n = q->nodes[q->start];
   *len = q->len[q->start];
+  q->start++;
 }
 
 bool queue_empty (struct Queue *q)
 {
-  return q->end > q->start;
+  return q->end == q->start;
 }
+
