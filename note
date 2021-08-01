@@ -1501,3 +1501,4 @@ bool queue_empty (struct Queue *q)
   return q->end == q->start;
 }
 
+186. For hash, using #define CAPACITY 1000 is fine.
