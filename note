@@ -1549,4 +1549,6 @@ postTweet(int userId, int tweetId);
 
 This means that, you are not designing TwitterUser class (I mistakenly thought I was). Both Tweet and TwitterUser classes are external. Here, we are going use those classes' ID to implement basic functionality. 
 
+Note that, here we need to store mapping between user ID and followers/followees. We also need to store mapping between user ID and tweet IDs. We generally store these mapping in Database. But, here we are storing them in application.
+
 194. If you are asked a design question, https://leetcode.com/problems/design-twitter/ is a good example..
