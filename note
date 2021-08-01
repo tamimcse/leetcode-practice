@@ -1521,5 +1521,9 @@ struct elem* find (struct elem **hash, int key)
 
 Think which one you need. I often found exist() is not enough and I need find().
 
+189. You can also name the functions like:
+
+hash_insert(), hash_find()...etc
+
 
 
