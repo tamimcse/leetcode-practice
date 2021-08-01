@@ -1510,3 +1510,16 @@ struct elem {
   int freq;
   struct elem *next;
 };
+
+188. In hash, you can implemet:
+
+bool exist (struct elem **hash, int key)
+
+or 
+
+struct elem* find (struct elem **hash, int key)
+
+Think which one you need. I often found exist() is not enough and I need find().
+
+
+
