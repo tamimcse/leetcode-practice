@@ -1608,3 +1608,11 @@ int func ()
   }
 }
   
+
+199. If you use global variable, you must initialize it inside function. Otherwise, it will give you wrong value from the function. For instance, in the above code, you should do following in the func():
+
+memset (hash, 0, 26 * sizeof (int));
+
+
+
+
