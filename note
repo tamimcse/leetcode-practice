@@ -1564,3 +1564,5 @@ Note that, here we need to store mapping between user ID and followers/followees
 2. heap_delete() and heap_add(). heap_delete() will need push_down() whereas heap_add() will need push_up().
 
 Choose one of the two ways depending on your need. Sometimes, you will construct the heap only once. And then only do heap_delete(). In that case, you can use process 1. But, if you need to perform head_add() run time (e.g. design-twitter problem), you can use process 2.
+
+197. I often go ahead and use hash map where keys are elglish letter. You can simply use an array here!!
