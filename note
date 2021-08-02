@@ -1566,3 +1566,45 @@ Note that, here we need to store mapping between user ID and followers/followees
 Choose one of the two ways depending on your need. Sometimes, you will construct the heap only once. And then only do heap_delete(). In that case, you can use process 1. But, if you need to perform head_add() run time (e.g. design-twitter problem), you can use process 2.
 
 197. I often go ahead and use hash map where keys are elglish letter. You can simply use an array here!!
+
+198. One common problem is: I often need to sort an array where array index means someething like key of a hash. But, when I sort the array, the index is messed up. How can I solve this problem?
+
+One trivial way to solve this problem is to create a new array of type struct elem where elem is:
+
+struct elem {
+  int val;
+  int index;
+};
+
+After sorting the array, we will still have our index. But, problem is it is very expensive. A better solution is described here:
+
+https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-sorting
+
+So, don't sort the original array at all. Create a new index array. Sort the index array. When sorting the index array, sort it based on the value of the original array. Like:
+
+//global varuable so that it's accessible inside cmp
+int hash[26] = {0};
+
+int cmp (const void *a, const void *b)
+{
+  return hash[*((int *)b)] - hash[*((int *)a)];
+}
+
+
+int func () 
+{
+  int indices[26];
+
+  for (i = 0; i < 26; i++) {
+    indices[i] = i;
+  }
+  
+  qsort (indices, 26, sizeof (int), cmp);
+
+  for (i = 0; i < 26; i++) {
+    //now access this way.....
+    if (!hash[indices[i]])
+
+  }
+}
+  
