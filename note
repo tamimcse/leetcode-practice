@@ -1583,7 +1583,7 @@ https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-so
 So, don't sort the original array at all. Create a new index array. Sort the index array. When sorting the index array, sort it based on the value of the original array. Like:
 
 //global varuable so that it's accessible inside cmp
-int hash[26] = {0};
+int hash[26] = {0};//int *hash; is fine as well
 
 int cmp (const void *a, const void *b)
 {
