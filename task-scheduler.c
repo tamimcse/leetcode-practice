@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/task-scheduler/
 
-Very interesting problem!!
+Very interesting problem!! Discussion in notes
 */
 
 int hash[26] = {0};
