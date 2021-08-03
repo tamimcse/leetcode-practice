@@ -1626,3 +1626,7 @@ Note that, if *heap_len == 0, it will crash. So, anytime, you do 'minus' in arra
 201. Sometimes, you may need to sort an input array. But, sometimes, you may need to keep your input array in sorted manner and update it (for inatance, task-scheduler). Sorting the array will not cut it. For instance, you max need to extract the largest number, update it's frequency and insert it back in every iteration. We can use heap to solve this problem...
 
 In this, I may wonder when should I delete and insert to heap. For instance, in task-scheduler problem, we can delete and insert it back in every iteration. But, if we get same character in two consecutive iteration, we cannot place them side by side. Intelligent thing is to delete it in every iteration, but after passing n iteration, insert it back. That way we don't need to worry about getting same characters in the consecutive iteration. 
+
+202. Sometimes, you input a 2D array (e.g. minesweeper problem). You are asked to return a 2D array. This does not mean you need to create a new array (although you could). You can simply update the input array and return it. 
+
+It's like in list_insert(), when we input a list_head and return a list head. We don't want to update the input. Rather we want to return the head. This creates cleaner API. In order to update input, we need to pass pointer to the head instead of head and then use "*head" everytime you want to use head. This is not very clean. 
