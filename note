@@ -1620,6 +1620,6 @@ heap[0] = heap[*heap_len - 1];
 
 Note that, if *heap_len == 0, it will crash. So, anytime, you do 'minus' in array index, think if it will ever be negative. If yes, handle the situation separately. Like:
 
-  if (*heap_len)
+  if (!(*heap_len))
     return;
 
