@@ -1629,4 +1629,8 @@ In this, I may wonder when should I delete and insert to heap. For instance, in 
 
 202. Sometimes, you input a 2D array (e.g. minesweeper problem). You are asked to return a 2D array. This does not mean you need to create a new array (although you could). You can simply update the input array and return it. 
 
-It's like in list_insert(), when we input a list_head and return a list head. We don't want to update the input. Rather we want to return the head. This creates cleaner API. In order to update input, we need to pass pointer to the head instead of head and then use "*head" everytime you want to use head. This is not very clean. 
+It's like in list_insert(), when we input a list_head and return a list head. We don't want to update the input. Rather we want to return the head. This creates cleaner API. In order to update input, we need to pass pointer to the head instead of head and then use "*head" everytime you want to use head. This is not very clean.
+
+203. I may be tempting to write all the logic in a function. But, don't do it. Write a separate function. This is more professional, produces clean code, 
+
+204. When doing DFS recursively or visiting all the adjacent cells recersively, I forget that I will need visit array to keep tracking of wheather I visited a cell or not.
