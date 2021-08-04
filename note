@@ -1642,3 +1642,5 @@ Now, if O(nlogn) is expected, we can do quick sort and merge sort. The worst cas
 https://leetcode.com/problems/sort-list/solution/
 
 
+Now, if you look carefully, bottom-up implementation is much harder than top-down because you need to group every 1, 2, 4, 8,...elements. In top-down approach, we don't need to worry about that. We can simply write generic logic to split and merge.... So, this is why top-down is preferable.. 
+
