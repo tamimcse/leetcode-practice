@@ -1634,3 +1634,9 @@ It's like in list_insert(), when we input a list_head and return a list head. We
 203. I may be tempting to write all the logic in a function. But, don't do it. Write a separate function. This is more professional, produces clean code, 
 
 204. When doing DFS recursively or visiting all the adjacent cells recersively, I forget that I will need visit array to keep tracking of wheather I visited a cell or not.
+
+205. If you are asked to sort a linked list, first thing to ask is to what is the desired runtime? If O(n^2) is acceptable, bubble sort can be implemented pretty easily. Here, we don't need to manipulate pointers (I suppose) and just swap the value. If we use insertion sort, note that we can't do random access in linked list, so we will few pointer manipulation in insertion sort.
+
+Now, if O(nlogn) is expected, we can do quick sort and merge sort. The worst case time of quick sort is O(n^2), but average case runtime is O(nlogn). On the otherhand, merge sort is really O(nlogn). Implementing quick sort on linked list can be pretty tricky, but merge sort is easier...
+
+https://leetcode.com/problems/sort-list/solution/
