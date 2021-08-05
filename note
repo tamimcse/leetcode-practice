@@ -1669,3 +1669,17 @@ Now, we don't need to keep track of end!!!!
 
 Keep in mind that, merging is the most critical code of merge sort, rest of the code is easy..so don't over think it :)
 
+
+205. Sometimes, a problem look simple. For instance, kth-smallest-element-in-a-sorted-matrix problem, it may appears that we use simple division and modulous to find the appropiate index. It will indeed work if all the numbers are distinct.
+
+But, there are many same numbers, the simple approach will not work. But, in that case, the problem can be solved by keeping track of the visited list, candidate list, and unvisited list (we can have a separate state matrix and store 0, 1, 2 to do that). In every iteration we extract the minimum. And then we add few more elemenent which are candidates.
+
+Note that, this approach will be very expensive as we will need O(n^2) to find the minimum at every step.
+
+We can improve the solution by using a heap. 
+
+The problem can also be viewed as finding k-th element in n sorted list as suggested in:
+
+https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/
+
+Thus, the problem become very similar to merging n sorted list. 
