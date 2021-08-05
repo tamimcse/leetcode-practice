@@ -1339,6 +1339,14 @@ Thus, if you need heap_update() , you should think if you really should do that.
   struct node n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
   n1 = (struct node) {1, &n2, &n3};
 
+Note that, it is NOT (I often think so):
+
+  struct node *n1, *n2, *n3;
+
+Note that, it is also NOT (I often think so):
+
+  n1 = (struct node) {.id = 1, .left = &n2, .right = &n3};
+
 175. "stack buffer underflow" happens when you try to read to the left of an array. 
 
 176. Sometimes, a data structure is needed for each iteration rather than all iteration. For instance, max-points-on-a-line problem require maintaining a hash where keys are tangent. But, note we can use tangent to tell if a point is one a line if one of the point is fixed. So, we will need a hash for each iteration. In other words, we need a hash for each point. Each hash will contain tangets of other points with respect to that point.
