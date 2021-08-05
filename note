@@ -1666,3 +1666,6 @@ One way we can do is, when get mid, we really set mid->next = NULL. That is, we 
 
 Now, we don't need to keep track of end!!!!
 
+
+Keep in mind that, merging is the most critical code of merge sort, rest of the code is easy..so don't over think it :)
+
