@@ -1682,4 +1682,6 @@ The problem can also be viewed as finding k-th element in n sorted list as sugge
 
 https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/
 
-Thus, the problem become very similar to merging n sorted list. 
+Thus, the problem become very similar to merging n sorted list.
+
+Don't forget that if you need to find min/max among a dynamic list, you should use heap!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
