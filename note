@@ -1644,3 +1644,25 @@ https://leetcode.com/problems/sort-list/solution/
 
 Now, if you look carefully, bottom-up implementation is much harder than top-down because you need to group every 1, 2, 4, 8,...elements. In top-down approach, we don't need to worry about that. We can simply write generic logic to split and merge.... So, this is why top-down is preferable.. 
 
+Now, how would you implement top-down merge sort? One solution is to send head and tail of a linked list. Then find the middle. The perfor merge sort as:
+
+struct ListNode* merge_sort(struct ListNode *head, struct ListNode *tail)
+{
+  struct ListNode *mid;
+  
+  if (head == tail)
+    return head;
+  
+  mid = get_mid (head, tail);
+  merge_sort (head, mid);
+  merge_sort (mid->next, tail);
+
+  //merge based on the heads and tails returned from the above function 
+}
+
+Note that this is just a psudocode. We need to return both head and tail from merge_sort function so that we can merge them appropiately. Implementing this is obviaously a night-mare!!! Can we simplify this? Can we implement it such that we don't need to maintain tail? 
+
+One way we can do is, when get mid, we really set mid->next = NULL. That is, we literally split the linked list into two two linked lists. THis simplifies the logic enoumously!!!!!!!!!!!!!!!!!!!!!
+
+Now, we don't need to keep track of end!!!!
+
