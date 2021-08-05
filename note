@@ -1693,3 +1693,9 @@ https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/
 Thus, the problem become very similar to merging n sorted list.
 
 Don't forget that if you need to find min/max among a dynamic list, you should use heap!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+206. For instance, you are asked to delete all the consecutive elements of a list where their sum equl to 0. We can maintain prefix sum and store it in a hash. If a prefix sum is previously seen, then we know that elements since then to now equal 0....
+
+Now, there is a catch. If prefix sum is 0, then all the elements from the beginning till now equal 0 (I often forget this). Note that, with this algorithm, you don't even need to worry about treating elements with 0.
+
+This is a very important observation!!!! 
