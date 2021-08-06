@@ -524,8 +524,12 @@ Note that, trie node may not need value, because select the index to the next no
      /   |   \
   node node node
 
-81. Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
+I very often forget the structure of Trie. I forget that I don't need to store anything in trie_node because I am storing the data in child.. I forget that here child is the most important thing. The child array length can vary. For instance, in case of maximum-xor-of-two-numbers-in-an-array problem, it's a binary trie. So, child size is 2. 
 
+I often tempted to create a separate leaf struct and put it as an instance of trie_node!!!!!!!!!!!!!!!!!! Note that, this is not needed. Just having a bool to indicate that if the node is a leaf or not is enough!!!
+
+81. Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
+ 
 82. While visiting Trie, we also need an array that keeps track of the string of the corresponding node.
 
 83. When copying output to res (pointer), make sure that they are allocated in memory. Sometimes, you may just want to return pointer. You don't need to allocate memory in that case.
@@ -1702,7 +1706,7 @@ This is a very important observation!!!!
 
 207. Sometimes, you need to do sequential search to find maximum of something (e.g. maximum-xor-of-two-numbers-in-an-array or lingest prefix match). Here, sequential search will be very expensive because it may contain millions of entries. To increase the search speed, we often use binary tree (map) or hash. Note that, we really can not use binary tree or hash, becuase here we are not really searching anyting. We are rather testing elery element. We need to test elements in a way that we don't need to test all the elelements. And that's how we increase the efficiency!!!!!! So, how can we reperent the input that we don't need to test all inputs. Ratther we can can consider some and skip the rest...?
 
-Two ways to achieve those is Trie or hash!!!!!!! (very important!!)
+Two ways to achieve those is Trie !!!!!!! (very important!!)
 
 https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/
 
@@ -1729,5 +1733,7 @@ num_bits = log2(n) + 1;
 209. For instance, you have many numbers. What is the minimum number of bits needed to represent all the numbers? 
 
 It is the number of bits needed for the maximum number of the input numbers....This is very obvious. But, it does not come to mind natuarally when come across in a problem like maximum-xor-of-two-numbers-in-an-array problem.
+
+210. What is the runtime of Trie lookup? It's the height of the trie. For instance, in maximum-xor-of-two-numbers-in-an-array problem, the height of the trie is L where L is the number of bits. In this case, runtime will be O(L). Note that, you may visit more than one branch of a trie (for instance, maximum-xor-of-two-numbers-in-an-array problem). In this case, the runtime is O(n) because we may end up visiting all the nodes. But, not more than n..
 
 
