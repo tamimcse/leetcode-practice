@@ -1707,3 +1707,27 @@ Two ways to achieve those is Trie or hash!!!!!!! (very important!!)
 https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/
 
 Take a look at bitwise tree approach here!!!!
+
+208. What is the number of digits needed for an integer? I often think of this problem as two groups: 1. numbers that are multiples of 10 and numbers that are not multiples of 10s.
+
+So, I tend to write the logic as:
+
+n % 10 == 0 ? log10(n) + 1 : cell (log10(n)). 
+
+But, it is overly complicated!!! Think carefully...you can write the logic as:
+
+num_digits = log10(n) + 1.
+
+This will work for all the cases!!!! Note that, the logic is same for 10-99..
+
+
+In the same way, what is the number of bits needed for a number?
+
+num_bits = log2(n) + 1;
+
+
+209. For instance, you have many numbers. What is the minimum number of bits needed to represent all the numbers? 
+
+It is the number of bits needed for the maximum number of the input numbers....This is very obvious. But, it does not come to mind natuarally when come across in a problem like maximum-xor-of-two-numbers-in-an-array problem.
+
+
