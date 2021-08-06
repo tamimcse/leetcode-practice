@@ -1698,4 +1698,8 @@ Don't forget that if you need to find min/max among a dynamic list, you should u
 
 Now, there is a catch. If prefix sum is 0, then all the elements from the beginning till now equal 0 (I often forget this). Note that, with this algorithm, you don't even need to worry about treating elements with 0.
 
-This is a very important observation!!!! 
+This is a very important observation!!!!
+
+207. Sometimes, you need to do sequential search to find maximum of something (e.g. maximum-xor-of-two-numbers-in-an-array or lingest prefix match). Here, sequential search will be very expensive because it may contain millions of entries. To increase the search speed, we often use binary tree (map) or hash. Note that, we really can not use binary tree or hash, becuase here we are not really searching anyting. We are rather testing elery element. We need to test elements in a way that we don't need to test all the elelements. And that's how we increase the efficiency!!!!!!
+
+Two ways to achieve those is Trie or hash!!!!!!! (very important!!)
