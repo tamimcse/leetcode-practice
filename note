@@ -298,7 +298,9 @@ long long sum;
 
 sum = (long long)a + b; 
 
-42. To print long long, using %lld. To print unsigned long long, use %llu
+42. To print long long, using %lld. To print unsigned long long, use %llu.
+
+To print long, using %ld. To print unsigned long, use %lu.
 
 43. In snake ladder problem, it will be easier to solve the problem by considering each cell a number rather than a row and column. This patterns hold for many cases. If you have a 2D array, think if you can treat each cell as number instead of row col.
 
