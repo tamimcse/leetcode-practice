@@ -1759,4 +1759,4 @@ What we need to do is, we need to perform search for each number at a time. For 
 
 if ((ret ^ nums[i]) > max)
 
-
+212. For instance, you are asked to return a string from a function (e.g. fraction-to-recurring-decimal). I mistakenly allocate the string statically, fill it up with sprintf() and return it. It will not work because the string will be disallocated!!! It is very trivial, but I make the mkistake.
