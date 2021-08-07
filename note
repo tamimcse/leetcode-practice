@@ -1762,3 +1762,11 @@ if ((ret ^ nums[i]) > max)
 212. For instance, you are asked to return a string from a function (e.g. fraction-to-recurring-decimal). I mistakenly allocate the string statically, fill it up with sprintf() and return it. It will not work because the string will be disallocated!!! It is very trivial, but I make the mkistake.
 
 213. sprintf (ret, "%s(%s)", res, fraction); is fine. We don't need \( \)... but, I remain confused if I need it or not
+
+214. For instance, in fraction-to-recurring-decimal problem, I can input:
+
+2       4
+-- ,   -----
+5       333
+
+In each step, if nominator is smaller than denominator, I add 0 till it's smaller than denominator, then I do the actual division. Problem with this approach is I am trying to do two things at the same time. What I can do is, in each step, if nominator is smaller than denominator, then add 0; otherwise calculate the division. This simplifies the logic enourmously!!!! So, in a step, if you need to do some preprocessing before performing the actual task, think if you can simplify this. If you can generalize the preprocessing with actaul task, you write generic logic. 
