@@ -528,6 +528,17 @@ I very often forget the structure of Trie. I forget that I don't need to store a
 
 I often tempted to create a separate leaf struct and put it as an instance of trie_node!!!!!!!!!!!!!!!!!! Note that, this is not needed. Just having a bool to indicate that if the node is a leaf or not is enough!!!
 
+Added later:
+----------------
+
+Sometimes, you may want to store the content of the leaf because the actual path value is not readily accessible. So, you can also store the left value along with leaf flag. The leaf value is only valid if leaf flag is true. I did that for maximum-xor-of-two-numbers-in-an-array problem.
+
+Also note that, you will always have your root in trie. The root is not added dynamically. So, you can have root statically and then add other nodes dynamically as:
+
+struct node root;  
+memset (&root, 0, sizeof (struct node));
+
+
 81. Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
  
 82. While visiting Trie, we also need an array that keeps track of the string of the corresponding node.
