@@ -1737,3 +1737,10 @@ It is the number of bits needed for the maximum number of the input numbers....T
 210. What is the runtime of Trie lookup? It's the height of the trie. For instance, in maximum-xor-of-two-numbers-in-an-array problem, the height of the trie is L where L is the number of bits. In this case, runtime will be O(L). Note that, you may visit more than one branch of a trie (for instance, maximum-xor-of-two-numbers-in-an-array problem). In this case, the runtime is O(n) because we may end up visiting all the nodes. But, not more than n..
 
 
+Added later
+----------------
+Actually previous discussion was wrong!!!! Lookup in Trie is O(L) in other words O(1). Now, note that you cannot find the maximum-xor-of-two-numbers-in-an-array in one Trie iteration. I often try to do that mistakenly. I use two pointers. But, I notice that in 3rd level, I will need 4 pointers, in 4th level, I will need 8 pointers, and so on....so, clearly it's not the right way.
+
+What we need to do is, we need to perform search for each number at a time. For each number, we need to find the number that results maximum XOR. That is, we need to perform trie lookup n time. That's why, lookup time is O(n).
+
+
