@@ -1770,3 +1770,13 @@ if ((ret ^ nums[i]) > max)
 5       333
 
 In each step, if nominator is smaller than denominator, I add 0 till it's smaller than denominator, then I do the actual division. Problem with this approach is I am trying to do two things at the same time. What I can do is, in each step, if nominator is smaller than denominator, then add 0; otherwise calculate the division. This simplifies the logic enourmously!!!! So, in a step, if you need to do some preprocessing before performing the actual task, think if you can simplify this. If you can generalize the preprocessing with actaul task, you write generic logic. 
+
+215. I got following error with int a = abs (b);
+
+"negation of -2147483648 cannot be represented in type 'int'; cast to an unsigned type to negate this value to itself"
+
+To fix the problem, do this:
+
+long a = labs (b); prototype of labs is : long int labs(long int x)
+
+This is very important!!!
