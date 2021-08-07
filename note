@@ -1743,4 +1743,9 @@ Actually previous discussion was wrong!!!! Lookup in Trie is O(L) in other words
 
 What we need to do is, we need to perform search for each number at a time. For each number, we need to find the number that results maximum XOR. That is, we need to perform trie lookup n time. That's why, lookup time is O(n).
 
+211. if (ret ^ nums[i] > max) will return wrong result!!!! It should be:
+
+
+if ((ret ^ nums[i]) > max)
+
 
