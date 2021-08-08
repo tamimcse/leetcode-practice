@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/maximum-product-subarray/
+
+Interetingly O(n^2) passes the test cases.
 */
 int maxProduct(int* nums, int numsSize){
   int i, j, prefix_prod, max = -11000000000000000;
