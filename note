@@ -1787,4 +1787,5 @@ This is very important!!!
 
 217. It's worth reiterating that min() and max () are not built-in function in C. If needed make your own function or macro.
 
-218. 
+218. Think if you can solve maximum-subarray or maximum-product-subarray in O(n). If not, double check the solutions...
+
