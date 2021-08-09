@@ -7,6 +7,8 @@ Follow the second solution of :
 
 https://www.geeksforgeeks.org/maximum-product-subarray/
 
+
+Very very very interesting problem!!!
 */
 
 /*
