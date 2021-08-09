@@ -1783,9 +1783,13 @@ long a = labs (b); prototype of labs is : long int labs(long int x)
 
 This is very important!!!
 
-216. In maximum-product-subarray, we you can simply use brutef-force solution which would be O(n^2). Note that, if you use DP where you calculate product of subarray of length 1, 2, 3,...it will also be O(n^2). However, aparently there is a better DP solution that can achive O(n) which is very similar to "Largest Sum Contiguous Subarray". So, it's worth taking note!!
+216. In maximum-product-subarray, we you can simply use bruteforce solution which would be O(n^2). Note that, if you use DP where you calculate product of subarray of length 1, 2, 3,...it will also be O(n^2). However, aparently there is a better DP solution that can achive O(n) which is very similar to "Largest Sum Contiguous Subarray". So, it's worth taking note!!
+
+This problem can be solved in O(n). First take a look at maximum-subarray problem. Think if you can solve maximum-subarray or maximum-product-subarray in O(n). If not, double check the solutions...
+
+Note that they are not DP.
 
 217. It's worth reiterating that min() and max () are not built-in function in C. If needed make your own function or macro.
 
-218. Think if you can solve maximum-subarray or maximum-product-subarray in O(n). If not, double check the solutions...
+218. 
 
