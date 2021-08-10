@@ -1804,7 +1804,7 @@ struct TreeNode* LCA_inner(struct TreeNode* root, struct TreeNode* p,
     if (!root)
       return NULL;
   
-    //First place where if lca is set, return
+    //First place where if lca is set, return  (not really needed, will explain later)
     if (*lca)
       return root;
   
@@ -1836,4 +1836,14 @@ struct TreeNode* LCA_inner(struct TreeNode* root, struct TreeNode* p,
   
     return res1 ? res1 : res2;
 }
+
+added later
+---------------------
+
+Now, if you think carefully, you don't need the first:
+
+    if (*lca)
+      return root;
+
+This is because once you find the result, you don't go ahead. But, you need second one because after you have found the result, you want to ignore the result. That why, the ignoring logic should be put after the recursion call, not at the beginning of the function (unlike usual recursion)
 
