@@ -1793,3 +1793,47 @@ Note that they are not DP.
 
 218. Sometimes, I over think. For instance, longest-increasing-subsequence problem, I can solve by counting how many smaller elements to the left. This is O(n^2). I don't think of this as DP. It comes natually to me. But, they (leetcode/geekforgeek) solve in the same way, call it DP and their solution is also O(n^2). So, I guess, if you are given similar prtoblem, you you find O(n^2) solution, double check if the solution is acceptable or not. In many cases, even in leetcode, the solution is accepatbale...
 
+219. Sometimes, you want to stop searching in a recursive function if you found the target. For instance, lowest-common-ancestor-of-a-binary-tree problem. These can be solved by creating a new function where result is passed as a pointer and set it. The function will return if the result is already set. Note that, doing this at the beginning of the function is not enough. You also need to do it after calling the recursive function as:
+
+//Create an inner function that sets result (in this case lca).
+struct TreeNode* LCA_inner(struct TreeNode* root, struct TreeNode* p, 
+               struct TreeNode* q, struct TreeNode** lca)
+{
+    struct TreeNode *res = NULL, *res1 = NULL, *res2 = NULL; 
+  
+    if (!root)
+      return NULL;
+  
+    //First place where if lca is set, return
+    if (*lca)
+      return root;
+  
+    if (root == p || root == q) {
+      res = LCA_inner (root->left, p, q, lca);
+      if (res) {
+        *lca = root;
+        return root;
+      }
+      res = LCA_inner (root->right, p, q, lca);
+      if (res) {
+        *lca = root;
+        return root;
+      }
+      return root;
+    }
+    
+    res1 = LCA_inner (root->left, p, q, lca);
+    res2 = LCA_inner (root->right, p, q, lca);
+  
+    //We also need to check lca again in the second time if lca is set; if yes, return. This is because both recursive function may have been called but not processed the result..
+    if (*lca)
+      return root;
+  
+    if (res1 && res2) {
+      *lca = root;
+      return root;
+    }
+  
+    return res1 ? res1 : res2;
+}
+
