@@ -18,9 +18,6 @@ struct TreeNode* LCA_inner(struct TreeNode* root, struct TreeNode* p,
     if (!root)
       return NULL;
   
-    if (*lca)
-      return root;
-  
     if (root == p || root == q) {
       res = LCA_inner (root->left, p, q, lca);
       if (res) {
