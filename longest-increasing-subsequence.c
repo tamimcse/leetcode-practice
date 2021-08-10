@@ -1,5 +1,7 @@
 /*
 https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+
+Check beneath main 
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,3 +56,33 @@ void main ()
 
   longest_increasing_subseq (arr, len);
 }
+
+/*
+https://leetcode.com/problems/longest-increasing-subsequence/
+
+
+
+int lengthOfLIS(int* nums, int numsSize){
+  int i, j, max, cur, prev;
+  int *list_arr = (int *) malloc (numsSize * sizeof (int));
+
+  list_arr[0] = 1;
+  for (i = 1; i < numsSize; i++) {
+    prev = 0;
+    for (j = i - 1; j >= 0; j--) {
+      if (nums[j] < nums[i] && prev < list_arr[j]) {
+        prev = list_arr[j];
+      }
+    }
+    list_arr[i] = prev + 1;
+  }
+  
+  max = list_arr[0];
+  for (i = 1; i < numsSize; i++) {
+    if (list_arr[i] > max)
+      max = list_arr[i];
+  } 
+
+  return max;
+}
+*/
