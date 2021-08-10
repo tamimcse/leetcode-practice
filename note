@@ -1791,5 +1791,5 @@ Note that they are not DP.
 
 217. It's worth reiterating that min() and max () are not built-in function in C. If needed make your own function or macro.
 
-218. 
+218. Sometimes, I over think. For instance, longest-increasing-subsequence problem, I can solve by counting how many smaller elements to the left. This is O(n^2). I don't think of this as DP. It comes natually to me. But, they (leetcode/geekforgeek) solve in the same way, call it DP and their solution is also O(n^2). So, I guess, if you are given similar prtoblem, you you find O(n^2) solution, double check if the solution is acceptable or not. In many cases, even in leetcode, the solution is accepatbale...
 
