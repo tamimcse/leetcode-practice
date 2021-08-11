@@ -1870,3 +1870,6 @@ https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91
 
 
 Also, in sliding window, you should maintain left and right index. Someone may call it two pointers approach ;-)
+
+
+221. Note that, length of sliding window = right -left + 1
