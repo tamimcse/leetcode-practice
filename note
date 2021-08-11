@@ -1847,3 +1847,23 @@ Now, if you think carefully, you don't need the first:
 
 This is because once you find the result, you don't go ahead. But, you need second one because after you have found the result, you want to ignore the result. That why, the ignoring logic should be put after the recursion call, not at the beginning of the function (unlike usual recursion)
 
+220. longest-repeating-character-replacement sounds a serious problem!!!! Here, we need to find out the longest repeating sequence after allowing certain number of replacement. At the beginning, I view the problem as finding longest repeating sequence for each distinct characters in the string.
+
+
+Thus the problem can be viewed as, finding longest sequence in a string like AA--A-A-A-
+
+This problem can be further simplified by finding longest sequnce in 1100101010.
+
+The problem can be further simpified by 2, [2], 1, [1], 1, [1], 1. Here, we ignored the last 0. The  we get the numbers but counting the running count of consecutive 1 or 0. We put [] in around the running count of 0. THat means, we need to fill up those postion up to k times.
+
+We can represent these as a linked list and update the linked list based on k. That's how, we will get the maximum consecutive sequence.
+
+
+This is how we solve the problem in traditional way!!!!
+
+
+Now, this is hugely inefficient!!!! Note that, here we need to find a sequnce of characters...can we use sliding window algorithm here???
+
+Here, we can maintain a sliding window where the number of non-max elemets are up to k instances. That's how we can maintain a sliding window as:
+
+https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91271/Java-12-lines-O%28n%29-sliding-window-solution-with-explanation/137008
