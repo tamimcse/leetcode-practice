@@ -1867,3 +1867,6 @@ Now, this is hugely inefficient!!!! Note that, here we need to find a sequnce of
 Here, we can maintain a sliding window where the number of non-max elemets are up to k instances. That's how we can maintain a sliding window as:
 
 https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91271/Java-12-lines-O%28n%29-sliding-window-solution-with-explanation/137008
+
+
+Also, in sliding window, you should maintain left and right index. Someone may call it two pointers approach ;-)
