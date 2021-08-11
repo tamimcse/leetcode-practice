@@ -1873,3 +1873,30 @@ Also, in sliding window, you should maintain left and right index. Someone may c
 
 
 221. Note that, length of sliding window = right -left + 1
+
+222. Sometimes, we need to keep track of max occurance of a character in a sliding window. We can use hash for that. For instance, in longest-repeating-character-replacement, we can have:
+
+int hash[26] = {0};
+
+When we increase the window, we do this:
+
+right++;
+hash[s[right]-'a']++;
+
+When we increase shirink the woindow (i.e. increase the left), we do:
+
+hash[s[left]-'a']--;
+left++;
+
+This is how, we can use a hash to keep track of the counts of characters in a sliding window.
+
+If we need max of the count, we simply can write a for loop to get the max. If the length of sliding window is small or the length of hash is samll or fixed, we write a for loop. If you are really crazy about performance or if the list is very long, we can use heap to keep track of the maximum element..
+
+223. Finally, a sliding window can be implemented as:
+
+while (left < len && right < len) {
+
+}
+
+Note that, we increase both right and left in sliding window algoritthm. Here, formar is the window expanding and the later is the window shirinking.
+So, we need to check both left and right if they have reached the end. 
