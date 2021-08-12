@@ -1924,3 +1924,13 @@ As the numbers are sorted, we can still use traditional binary search logic as f
     }
 
 But, note that, plain binary search logic is not sufficient. It is suffficient in case "mid" is not pointing the target value. But, if "mid" is pointing to the right value and as distance is not 0, we may mistakenly skip and go to left or right. In this case, we need to check if the distance of left or right with mid. If distance of mid is smaller, then mid is the right position.
+
+224. For instance, you want to initalize all elements of an array to -1. You do this:
+
+int start[26] = {-1};
+
+This will initialize like -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.....
+
+Note that, array initalization like that will only work for 0. If you want to initialize with non-zero, you need to do that manually!!!!!!
+
+I knew this, but I forgot! and I forget!!
