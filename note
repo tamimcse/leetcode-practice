@@ -1899,4 +1899,18 @@ while (left < len && right < len) {
 }
 
 Note that, we increase both right and left in sliding window algoritthm. Here, formar is the window expanding and the later is the window shirinking.
-So, we need to check both left and right if they have reached the end. 
+So, we need to check both left and right if they have reached the end.
+
+224. For instance, in https://leetcode.com/problems/find-k-closest-elements/. This problem has an unusual solution. You can sort this based on a number "x". Note that, when we do sorting, we sort all the numbers with respect to 0. Sorting can be viewed as sorting each number based on their distance from 0. Now, in this problem, you can sort all the numbers based on their distance from "x". 
+
+This is not a good solution though because it takes O(nlogn). There is a better solution and which often come to mind. But, I am mentioning this so that we can view sorting in a different way.
+
+Now, let's take a look at more obvious solution and more efficient solution: binary search + sliding window.
+
+Note that, sliding window does not often go left to right. It may start from the middle, and grow to the left and right based the numbers. We will still need "left" and "right", but we don't need "while (left < len && right < len)" in this case.
+
+Also, note that, we cannot apply binary search directly here!! If all the numbers are sorted based on the distance from "x", then we could. But, here, the numbers are sorted in ordinary manner. Now, we need to modify the logic slightly that it still finds the number with smallest distance from "x". Note that, the distance may not be 0.
+
+As the numbers are sorted, we can 
+
+
