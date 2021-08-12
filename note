@@ -1934,3 +1934,28 @@ This will initialize like -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.....
 Note that, array initalization like that will only work for 0. If you want to initialize with non-zero, you need to do that manually!!!!!!
 
 I knew this, but I forgot! and I forget!!
+
+225. For instance, you need to use a global array in your cmp as:
+
+int *end_g;
+
+int cmp (const void *a, const void *b)
+{
+  return end_g[*((int *)a)] - end_g[*((int *)b)];
+}
+
+You can do it in two ways: 
+
+end_g = (int *) malloc ()....
+qsort (..);
+
+Or you can do it as :
+
+int end[26];
+..
+..
+end_g = end;
+qsort (..);
+
+That is, you can just use the global variable to point it to the right place. The global variable does not necessarily be allocated...
+
