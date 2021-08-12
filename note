@@ -1909,8 +1909,18 @@ Now, let's take a look at more obvious solution and more efficient solution: bin
 
 Note that, sliding window does not often go left to right. It may start from the middle, and grow to the left and right based the numbers. We will still need "left" and "right", but we don't need "while (left < len && right < len)" in this case.
 
-Also, note that, we cannot apply binary search directly here!! If all the numbers are sorted based on the distance from "x", then we could. But, here, the numbers are sorted in ordinary manner. Now, we need to modify the logic slightly that it still finds the number with smallest distance from "x". Note that, the distance may not be 0.
+Also, note that, we cannot apply binary search directly here!! If all the numbers are sorted based on the distance from "x", then we could. But, here, the numbers are sorted in ordinary manner. Now, we need to modify the logic slightly such that it still finds the number with smallest distance from "x". Note that, the distance may not be 0.
 
-As the numbers are sorted, we can 
+As the numbers are sorted, we can still use traditional binary search logic as following:
 
+    if (x > arr[mid]) {
+      start = mid + 1;
+      if (less_than (x, arr[mid], arr[start]))
+        return mid;
+    } else {
+      end = mid - 1;
+      if (less_than (x, arr[mid], arr[end]))
+        return mid;
+    }
 
+But, note that, plain binary search logic is not sufficient. It is suffficient in case "mid" is not pointing the target value. But, if "mid" is pointing to the right value and as distance is not 0, we may mistakenly skip and go to left or right. In this case, we need to check if the distance of left or right with mid. If distance of mid is smaller, then mid is the right position.
