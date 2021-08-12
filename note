@@ -1959,3 +1959,17 @@ qsort (..);
 
 That is, you can just use the global variable to point it to the right place. The global variable does not necessarily be allocated...
 
+226. In partition-labels, you need to merge intervals. How would you merge intervals?
+
+One way is projection. You project the intervals on to an array. But, that approach does not work here, because we don't want to merge:
+
+a: 5 - 7 and b:8 - 10.
+
+But, the way projection  works, it will merge the two intervals. But, the two intervals should not be merged in this context. If the interval should be merged, then projection can be used.
+
+Another approach is to sort the intervals based on the end_time. But, that is not a right approach at al!!!!!!! For instance, iterating based on end_time will not work for following case. It two create two intervals:
+
+   ---  ---
+
+The right approach is sort the intervals based on start_time. Merging them in this way is the right way to go!!!!
+---------------
