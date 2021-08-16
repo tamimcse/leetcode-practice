@@ -1972,4 +1972,7 @@ Another approach is to sort the intervals based on the end_time. But, that is no
    ---  ---
 
 The right approach is sort the intervals based on start_time. Merging them in this way is the right way to go!!!!
+
+
+227. Never forget to take some time to write an input on paper and think about the algorithm. It's almost impossible to come up with an algorithm from the the problem statement!!
 ---------------
