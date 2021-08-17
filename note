@@ -2006,3 +2006,10 @@ But, based on the problem, you may need to use the second one...
 230. Remember that if you use "char *" as key in your hash, in insert(), you need to use "strcmp()" to check if the key exists or not. Sometimes, I use existing code for my use and the code will compile but would not work because that needs to be changed. 
 
 Again, to calculate hash for "char *", you can simply sum up the ASCII code of all the characters and mod by CAPACITY.
+
+231. To convert case, there are functions like:
+
+int toupper (int c); 
+int tolower(int c);
+
+Note that, thet are NOT: to_upper() or upper(). I often confuse with these.
