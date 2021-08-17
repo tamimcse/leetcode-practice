@@ -1976,3 +1976,26 @@ The right approach is sort the intervals based on start_time. Merging them in th
 
 227. Never forget to take some time to write an input on paper and think about the algorithm. It's almost impossible to come up with an algorithm from the the problem statement!!
 ---------------
+
+
+228. In sqrtx problem, I think like this. I will start with 1. Then, if this is not it, then I will double the number in each iteration. like:
+
+1, 2, 4, 8, 16...
+
+Once I exceed to the number, this means the the target numnber is between n and n/2 where n is the current number. Now, we can perform binary search between n/2 and n.
+
+But, to simplify this, we can implement binary search from the very beginning. In fact, that is the right approach.
+
+Note that, in binary search, the condition should be:
+
+  while (start <= end) {
+
+  }
+
+Not:
+
+  while (start < end) {
+
+  }
+
+But, based on the problem, you may need to use the second one...
