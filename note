@@ -1999,3 +1999,5 @@ Not:
   }
 
 But, based on the problem, you may need to use the second one...
+
+229. In problem escription, if something is bold, take a note..usually it's important. For instance, in logger-rate-limiter problem, logger message are unique. I would not think so at the beginning. So, if a problem is not well under stood, best way to understand is always look at the examples. Don't worry about description too much (i.e. being bold). This is actually totally contradictatory to what I said in the first line of this paragraph. Yes, rely on example, not the problem description. You need to play with the example anyway when implementing something.
