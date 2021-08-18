@@ -2013,3 +2013,11 @@ int toupper (int c);
 int tolower(int c);
 
 Note that, thet are NOT: to_upper() or upper(). I often confuse with these.
+
+232. If you are asked to convert a number to 7 base number, not that it's similar to convert a number to binary (i.e. in each each iteration divide by 2 and mod by 2....)
+
+Like other base, the number of digits needed is log_7(num) + 1.
+
+Note that, you can calculate log_7(num) = log10(num)/log10(7). 
+
+Also note that, if the numnber is negative, you should make it positive and process uniformly..
