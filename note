@@ -2021,3 +2021,6 @@ Like other base, the number of digits needed is log_7(num) + 1.
 Note that, you can calculate log_7(num) = log10(num)/log10(7). 
 
 Also note that, if the numnber is negative, you should make it positive and process uniformly..
+
+
+233. In BST, left subtree will contain elements that are less than or (equal) to root! Equal elements will not be in the right sub tree.
