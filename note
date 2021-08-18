@@ -2024,3 +2024,5 @@ Also note that, if the numnber is negative, you should make it positive and proc
 
 
 233. In BST, left subtree will contain elements that are less than or (equal) to root! Equal elements will not be in the right sub tree.
+
+234. "Mode" is not "median". "Mode" means the most frequent items of an array. An array can have more than one mode.
