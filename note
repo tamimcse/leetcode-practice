@@ -2111,4 +2111,57 @@ int prev = 10000001, count = 0, max = 0;
 
 And I don't initalize before function call. This will work for 1 time. But, it will not work for subsequent callls.
 
+237. In is-subsequence problem, it's not an easy one. The problem can be solved in several ways. 
+
+First, you can create a hash-set based on characters. You will store the indices the character occurred. Then, you can iterarate over the subsequnce array. When you find a character, if the next character is a following index, you can go further. Note that, you may need to backtrack sometimes.
+
+This types of problems can be solved using recursion or sliding window!!!!!! Sliding window often performs much better than recursion.
+
+For instance, your inputs are "abcad" and "acd". When you find a match of the first character, you can make recursive call of ("bcad", "cd").
+
+Again, this problem can be thought of two sliding window match..
+
+
+Thus, these sorts of problem can be implemented using recursion or sliding window......!!!!!!!!!!!
+
+
+Also, note that, in sliding window, may need manual step to initialize the sliding window. For instance, in the following code, we find the first character to initialize the sliding window. You also may need the another manual step to re-initialize the sliding window within the algorithm.
+
+
+bool isSubsequence(char * s, char * t){
+  int s_start = 0, s_end, s_len = strlen (s), 
+    t_len = strlen (t), t_start = 0, t_end = 0;
+  
+  if (!s[0])
+    return true;
+  
+  //manually setting the sliding window
+  while (t_start < t_len && t[t_start] != s[0])
+    t_start++;
+  if (t_start == t_len)
+    return false;
+  t_end = t_start;
+  s_start = 0;
+  s_end = 0;
+  
+  while (s_end + 1 < s_len) {
+    //re-initialize the sliding window
+    if (t_end + 1 == t_len) {
+      t_start++;
+      while (t_start < t_len && t[t_start] != s[0])
+        t_start++;
+      if (t_start == t_len)
+        return false;
+      t_end = t_start;
+      s_start = 0;
+      s_end = 0;
+      continue;
+    }
+    if (s[s_end + 1] == t[t_end+1]) {
+      s_end++;
+    }
+    t_end++;
+  }
+  return true;
+}
 
