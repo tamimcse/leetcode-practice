@@ -2165,3 +2165,9 @@ bool isSubsequence(char * s, char * t){
   return true;
 }
 
+
+238. To find a char in a string, use "char *strchr(const char *str, int c)". Note that, it is NOT "strch()" (I often think so).
+
+Also, strchr () returns NULL if the char is not found. I often think it returns -1.
+
+plus_idx
