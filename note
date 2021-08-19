@@ -2026,3 +2026,89 @@ Also note that, if the numnber is negative, you should make it positive and proc
 233. In BST, left subtree will contain elements that are less than or (equal) to root! Equal elements will not be in the right sub tree.
 
 234. "Mode" is not "median". "Mode" means the most frequent items of an array. An array can have more than one mode.
+
+235. Take a look atthe problem find-mode-in-binary-search-tree. It may be tempting to implement it using a hash. You can travarse the tree, check if a node already exist, if yes, increase the count. I tend to follow this approach because of the following structure:
+
+
+                 20
+                /  \
+               2   40
+              / \  /
+             1  20 30
+
+That, is the same elements may not be in the tree consecutively. So, apparently there is no way to get the same element consecutively. Oh, no!!!!! There is !!!!!!!!!!!!! BST tree is awaesome because there is a way to get the elements consecutively even though they are not present in a tree consecutively. Remember that, you can travarase a tree in inorder travarsal, you get a sorted array. In other words, you get the number consecutively. So, the idea is travarse the nodes consecutively. Count their frequncy. ....
+
+
+236. Sometimes, I need to keep state in a recursive function. What I do is, I allocate the variables in the main function and pass those variables as a reference and update them inside function. This however is not nice. It creates ugly function interface. And you need to derefernce the variable to use it which is ugly as well. For intance:
+
+void inorder (struct TreeNode *root, int *res, int *res_cnt, int *prev, int *count, int *max)
+{
+  if (!root)
+    return;
+  inorder (root->left, res, res_cnt);
+  if (root->val == *prev) {
+    *count++;
+  } else {
+    prev = root->val;
+    *count = 1;
+  }
+  if (*count > *max) {
+    *max = *count;
+    res[0] = root->val;
+    *res_cnt = 1;
+  } else if (count == max) {
+    res[*res_cnt] = root->val;
+    *res_cnt += 1;
+  }
+  inorder (root->right, res, res_cnt);
+}
+
+
+What you should do is, you should implement them using a global variable:
+
+//global variable
+int prev, count, max;
+
+void inorder (struct TreeNode *root, int *res, int *res_cnt)
+{
+  if (!root)
+    return;
+  inorder (root->left, res, res_cnt);
+  if (root->val == prev) {
+    count++;
+  } else {
+    prev = root->val;
+    count = 1;
+  }
+  if (count > max) {
+    max = count;
+    res[0] = root->val;
+    *res_cnt = 1;
+  } else if (count == max) {
+    res[*res_cnt] = root->val;
+    *res_cnt += 1;
+  }
+  inorder (root->right, res, res_cnt);
+}
+
+int* findMode(struct TreeNode* root, int* returnSize){
+  int *res = (int *) malloc (10000 * sizeof (int));
+  int res_cnt = 0;
+  
+  //global variables are initialized
+  prev = 100001;
+  count = 0; 
+  max = 0;
+  inorder (root, res, &res_cnt);
+  *returnSize = res_cnt;
+  return res;
+}
+
+
+Note that, the global variables are initialized before the function  call. You need to do it before every function call. Otherwise, you will get undefined behaviour. Sometimes, what I do is, I initialize the global variable in declaration, like
+
+int prev = 10000001, count = 0, max = 0;
+
+And I don't initalize before function call. This will work for 1 time. But, it will not work for subsequent callls.
+
+
