@@ -2170,4 +2170,6 @@ bool isSubsequence(char * s, char * t){
 
 Also, strchr () returns NULL if the char is not found. I often think it returns -1.
 
+Note that, it also returns "char *", not "int".
+
 plus_idx
