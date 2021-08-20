@@ -2173,3 +2173,11 @@ Also, strchr () returns NULL if the char is not found. I often think it returns 
 Note that, it also returns "char *", not "int".
 
 plus_idx
+
+239. For instance, you have an integer that represents minutes. It should take 2 characters. That is, intstead of saying "1:2" (1 hour 2 minutes), it should say "1:02". How can you achieve that?
+
+You can use %02d. For instance:
+
+sprintf (str, "%d:%02d", hour_, min_);
+
+Here, I am saying that minutes should consume at least 2 characters (can take more (i.e. 3, 4) characters). If it takes less than 2 characters, it should be made two characters by padding '0'.
