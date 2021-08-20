@@ -2181,3 +2181,85 @@ You can use %02d. For instance:
 sprintf (str, "%d:%02d", hour_, min_);
 
 Here, I am saying that minutes should consume at least 2 characters (can take more (i.e. 3, 4) characters). If it takes less than 2 characters, it should be made two characters by padding '0'.
+
+240. It may seem that you can also implement a backtracking algorithm with nested loop. For instance, if you are given a string, and you need to find all the combination of two characters from the string, you can write it using two nested loop. You don't need backtracking for that. If you need to write combination of every three characters, you can write using three nested loop. But, if you need all possible combination, you will need backtracking. Nested for loop will not work....
+
+When backtracking, you should also note if you are generating permutation or combination. Note that, nested for loop creates combination, it does not create permution. If you generate permutation using nested loop, you need to shuffle elements among them to create new permutation.
+
+So, if need permutation or you need combination with any length, you should use backtracking. Nested for loop will only can be used to generate fixed-length combination.
+
+Now, for instance, take a look at binary-watch problem. You obviously need backtracking becuase length of permutation/combination is not fixed.
+
+You can have two arrays to set state:
+
+int hour[4];
+int min[6];
+
+void backtrack (int num, char **res, int *res_cnt)
+{
+  int i, hour_, min_;
+  char *str = (char *) calloc (6, sizeof (char));
+  //printf ("backtrack %d \n", num);
+  
+  if (!num) {
+    hour_ = get_hour ();
+    min_ = get_min ();
+    sprintf (str, "%d:%02d", hour_, min_);
+    res[(*res_cnt)++] = str;
+    return;
+  }
+
+  for (i = 0; i < 4; i++) {
+    if (hour[i])
+      continue;
+    hour[i] = 1;
+    if (valid ())
+      backtrack (num - 1, res, res_cnt);
+    hour[i] = 0;
+  }
+  for (i = 0; i < 6; i++) {
+    if (min[i])
+      continue;
+    min[i] = 1;
+    if (valid ())
+      backtrack (num - 1, res, res_cnt);
+    min[i] = 0;
+  }
+}
+
+Problem with this would be: it will generate same time twice despite continuing if the the certain array element being '1'. Why is that?
+
+For instance, 'hour' is : 0 0 1 0.
+
+Now, if we call backtrack(), it will generate '0 0 1 1' again which was previously produced. To solve this problem, we shoud start from where we ended last time (like we do in nested loop solution). So, the pronblem can be re-written as:
+
+void backtrack (int num, int min_start, int hour_start, char **res, int *res_cnt)
+{
+  int i, hour_, min_;
+  char *str = (char *) calloc (6, sizeof (char));
+  //printf ("backtrack %d \n", num);
+  
+  if (!num) {
+    hour_ = get_hour ();
+    min_ = get_min ();
+    sprintf (str, "%d:%02d", hour_, min_);
+    res[(*res_cnt)++] = str;
+    return;
+  }
+
+  for (i = hour_start; i < 4; i++) {
+    hour[i] = 1;
+    if (valid ())
+      backtrack (num - 1, min_start, i + 1, res, res_cnt);
+    hour[i] = 0;
+  }
+  for (i = min_start; i < 6; i++) {
+    min[i] = 1;
+    if (valid ())
+      backtrack (num - 1, i + 1, hour_start, res, res_cnt);
+    min[i] = 0;
+  }
+}
+
+This will avoid generating duplocates. Note that, we may need to use similar logic as nested-loop (that is , we may need to keep track of how far we have generated...instead of starting from the beginning everytime)
+
