@@ -2263,3 +2263,30 @@ void backtrack (int num, int min_start, int hour_start, char **res, int *res_cnt
 
 This will avoid generating duplocates. Note that, we may need to use similar logic as nested-loop (that is , we may need to keep track of how far we have generated...instead of starting from the beginning everytime)
 
+
+
+Finally, the above code will have another issue. It will perform backtracking separately on hour and minutes. This will produce duplicate output. To solve this problem, we need to merge hour and minute array so that we only perform backtracking on a single array...this should solve the duplicate problem. The solution should be like:
+
+int led[10];
+
+void backtrack (int num, int start, char **res, int *res_cnt)
+{
+  int i, hour_, min_;
+  char *str = (char *) calloc (6, sizeof (char));
+  //printf ("backtrack %d \n", num);
+  
+  if (!num) {
+    hour_ = get_hour ();
+    min_ = get_min ();
+    sprintf (str, "%d:%02d", hour_, min_);
+    res[(*res_cnt)++] = str;
+    return;
+  }
+
+  for (i = start; i < 10; i++) {
+    led[i] = 1;
+    if (valid ())
+      backtrack (num - 1, i + 1, res, res_cnt);
+    led[i] = 0;
+  }
+}
