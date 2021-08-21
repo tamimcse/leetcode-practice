@@ -12,20 +12,15 @@ char * convertToTitle(int columnNumber){
   char tmp;
   
   i = num_digit - 1;
-  while (columnNumber > 26) {
+  while (columnNumber) {
     rem = columnNumber % 26;
     columnNumber /= 26;
     if (!rem) {
       rem = 26;
       columnNumber--;
     }
-    res[i--] = (rem % 27) - 1 + 'A';
+    res[i--] = ((rem - 1) % 26) + 'A';
   }
-  
-  if (columnNumber) {
-    res[i--] = (columnNumber % 27) + ('A' - 1);
-  }
-  
   
   return &res[i+1];
 }

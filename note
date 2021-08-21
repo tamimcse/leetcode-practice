@@ -2290,3 +2290,31 @@ void backtrack (int num, int start, char **res, int *res_cnt)
     led[i] = 0;
   }
 }
+
+
+241. Sometimes, a problem may look like int to binary conversation. For instance, excel-sheet-column-title problem. This problem seem like decimal to mod-26 conversation. But there is a difference. For instance,
+
+52 = AZ
+
+That, 52 is broken as (1 * 26 + 26), not (2 * 26 + 0)
+
+Thus, adter doing mod by 26, if the result is 0, we need to break it into a * 26 + 26 manner as following:
+
+  i = num_digit - 1;
+  while (columnNumber) {
+    rem = columnNumber % 26;
+    columnNumber /= 26;
+    if (!rem) {
+      rem = 26;
+      columnNumber--;
+    }
+    res[i--] = ((rem - 1) % 26) + 'A';
+  }
+  
+  return &res[i+1];
+
+Note that, here we are filling the array from the end. We could also fill the array from front and reverse the array later. But, that is not really necessary. 
+
+Also, note how we are returning the beginning of the array. We cannot simply return "res" because we may not fill up the array.
+
+
