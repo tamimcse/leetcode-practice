@@ -2317,4 +2317,5 @@ Note that, here we are filling the array from the end. We could also fill the ar
 
 Also, note how we are returning the beginning of the array. We cannot simply return "res" because we may not fill up the array.
 
+242. Sometimes, rounded array can be very simple. You can just find the next index by "idx % size"; For instance: moving-average-from-data-stream problem.
 
