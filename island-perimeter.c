@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/island-perimeter/
+
+Interesting problem
 */
 int neigh[][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
