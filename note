@@ -2326,5 +2326,9 @@ I try to solve this problem by checking if any one point of a rectangle fall wit
 [7,8,13,15]
 [10,8,12,20]
 
-They overlap but, there is no such point
+They overlap but, there is no such point.
+
+Now, try to solve the problem in the way we solved interval overlapping. Instead of checking "if they overlap", check "if they don't overlap". That is, for each each point of a rectangle, check if the point is outside of the rectangle. Now, you will be surprised, this will not work for the above input either. It will tell you that some points are outside of the rectangle while they are not. 
+
+Moral of the story is, checking by point to check a rectangle is not a good idea. Point cannot capture the whole rectangle. For interval, two points can capture an interval, but checking each point individually for rectangle is not a good idea.
 
