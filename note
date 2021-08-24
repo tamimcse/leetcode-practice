@@ -2338,3 +2338,5 @@ https://leetcode.com/problems/rectangle-overlap/solution/
 
 Check both solutions.
 
+Note that, it is easy to check if another rectangle is to the right/left/up/down of another rectangle. But, checking other thing isn't easy.
+
