@@ -2332,3 +2332,9 @@ Now, try to solve the problem in the way we solved interval overlapping. Instead
 
 Moral of the story is, checking by point to check a rectangle is not a good idea. Point cannot capture the whole rectangle. For interval, two points can capture an interval, but checking each point individually for rectangle is not a good idea.
 
+Another solution is to, check any line of a rectangle insersects with any line of the other rectangle. Now, checking if two line intersects or not is not trivial. But, there was a trivial solution on our nose that we couldn't find. 
+
+https://leetcode.com/problems/rectangle-overlap/solution/
+
+Check both solutions.
+
