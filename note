@@ -2340,3 +2340,7 @@ Check both solutions.
 
 Note that, it is easy to check if another rectangle is to the right/left/up/down of another rectangle. But, checking other thing isn't easy.
 
+244. Note that, a lot of tree problems can be solved using recursion on left and right subtree (like height calculation). So, instead of checking preorder, postorder, inorder first, check if a problem can be solved using recursion on left and right subtree.
+
+255. Sometimes, you may need to check if two trees are same (as in subtree-of-another-tree problem). We know that inorder/preorder/postorder is not unique for a tree. That is, there can be two different trees that have same inorder/preorder/postorder. But, inorder+preorder or inorder+postorder are unique for a tree. But, think about it. There is a better solution to check if two trees are same. You can simply perform recursion on left and right subtree.
+
