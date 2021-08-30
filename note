@@ -2388,5 +2388,11 @@ So, why don't we calculate that and get the maximum. We don't need to break it i
 Moral of the solution: Sometimes it is easier to compare the potential candidates instead of breaking the problem into smaller problems.
 
 
+Note that, this solution also works for inputs like:
+
+-5 -4 -3 -2 -1
+
+Here, we need to  the absolute value of the result show be minimum, not maximium. As we find the cadidates directly, this solution still works.
+
  
 
