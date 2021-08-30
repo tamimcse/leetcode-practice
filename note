@@ -2354,3 +2354,39 @@ if ((a * b) > (c * d))
 
 That is needed only for bitwise operator I guess.
 
+257. maximum-product-of-three-numbers is a very interesting problem. I try to solve this problem as following:
+
+I sort the number. Then I do:
+
+if (nums[numsSize - 1] * nums[numsSize - 2] > nums[0] * nums[1])
+  return nums[numsSize - 1] * nums[numsSize - 2] * nums[numsSize - 3];
+else
+  nums[0] * nums[1] * nums[numsSize - 1];
+
+The rational is as following: I need to find largest product of three numbers. So, I try to find the largest product of two numbers first. And then I try to find the largest of three. The largest of two would be found at the beginning or at the end. Once I find the largest product of two, I find the largest product of three. This can work for following input:
+
+-5 -3 -1 0 3 4 5 6
+
+BUT, this solution is not right. Finding sum of three based on the sum of two can be misleading. For instance, the above algorithm will not work for following input:
+
+-8 -7 -2 10 20
+
+Here, candidate maximum sum of two is: 56 and 200.
+
+If we choose 200, it will result sum of three = -400. But, actaul results should be : -8 * -7 * 20.
+
+The real solution is a lot easier than we think. For instance, we know that solution would be either:
+
+nums[numsSize - 3] * nums[numsSize - 2] * nums[numsSize - 1]
+
+or 
+
+nums[0] * nums[1] * nums[numsSize - 1]
+
+So, why don't we calculate that and get the maximum. We don't need to break it into product of two!!!!
+
+Moral of the solution: Sometimes it is easier to compare the potential candidates instead of breaking the problem into smaller problems.
+
+
+ 
+
