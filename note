@@ -2344,3 +2344,13 @@ Note that, it is easy to check if another rectangle is to the right/left/up/down
 
 255. Sometimes, you may need to check if two trees are same (as in subtree-of-another-tree problem). We know that inorder/preorder/postorder is not unique for a tree. That is, there can be two different trees that have same inorder/preorder/postorder. But, inorder+preorder or inorder+postorder are unique for a tree. But, think about it. There is a better solution to check if two trees are same. You can simply perform recursion on left and right subtree.
 
+256. following expression is fine:
+
+if (a * b > c * d)
+
+You don't need to do:
+
+if ((a * b) > (c * d))
+
+That is needed only for bitwise operator I guess.
+
