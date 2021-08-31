@@ -2413,4 +2413,6 @@ So, in order words, it is not possible to implememt a stack that has pop_max() a
 
 Now, we can use trivial approach. We can keep rest of the function as it is. But, for pop_max (), we can another stack as a temporary storage. When we do pop_max (), we pop all the elements till the max, and store them in the other stack. Then remove the max. And the put the elements back to the stack.
 
+Mote that, we in this case, approach b is easier to implement than approach a.
+
 
