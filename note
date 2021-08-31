@@ -2397,4 +2397,20 @@ Here, we need to  the absolute value of the result show be minimum, not maximium
 
 258. It's OK to create a stack with a fixed array. For instance: https://leetcode.com/problems/max-stack/
  
+259. Take a look at max-stack problem. Implementing stack is easy. Implementing a stack where you can max() in constant time is also easy. You can do it in two ways:
+
+a. Maintain another array where we store index to the next maximum elemment. That way, if we pop the maximum element, we can get the index to the next maximum element from that array.
+
+b. Another strategy is to maintain another array where we keep track of the current maximum. For instance, if we add [2, 1, 5, 3, 9], we'll remember [2, 2, 5, 5, 9].
+
+Now problem is, how to support pop_max()? Note that, this problem may look simple at the beginning. I thought that I would use approach a. Then when I do pop_max(), I simply invalidate the index. We can have another array "valid" that keeps track if an element of the stack is valid or not. But, this approach would not work. That's because when you do pop_max(), next biggiest element may not be as we recorded. The next biggest element may have been added after the current max. So, the index to the next maximim element is not actually right.
+
+One way to solve this problem is, every time we insert a new element, we find an element which is larger than the element to insert, but next element to the larger is smaller than the element to insert...
+
+This is one way. But, this may require each push() extra processing which is not desirable.
+
+So, in order words, it is not possible to implememt a stack that has pop_max() and all the functions are O(1).
+
+Now, we can use trivial approach. We can keep rest of the function as it is. But, for pop_max (), we can another stack as a temporary storage. When we do pop_max (), we pop all the elements till the max, and store them in the other stack. Then remove the max. And the put the elements back to the stack.
+
 
