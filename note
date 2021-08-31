@@ -2394,5 +2394,7 @@ Note that, this solution also works for inputs like:
 
 Here, we need to  the absolute value of the result show be minimum, not maximium. As we find the cadidates directly, this solution still works.
 
+
+258. It's OK to create a stack with a fixed array. For instance: https://leetcode.com/problems/max-stack/
  
 
