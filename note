@@ -2434,4 +2434,27 @@ public:
     }
 };
 
+262. To sort a vector in C++:
+
+std::sort (horizontalCuts.begin(), horizontalCuts.end());
+
+Not
+
+std::sort (horizontalCuts);
+
+263. In order to iterate a vector using index:
+
+for (int i = 1; i < horizontalCuts.size(); i++) {
+
+}
+
+Not: 
+
+for (int i = 1; i < horizontalCuts.count(); i++) {
+
+}
+
+264. Sometimes, I take a problem too seriesly. For instance, in maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts problem, I consider tree splitting approach and DFS. But, note that those are needed if you want to find the peaces. Here you don't. You just need to find the area of the largest peace. Thus, there is a much easier solution. Just read the Overview of:
+
+https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/solution/
 
