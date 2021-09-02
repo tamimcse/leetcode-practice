@@ -2415,4 +2415,12 @@ Now, we can use trivial approach. We can keep rest of the function as it is. But
 
 Mote that, we in this case, approach b is easier to implement than approach a.
 
+260. In c++, to iterate a string, do:
 
+for (auto ch : str) {
+
+}
+
+260. robot-bounded-in-circle is a fasinating problem!!! Take a look at solution:
+
+https://leetcode.com/problems/robot-bounded-in-circle/solution/
