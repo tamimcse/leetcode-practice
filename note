@@ -2424,3 +2424,14 @@ for (auto ch : str) {
 260. robot-bounded-in-circle is a fasinating problem!!! Take a look at solution:
 
 https://leetcode.com/problems/robot-bounded-in-circle/solution/
+
+261. C++ template:
+
+class Solution {
+public:
+    int maxArea(int h, int w) {
+        
+    }
+};
+
+
