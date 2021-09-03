@@ -2458,3 +2458,13 @@ for (int i = 1; i < horizontalCuts.count(); i++) {
 
 https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/solution/
 
+265. Sometimes, if the result is too large, you will be asked to return in "modulo 10^9 + 7"
+
+You can do it as following:
+
+unsigned int mod = 1000000007;
+
+....
+
+return  ((long long) max_weight * max_height) % mod;//here the result would be int
+
