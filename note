@@ -38,7 +38,7 @@ Note that, memset is good for setting character to a string, but not suitable fo
 
 13. Sometimes, a problem can be solved using graph. But, it can be solved not using graph and the version is more efficient. 
 
-14. Sometimes, a problem can be solved using graph. and should be solved using graph. But, not really creating graph data structure. Remember the "word search" problem. Apply DFS without creating the graph.
+14. Sometimes, a problem can be solved using graph. and should be solved using graph. But, not really creating graph data structure. Remember the word-search problem. Apply DFS without creating the graph.
 
 15. Instead of checking col < num_col - 1, check if col + 1 < num_col.
 

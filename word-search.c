@@ -2,78 +2,44 @@
 https://leetcode.com/problems/word-search/
 */
 
-struct node {
-  int row;
-  int col;
-};
+int adj[][2] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
-
-bool dfs (char** board, int num_row, int num_col, int row, int col, char * word)
+bool dfs (char** board, int num_row, int num_col, int row, int col, char *word, int **visit)
 {
-  int i;
-  struct node *stack = (struct node *) malloc (num_row * num_col * 1000 * sizeof (*stack));
-  int s_idx = 0;
-  struct node curr;
-  char **visit = (char **) calloc (num_row, sizeof (*visit));
-  for (i = 0; i < num_row; i++)
-    visit[i] = (char *) calloc (num_col, sizeof (char));
-  int len = strlen (word);
-  int word_idx = 0;
+  int i, j, adj_row, adj_col;
+  bool res;  
 
-  stack[s_idx].row = row;
-  stack[s_idx].col = col;
-  s_idx++;
-
-  while (s_idx) {
-    curr = stack[s_idx - 1];
-   // printf ("Got %c from stack. Looking for %c \n", board[curr.row][curr.col], word[word_idx]);
-    if (visit[curr.row][curr.col]) {
-      visit[curr.row][curr.col] = 0;
-      word_idx--;
-      s_idx--;
+  if (!word[1])
+    return true;
+  
+  visit[row][col] = 1;
+  for (i = 0; i < 4; i++) {
+    adj_row = row + adj[i][0];
+    adj_col = col + adj[i][1];
+    if (adj_row >= num_row || adj_row < 0 || adj_col >= num_col || adj_col < 0 || 
+        visit[adj_row][adj_col])
       continue;
-    }
-    if (board[curr.row][curr.col] != word[word_idx]) {
-      s_idx--;
-      continue;
-    }
-    visit[curr.row][curr.col] = 1;
-    word_idx++;
-    if (word_idx == len)
-      return true;
-    if (curr.row + 1 < num_row && !visit[curr.row + 1][curr.col]) {
-      stack[s_idx].row = curr.row + 1;
-      stack[s_idx].col = curr.col;
-      s_idx++;
-    }
-    if (curr.col + 1 < num_col && !visit[curr.row][curr.col + 1]) {
-      stack[s_idx].row = curr.row;
-      stack[s_idx].col = curr.col + 1;
-      s_idx++;
-    }
-    if (curr.row - 1 >= 0 && !visit[curr.row - 1][curr.col]) {
-      stack[s_idx].row = curr.row - 1;
-      stack[s_idx].col = curr.col;
-      s_idx++;
-    }
-    if (curr.col - 1 >= 0 && !visit[curr.row][curr.col - 1]) {
-      stack[s_idx].row = curr.row;
-      stack[s_idx].col = curr.col - 1;
-      s_idx++;
+    if (board[adj_row][adj_col] == word[1]) {
+      res = dfs (board, num_row, num_col, adj_row, adj_col, word + 1, visit);
+      if (res)
+        return true;
     }
   }
+  visit[row][col] = 0;
   return false;
 }
 
 bool exist(char** board, int boardSize, int* boardColSize, char * word){
-  int i, j;
-  bool res = false;
-  
-  for (i = 0; i < boardSize; i++) {
-    for (j = 0; j < boardColSize[0]; j++) {
+  int num_row = boardSize, num_col = boardColSize[0], i, j;
+  int **visit = (int **) malloc (num_row * sizeof (*visit));
+    
+  for (i = 0; i < num_row; i++)
+    visit[i] = (int *) calloc (num_col, sizeof (int));  
+    
+  for (i = 0; i < num_row; i++) {
+    for (j = 0; j < num_col; j++) { 
       if (board[i][j] == word[0]) {
-        res = dfs (board, boardSize, boardColSize[0], i, j, word);
-        if (res)
+        if (dfs (board, num_row, num_col, i, j, word, visit))
           return true;
       }
     }
