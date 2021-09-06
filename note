@@ -2468,3 +2468,5 @@ unsigned int mod = 1000000007;
 
 return  ((long long) max_weight * max_height) % mod;//here the result would be int
 
+266. Sometimes, I get confused: "do I return or set the output in parameter in DFS?". In dfs(), like traditional recursion, return the output. But, in backtracking, set the output in a parameter. 
+
