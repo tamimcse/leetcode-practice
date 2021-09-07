@@ -165,11 +165,11 @@ bool valid_ipv4 (char * IP)
 
 First off, your stack may need more elements than the number of nodes. So, make the stack size twice as big as the number of nodes.
 
-Second, you don't need two colors for the visit array. A simple visit array is enough. When insert the first element to the stack, don't mark it it visited. You need to mark a node visited when you expand the node after retrieving from the top of the stack. In while loop, get the top of the stack (don't pop it immediately). If the ToS is visited, that means you expanded it before, so pop it (backtracking). Otherwise, push all the adjacent nodes. When pushing adjacent nodes, check if the nodes have been visited yet (depending on your use case, you may want to visit or not visit a previously visited node). If the node we are inserting is visited, it means a cycle. You may add it or not depending on the application. If the node you are inserting is visited, that means, it's already visited and removed from the stack before. No need to add it back to stack.
+Second, you don't need two colors for the visit array. A simple visit array is enough. When insert the first element to the stack, don't mark it it visited. You need to mark a node visited when you expand the node after retrieving from the top of the stack. In while loop, get the top of the stack (don't pop it immediately). If the ToS is visited, that means you expanded it before, so pop it (backtracking). Otherwise, push all the adjacent nodes. When pushing adjacent nodes, check if the nodes have been visited yet (depending on your use case, you may want to visit or not visit a previously visited node). If the node we are inserting is visited, it means a cycle.
 
 Note that, when you are popping from the stack, it means backtracking. You need to add add continue (I often forget this) so that it processes the next from the stack.
 
-Course scadule Example:
+Example from course-schedule problem:
 
 struct edge {
   int v2;
