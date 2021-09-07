@@ -106,9 +106,11 @@ Given an array, how to construct a heap from that? First, find the parent to the
 
 Take a look at kth_smallest_element.c and kth_largest_stream.c.
 
-24. If you need to compare k elements at each step to get the largest or smallest element, use min or max heap. Remember merging of k linked list or arrays..
+24. If you need to compare k elements at each step to get the largest or smallest element, use min or max heap. Remember merging of k linked list or arrays.. 
 
-25. char* strchar (char *str, char c) returns pointer to the first occurance of c in the str. If c does not occur, then it returns NULL.
+https://www.geeksforgeeks.org/merge-k-sorted-linked-lists/
+
+25. char* strchar (char *str, char c) returns pointer to the first occurance of c in the str. If c does not occur, then it returns NULL. Note that, it is NOT strch()
  
 26. char* strstr(char *s, char *pattern) returns pointer to the first occurance of the string pattern in string s. If pattern does not occur, it returns NULL.
 
