@@ -270,7 +270,7 @@ Note that, I think, there is a simpler way to do partition. We can partition usi
 
 https://stackoverflow.com/questions/18525272/getting-wrong-string-length
 
-39. Sometimes you may want to implement a circular array (e.g. hit counter problem). Mapping an element to an index of an array can be tricky. For instance, you want to access i-th element (index starts from 1) where length of the array in len. You can do so by
+39. Sometimes you may want to implement a circular array (e.g. design-hit-counter problem). Mapping an element to an index of an array can be tricky. For instance, you want to access i-th element (index starts from 1) where length of the array in len. You can do so by
 
 idx = (i - 1) % len; Not idx = (i % len) - 1.
 
