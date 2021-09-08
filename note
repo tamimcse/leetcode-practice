@@ -382,6 +382,8 @@ That is, you need to break it down for each operator. Each part should return a 
 
 Note that, here there are overlapping subproblem. For instance, we will evaluate (4*7) or (7+5) multiple times. So, we can think of DP or memorization to improve this. This is not a optimization problem. So, DP is not the way to go. Try recursion + memorization if needed (I never tried it)
 
+In other words, if need to find all the combinations of something, try backtracking first. If it does not work, try recursion /top-down/divide-n-conquer as well.
+
 48. abs() returns absolute value. not mod(). sqrt() calculates square root, not sqart().
 
 49. Sometimes, in DFS and BFS, we also need to store level in a separate array than stack/queue.
