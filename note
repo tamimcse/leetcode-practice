@@ -260,7 +260,7 @@ Not,
 
 For details, take a look at https://www.geeksforgeeks.org/quick-sort/ 
 
-Note that, I think, there is a simpler way to do partition. We can partition using two pointers. We initialize i = 0, j = len - 2. For each i, see if it is smaller than the pivot. If yes, incremenmt i; else swap (arr[i], arr[j]), do j-- (note that we are not incrementing i here, so new swapped element will be considered next).  
+Note that, I think, there is a simpler way to do partition. We can partition using two pointers. We initialize i = 0, j = len - 2. For each i, see if arr[i] is smaller than the pivot, incremenmt i; else swap (arr[i], arr[j]), do j-- (note that we are not incrementing i here, so new swapped element will be considered next).  
 
 36. if (a & 1 == 0) will not work!!!!. It should be if ((a & 1) == 0)
 
