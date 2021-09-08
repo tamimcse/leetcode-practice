@@ -2542,3 +2542,5 @@ https://leetcode.com/problems/different-ways-to-add-parentheses/
 https://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
 
 looks difficult. You should write the output on paper. Then draw the backtracking tree. Then it becomes clear.
+
+Moreover, like I previously said, different-ways-to-add-parentheses is not a backtracking problem. It is rather a divide and conquer / recursion / top-down approach problem (take a look at point 47 for details if you don't remember)
