@@ -2508,3 +2508,10 @@ dp[i] = max (nums[i] + dp[i-2], dp[i-1]);
 
 It is more clear what's going on.
 
+
+271. If you don't practice for a while, backtracking algorithm may look difficult. For instance, problem like :
+
+https://leetcode.com/problems/different-ways-to-add-parentheses/
+https://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
+
+looks difficult. You should write the output on paper. Then draw the backtracking tree. Then it becomes clear.
