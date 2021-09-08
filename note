@@ -336,6 +336,12 @@ One DP table always stores the best solution so far. It calculates the next entr
 
 Another DP table stores the best solution using the current node. In this case, to calculate the value of a new entry, we need to iterate all the previous entry to get the best solution.
 
+added later
+--------------------
+DP is generally applied in optimization problem. Best way to find if it's a DP problem or not is not to look for overlapping subproblem and principle of optimality (local optima leads to global optima). Best way is to check if the problem can be solved using bottom-up mannaer. For instance, house-robber and egg breaking problem can more easily solved using bottom up manner (i.e. Start with a smaller problem. Then solve larger problem incrementally). Oh what, this is actaully principle of optimality (so I guess, we check if local optima leads to global optima) 
+
+Regarding, formulating if we should formulate DP as "max value found so far" vs "max value using the current node", think which one should I use. For instance, in house-robber problem I often think that I need to formulate such that DP table stores "max value using the current node". But, note that if I do that, future DP entry will be calculated based on wrong value. So, DP entry should store "max value found so far".
+
 45. Sometimes, a complex problem can be break into simpler problems. Then solve the simpler problem. For instance, break the circular array of house robber II problem into two linear arrays.
 
 
