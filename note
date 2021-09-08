@@ -2492,3 +2492,13 @@ b. Then you need to decide which data structure do you need to implement the API
 
 c. Finally, check if there is any non-functional requirements.
 
+270. Instead of writting logic in this format:
+
+dp[i] = nums[i] + dp[i-2] > dp[i-1] ? nums[i] + dp[i-2] : dp[i-1];
+
+write logic as:
+
+dp[i] = max (nums[i] + dp[i-2], dp[i-1]);
+
+It is more clear what's going on.
+
