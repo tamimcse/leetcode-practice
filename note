@@ -351,7 +351,34 @@ But, if you know that the string is a number and not 0, then you can use atoi().
 
 But, please don't use itoa()!! Use sprintf () instead.
 
-47. Sometimes, you need to find all possible cases of something. You won't need backtracking. But, you can use divide and conquar to break the problem into smaller problems. Then combine the results. You can implement that using recursion. For instance, different-ways-to-add-parentheses problem.
+47. Sometimes, you need to find all possible cases of something. You won't need backtracking. But, you can use divide and conquar to break the problem into smaller problems. Then combine the results. You can implement that using recursion. For instance, different-ways-to-add-parentheses problem. These solution can be treated as top-down/recursion/devide and conquer approach.
+
+added later
+---------------------------
+
+For instance, you have a expression: 2 + 4 * 7 + 5
+
+I often tend to think that I can break the expression as:
+
+The expression can be broken as:
+
+  +                        *
+ / \                +     / \
+2   4 * 7 + 5           2+4  7 + 5
+
+
+That is, at each step, process "a + b * c + d" as "(a) + (b * c + d)" and "(a + b) * (c + d)"
+
+But,  this approach will not work, because it will not generate " ((a + b) * c) + d".
+
+So, the real solution is:
+
+  +                        *                          +
+ / \                +     / \         +             /   \
+2   4 * 7 + 5           2+4  7 + 5            2 + 4 * 7  5
+
+That is, you need to break it down for each operator. Each part should return a list of output. Based on the operator, we need to merge the output. Please take a look at MY solution of different-ways-to-add-parentheses problem
+
 
 48. abs() returns absolute value. not mod(). sqrt() calculates square root, not sqart().
 
