@@ -2474,3 +2474,13 @@ return  ((long long) max_weight * max_height) % mod;//here the result would be i
 
 267. In design problem, if you need to the know the time, your API can accept a timestamp in sec/nanonec (instead of actual time).
 
+268. C++ is really preferable for design problem over C. C++ requires much less code. The code also easier to understand because we can directly use map, unordered_map, vector, list, string, etc.
+
+269. These are the steps for design problem.
+
+a. You can draw a collaboration diagram for each use case, and then extract the class diagram. But, this is not really needed. You can directly jump with creating the classes you will need and add the APIs. Sometimes, you may need to write code for a function or think internally in your head to get the logic flow of a function and that's how you get the APIs of other classes. So, first find all the functional requirments for your design and write APIs for that. Then write APIs that will be needed to implement your functinal design APIs.
+
+b. Then you need to decide which data structure do you need to implement the APIs.
+
+c. Finally, check if there is any non-functional requirements.
+
