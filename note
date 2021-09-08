@@ -256,7 +256,7 @@ Not,
 
 34. isalpha() checks if a char is a-z A-Z
 
-35. Sometiomes, a problem can be solve by using two pointers and swaping element... (for instance, Sort Array By Parity). But, the problem can be also solved by quicksort partition.
+35. Sometiomes, a problem can be solve by using two pointers and swaping element... (for instance, sort-array-by-parity). But, the problem can be also solved by quicksort partition.
 
 Quick sort partion does the same thing in an uniform way. It also uses two indices and a pivot (usually the last element). Surprisingly, the two indices, i = -1 and j = 0. Idea is we will iterate j: 0 to n-1. Everytime arr[j] < pivot, swap (arr[++i], arr[j++]). That is, i keeps track of the left most element to which a smaller element needs to be swapped to. Finally, swap (arr[++i], arr[pivot]).
 
