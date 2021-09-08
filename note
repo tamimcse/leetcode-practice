@@ -258,11 +258,9 @@ Not,
 
 35. Sometiomes, a problem can be solve by using two pointers and swaping element... (for instance, sort-array-by-parity). But, the problem can be also solved by quicksort partition.
 
-Quick sort partion does the same thing in an uniform way. It also uses two indices and a pivot (usually the last element). Surprisingly, the two indices, i = -1 and j = 0. Idea is we will iterate j: 0 to n-1. Everytime arr[j] < pivot, swap (arr[++i], arr[j++]). That is, i keeps track of the left most element to which a smaller element needs to be swapped to. Finally, swap (arr[++i], arr[pivot]).
-
-In other word, partitioning is a single pointer approach. It iterates from the first element to the last but one element. During iteration, it keeps track of the index to which a smaller element should be swapped to (represented by i). 
-
 For details, take a look at https://www.geeksforgeeks.org/quick-sort/ 
+
+Note that, I think, there is a simpler way to do partition. We can partition using two pointers. We initialize i = 0, j = len - 2. For each i, see if it is smaller than the pivot. If yes, incremenmt i; else swap (arr[i], arr[j]), do j-- (note that we are not incrementing i here, so new swapped element will be considered next).  
 
 36. if (a & 1 == 0) will not work!!!!. It should be if ((a & 1) == 0)
 
