@@ -291,6 +291,14 @@ if ((i + 1) % len == j)
 
 Also note that, idx_new_elem > idx_last_inserted_elem + len. That is, you are rounding the whole array. So, you may want to store that last inserted element.
 
+added later
+------------------
+If you think carefully, this problem can be solved in a way more easier way. You can solve it using a dequeue. You need to insert the new timestamp and remove all the elements from the left that is less than (new_timestamp - 300).
+
+Now, if you think carefully, you don't really need a a dequeue. You can simply use a queue to implement that.
+
+https://leetcode.com/problems/design-hit-counter/solution/
+
 40. Don't update input parameters as local variable. Create your own. It is less error prone.
 
 41. If you need to calculate sum or multiplication of int/float, check if you need "long long" (for int) or "double" (for float) to store it. Otherwise overflow happens. If you need long long or double, also change the expression to make sure that longlong or double is stored. For instance,
