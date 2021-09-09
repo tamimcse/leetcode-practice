@@ -2570,3 +2570,28 @@ https://www.geeksforgeeks.org/print-all-combinations-of-balanced-parentheses/
 looks difficult. You should write the output on paper. Then draw the backtracking tree. Then it becomes clear.
 
 Moreover, like I previously said, different-ways-to-add-parentheses is not a backtracking problem. It is rather a divide and conquer / recursion / top-down approach problem (take a look at point 47 for details if you don't remember)
+
+272. Using iterator in C++:
+
+#include <iostream>
+#include <vector>
+
+using std::vector; using std::cout; using std::endl;
+
+int main(){
+   vector<int> intVector(10, 55);
+   for(vector<int>::iterator it=intVector.begin(); 
+       it != intVector.end(); ++it){
+      cout << *it << endl;
+   }
+cout<< endl;
+  
+   for(auto it=intVector.begin(); 
+       it != intVector.cend(); 
+       ++it)
+      cout << *it << " ";
+   cout << endl;
+  
+}
+
+Note that, iterator is not a static member of vector. It's an inner class..
