@@ -396,6 +396,10 @@ Then add the corresponding element.
 
 51. Sometimes, you may tend to use dynamic array to implement the visit array of DFS or BFS. But, don't do that. It causes TLE (lookup in o(n)). Figure out a way to implement array, 2D array or hash to implement the visit array so that lookup in O(1).
 
+added later
+------------------
+Note that, in DFS we use visit array to check if we have visited it before. In BFS, we use the visit array to check if we have reached the destination. If we don't have a destination in out BFS, we may not need the visit array. And always use a 1D or 2D array for visit so that we can access it at O(1).
+
 52. BFS does not always need queue. You may need to use heap (priority queue) instead. Specially, we need to use heap in BFS in case of A* search. Note that, in A* search, each node will also have a heuristic value. The value is calculated based on two functions: 1) How far it is from start node 2) How far it is from the destination node.
 
 We pick up the node with the lowest heuristic value from the heap.
