@@ -388,6 +388,11 @@ In other words, if need to find all the combinations of something, try backtrack
 
 49. Sometimes, in DFS and BFS, we also need to store level in a separate array than stack/queue.
 
+added later
+------------
+
+Think about it, somtimes it's possible to store the corresponding level in the visit array. If you can, do that. Then, you will not need a separate queue/stack.
+
 50. For instance, you are given a position of a knite in chess (horse). There are 8 possible next moves of the knite. You can find all the possible next move manually by add 1/2/-1/-2... But, better approach is store those numbers in an array and calculate the next index uniformly. Example:
 
 int nm [8][2] = {{2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {1, -2}, {-1, 2}, {-1, -2}};
