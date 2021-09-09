@@ -415,7 +415,7 @@ Manhantan distance is preferable if we only are allowed to go vertically or hori
 Note, the Dijekstra is a special case for A* search (and BFS). Here, heuristic function only contains the distance from the start node (does not contain distance from that node to end node). In Dijekstra, we can also use a heap to extract the node with lowest weight. 
 
 
-53. Sometimes, the size of the visited array of BFS/DFS or the size of the stack and queue can be inferred from the constraint. For instance, in minimum-knight-moves problem, contraint is |x| + |y| <= 300. Here, x, y are the target coordinate of the knight. From the constraint, we can assume that the size of the visit array would 605 x 605 (one for initial point. 302 in each way).
+53. Sometimes, the size of the visited array of BFS/DFS or the size of the stack and queue can be inferred from the constraint. For instance, in minimum-knight-moves problem, contraint is |x| + |y| <= 300. Here, x, y are the target coordinate of the knight. From the constraint, we can assume that the size of the visit array would 605 x 605 (one for initial point. 302 in each way). Note that, in this case, you always need to add 302 with both x and y so that the negative coordinate is shifted to a positive coordinate!!!!!!!
 
 added later
 ------------------
