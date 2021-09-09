@@ -460,6 +460,12 @@ Note that, here instead of checking if two intervals overlap can be very complic
 
 Now, how would you find the intersection of two interval? The interval would be: start = max (x1, y1), end = min (x2, y2). Now, another way to check if two interval overlaps by checking if end >= start, if yes, they intersects. 
 
+added later
+---------------
+Given two ranges: A[x1:x2] and B[y1:y2]. One way to check if they donot overlap is: either B is right of A (y1 > x2) or B is left of A (x1 > y2). Thus, it they will not overlap if: (y1 > x2 || x1 > y2). This is a lot easier to think than the above approach. To check if they overlap, you simply need to add a "!" with the condition. 
+
+  
+
 58. If you have interval or point, think in terms of [x1, x2] and [y1, y2]. This is easier to think about than [start1, end1] and [start2, end2]. I think, they are also easier than topleftx1, bottomrightx2, ....
 
 59. Sometimes, you will see typical recursion (divide&conquar) is not sufficient. They generate same result twice. In that case, you need to divide the solution into two parts such that one part contains the actual solutiom and the other part is formulated in a way that repeatation is avoided. For instance, coin-change-2 problem. Try to write the recursion equation on paper. If you have an input array, also add the array in the eqation. For instance, you are given an array, arr of size m and an input n. The eqation should look like:
