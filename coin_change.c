@@ -1,7 +1,9 @@
 /*
 https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
 
-Note that we should use DP here
+Note that we should use DP here.
+
+Check the leetcode problem beneath main
 */
 #include <stdio.h>
 
