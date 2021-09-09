@@ -413,6 +413,14 @@ added later
 
 Note that, it may be tempting to implement minimum-knight-moves problem using A* search. But, don't do that. Stick with basic BFS. You can tell the interviewer that A* can be possible, but don't try that. It will take more time.
 
+Another option!!!! It would be better to implement a bidirectional search!!!!
+
+https://leetcode.com/problems/minimum-knight-moves/solution/
+
+In bidirectional search, we perform BFS from two differenet points. Every time we process a node, we need to check if we reach the visited array of other BFS. If we have, we found the result! Note that, in the visited array, we can store the number of moves needed to reach that point instead of just storing 1/0.
+
+That is, instead of maintaing another array to store the hop along with queue, we can store the hop count in visit array. Note that, here, in the queue, we store x and y.
+
 54. Sometimes greedy solution may be tempting. For instance, coin change problem. However, with few counter example, you will notice that the greedy solution will not work. Next solution would be recursion to compute all possible situation. In that, try to write a mathemetical equation on paper. This really helps. Note that, the equation may need to find minimum/maximum of an expression for all inputs. The recursion generally works because it explores all possible solution. But, the recursive solutions are exponential. So, try to solve this using DP. If the problem follows principle of optimality (i.e. soution is subproblem will be there in larger problem), you can use DP using the recursive equation. (I saw this pattern in several problem)
 
 55. Note that in BST, you can use in order travarsal to find a predeccessor or successor of a node. You can also implement predeccessor and successor function directly. For predeccosor, go one step left, then go as much right as you can. For successor, go one step right, then go as much left as you can. Also note that in BST, we may solve a problem partially and not fully done yet. We may need to solve the same problem for other node (subtree) recursively...For instance, delete-node-in-a-bst problem. Note that, recursion here can be tricy. You are passing root of a subtree. The function will perform on the subtree and return the new root. So, you need merge the new root to the previous node. Like:
