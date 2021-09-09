@@ -479,6 +479,12 @@ https://leetcode.com/problems/coin-change-2/solution/
 
 When you use DP, also write the equation on the paper. For instance, dp[i] = dp[i] + dp[i - dp[j]]; Note that, in each iteration, we are just consideing one more element (coin) than previous step. That one more element is dp[j] here.
 
+added later
+-----------------
+Moral of the story: DP is used not only for optimization problem, but also for finding all possible ways to achive something (another example is finding the number of ways you can goto bottom-right from top-left position).
+
+In those kinds of problem, DP is formulated differently. Think about it! The traditional recursive equation cannot be used directly for DP. We rather use one coin at a time to calculate the DP table. This is such an interesting approach!!!!!! 
+
 60. Sometimes dealing with intervals, we can project start and endtime of the intervals into an array to calculate the number of overlap across different time (e.g. meeting-rooms-ii). 
 
 61. Sometimes, problem will give you diffeerent interval and ask how many meeting rooms will you need to accomodate the interval. The problem may sound like backtracking or greedy approach (e.g. meeting-rooms-ii). But, if you think carefully, you will see that this is same as asking the maximum number of overlapping intervals.
