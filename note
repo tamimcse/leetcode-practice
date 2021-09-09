@@ -432,6 +432,10 @@ That is, instead of maintaing another array to store the hop along with queue, w
 
 54. Sometimes greedy solution may be tempting. For instance, coin change problem. However, with few counter example, you will notice that the greedy solution will not work. Next solution would be recursion to compute all possible situation. In that, try to write a mathemetical equation on paper. This really helps. Note that, the equation may need to find minimum/maximum of an expression for all inputs. The recursion generally works because it explores all possible solution. But, the recursive solutions are exponential. So, try to solve this using DP. If the problem follows principle of optimality (i.e. soution is subproblem will be there in larger problem), you can use DP using the recursive equation. (I saw this pattern in several problem)
 
+added later
+---------------
+So, another pattern appeared. If you have an optimization problem, then it can be DP. Now, you can try to solve it in a bottom-up fashion like house-robber and egg breaking problem; if possible, it's DP. If not, try to solve it using divide-n-conquar/top-down/recursive approach. If poissible, PLEASEEEEEEEEEEEEE wqrite the eqation on the paper. Now check if you can use the equation to implement DP. There are many such problem!!!!!!!
+
 55. Note that in BST, you can use in order travarsal to find a predeccessor or successor of a node. You can also implement predeccessor and successor function directly. For predeccosor, go one step left, then go as much right as you can. For successor, go one step right, then go as much left as you can. Also note that in BST, we may solve a problem partially and not fully done yet. We may need to solve the same problem for other node (subtree) recursively...For instance, delete-node-in-a-bst problem. Note that, recursion here can be tricy. You are passing root of a subtree. The function will perform on the subtree and return the new root. So, you need merge the new root to the previous node. Like:
  
 runner->right = deleteNode (runner->right, succ->val);
