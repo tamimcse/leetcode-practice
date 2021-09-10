@@ -495,6 +495,54 @@ Now, always write the recursive equation on the paper!!!
 
 Then check if this eqation can be implemented as DP. If yes, implement that. keep in mind that DP always works like magic. The code is simple. And it works!!! Have faith and don't panic :-) The code most of the time works in the first few attempts.
 
+added later
+-------------
+Note that, maximum-profit-in-job-scheduling problem can not simply be implemented by tranforming equation into DP. In fact this is not DP at all. It is greedy solution!!!!!!
+
+https://www.geeksforgeeks.org/weighted-job-scheduling/
+
+We need to sort jobs by end-time. Then  we need to check the sorted list in order. Here, for each element, we need to check if it makes sense to add the task. How would you do that? This is not simple at all. Here, we also need to maintain a DP like array that corresponds to each task. In order to determine, if you want to add a job to the solution or not, you need to find the lastest preceding job that doesn't conflict with current one and add the DP value with current job. Now compare that to the DP value of the previous job. The maximum is the result.
+
+struct job {
+  int start_time;
+  int end_time;
+  int profit;
+};
+
+int cmp (const void *a, const void *b)
+{
+  return ((struct job *)a)->end_time - ((struct job *)b)->end_time;
+}
+
+int jobScheduling(int* startTime, int startTimeSize, int* endTime, int endTimeSize, int* profit, int profitSize){
+  int i, j, k, tot_profit;
+  struct job *jobs = (struct job *) malloc (startTimeSize * sizeof (*jobs));
+  int *dp = (int *) calloc (startTimeSize, sizeof (*dp));
+  
+  for (i = 0; i < startTimeSize; i++) {
+    jobs[i].start_time = startTime[i];
+    jobs[i].end_time = endTime[i];
+    jobs[i].profit = profit[i];
+  }
+  
+  qsort (jobs, startTimeSize, sizeof (*jobs), cmp);
+  
+  dp[0] = jobs[0].profit;
+  for (i = 1; i < startTimeSize; i++) {
+    tot_profit = jobs[i].profit;
+    for (j = i - 1; j >= 0; j--) {
+      if (jobs[j].end_time <= jobs[i].start_time) {
+        tot_profit += dp[j];
+        break;
+      }
+    }    
+    dp[i] = dp[i-1] > tot_profit ? dp[i-1] : tot_profit;
+  }
+  return dp[startTimeSize-1];
+} 
+
+
+
 63. Sometimes, you cannot draw points using traditional X-Y axis. Sometimes, the element at position is not on the points rather they are on the space between two points. For instance, trapping-rain-water problem. In that case, you need to number the space between two poaints rather the points.
 
 For instance, instead of doing:
