@@ -618,6 +618,30 @@ This makes it complicated. Try to write the logic using if-else... Like..
 
 73. Sometimes, solving a problem in a human way is very complex. First step is to find an intuitation to solve the problem. Sometimes, going to solve the intuition can be very difficult. For instance, trapping-rain-water problem. Instead of solving the problem for the whole space, try to solve it for a point in the space. If we can do it, solving for the whole speace is just repeating for each point. So, if a problem looks too dificult, see if you can solve the problem for a point of the problem space.
 
+added later
+-----------------
+If you think carefully, there is a better solution for trapping-rain-water problem. Here the idea is:
+
+If you find a taller wall than current wall, you find that the border. We can implement this using stack. Push each element to stack until you find an element larger than the first element. If you find an element larger than the first element, pop all the element and calculate the sum. Now this approach will work for following case:
+
+             |
+|            |
+|  |         |
+|  |      |  |  
+---------------------
+
+But, it will not work for :
+
+|             
+|            |
+|  |         |
+|  |      |  |     |
+---------------------
+
+In this case, stack will have a whole bunch of elements, but they will not be popped. Now, you can solve this in following way. Note that, the problem is same as the previous one, but from right to left. So, keep track of the max = right_most_element and iterate from right to left. Everytime you find an element than is larger than max, you calculate the sum for the boundaries 
+
+Note that, if you need to need to compare elements consecutive elements or compare elements in order, you may solve the problem using Stack or Queue. For instance, trapping-rain-water and remove-all-adjacent-duplicates-in-string-ii problem.
+
 74. Also note that sometimes, an equation can be simpler when you have min/max in your equation. For instance, in trapping-rain-water problem, you need to know the maximum to the left and maximum to the right. In reality, this is not the case. But,as we take minimum of the two, our equation is still valid. 
 
 75. Sometimes, you may inclined to represent intervals as :
