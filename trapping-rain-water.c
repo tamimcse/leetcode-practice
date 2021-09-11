@@ -4,6 +4,26 @@ https://leetcode.com/problems/trapping-rain-water/
 https://www.geeksforgeeks.org/trapping-rain-water/
 
 Very interesting problem!!! This is not DP!! :-)
+
+Try to find out the approach without looking at the solution. 
+
+My apprach is: if you find a taller wall than current wall, you find that the border. We can implement this using stack. Push each element to stack until you find an element larger than the first element. If you find an element larger than the first element, pop all the element and calculate the sum. Now this approach will work for following case:
+
+             |
+|            |
+|  |         |
+|  |      |  |  
+---------------------
+
+But, it will not work for :
+
+|             
+|            |
+|  |         |
+|  |      |  |     |
+---------------------
+
+In this case, stack will have a whole bunch of elements, but they will not be popped. Now, you can solve this in following way. Note that, the problem is same as the previous one, but from right to left. So, keep track of the max = right_most_element and iterate from right to left. Everytime you find an element than is larger than max, you calculate the sum for the boundaries 
 */
 
 
