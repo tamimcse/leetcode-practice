@@ -2659,3 +2659,26 @@ cout<< endl;
 }
 
 Note that, iterator is not a static member of vector. It's an inner class..
+
+273. What's wrong with following code:
+
+    if (s[i] == stack[idx - 1]) {
+      count[idx - 1]++;
+      while (count[idx - 1] == k) {
+          idx--;
+      }
+      
+   }      
+
+It should be:
+
+    if (idx >= 1 && s[i] == stack[idx - 1]) {
+      count[idx - 1]++;
+      while (idx >= 1 && count[idx - 1] == k) {
+          idx--;
+      }
+      
+   }
+   
+I often forget to check that.
+   

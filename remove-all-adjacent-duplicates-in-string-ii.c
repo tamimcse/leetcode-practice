@@ -16,7 +16,7 @@ char * removeDuplicates(char * s, int k){
   for (i = 1; s[i]; i++) {
     if (idx >= 1 && s[i] == stack[idx - 1]) {
       count[idx - 1]++;
-      while (idx >= 1 && count[idx - 1] == k) {
+      if (idx >= 1 && count[idx - 1] == k) {
           idx--;
       }
     } else {
