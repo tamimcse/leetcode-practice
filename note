@@ -640,7 +640,9 @@ But, it will not work for :
 
 In this case, stack will have a whole bunch of elements, but they will not be popped. Now, you can solve this in following way. Note that, the problem is same as the previous one, but from right to left. So, keep track of the max = right_most_element and iterate from right to left. Everytime you find an element than is larger than max, you calculate the sum for the boundaries 
 
-Note that, if you need to need to compare elements consecutive elements or compare elements in order, you may solve the problem using Stack or Queue. For instance, trapping-rain-water and remove-all-adjacent-duplicates-in-string-ii problem.
+Moral of the story:
+-------------------------
+Note that, if you need to need to compare consecutive elements or compare elements in order, you may solve the problem using Stack or Queue. For instance, trapping-rain-water and remove-all-adjacent-duplicates-in-string-ii problem.
 
 74. Also note that sometimes, an equation can be simpler when you have min/max in your equation. For instance, in trapping-rain-water problem, you need to know the maximum to the left and maximum to the right. In reality, this is not the case. But,as we take minimum of the two, our equation is still valid. 
 
