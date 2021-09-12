@@ -721,13 +721,7 @@ I often think that I will search multiple words simultaniously in the graph. For
  
  https://leetcode.com/problems/word-search-ii/solution/
  
- In other words, we need to perform DFS in the Trie and graph at the same time.
- 
-                        
- Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
-
-
-
+ In other words, we need to perform DFS in the Trie and graph at the same time. It is easier to merge the recursive solution of tree travarsal and DFS. That is, you need to perform tree travarsal and graph DFS in recursive form, not iterarive form.
  
 82. While visiting Trie, we also need an array that keeps track of the string of the corresponding node.
 
