@@ -700,7 +700,34 @@ struct node root;
 memset (&root, 0, sizeof (struct node));
 
 
-81. Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
+81. Take a look at word-search-ii problem. You can solve it by searching (DFS) each word at a time. This would work. But, can you improve it?
+
+For instance, if you have similar words like "dog", "dogs", "dig", "doll", you are search each word separately, but you could have save some computation.
+
+How about constructing a Trie based on the word list (dictionay)? Now you need to search in a Trie while performing DFS in the graph. How would you do that?
+
+I often think that I will search multiple words simultaniously in the graph. For instance, if my Trie looks like:
+
+
+                       root
+                      s/  \d
+                    node  node
+                   o/ \e   o/  \g
+                node  node node node
+                          g/ \l
+                        node  node
+                        
+ So, I think, I will look for 's' and 'd' in the graph. Once I find them, I will look for the next characters. Clearly this is not very clear, easy or fisible. What you need to do it you need a way to find one character at a time. One way to solve this problem is to perform DFS in the Trie while performing DFS in the graph.
+ 
+ https://leetcode.com/problems/word-search-ii/solution/
+ 
+ In other words, we need to perform DFS in the Trie and graph at the same time.
+ 
+                        
+ Sometimes, we may need to travarse tree/trie while performing DFS in another graph (e.g. word-search-ii). It is easier to merge the recursive solution of tree travarsal and DFS.
+
+
+
  
 82. While visiting Trie, we also need an array that keeps track of the string of the corresponding node.
 
