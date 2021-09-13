@@ -745,7 +745,7 @@ I tend to think that I should try longest word first. And then backtrack if I ca
 
 Again, I think, I will perform two a recursive call. One that goes further, another that assumes that this is the end, so try to look for a new word from the root. This is a better approach, but you can do better in case of Trie search!!!!!!!
 
-I even think I need to implement a DFS in Trie which is a crazy idea!!!!!
+I even think I need to implement a DFS in Trie which is an OK idea!!!!!
 
 This is good idea for Trie search:
 
@@ -778,6 +778,8 @@ This problem can be solved using memorization. So, if you solve a problem once, 
 
 
 Yes, don't do it!!!!!! Once you figure how to use recursion, try to figure DP. It's way ceasier. And way easier to implement!! Yes, it's way easier to implement!!! So, don't try to implement a DP problem with recursion!!!!! DP is way easier.
+
+https://leetcode.com/problems/word-break/solution/
 
 89. Sometimes, I may send different pointer when making recursive call. Like: 
 
