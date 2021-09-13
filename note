@@ -737,7 +737,17 @@ I often think that I will search multiple words simultaniously in the graph. For
 
 https://www.geeksforgeeks.org/merging-intervals/
 
-88. Some problems are conventionally known as DP. You can also implement via recursion with memoraziation. For intsnace, in word-break problem, you can encode a dictionary with a trie. But, Trie search may need to make recursive call on a subproblem when you reach a node that denotes end of a word. This is because this node may not a leaf. So, you may want look further. So, the psudocode is like:
+88. Some problems are conventionally known as DP. You can also implement via recursion with memoraziation. For intsnace, in word-break problem, you can encode a dictionary with a trie. How would you search in the Trie?
+
+ Trie search may need to make recursive call on a subproblem when you reach a node that denotes end of a word. This is because this node may not a leaf. So, you may want look further. So, do you try with the shortest word first or do you try with longest word first?
+
+I tend to think that I should try longest word first. And then backtrack if I can't go further. Bad idea!!!
+
+Again, I think, I will perform two a recursive call. One that goes further, another that assumes that this is the end, so try to look for a new word from the root. This is a better approach, but you can do better in case of Trie search!!!!!!!
+
+I even think I need to implement a DFS in Trie which is a crazy idea!!!!!
+
+This is good idea for Trie search:
 
 call search for the rest of the subproblem. If it returns true, then return true. Otherwise, proceed to the child of the current node.
 
