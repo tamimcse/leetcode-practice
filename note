@@ -749,7 +749,7 @@ I even think I need to implement a DFS in Trie which is an OK idea!!!!!
 
 This is good idea for Trie search:
 
-call search for the rest of the subproblem. If it returns true, then return true. Otherwise, proceed to the child of the current node.
+call search for the rest of the subproblem. If it returns true, then return true. Otherwise, proceed to the child of the current node. If you think carefully, this is actaully a DFS. Here, each node has two possible choise. Here, we are statically choosing one over another.
 
 This recursive call many same subproblem when trie is like:
 
@@ -780,6 +780,10 @@ This problem can be solved using memorization. So, if you solve a problem once, 
 Yes, don't do it!!!!!! Once you figure how to use recursion, try to figure DP. It's way ceasier. And way easier to implement!! Yes, it's way easier to implement!!! So, don't try to implement a DP problem with recursion!!!!! DP is way easier.
 
 https://leetcode.com/problems/word-break/solution/
+
+added later
+------------------
+Sometimes, I have hard time finding the DP equation. I cannot find the pattern bottom up. But, note that, the equation of DP usually come from top-down (recursive) solution. So, find a recursive (top-down) equation of the problem. Then solve it using DP.
 
 89. Sometimes, I may send different pointer when making recursive call. Like: 
 
