@@ -2753,3 +2753,15 @@ It should be:
    
 I often forget to check that.
    
+   
+274. In trie, sometimes, I need to do:
+
+if (!runner->children[s[j]-'a']) 
+
+If I often do:
+
+if (!runner->children[s[j]])
+
+which causes very serious bug. It's hard to debug bacause you are accessing unknown memory. Please be aware!!!
+
+Sometimes, you will get segfault. Sometimes, you will get weired errors like "load of value 138, which is not a valid value for type '_Bool'" 
