@@ -240,6 +240,14 @@ Note that, I am implememing DFS using stack. Not sure, how this will impact recu
 
 32. If you are asked need to reverse a string, note that, your pointer should be i = 0, j = strlen(s). Often I take j = strlen (s) + 1.
 
+added later
+-----------
+After long time, no practice, I get confused how to iterate string (I know!!)
+
+i: 0 -> strlen(s) - 1.
+
+Not i: 0 -> strlen(s)
+
 33. For instance, You need to remove leading and trailing spaces. You also need to remove extra spaces between words. you can do it by maintaining a state variable called ignore_space. Initially it should be true. If you get a character, make it false. Again if you get a space, make it true.
 
 34. If you print each trhiplet of an array, it should be like:
