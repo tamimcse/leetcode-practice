@@ -741,7 +741,7 @@ https://www.geeksforgeeks.org/merging-intervals/
 
  Trie search may need to make recursive call on a subproblem when you reach a node that denotes end of a word. This is because this node may not a leaf. So, you may want look further. So, do you try with the shortest word first or do you try with longest word first?
 
-I tend to think that I should try longest word first. And then backtrack if I can't go further. Bad idea!!!
+I tend to think that I should try longest word first. And then backtrack if I can't go further. Bad idea!!! You can perform recursion instead of backtracking.
 
 Again, I think, I will perform two a recursive call. One that goes further, another that assumes that this is the end, so try to look for a new word from the root. This is a better approach, but you can do better in case of Trie search!!!!!!!
 
