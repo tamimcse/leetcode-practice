@@ -2765,3 +2765,15 @@ if (!runner->children[s[j]])
 which causes very serious bug. It's hard to debug bacause you are accessing unknown memory. Please be aware!!!
 
 Sometimes, you will get segfault. Sometimes, you will get weired errors like "load of value 138, which is not a valid value for type '_Bool'" 
+
+275. In word-break and word-break-ii, you can consider words:
+
+catsanddogs
+
+dictionary: cat cats c at and sand dogs
+
+276. In coin-change and coin-change-ii, you can consider an amout:
+
+11/15/20 (arbitary..)
+
+coins: 1 2 5
