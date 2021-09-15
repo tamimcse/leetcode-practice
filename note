@@ -745,7 +745,7 @@ I often think that I will search multiple words simultaniously in the graph. For
 
 https://www.geeksforgeeks.org/merging-intervals/
 
-88. Some problems are conventionally known as DP. You can also implement via recursion with memoraziation. For intsnace, in word-break problem, you can encode a dictionary with a trie. How would you search in the Trie?
+88. Some problems seems easy to be implemented using recursion (not backtracking!!). For intsnace, in word-break problem, you can encode a dictionary with a trie. How would you search in the Trie?
 
  Trie search may need to make recursive call on a subproblem when you reach a node that denotes end of a word. This is because this node may not a leaf. So, you may want look further. So, do you try with the shortest word first or do you try with longest word first?
 
