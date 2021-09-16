@@ -2809,6 +2809,11 @@ Mpral: Here, b-d should be solved using DP. Note that, besides optimizing someth
 Again, word-break problem can have many variants. For instance, given a dictionary (e.g. and, sand, cat, cats, c, at, dog) and a string "catsanddog".
 
 a. Can the string be made of the dictionary? (recursion is sufficient. Once we find out that yes, it's possible, we stop looking further)
+b. What is the minimum number of ways to break up the string?
+c. How many ways you can break up the string?
+d. Return all possible ways to break up the string. (word-break-ii)
+
+Think if you can solve all of them using DP.
 
 
 
