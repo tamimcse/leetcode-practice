@@ -2789,3 +2789,7 @@ coins: 1 2 5
                3       4    4       7
                         
                      7           6       9
+                     
+278. Some DP problem are also backtracking or recursion problem. But, problem with backtracking or recursion solution is that they will solve same subproblem over and over. So, if a problem is a backtracking problem, make sure you should solve it backtracking or recursion or DP. In this case, you should start with backtracking/recursive solution. Get the recursive equation. Then use the recursive equation to solve the problem in bottom up manner in DP (if possible).
+
+Example of such problem is: coin-change, coin-change-ii, word-break, word-break-ii                      
