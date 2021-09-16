@@ -2793,3 +2793,26 @@ coins: 1 2 5
 278. Some DP problem are also backtracking or recursion problem. But, problem with backtracking or recursion solution is that they will solve same subproblem over and over. So, if a problem is a backtracking problem, make sure you should solve it backtracking or recursion or DP. In this case, you should start with backtracking/recursive solution. Get the recursive equation. Then use the recursive equation to solve the problem in bottom up manner in DP (if possible).
 
 Example of such problem is: coin-change, coin-change-ii, word-break, word-break-ii                      
+
+
+Now, we can have many variants of coin-change and word-break problem.
+
+For instance, coin-change problem, you are given a list of coins (e.g. 1, 2, 5) and an amount (e.g. 11). Now you can ask questions in many different ways:
+
+a. Can the amount be made of the coins? (recusion is sufficient. Once we find out that yes, it's possible, we stop looking further)
+b. What is the minimum number of coins need to make the amount? (coin-change problem)
+c. How many different ways you can make the amount? (coin-change-ii problem) 
+d. Return all the ways you can make the amount?
+
+Mpral: Here, b-d should be solved using DP. Note that, besides optimizing something, DP can also be often used for the min/max number of way something can be done. DP can also be used to find all the different ways you can make up something. 
+
+Again, word-break problem can have many variants. For instance, given a dictionary (e.g. and, sand, cat, cats, c, at, dog) and a string "catsanddog".
+
+a. Can the string be made of the dictionary? (recursion is sufficient. Once we find out that yes, it's possible, we stop looking further)
+
+
+
+ 
+
+
+
