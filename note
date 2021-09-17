@@ -2917,3 +2917,5 @@ struct leaf {
   uint64_t count;
 };
 
+Note that, here we are encoding the trie with bitmaps. We then store it as arrays. PLease also take a look at my paper to refresh your mind.
+
