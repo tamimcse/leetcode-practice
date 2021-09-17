@@ -677,7 +677,7 @@ Note that, this is same as performing DFS recursively like flood water problem (
 80. Trie node:
 
 struct trie_node {
-  bool leaf;//not really a leaf. It should be end-of-word
+  bool leaf;//not really a leaf. It should be end-of-word (don't call it leaf!!!!)
   struct trie_node *child[26];
 };
 
