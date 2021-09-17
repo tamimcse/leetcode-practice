@@ -2888,3 +2888,32 @@ static char* ipv6_to_str (__uint128_t ip) {
 282. Sometimes you will be asked about multi threading and synthronization. For instance, your routing table should not be updated while reading. Again, your reading should way before update is made. Recall that I don't use locking in my project. In Linux kernel, I used RCU.
 
 https://en.wikipedia.org/wiki/Read-copy-update
+
+283. Sometimes, I will be asked write down the struct that used in CP-Trie:
+
+struct cptrie {
+  uint8_t def_nh;
+  struct cptrie_level level16, level24, level32, level40, level48, level56, level64, level72, level80, level88, level96, level104, level112, level120, level128;
+  struct leaf leaf;
+};
+
+struct cptrie_level {
+  struct bitmap_cptrie *B, *C;
+  uint8_t level_num;
+  uint32_t count;
+  uint32_t size;
+  struct cptrie_level *parent, *chield;
+};
+
+struct bitmap_cptrie {
+    uint64_t bitmap;
+    uint32_t cumu_popcnt;
+};
+
+struct leaf {
+  uint8_t *N;
+  uint8_t *P;
+  uint64_t size;
+  uint64_t count;
+};
+
