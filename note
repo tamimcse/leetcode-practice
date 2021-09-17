@@ -2919,3 +2919,6 @@ struct leaf {
 
 Note that, here we are encoding the trie with bitmaps. We then store it as arrays. PLease also take a look at my paper to refresh your mind.
 
+284. For instance, your are asked to design an memory manager for an ASIC with where memory consist of 32X96b (32 consecutive bloack of 96b). How would you implement a memory manager?
+
+I tend to use array where chunks are stored in a sorted order of their size. But, not that is will not be very efficient because although we find the chunk in O(logn), we need to rearrange the chunks after allocation. The best way here is to store bitmap. Here, lookup O(n), but we won't need to rearrange the chunks.
