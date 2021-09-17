@@ -2867,6 +2867,22 @@ In C, do as:
 280. Sometimes, you will be asked to tell about a problem that was really hard. Although you can talk about many such problem, the taughest problem I found was probably merge sort problems....!! But, once you get it, it's easy...
 
  
+281. Generate 2^16 sequential IPv6 addresses within 2402:4f00:4000::/120
 
+
+//  for (i = 0; i < SEQ_CNT; i++) {
+//    seq_ips[i] = (((__uint128_t)0x24024F004000ULL) << 80) | ((__uint128_t)i);
+//  }
+
+282. Converts 128-bit IPv6 to a string of hex characters
+
+static char* ipv6_to_str (__uint128_t ip) {
+  //An IPv6 address needs 32 character + 1 for NULL
+  char *str = new char[33];
+  //We print __uint128_t by breaking into two uint64_t variables. We 
+  //use %016"PRIx64" format specifier to print a uint64_t.
+  sprintf(str, "%016"PRIx64"%016"PRIx64"", (uint64_t)(ip >> 64), (uint64_t)ip);
+  return str;
+}
 
 
