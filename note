@@ -2885,4 +2885,6 @@ static char* ipv6_to_str (__uint128_t ip) {
   return str;
 }
 
+282. Sometimes you will be asked about multi threading and synthronization. For instance, your routing table should not be updated while reading. Again, your reading should way before update is made. Recall that I don't use locking in my project. In Linux kernel, I used RCU.
 
+https://en.wikipedia.org/wiki/Read-copy-update
