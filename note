@@ -2922,3 +2922,5 @@ Note that, here we are encoding the trie with bitmaps. We then store it as array
 284. For instance, your are asked to design an memory manager for an ASIC with where memory consist of 32X96b (32 consecutive bloack of 96b). How would you implement a memory manager?
 
 I tend to use array where chunks are stored in a sorted order of their size. But, not that is will not be very efficient because although we find the chunk in O(logn), we need to rearrange the chunks after allocation. The best way here is to store bitmap. Here, lookup O(n), but we won't need to rearrange the chunks.
+
+285. What is the lookup complexity and memory complexity of CP-Trie?  Lookup complexity is is O(1). Worst case memory complexity is O(n) because you may need to add a new chunk for each IP address where 'n' is the number of IP prefixes. What is the FIB update complexity? Update complexity is also O(n) because you need to find move check in one or multiple levels. As the number of levels are fixed, so the update complexity is O(n). 
