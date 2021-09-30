@@ -2923,4 +2923,18 @@ Note that, here we are encoding the trie with bitmaps. We then store it as array
 
 I tend to use array where chunks are stored in a sorted order of their size. But, not that is will not be very efficient because although we find the chunk in O(logn), we need to rearrange the chunks after allocation. The best way here is to store bitmap. Here, lookup O(n), but we won't need to rearrange the chunks.
 
-285. What is the lookup complexity and memory complexity of CP-Trie?  Lookup complexity is is O(1). Worst case memory complexity is O(n) because you may need to add a new chunk for each IP address where 'n' is the number of IP prefixes. What is the FIB update complexity? Update complexity is also O(n) because you need to find move check in one or multiple levels. As the number of levels are fixed, so the update complexity is O(n). 
+285. What is the lookup complexity and memory complexity of CP-Trie?  Lookup complexity is is O(1). Worst case memory complexity is O(n) because you may need to add a new chunk for each IP address where 'n' is the number of IP prefixes. What is the FIB update complexity? Update complexity is also O(n) because you need to find move check in one or multiple levels. As the number of levels are fixed, so the update complexity is O(n).
+
+286. If I need to set n bits from m bitposition, I can do it in:
+
+unint_64 res = input | ((1ULL << n) - 1) << m;
+
+Although this is very simple, just writting it down so that I don't forget even though I used it many times!!!
+
+I also often forget to declare 'res' unint_64, I mistakenly declare it 'int'.
+
+Now, to clear n bits from  m bitposition, I can do it as:
+
+unint_64 res = input & !(((1ULL << n) - 1) << m);
+
+Sometimes, for some reason, I think, to invert bits, I need to use ~. But actually '!' is fine.
