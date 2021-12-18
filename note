@@ -27,7 +27,7 @@ Note that, memset is good for setting character to a string, but not suitable fo
 8. remember that there are sprintf () and scanf ().
 
 9. ASCII table has 256 characxters
-
+ 
 9. When dealing with equation with index, double check if your equation needs "- 1".
 
 10. Remember what palindrome and anagram means. Two strings are anagrams if their character count of each character is same for the two string. For instance, eat, ate and tea are anagram. 
