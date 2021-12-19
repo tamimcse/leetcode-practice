@@ -50,7 +50,7 @@ int numPairsDivisibleBy60(int* time, int timeSize){
 }
 
 /*
-Better approach!!
+Little better approach. It's still O(nlogn), but uses frequency!!
 
 int cmp (const void *a, const void *b)
 {
