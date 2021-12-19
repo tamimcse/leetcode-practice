@@ -109,3 +109,37 @@ int numPairsDivisibleBy60(int* time, int timeSize){
   return count;  
 }
 */
+
+/*
+Best solution: O(n)
+
+int numPairsDivisibleBy60(int* time, int timeSize){
+  int i, j, start, end, count = 0, to_find, start1, end1, mid1;
+    
+  for (i = 0; i < timeSize; i++) {
+    time[i] = time[i] % 60;  
+  }
+    
+  int freq[60] = {0};  
+  
+  for (i = 0; i < timeSize; i++) {
+    freq[time[i]]++;  
+  }
+  
+  count = (freq[0] * (freq[0] - 1)) >> 1;  
+  count += ((freq[30] * (freq[30] - 1)) >> 1);  
+  printf ("count = %d \n", count);  
+  for (i = 1; i < 60; i++) {
+    if (!freq[i] || i == 30)
+      continue;  
+    to_find = 60 - i;
+    if (to_find < i)
+      break;  
+    if (freq[to_find]) {  
+      count += freq[to_find] * freq[i];          
+      printf ("i = %d count = %d \n", i, count);  
+    }
+  }
+  return count;  
+}
+*/
