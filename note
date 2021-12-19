@@ -2942,3 +2942,20 @@ Sometimes, for some reason, I think, to invert bits, I need to use ~. But actual
 287. Sometimes, a problem seems to be solved by counting how many consecutive elements are there. For instance, in pairs-of-songs-with-total-durations-divisible-by-60 problem, I mod every number by 60 and keep that in an array. For each number X, I find if 60 - X is in the array. If yes, I check if there are more than one 60 - X consecutively. This is an inefficient way to solve a problem. What I should do is, keep the frequency of each number. That way, I don't need to count consecutive repeated numbers.
 
 Also, think if you really need to do binary search here. If you look carefully, you don't need binary search. You can use the array as hash table. Thus, O(n) solution is possible.
+
+288. Sometimes, if statement can be very long such as:
+
+  if (abs (target - nums[i] - nums[start + 1] - nums[end]) < abs (target - nums[i] - nums[start] - nums[end - 1])) {
+   
+  }
+
+Don't do it; White as:
+
+  op1 = abs (target - nums[i] - nums[start + 1] - nums[end]);
+  op2 = abs (target - nums[i] - nums[start] - nums[end - 1]);
+  
+  if (op1 < op2) {
+  
+  }
+  
+      
