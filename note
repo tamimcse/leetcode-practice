@@ -2958,4 +2958,6 @@ Don't do it; White as:
   
   }
   
-      
+289. Sometimes, the problem is very similar to another problem, but changing it slightly make it quite hard to implement. For instance, 3sum-closest problem which is quite similar to 3sum, but finding the closest sum can be quite difficult to do that 3sum. Oe problem I often make in this kinds of problem is like 3sum, I use two pointers approach to find the pair of numbers that creates a particular sum. Like 3sum problem, in each iteration, I increase 'start' or decrease 'end'. This cause serious bug. Here, I will need to keep track of the closest sum, and increasing/decreasing start/end changes the indices before keeping track of that. We basiccally need to change those after keeping track of the closest sum.
+
+Another issue is, unlike two pointers approach, we should not stop until the sum reaches some point. We basically need to iterate until end > start. Also, when end = start + 1, the traditional logic will not work. We need to handle that as a special case.      
