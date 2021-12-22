@@ -2983,3 +2983,13 @@ So, it should be:
 int **res = (int **) malloc (100 * sizeof (*res));
 
 We need to set the size so that it has sufficient elements..
+
+291. Take a look at the question:
+
+Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+0 <= a, b, c, d < n
+a, b, c, and d are distinct.
+nums[a] + nums[b] + nums[c] + nums[d] == target
+
+Note that, a, b, c, d don't make up the quadruplets. They are simply index. But, I mistakenly think that, a, b, c, d are the numbers, not the index...typically I excpect i, j, k.. for index.
