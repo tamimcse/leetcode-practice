@@ -2994,4 +2994,13 @@ nums[a] + nums[b] + nums[c] + nums[d] == target
 
 Note that, a, b, c, d don't make up the quadruplets. They are simply index. But, I mistakenly think that, a, b, c, d are the numbers, not the index...typically I excpect i, j, k.. for index.
 
-292. quotient = result of division, dividend = who we are dividing
+292. quotient = result of division, dividend = who we are dividing, divisor we already know.
+
+293. What is the largest and smallest value of 32 signed integers?
+
+Largest = 2^32 - 1 = 011111...1
+Smallest = -2^32 = 10000000. Note that, negative numbers are stored as two's complement. So, if the number is 100000, it's actual value is also 1000000 (subtract 1 and then one's complemeng it) If the number is like 1000100, the actaul value would be smaller 0111100, which is smaller.. 
+
+
+
+
