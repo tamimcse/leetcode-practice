@@ -3003,6 +3003,10 @@ Smallest = -2^32 = 10000000. Note that, negative numbers are stored as two's com
 
 There is another mistake in the above descriptions. Largest postive signed integer is 2^31 - 1, not 2^32 - 1. This is beacuse 1 = 1 << 0, 2 = 1 << 1, if there are 4 bits, then latgest value is 1 << 5 - 1 (1111). But, this is same as 2^4 - 1, not 2^5 - 1. I sometimes mix them up. 
 
+So, (1 << 32) - 1 = 2^31 - 1.
+
+So, the range of 32 bit signed integer is  -2^31 to 2^31 - 1 
+
 
 
 
