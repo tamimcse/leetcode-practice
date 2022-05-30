@@ -2993,3 +2993,5 @@ a, b, c, and d are distinct.
 nums[a] + nums[b] + nums[c] + nums[d] == target
 
 Note that, a, b, c, d don't make up the quadruplets. They are simply index. But, I mistakenly think that, a, b, c, d are the numbers, not the index...typically I excpect i, j, k.. for index.
+
+292. quotient = result of division, dividend = who we are dividing
