@@ -5,3 +5,5 @@
 3. Note that, there are 256 ascii characters.
 
 4. In  sliding window implementation, you can start end = [0 - end] and increase start on the way
+
+5. Suppose you are given https://leetcode.com/problems/median-of-two-sorted-arrays/. You need to asked to solve in log (n + m). How would you do that? Actually, if you use two pointers for two arrays, it's actually log (n + m). This is because you don't need to iterate the whole array. Actually, no that's not right. If you use simple, two pointers, it's O(n+m). However, I saw my solution  was accepted and it was faster that 99...% solutions
