@@ -1,1 +1,7 @@
 1. Palindrome - an integer is a palindrome when it reads the same backward as forward. For example, 121 is a palindrome while 123 is not.
+
+2. Ask if input consists of just letter, or any ASCII character. For instance, in https://leetcode.com/problems/longest-substring-without-repeating-characters/, I thought it will only contain english letter, and I use arr[26] as a hash. This is not right. The input can contain both upper case and lower case. More importantly, it can contain any ascii charecter.
+
+3. Note that, there are 256 ascii characters.
+
+4. In  sliding window implementation, you can start end = [0 - end] and increase start on the way
