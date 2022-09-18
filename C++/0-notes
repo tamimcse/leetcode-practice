@@ -44,3 +44,9 @@ So, Hex of 45 is 2D
 In the same way, for base-7, we need to divide by 7.
 
 Will this work if input is 0? No. You need to handle 0 separately. If the number is negative, you also need to make the number positive first.
+
+
+
+https://github.com/tamimcse/interview_practice/commits/master?before=8072aed4dacccf8615fd525650b127806c845735+1015&branch=master&qualified_name=refs%2Fheads%2Fmaster
+
+March 6
