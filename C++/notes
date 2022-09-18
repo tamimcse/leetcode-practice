@@ -8,4 +8,39 @@
 
 5. Suppose you are given https://leetcode.com/problems/median-of-two-sorted-arrays/. You need to asked to solve in log (n + m). How would you do that? Actually, if you use two pointers for two arrays, it's actually log (n + m). This is because you don't need to iterate the whole array. Actually, no that's not right. If you use simple, two pointers, it's O(n+m). However, I saw my solution  was accepted and it was faster that 99...% solutions
 
-6. https://leetcode.com/problems/reverse-integer/. Here, I thought, I will have to rotate the number in each step up to n times (n = num of digits). If you think clearly, if you ratate a number n times, you will get the same number. If you rotate n - 1 times, it will still give you wrong results. To get the right results, you need to swap between start and end. 
+6. https://leetcode.com/problems/reverse-integer/. Here, I thought, I will have to rotate the number in each step up to n times (n = num of digits). If you think clearly, if you ratate a number n times, you will get the same number. If you rotate n - 1 times, it will still give you wrong results. To get the right results, you need to swap between start and end.
+
+7. We know that C++ string is immutatable. If we append or use '+' operator, it creates a new copy of the object. So, you may want to create a sring of a predefined length. You can do that as:
+
+        string res(str_len, 0);//Here, we are assigning 0/NULL to each element of the string
+        
+8. https://leetcode.com/problems/base-7/. How many characters do you need for base 7? How do you convert a number from base 10 to base 7?
+
+Recall that, for base-10 numbers, we can calculate the number of digits as = log10(num) + 1. It will work for any number, for instance, 99, 100,...
+
+In the same way, base-2 number, the number of binary digits is = log2(num) + 1.
+
+In the same way, for base-7 number, the number of digits = log7(num) + 1.
+
+How to calculate log7(num)? There is no such library function.
+
+log7(num) = log10(num) / log10(7).
+
+Note that, this will not work if the number is negative. So, if the number is negative, you need to make it positive and then process it.
+
+
+How do calculate base-7 number from base-10? 
+
+Recall that, in Base-16, we divide by 16 in each step, and get the quotient (result of the division) and remainder. We divide the quotient again by 16. We repeat these utill quotient is 0. Like:
+
+16 |45
+   |---------------------
+16 |2 - 13 (D)
+   -----------------------
+   |0  - 2 (2)
+   
+So, Hex of 45 is 2D   
+
+In the same way, for base-7, we need to divide by 7.
+
+Will this work if input is 0? No. You need to handle 0 separately. If the number is negative, you also need to make the number positive first.
