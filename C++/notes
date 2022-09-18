@@ -7,3 +7,5 @@
 4. In  sliding window implementation, you can start end = [0 - end] and increase start on the way
 
 5. Suppose you are given https://leetcode.com/problems/median-of-two-sorted-arrays/. You need to asked to solve in log (n + m). How would you do that? Actually, if you use two pointers for two arrays, it's actually log (n + m). This is because you don't need to iterate the whole array. Actually, no that's not right. If you use simple, two pointers, it's O(n+m). However, I saw my solution  was accepted and it was faster that 99...% solutions
+
+6. https://leetcode.com/problems/reverse-integer/. Here, I thought, I will have to rotate the number in each step up to n times (n = num of digits). If you think clearly, if you ratate a number n times, you will get the same number. If you rotate n - 1 times, it will still give you wrong results. To get the right results, you need to swap between start and end. 
