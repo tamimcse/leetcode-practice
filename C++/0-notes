@@ -45,4 +45,6 @@ In the same way, for base-7, we need to divide by 7.
 
 Will this work if input is 0? No. You need to handle 0 separately. If the number is negative, you also need to make the number positive first.
 
+9. https://leetcode.com/problems/reverse-linked-list/ Here, I need to set head = nullptr.
+
 
