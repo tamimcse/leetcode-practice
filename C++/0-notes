@@ -49,6 +49,10 @@ Will this work if input is 0? No. You need to handle 0 separately. If the number
 
 10. https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ Here, we can use mid = (start + end) >> 1
 
-10. https://leetcode.com/problems/reverse-bits/ Here, if (n & mask2 == 0) will not work. It should be if ((n & mask2) == 0)
+11. https://leetcode.com/problems/reverse-bits/. Note that reversing is not same as circulating. I often make this mistake. Remember string reverse procedure
+
+12. https://leetcode.com/problems/reverse-bits/ Here, if (n & mask2 == 0) will not work. It should be if ((n & mask2) == 0)
+
+13. 
 
 
