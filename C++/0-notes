@@ -47,4 +47,6 @@ Will this work if input is 0? No. You need to handle 0 separately. If the number
 
 9. https://leetcode.com/problems/reverse-linked-list/ Here, I need to set head = nullptr.
 
+10. https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/ Here, we can use mid = (start + end) >> 1
+
 
