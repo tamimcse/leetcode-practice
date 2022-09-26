@@ -1,25 +1,22 @@
 /*
 https://leetcode.com/problems/two-sum/
 */
-
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> v;
         unordered_map<int, int> hash;
-        
-        for (int i = 0; nums.size(); i++) {
+        vector<int> res(2);
+            
+        for (int i = 0; i < nums.size(); i++) {
             auto it = hash.find(target - nums[i]);
             if (it != hash.end()) {
-
-                v.push_back(i);
-                v.push_back(it->second);
-                return v;
+                res[0] = i;
+                res[1] = it->second;
+                return res;
             } else {
-                hash.insert(make_pair(nums[i], i));
+                hash[nums[i]] = i;
             }
         }
-        
-        return v;
+        return res;
     }
 };
