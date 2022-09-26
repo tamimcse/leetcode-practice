@@ -10,17 +10,19 @@ public:
         bool is_neg = num < 0;
         if (is_neg)
             num = -num;
-        int str_len = (log10 (num) / log10(7)) + 1 + (is_neg ? 1 : 0);
-        string res(str_len, 0);
+        int num_digit = (log10(num) / log10(7)) + 1;
+        int res_size = is_neg ? num_digit + 1 : num_digit;
+        string res;
+        res.resize(res_size);
         
-        int i = str_len - 1;
-        while (num) {
-            res[i] = (num % 7) + '0';
-            num = num / 7;
-            i--;
-        }
         if (is_neg)
             res[0] = '-';
+        int idx = res_size - 1;
+        while (num) {
+            res[idx--] = (num % 7) + '0';
+            cout << (num % 7) << endl;
+            num /= 7;
+        }
         return res;
     }
 };
