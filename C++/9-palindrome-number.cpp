@@ -6,23 +6,21 @@ Try without using temporary array
 class Solution {
 public:
     bool isPalindrome(int x) {
-        int first = x, second = 0;
-            
         if (x < 0)
             return false;
-        
         if (x >= 0 && x <= 9)
             return true;
         
         if (x % 10 == 0)
             return false;
         
-        while (second < first) {
-            int last_digit = first % 10;
-            first = first / 10;
-            second = second * 10 + last_digit;
+        int half = 0;
+        while (half <= x) {
+            if ((half && half == (x / 10)) || half == x)
+                return true;
+            half = half * 10 + x % 10;
+            x /= 10;
         }
-        
-        return (first == second) || ((second / 10) == first);
+        return false;
     }
 };
