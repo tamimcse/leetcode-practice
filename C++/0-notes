@@ -53,6 +53,8 @@ Will this work if input is 0? No. You need to handle 0 separately. If the number
 
 12. https://leetcode.com/problems/reverse-bits/ Here, if (n & mask2 == 0) will not work. It should be if ((n & mask2) == 0)
 
-13. 
+13. https://leetcode.com/problems/linked-list-cycle-ii/. Detecting cycle is easy. How would you find the start of the cycle?
+
+Don't go into theory. That's just for correctness proof. Idea is only you find the intersection of fast and slow pointer, do the following. Have ptr1 point the head and have ptr2 point the intersection. Then go only one step at a time for both case. When they meet, that's the start of the cycle.
 
 
