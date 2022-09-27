@@ -57,4 +57,13 @@ Will this work if input is 0? No. You need to handle 0 separately. If the number
 
 Don't go into theory. That's just for correctness proof. Idea is only you find the intersection of fast and slow pointer, do the following. Have ptr1 point the head and have ptr2 point the intersection. Then go only one step at a time for both case. When they meet, that's the start of the cycle.
 
+14. https://leetcode.com/problems/invert-binary-tree/
+
+Here, I set left-subtree = invert(right-subtree). Problem here is it will update the tree in place. Don't do that. Create a temp, left, right. Then update the tree based on left and right as:
+
+        TreeNode *left = invertTree (root->right);
+        TreeNode *right = invertTree (root->left);
+        root->left = left;
+        root->right = right;
+
 
