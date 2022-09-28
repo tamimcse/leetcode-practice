@@ -84,4 +84,15 @@ Also, in the problem, don't do:
 
  if ((x + 1) * (x + 1) > target) 
  
- What's wrong here? It may overflow for some input
+ What's wrong here? It may overflow for some input. Even if(x + x > target) or if (x * x > target) may overflow.
+ 
+ If you need to calculate sum or multiplication of int/float, check if you need "long long" (for int) or "double" (for float) to store it. Otherwise overflow happens. If you need long long or double, also change the expression to make sure that longlong or double is stored. For instance,
+
+int a, b;
+long long sum;
+
+sum = (long long)a + b;
+
+Just changing to long long inline doesn't work.
+
+In some cases, you may not need "long long". Just "long" is enough.
