@@ -66,4 +66,22 @@ Here, I set left-subtree = invert(right-subtree). Problem here is it will update
         root->left = left;
         root->right = right;
 
+15. https://leetcode.com/problems/sqrtx/
 
+A binary search needs to be in the form:
+
+while (end >= start) {//Not end > start
+  mid = (start + end) >> 1;
+  if (target == arr[mid])
+    return mid;
+  else if (target > arr[mid])
+    start = mid + 1;//NOT start = mid (leads to infinite loop)
+  else
+    end = mid - 1;  //NOT end = mid (leads to infinite loop)
+}
+
+Also, in the problem, don't do:
+
+ if ((x + 1) * (x + 1) > target) 
+ 
+ What's wrong here? It may overflow for some input
