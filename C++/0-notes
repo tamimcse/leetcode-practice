@@ -96,3 +96,28 @@ sum = (long long)a + b;
 Just changing to long long inline doesn't work.
 
 In some cases, you may not need "long long". Just "long" is enough.
+
+16. https://leetcode.com/problems/kth-largest-element-in-a-stream/
+
+What's wrong with the code?
+
+	vector<int> nums;
+        for (int i = 0; i < nums.size() - k; i++) {
+
+        }
+        
+Here, nums.size() is unsigned. If nums.size() - k is negative, that expression will accidentally create a large number. So, the loop will mistakenly run many iteration whearas it shouldn't iterate at all.
+        
+Following doesn't fix it.
+
+
+        for (int i = 0; i < (int)nums.size() - k; i++) {
+
+        }
+        
+This however fixes it:
+        
+        int num_delete = nums.size() - k;
+        for (int i = 0; i < num_delete; i++) {
+
+        }
