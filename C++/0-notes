@@ -121,3 +121,25 @@ This however fixes it:
         for (int i = 0; i < num_delete; i++) {
 
         }
+        
+17. https://leetcode.com/problems/power-of-three/ 
+
+Look at the following solution:
+
+    bool isPowerOfThree(int n) {
+        if (n <= 0)
+            return false;
+        
+       float x = (float)log10(n) / log10(3);
+       return ceil(x) == x;//See how we are checking if x is an integer.
+    }
+    
+    What's wrong with the code? Here, it should be:
+    
+    double x = log10(n) / log10(3);
+    
+    Casting it to float may lose precision, which causes wrong result. Also, x should be double.
+    
+    
+    
+

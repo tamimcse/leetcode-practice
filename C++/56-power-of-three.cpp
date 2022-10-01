@@ -23,7 +23,6 @@ public:
             return false;
         
        double x = log10(n) / log10(3);
-        cout << x << " " << ceil(x);
-        return ceil(x) == (int)x;
+        return ceil(x) == x;
     }
 };
