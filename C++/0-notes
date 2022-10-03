@@ -158,6 +158,11 @@ The process is:
     
     Now, n & -n = 100.
     
+19. https://stackoverflow.com/questions/325933/determine-whether-two-date-ranges-overlap/325964#325964
+    https://leetcode.com/problems/rectangle-overlap/
+    
+Here, we need to write the condition such that they don't overlap, instead of checking overlapping. For rectangale, first remember how you do it for line. That will help you to come up with logics for rectangles.
+    
     
     
 
