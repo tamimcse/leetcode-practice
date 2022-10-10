@@ -1,6 +1,7 @@
 /*
 https://leetcode.com/problems/same-tree/
 */
+//Too easy
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
