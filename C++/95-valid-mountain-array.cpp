@@ -1,7 +1,11 @@
 /*
 https://leetcode.com/problems/valid-mountain-array/
 */
+
+
 //too easy
+
+
 class Solution {
 public:
     bool validMountainArray(vector<int>& arr) {
