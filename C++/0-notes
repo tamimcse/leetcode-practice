@@ -197,6 +197,12 @@ public:
     }
 };
 
-Note how we represented # of days in a month. That's more clean than having switch/if to clauclate it.    
+Note how we represented # of days in a month. That's more clean than having switch/if to clauclate it.
+
+21. https://leetcode.com/problems/valid-square/
+
+Very interesting problem. Try to find how you would solve it. 
+
+Trick is to sort the numbers. That way, you know what is the bottom left and top right.    
     
 
