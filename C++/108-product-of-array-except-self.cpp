@@ -38,3 +38,32 @@ public:
         return res;
     }
 };
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        long prod;        
+        vector<int> res(nums.size());
+        vector<int> left(nums.size());
+        vector<int> right(nums.size());
+        
+        prod = 1;
+        left[0] = 1;
+        for (int i = 1; i < nums.size(); i++) {
+            prod *= nums[i - 1];
+            left[i] = prod; 
+        }
+        
+        prod = 1;
+        right[nums.size() - 1] = 1;
+        for (int i = nums.size() - 2; i >= 0; i--) {
+            prod *= nums[i + 1];
+            right[i] = prod; 
+        }
+        
+        for (int i = 0; i < nums.size(); i++) {
+            res[i] = left[i] * right[i];
+        }
+        return res;
+    }
+};

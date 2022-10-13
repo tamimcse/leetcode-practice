@@ -219,4 +219,10 @@ How would you convert <x, y> to the number? Think in terms of math. Here, we are
             right = !right;
         }   
     
+23. https://leetcode.com/problems/product-of-array-except-self/
+
+How can you implement this without using division?
+
+You can have two arrays L and R. L will contain multiplication of all the number to the left of index i. R will contain multiplication of all the number to the right of index i.
+Then for each index, you can do L[i] * R[i]     
 
