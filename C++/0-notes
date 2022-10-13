@@ -203,6 +203,20 @@ Note how we represented # of days in a month. That's more clean than having swit
 
 Very interesting problem. Try to find how you would solve it. 
 
-Trick is to sort the numbers. That way, you know what is the bottom left and top right.    
+Trick is to sort the numbers. That way, you know what is the bottom left and top right.
+
+22. https://leetcode.com/problems/snakes-and-ladders/
+
+How would you convert <x, y> to the number? Think in terms of math. Here, we are doing that:
+
+        for (int i = board.size() - 1; i >= 0; i--) {
+            for (int j = 0; j < board.size(); j++) {
+                if (right)
+                    jump[(board.size() - 1 - i) * board.size() + j + 1] = board[i][j];
+                else
+                    jump[(board.size() - 1 - i) * board.size() + (board.size() - 1- j) + 1] = board[i][j];
+            }
+            right = !right;
+        }   
     
 
