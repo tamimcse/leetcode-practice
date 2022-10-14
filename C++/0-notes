@@ -271,3 +271,9 @@ public:
         return res;
     }
 };
+
+25. https://leetcode.com/problems/3sum-closest/
+
+How do you calculate the distance between target and sum? Note that, both can be positive and negative.
+
+When doing this, I made it overly complicated, and created a separte function for this. But, it should be abs(target - sum). Think about it. It will work for both positive and negative.
