@@ -277,3 +277,9 @@ public:
 How do you calculate the distance between target and sum? Note that, both can be positive and negative.
 
 When doing this, I made it overly complicated, and created a separte function for this. But, it should be abs(target - sum). Think about it. It will work for both positive and negative.
+
+Now how would you implement this?
+
+What I thought was, I would use two pointer approach. I will keep track of the last diff. In two pointer iteration, I would minimize the diff. If we see that diff is increasing compared to previous diff, we should break. This is not right. If diff increases, you should not break because you can still find a smaller diff. Then what's the point of using two pointers? The main benefit is, if we find a diff 0, we can immediately stop.
+
+I also was thinking about 3 nested loop, because I though the inner loop will stop pretty soon. This is not the right approach either. First of all, this is O(n^3). Two pointer approach make the same problem O(n^2)
