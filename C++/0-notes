@@ -226,3 +226,48 @@ How can you implement this without using division?
 You can have two arrays L and R. L will contain multiplication of all the number to the left of index i. R will contain multiplication of all the number to the right of index i.
 Then for each index, you can do L[i] * R[i]     
 
+
+24. https://leetcode.com/problems/3sum/
+
+Here, challenge is how to make sure you don't put same result twice?
+
+You may try to use hash. But, it will not work. Beacuse, the numbers inside result will not be in the same order. Besides, you iterate samrtly so that you can avoid duplicate.
+
+First of all, sort the array. In outer array, check if the number you are dealing is same as the previous number. If yes, you can skip that.
+
+In the inner array where you are doing two sum, if you find a match for a number, increase the index until the next number is same as the previous number. 
+
+The code will look as following:
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> res;
+        int target_sum;
+        
+        sort (nums.begin(), nums.end());////<<<<<<<<<<<<<<<<<<<<<
+        for (int i = 0; i < nums.size() - 2; i++) {
+            if (i > 0 && nums[i] == nums[i-1]) {////<<<<<<<<<<<<<<<<<<<<<
+                continue;
+            }
+            target_sum = 0 - nums[i];
+            unordered_set<int> set;
+            for (int j = i + 1; j < nums.size();) {
+                if (set.count(target_sum - nums[j])) {
+                    vector<int> inner (3);
+                    inner[0] = nums[i];
+                    inner[1] = nums[j];
+                    inner[2] = target_sum - nums[j];
+                    res.push_back(inner);
+                    j++;
+                    while (j < nums.size() && nums[j] == nums[j-1])////<<<<<<<<<<<<<<<<<<<<<
+                        j++;
+                    continue;
+                }
+                set.insert(nums[j]);
+                j++;
+            }
+        }
+        return res;
+    }
+};
