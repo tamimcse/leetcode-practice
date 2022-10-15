@@ -315,4 +315,13 @@ Do you remember the trick? If you remember, then you are find. Otherwise just ta
 
 How would you implement this?
 
-I generally think that, I will find a min to the left and max to the right. Then I will increase the min until I find a lower min. I usually do this because I treat loop as stateless loop. But, we can add state in a loop and do wonderful things. Try to find out if we can have multiple states so that we can find it in one iteration. If you can't, look at the leetcode solution.   
+I generally think that, I will find a min to the left and max to the right. Then I will increase the min until I find a lower min. I usually do this because I treat loop as stateless loop. But, we can add state in a loop and do wonderful things. Try to find out if we can have multiple states so that we can find it in one iteration. If you can't, look at the leetcode solution.
+
+31. How to implement heap? priority queue. How to implement max heap? This is simply:
+
+priority_queue<int> q;
+p.top()//Note this is not p.front()
+
+For min heap, it should be:
+
+priority_queue<int, vector<int>, greater<int>> pq;//yes, greater<int>, not 'greater' or 'less'. You also need to add vector<int>   
