@@ -305,4 +305,6 @@ As I am primarily interested to mark all the nodes, so I don't really consider o
         
 27. https://leetcode.com/problems/delete-node-in-a-linked-list/
 
-Do you remember the trick? If you remember, then you are find. Otherwise just take a look at the solution. Implementation should be easy.        
+Do you remember the trick? If you remember, then you are find. Otherwise just take a look at the solution. Implementation should be easy.     
+
+28. Try to remember if you can implement in-order, pre-order, post-order travarsal without recursion.   
