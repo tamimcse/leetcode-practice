@@ -283,3 +283,21 @@ Now how would you implement this?
 What I thought was, I would use two pointer approach. I will keep track of the last diff. In two pointer iteration, I would minimize the diff. If we see that diff is increasing compared to previous diff, we should break. This is not right. If diff increases, you should not break because you can still find a smaller diff. Then what's the point of using two pointers? The main benefit is, if we find a diff 0, we can immediately stop.
 
 I also was thinking about 3 nested loop, because I though the inner loop will stop pretty soon. This is not the right approach either. First of all, this is O(n^3). Two pointer approach make the same problem O(n^2)
+
+26. https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+
+Do you implemement using DFS or BFS? I think, both solution works. But, text books are other solutions uses DFS instead of BFS. I didn't find a good explanation why. At first, I though DFS would be better because we don't really iterate all the edges. As DFS goes to depth first, it will find the solution sooner. But, this is not the case. Both DFS and BFS is O(E + V). DFS will eventually check all the edges of the nodes along the way (if the node isn't already visited). So, I think, there is a chance that DFS would be better, but it's not certain.
+
+Also, how would you create adjacency list here?
+
+I am inclind to think that, here I can create it as:
+
+        for (auto &e : edges) {
+            adj_list[e[0]].push_back(e[1]);
+        } 
+As I am primarily interested to mark all the nodes, so I don't really consider opposite direction of the edge. This however will not work in all the cases. We don't know which we will be visiting the nodes. So, correct answer should be: 
+        
+        for (auto &e : edges) {
+            adj_list[e[0]].push_back(e[1]);
+            adj_list[e[1]].push_back(e[0]);
+        }
