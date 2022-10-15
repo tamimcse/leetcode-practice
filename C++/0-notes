@@ -309,4 +309,10 @@ Do you remember the trick? If you remember, then you are find. Otherwise just ta
 
 28. Try to remember if you can implement in-order, pre-order, post-order travarsal without recursion.
 
-29. Note that many tree problem such as LCA and find distance between two nodes can be implemented by using recursion on left and right. Think hard how you can formulate that.   
+29. Note that many tree problem such as LCA and find distance between two nodes can be implemented by using recursion on left and right. Think hard how you can formulate that.
+
+30. https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+How would you implement this?
+
+I generally think that, I will find a min to the left and max to the right. Then I will increase the min until I find a lower min. I usually do this because I treat loop as stateless loop. But, we can add state in a loop and do wonderful things. Try to find out if we can have multiple states so that we can find it in one iteration. If you can't, look at the leetcode solution.   
