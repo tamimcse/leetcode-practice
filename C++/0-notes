@@ -301,3 +301,8 @@ As I am primarily interested to mark all the nodes, so I don't really consider o
             adj_list[e[0]].push_back(e[1]);
             adj_list[e[1]].push_back(e[0]);
         }
+        
+        
+27. https://leetcode.com/problems/delete-node-in-a-linked-list/
+
+Do you remember the trick? If you remember, then you are find. Otherwise just take a look at the solution. Implementation should be easy.        
