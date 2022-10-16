@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+Implement both in  one pass and two pass.
 */
 class Solution {
 public:
