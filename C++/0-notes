@@ -325,3 +325,32 @@ p.top()//Note this is not p.front()
 For min heap, it should be:
 
 priority_queue<int, vector<int>, greater<int>> pq;//yes, greater<int>, not 'greater' or 'less'. You also need to add vector<int>   
+
+32. https://leetcode.com/problems/validate-binary-search-tree/
+
+How would you implement this? It may look simple on the surface, but note that all the nodes in left subtree has to be smaller. Try to find the solution. Look at my solution if you can't find.
+
+Here is the soluton.
+
+class Solution {
+    bool isValidBST_inner(TreeNode* root, long min, long max) {//<<<<<<<<<<<<
+        if (!root)
+            return true;
+        if (root->left && root->left->val >= root->val)
+            return false;
+        if (root->right && root->right->val <= root->val)
+            return false;
+        
+        if (root->val >= max || root->val <= min)
+            return false;
+        
+        return isValidBST_inner(root->left, min, root->val) && 
+               isValidBST_inner(root->right, root->val, max);        
+    }
+public:
+    bool isValidBST(TreeNode* root) {
+        return isValidBST_inner(root, (long)INT_MIN * 2, (long)INT_MAX * 2);//<<<<<<<<<<<<
+    }
+};
+
+Note that the pointers. You can actually avoid it by passing node pointer instead of the value (as leetcode solution suggests)
