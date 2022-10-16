@@ -354,3 +354,5 @@ public:
 };
 
 Note that the pointers. You can actually avoid it by passing node pointer instead of the value (as leetcode solution suggests)
+
+Note that, this problem can be solved using in-order travarsal. If you do in-order travarsal, the nodes will be visited in sorted order. Implementing in-order in recursive manner is easy, but implementing it in iterative manner isn't easy.
