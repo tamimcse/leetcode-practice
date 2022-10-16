@@ -355,4 +355,32 @@ public:
 
 Note that the pointers. You can actually avoid it by passing node pointer instead of the value (as leetcode solution suggests)
 
-Note that, this problem can be solved using in-order travarsal. If you do in-order travarsal, the nodes will be visited in sorted order. Implementing in-order in recursive manner is easy, but implementing it in iterative manner isn't easy.
+Note that, this problem can be solved using in-order travarsal. If you do in-order travarsal, the nodes will be visited in sorted order. Implementing in-order in recursive manner is easy, but implementing it in iterative manner isn't easy. Here. we are implementing it using recursive in-order.
+
+class Solution {
+    
+    bool isValidBST_inner(TreeNode* root, TreeNode* &prev) {
+        bool ret;
+        
+        if (!root)
+            return true;
+        ret = isValidBST_inner(root->left, prev);
+        if (!ret)
+            return false;
+        if (prev && root->val <= prev->val)
+            return false;
+        prev = root;
+        ret = isValidBST_inner(root->right, prev);
+        if (!ret)
+            return false;
+        return true;
+    }
+
+public:
+    bool isValidBST(TreeNode* root) {
+        TreeNode* prev = nullptr;
+        return isValidBST_inner(root, prev);///<<<<<<
+    }
+};
+
+Note that, if you try to pass a default value at the pointer, the program will be error prone. Passing pointer is less error prone.
