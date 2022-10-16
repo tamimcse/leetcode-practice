@@ -404,4 +404,8 @@ A
 ------------------------------
 Now you can see what logic to use to find the smalles index. If you don't, look at the solution or leet code approach 1.
 
+34. https://leetcode.com/problems/set-matrix-zeroes/
+
+How would you implement? Note that, evenn though you asked to use O(1) space, you can use additional variable
+
              
