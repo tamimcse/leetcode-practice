@@ -408,4 +408,8 @@ Now you can see what logic to use to find the smalles index. If you don't, look 
 
 How would you implement? Note that, evenn though you asked to use O(1) space, you can use additional variable
 
+35. https://leetcode.com/problems/kth-largest-element-in-an-array/
+
+Note that, this is asked to solve in O(n). If you use heap, this is not exactly O(n). It's O(nlong). But, that's OK.
+
              
