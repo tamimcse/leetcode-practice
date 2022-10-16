@@ -362,7 +362,7 @@ class Solution {
     bool isValidBST_inner(TreeNode* root, TreeNode* &prev) {
         bool ret;
         
-        if (!root)
+        if (!root)h?
             return true;
         ret = isValidBST_inner(root->left, prev);
         if (!ret)
@@ -384,3 +384,24 @@ public:
 };
 
 Note that, if you try to pass a default value at the pointer, the program will be error prone. Passing pointer is less error prone.
+
+
+33. https://leetcode.com/problems/search-in-rotated-sorted-array/
+
+How would you implement this? What I try to do is do binary search. During binary search, I try to increase/decrase the mid based on which part I'm in. I found it extreamly difficult to solve although leetcode solution 2 use the same approach. Easier approach is to use binary search to find the smallest element. Then do two separate binary search on two parts.
+
+How would you find the smallest element using binary search? To solve this problem (like stock buy sell problem), draw the points as following:
+
+
+         A
+       A
+     A
+   A
+A  
+                 A
+               A
+             A
+------------------------------
+Now you can see what logic to use to find the smalles index. If you don't, look at the solution or leet code approach 1.
+
+             
