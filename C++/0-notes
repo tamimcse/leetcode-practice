@@ -412,4 +412,16 @@ How would you implement? Note that, evenn though you asked to use O(1) space, yo
 
 Note that, this is asked to solve in O(n). If you use heap, this is not exactly O(n). It's O(nlong). But, that's OK.
 
+36. https://leetcode.com/problems/insert-interval/
+
+Draw interval on paper and thing how would you implement binary search here. It seems that you can use binary search here, but you cannot. Look at the eaxmple:
+
+------      ---------  ------------           -----------    ----------
+
+        ---------- (to insert). You can use binary search to find the insertion point for this.
+ -------------------------------------------------- (Now how about this? What would be the conditio that you use to do binary search both situation). I couldn't formulate an easy condition. Leetcode solution also use sequencial serach.
+ 
+ 
+       
+
              
