@@ -421,6 +421,13 @@ Draw interval on paper and thing how would you implement binary search here. It 
         ---------- (to insert). You can use binary search to find the insertion point for this.
  -------------------------------------------------- (Now how about this? What would be the conditio that you use to do binary search both situation). I couldn't formulate an easy condition. Leetcode solution also use sequencial serach.
  
+ 37.    vector<vector<char>> mat(numRows);
+        for (int i = 0; i < numRows; i++) {
+            mat[i].resize(num_col);
+        }
+        
+Note that, all the elements of the vector will be 0 by deafault.        
+ 
  
        
 
