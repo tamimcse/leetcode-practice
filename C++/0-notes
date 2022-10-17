@@ -324,7 +324,9 @@ p.top()//Note this is not p.front()
 
 For min heap, it should be:
 
-priority_queue<int, vector<int>, greater<int>> pq;//yes, greater<int>, not 'greater' or 'less'. You also need to add vector<int>   
+priority_queue<int, vector<int>, greater<int>> pq;//yes, greater<int>, not 'greater' or 'less'. You also need to add vector<int>  
+
+Also, note that priority queue can have size as: pq.size() 
 
 32. https://leetcode.com/problems/validate-binary-search-tree/
 
