@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/zigzag-conversion/
 
-Solve it both extra space and O(1) space
+Don't use 2D array. Can you use something better?
 */
 class Solution {
 public:
@@ -41,6 +41,40 @@ public:
                     res[to_insert++] = mat[i][j];
                 }
             }
+        }
+        return res;
+    }
+};
+
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        if (numRows == 1)
+            return s;
+        
+        int num_col = ceil(s.length() / (float)((2 * numRows) - 2)) * (numRows - 1);
+        
+        vector<string> rows(numRows);
+        
+        int x = 0, y = 0;
+        for (auto ch : s) {
+            rows[x].push_back(ch);
+            if (y % (numRows - 1) == 0) {
+                if (x < numRows - 1) {
+                    x++;
+                } else {
+                    x--;
+                    y++;
+                }  
+            } else {
+                x--;
+                y++;
+            }
+        }
+        
+        string res;
+        for (int i = 0; i < numRows; i++) {
+            res += rows[i];
         }
         return res;
     }

@@ -426,7 +426,13 @@ Draw interval on paper and thing how would you implement binary search here. It 
             mat[i].resize(num_col);
         }
         
-Note that, all the elements of the vector will be 0 by deafault.        
+Note that, all the elements of the vector will be 0 by deafault.
+
+38. https://leetcode.com/problems/zigzag-conversion/
+
+Here, I use 2D array to implement this. Can you make it better?
+
+Note that, you can simply have a vector<string> instead of 2D array.        
  
  
        
