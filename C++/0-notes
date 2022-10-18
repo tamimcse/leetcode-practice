@@ -437,6 +437,35 @@ Here, I use 2D array to implement this. Can you make it better?
 Note that, you can simply have a vector<string> instead of 2D array.        
  
  
+37. https://leetcode.com/problems/min-cost-to-connect-all-points/
+
+How would you implememt this?
+
+How would you implement MST?
+
+https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+
+Suppose, you want to implemenmt Kruskal's algorithm. How would you implement it?
+
+How would you check cycle in it? DFS? I sometimes think that I can keep track of visit[] for each point. Can I use that to detect cycle?
+
+You can't. Think of the following:
+
+A     C
+|     |
+|     |
+B     D
+
+All the points are visited, but you can still add edge between A and C. 
+
+So, detecting cycle in graph using DFS is expensive. You can use the above intuition to implement disjoint set data structure.
+
+How would you implement disjoint set?
+
+One option is to have a vector<unordered_set<int>>. This is expesive. How would you merge disjoint sets? We need a data structure that supports that.
+
+
        
 
              
