@@ -530,5 +530,10 @@ public:
     }
 };
        
+38. https://leetcode.com/problems/partition-list/
+
+How would you implement this? Note that, sometimes it's OK to create a dummy pointer (ListNode dummyNode), just to avoid complicated check;
+
+
 
              
