@@ -534,6 +534,10 @@ public:
 
 How would you implement this? Note that, sometimes it's OK to create a dummy pointer (ListNode dummyNode), just to avoid complicated check;
 
+39. https://leetcode.com/problems/all-paths-from-source-to-target/
+
+How would you implement it? Note that, you need to implement backtracking in DFS. It is easier to implement backtacking DFS in recursive manner instead of iteratve manner.
+
 
 
              
