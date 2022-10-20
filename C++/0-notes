@@ -538,6 +538,25 @@ How would you implement this? Note that, sometimes it's OK to create a dummy poi
 
 How would you implement it? Note that, you need to implement backtracking in DFS. It is easier to implement backtacking DFS in recursive manner instead of iteratve manner.
 
+40. https://leetcode.com/problems/powx-n/
+
+How would you implememnt this?
+
+I generally do: pow (x, n/2) * pow (x, n - n/2). But, note that, you are calling almost similar function twice. This will result in TLE. You can rather do:
+
+            res = myPow(x, n/2);
+            res = res * res;
+            if (n & 1)
+                res *= x;
+                
+Also, note that, if n is negative, you need to do n = -n. This will however cause overflow for the largest negative integer. To solve this problem, do following:
+
+        long N = n;
+        bool neg = n < 0;
+
+        if (neg)
+            N = -N;                
+
 
 
              
