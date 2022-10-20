@@ -557,6 +557,47 @@ Also, note that, if n is negative, you need to do n = -n. This will however caus
         if (neg)
             N = -N;                
 
+41. https://leetcode.com/problems/reverse-integer/
 
+How to solve this? I generally solve as:
 
-             
+https://leetcode.com/problems/reverse-integer/
+
+class Solution {
+public:
+    int reverse(int x) {
+        unsigned int X = x < 0 ? -x : x;//<<<<<<Can it cause overflow? Ypu would think No, because it's unsigned. But it will overflow. Use abs() to achive this
+
+        unsigned int num = 0;
+        while (X) {
+            num = num * 10 + X % 10;//<<<<<<Can it cause overflow? Yes. I usually solve this uinng "long" or "long long", but we cannot use 64 bit int here. 
+            X = X/10;
+        }
+
+        return x < 0 ? -num : num;
+    }
+};
+
+Note that, not being able to use 64 bit int is the main challenge here. We need to implement in a way that it can detect overflow. Now, we need to detect overflow before it actually happens. Because if overflow happens, you cannot detect it. So, we can use following approach:
+
+class Solution {
+public:
+    int reverse(int x) {
+        bool neg = x < 0;
+        unsigned int X = abs(x);///<<< Don't do -x. It will cause overflow
+
+        unsigned int num = 0;
+        while (X) {
+            if (!neg && (num > INT_MAX/10 || (num == INT_MAX/10 && X % 10 > 7))) {///<<<<<See how we are avoiding overflow for positive #
+                return 0;
+            }
+            if (neg && (num > INT_MAX/10 || (num == INT_MAX/10 && X % 10 > 8))) {///<<<<<See how we are avoiding overflow for negative #
+                return 0;
+            }
+            num = num * 10 + X % 10;
+            X = X/10;
+        }
+
+        return neg ? -num : num;
+    }
+};             
