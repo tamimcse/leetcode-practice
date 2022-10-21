@@ -600,4 +600,36 @@ public:
 
         return neg ? -num : num;
     }
-};             
+};  
+
+42. https://leetcode.com/problems/lru-cache/
+
+How would you implememnt this? 
+
+I tend to use hash and heap. But, note that, you can implment using hash + linked list where hash points to the linked list nodes. Everytime you access a node, that node will be pushed to the head. When we delete a node, we will be delete from tail. Which linked list should you use? should you use std::list?
+
+I found that moving around items can be difficult in std::list. So, avoid it. Implement your own list unless what you are doing something trivial like push_back(), pop_back(), push_front(), pop_front(). Note that, std::list has those functions. Although list has splice() that allows you to insert one list into another, it's hard to use if you want to reorder nodes in a list using it.
+
+Now, would you use single linked list or double linked list? Note that, here double linked list will result in O(1) reoorder (although Single linked list also can have tail)
+
+When implementing linked list of your own, don't forget to do these:
+
+class Node {
+public:
+    int key;
+    int val;
+    Node *next;
+    Node *prev;
+    Node(int k, int v) {
+        key = k;
+        val = v;
+        next = nullptr;//<<<<<<<<I usually forget this
+        prev = nullptr;//<<<<<<<<I usually forget this
+    }
+};
+
+Also, remember that hash has size() function that can give us the size. Hash also has following way to delete a key:
+
+hash.erase(key_to_del);//<<<<You don't need to pass an iterator
+
+           
