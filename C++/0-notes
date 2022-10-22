@@ -663,3 +663,130 @@ struct Comp{
 
 priority_queue<Elem *, vector<Elem *>, Comp> pq;//<<<<<For custom object, we need to give less/greater than function. Here, we need to provide a functor
                
+Now, even though you could implement your own heap, that will require you update multiple elements in every iteration. Can you do better?
+
+Yes, you can have a hash<frequency, nodelist>. Here, you will keep all the nodes that have the same frequency in the same bucket. When you update the frequency, you simply need to move the node from current bucket to new bucket. You may think that, here we need linear search to find the node. But, actually you don't. Note that, each node is allocated dynamically. Here, we simply keep the pointer to the node, not the actual node. So, this frequncy hash and key hash will point to the same node. You can move nodes easily around.
+
+You so you need to two hash, right? One keep track of <key, Node*>, another <freq, node>. But, note that, in case of <freq, node>, you sometimes need to find the smallest frequncy? How can you do that. Use map!!!! Remember that map is an ordered_map (internally a red black tree). So, you can easily find the smallest freq as:
+
+map.begin()..
+
+Now, in the requirment it also says that, if there are multiple LFU element, evict the LRU element. So, you need to keep track of the LRU as well. So, solve this problem, we always insert at the end of the list and evict from the head of the list. To implemement that efficiently, we need both head and tail. So, this is the actual implementation:
+
+/*
+https://leetcode.com/problems/lfu-cache/
+*/
+struct Node {
+    int key;
+    int val;
+    int freq;
+    Node *next;
+    Node *prev;
+    Node(int k, int v, int f) {
+        key = k;
+        val = v;
+        freq = f;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+class LFUCache {
+    unordered_map<int, Node *> hash;//<<<<.....
+    map<int, pair<Node*, Node*>> freq_list;//<<<<See how we are keeping both head and tail
+    int size;
+    
+    void insert_last(Node* &head, Node* &tail, Node *to_insert) {
+        if (!head) {
+            head = to_insert;
+            tail = to_insert;
+        } else {///<<<<<In linked list manipulation, everytime you have a condition, make sure to think if you need to do if the condition doesn't hold (i sometimes miss that)
+            tail->next = to_insert;
+            to_insert->prev = tail;
+            tail = tail->next;
+        } 
+    }
+    
+    void delete_cur(Node* &head, Node* &tail, Node *to_del) {//<<<<<Note how we pass pointer by reference. It's not like: "Node &*head"
+        if (head == to_del) {
+            head = head->next;
+            if (head)
+                head->prev = NULL;
+            else
+                tail = NULL;
+        } else if (tail == to_del) {
+            tail->prev->next = NULL;
+            tail = tail->prev;
+        } else {
+            if (to_del->next) {
+                to_del->next->prev = to_del->prev;   
+            }
+            to_del->prev->next = to_del->next;
+        }
+        to_del->next = NULL;
+        to_del->prev = NULL;
+    }
+    
+    void print_freq() {
+        cout << "printing freq list:\n";
+        for (auto it = freq_list.begin(); it != freq_list.end(); it++) {
+            Node *r = it->second.first;
+            while (r) {
+                cout << "key = " << r->key << " value = " << r->val << " freq = " << r->freq << endl;
+                r = r->next;
+            }
+        }
+    }
+    void delete_frm_freq (int key) {
+        //auto p = freq_list[hash[key]->freq];
+        //delete_cur(p.first, p.second, hash[key]);//<<<Will this work? No, because it will update the local head/tail, not the actual head tail.
+        delete_cur(freq_list[hash[key]->freq].first, freq_list[hash[key]->freq].second, hash[key]);//<<<<<You need to implement as this
+        if (freq_list[hash[key]->freq].first == NULL) {
+            freq_list.erase(hash[key]->freq);         
+        }
+        hash.erase(key);
+    }
+    
+    void move_upper (int key) {///<<<If you see that you need to use same logic again and again, don't be lazy. Create a separate func. It will make it much easier going forward
+        delete_cur(freq_list[hash[key]->freq].first, freq_list[hash[key]->freq].second, hash[key]);
+        if (freq_list[hash[key]->freq].first == NULL) {
+            freq_list.erase(hash[key]->freq);   
+        }
+        hash[key]->freq++;
+        insert_last(freq_list[hash[key]->freq].first, freq_list[hash[key]->freq].second, hash[key]);        
+    }
+public:
+    LFUCache(int capacity) {
+        size = capacity;
+    }
+    
+    int get(int key) {
+        if (size == 0)
+            return -1;
+        auto it = hash.find(key);
+        if (it == hash.end())
+            return -1;
+        move_upper(key);
+        return hash[key]->val;
+    }
+    
+    void put(int key, int value) {
+        if (size == 0)
+            return;
+        auto it = hash.find(key);
+        if (it != hash.end()) {
+            move_upper(key);
+            hash[key]->val = value;
+        } else {
+            if (hash.size() == size) {
+                int key_to_del = freq_list.begin()->second.first->key;
+                delete_frm_freq(key_to_del);
+            }
+            Node *n = new Node(key, value, 1);
+            insert_last(freq_list[1].first, freq_list[1].second, n);
+            hash[key] = n;
+        }
+    }
+};
+
+              
