@@ -632,4 +632,34 @@ Also, remember that hash has size() function that can give us the size. Hash als
 
 hash.erase(key_to_del);//<<<<You don't need to pass an iterator
 
-           
+42. https://leetcode.com/problems/lfu-cache/
+
+How would you implememt this? 
+
+I think of implememting as hash + priority_queue. Here, priority_queue will contain the nodes (with frequency) and hash points to the node. This however will not work. Because, in C++ priority_queue, you only get top and you can only do push() which will add the item to the bottom of the tree. But, in this case, we may need to update the frequency of an intermediate node. If you do that, priority_queue acts abnormally. To solve this, we can implement our own heap.
+
+Now, even though we don't use heap, let's take a how the heap code would look like:
+
+struct Elem {//<<<<<<<Note that stuct/class name should begin with capital letter.
+    int key;
+    int val;
+    int freq;
+    Elem(int k, int v, int f) {//<<<<<<<<<<<<You can add constructor in struct like a class
+        key = k;
+        val = v;
+        freq = f;
+    }
+};
+
+unordered_map<int, Elem *> hash;//<<<<<Notde that, you don't need struct keyword for struct
+Elem *new_elem = new Elem(key, value, 1);//You can also create a struct onbject like a class
+
+//<<<<<Note how functor is written
+struct Comp{
+    bool operator()(Elem *e1, Elem *e2){
+        return e1->freq < e2->freq;
+    }
+};
+
+priority_queue<Elem *, vector<Elem *>, Comp> pq;//<<<<<For custom object, we need to give less/greater than function. Here, we need to provide a functor
+               
