@@ -632,7 +632,7 @@ Also, remember that hash has size() function that can give us the size. Hash als
 
 hash.erase(key_to_del);//<<<<You don't need to pass an iterator
 
-42. https://leetcode.com/problems/lfu-cache/
+43. https://leetcode.com/problems/lfu-cache/
 
 How would you implememt this? 
 
@@ -656,7 +656,7 @@ Elem *new_elem = new Elem(key, value, 1);//You can also create a struct onbject 
 
 //<<<<<Note how functor is written
 struct Comp{
-    bool operator()(Elem *e1, Elem *e2){
+    bool operator()(Elem *e1, Elem *e2){//<<< Note that there are two "()". You also need to return true
         return e1->freq < e2->freq;
     }
 };
@@ -789,4 +789,25 @@ public:
     }
 };
 
+
+44. How would you implement a unorded_map<pair<int, int>, bool>? Note that, this will not work because it does not know how to use pair<int, int> as key. In  43, we defined priority_queue with custom object. There we implemented () oprator in Cmp. I'm not sure if that was right, because it didn't implement it fully. I later tried the same approach here. It didn't work. But, following approach work.
+
+struct Cmp {
+    int operator()(const pair<int, int> &p1) const {//<<< Note that you need two "()". Parameter and function has to be const. You need to pass just one pair, not two. You also need to return int, not bool.
+        return p1.first * 8 + p1.second;
+    }    
+};
+
+unordered_map<pair<int, int>, bool, Cmp> h;
+
+Howwould you use hashset instead? I often forget this.
+
+It would be like:
+
+unordered_set<int> hs;//<<<Not "hash_set" or "hashset"
+hs.insert(5);//<<<<<<Not hs.push_back(5);
+
+if (hs.count(5))//<<< this  is how we lookup.
+
+We can also use find() in the same way as hash.
               
