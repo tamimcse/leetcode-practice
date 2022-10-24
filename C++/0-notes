@@ -828,4 +828,26 @@ So, if you need to copy part of the string to another string, use "+".
 
 Also note that, Following is not allowed!!!! (I often try this). Dr. Nesterenko's slide mentioned this
 s = "Hello" + " world";//<<< You cannot apply "+" operartor on "Hello"
+
+
+Also, how would you create a string of size 9?
+
+string s(9)//<<<<Not right. This will work for vector, not for string.
+
+Do this:
+
+string s;
+s.resize(9);
+
+In most of time, create an empty string with "string s;". And then append to it.
+
+How to earse part of the string?
+
+tmp.erase(tmp_idx);//<<< Erase everything from tmp_idx to the end.
+
+How to create substring? This is often used;
+
+string sub = s.substr(offset, len);
+string sub = s.substr(offset);//<<<In this case, it will return everything from the offset
+
               
