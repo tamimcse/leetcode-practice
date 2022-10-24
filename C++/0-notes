@@ -811,3 +811,16 @@ if (hs.count(5))//<<< this  is how we lookup.
 
 We can also use find() in the same way as hash.
               
+45. From Dr. Nesterenko's slide, you can append strings in two ways:
+
+string s = "Hello";
+
+s = s + " world";
+s.append(" world");
+
+Both are fine. Don't worry about creating stringbuffer.
+
+Following is not allowed!!!! (I often try this).
+
+s = "Hello" + " world";//<<< You cannot apply "+" operartor on "Hello"
+              
