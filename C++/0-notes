@@ -820,7 +820,12 @@ s.append(" world");
 
 Both are fine. Don't worry about creating stringbuffer.
 
-Following is not allowed!!!! (I often try this).
+Also, note that std::string doesn't have strcpy(). For instance, this will not compile:
 
+tmp.strcpy(s, i, s_idx);
+
+So, if you need to copy part of the string to another string, use "+".
+
+Also note that, Following is not allowed!!!! (I often try this). Dr. Nesterenko's slide mentioned this
 s = "Hello" + " world";//<<< You cannot apply "+" operartor on "Hello"
               
