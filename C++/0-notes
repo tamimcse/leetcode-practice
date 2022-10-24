@@ -850,4 +850,8 @@ How to create substring? This is often used;
 string sub = s.substr(offset, len);
 string sub = s.substr(offset);//<<<In this case, it will return everything from the offset
 
+
+How to convert string to number?
+
+int a = atoi(s.c_str());
               
