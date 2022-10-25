@@ -883,5 +883,18 @@ public:
     }
 };
 
+47. How to check if number is a digit or alpha or alphanumeric? How to check if a character is upper or lower?
+
+isahpha()
+isdigit()
+isalnum()//<<<This is not isalphanum().
+islower()
+isupper()
+ispunct()
+isspace()
+tolower()
+toupper()
+
+The functions are taken from Dr. Nesterenko's example.
 
               
