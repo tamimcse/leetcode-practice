@@ -854,4 +854,32 @@ string sub = s.substr(offset);//<<<In this case, it will return everything from 
 How to convert string to number?
 
 int a = atoi(s.c_str());
+
+46. How to initalize a vector? Can you initialize a vector of vector? Can you initialize in class declaration or you need to do it inside function? 
+
+You can all of these. You can do it as:
+
+class Solution {
+        vector<vector<char>> map = {
+            {' '},
+            {},
+            {'a', 'b', 'c'},
+            {'d', 'e', 'f'},
+            {'g', 'h', 'i'},
+            {'j', 'k', 'l'},
+            {'m', 'n', 'o'},
+            {'p', 'q', 'r', 's'},
+            {'t', 'u', 'v'},
+            {'w', 'x', 'y', 'z'},
+        };
+    void letterCombinations_inner(string digits, int idx, 
+                                  string &cur, vector<string> &res) {
+    }
+public:
+    vector<string> letterCombinations(string digits) {
+
+    }
+};
+
+
               
