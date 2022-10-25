@@ -2,8 +2,6 @@
 https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 */
 class Solution {
-    void letterCombinations_inner(string digits, int idx, 
-                                  string &cur, vector<string> &res) {
         vector<vector<char>> map = {
             {' '},
             {},
@@ -16,7 +14,8 @@ class Solution {
             {'t', 'u', 'v'},
             {'w', 'x', 'y', 'z'},
         };
-        
+    void letterCombinations_inner(string digits, int idx, 
+                                  string &cur, vector<string> &res) {
         if (idx == digits.size()) {
             res.push_back(cur);
             return;
