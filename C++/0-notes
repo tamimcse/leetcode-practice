@@ -844,6 +844,8 @@ In most of time, create an empty string with "string s;". And then append to it.
 How to earse part of the string?
 
 tmp.erase(tmp_idx);//<<< Erase everything from tmp_idx to the end.
+s.erase(0, num_spaces);//<<<It will erase num_spaces spaces from index 0
+
 
 How to create substring? This is often used;
 
