@@ -907,13 +907,28 @@ The functions are taken from Dr. Nesterenko's example.
 
 How would you solve this?
 
-I tend to use BFS. But, can you do better. Remember, if you need to do some sort of search, and the numbers are sorted, you can do better => Bibary search.
+I tend to use BFS. But, can you do better? Remember, if you need to do some sort of search, and the numbers are sorted, you can do better => Bibary search.
 
 How would implement binary search here? This is not very clean. Pretty messy. Can you do better?
 
-How about do DFS from top-right or bottom left? What is the benefit? Search space is shrinked. If we start from top-left and bottom-right, search space is huge, because both in creasing or descreasing.
+How about do DFS from top-right or bottom left? What is the benefit? Search space is shrinked. If we start from top-left and bottom-right, search space is huge, because both in creasing or descreasing. If you start from top-right, you only need to visit either left or down. Note that, you don't really need DFS here.
 
-If needed, look at my solution.
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int row = 0, col = n -1;
+        while (row >= 0 && col >= 0 && row < m && col < n) {
+            if (matrix[row][col] == target)
+                return true;
+            else if (target > matrix[row][col])
+                row++;
+            else
+                col--;
+        }
+        return false;
+    }
+};
 
 51. How would you define 2D array?
 
