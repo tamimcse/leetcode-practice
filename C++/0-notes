@@ -913,6 +913,7 @@ How would implement binary search here? This is not very clean. Pretty messy. Ca
 
 How about do DFS from top-right or bottom left? What is the benefit? Search space is shrinked. If we start from top-left and bottom-right, search space is huge, because both in creasing or descreasing.
 
+If needed, look at my solution.
 
 51. How would you define 2D array?
 
