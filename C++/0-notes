@@ -897,4 +897,12 @@ toupper()
 
 The functions are taken from Dr. Nesterenko's example.
 
-              
+48. Sometimes, I debate weather to use DP or backtarcking? Note that thehy are very different problem. DP is optimization problem wheereas backtracking find all the combination.
+
+49. https://leetcode.com/problems/search-a-2d-matrix-ii
+
+How would you solve this?
+
+I tend to use DFS. But, can you do better. Remember, if you need to do some sort of search, and the numbers are sorted, you can do better => Bibary search.
+
+How would implement binary search here? 
