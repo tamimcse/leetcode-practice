@@ -912,3 +912,15 @@ I tend to use BFS. But, can you do better. Remember, if you need to do some sort
 How would implement binary search here? This is not very clean. Pretty messy. Can you do better?
 
 How about do DFS from top-right or bottom left? What is the benefit? Search space is shrinked. If we start from top-left and bottom-right, search space is huge, because both in creasing or descreasing.
+
+
+51. How would you define 2D array?
+
+int arr[4][2] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};//<<<<<<
+
+
+Not:
+
+int arr[][] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+int arr[4][] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+int arr[][2] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
