@@ -895,6 +895,16 @@ isspace()
 tolower()
 toupper()
 
+How would you check if a string is a number? Note that there is no isnum(), or isnumber() or isnumeric() even though there is isalnum().
+
+You can do this to check if a string is a number;
+
+if (isdigit(s[0])) ///<<<< But this will not work for negative number.
+
+So, right solution is do:
+
+if (isdigit(s[s.length() - 1])) 
+
 The functions are taken from Dr. Nesterenko's example.
 
 48.     bool searchMatrix(vector<vector<int>>& matrix, int target) {
@@ -940,3 +950,29 @@ Not:
 int arr[][] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 int arr[4][] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 int arr[][2] = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+
+52. https://leetcode.com/problems/evaluate-reverse-polish-notation/ 
+
+Here, you need to implement something like:
+
+    int eval (char ch, int a, int b) {
+        switch(ch) {
+            case '+': return a + b;
+            case '-': return a - b;
+            case '*': return a * b;
+            case '/': return a / b;
+        }
+        return 0;
+    }
+
+What's wrong with this? Even though the final result of the problem is an integer, there is no guarntee that intermediate nuumbers are. So, it can overflow. Anytime you do "+" or "*", think if you need to store in a long instead of int as:
+
+    long eval (char ch, long a, long b) {
+        switch(ch) {
+            case '+': return a + b;
+            case '-': return a - b;
+            case '*': return a * b;
+            case '/': return a / b;
+        }
+        return 0;
+    }
