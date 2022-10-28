@@ -790,16 +790,22 @@ public:
 };
 
 
-44. How would you implement a unorded_map<pair<int, int>, bool>? Note that, this will not work because it does not know how to use pair<int, int> as key. In  43, we defined priority_queue with custom object. There we implemented () oprator in Cmp. I'm not sure if that was right, because it didn't implement it fully. I later tried the same approach here. It didn't work. But, following approach work.
+44. How would you implement a unorded_map<pair<int, int>, bool>? Note that, this will not work because it does not know how to use pair<int, int> as key (it doesn't know how to hash it). So, you need to provide your own hash function.  Note that, in  43, we defined priority_queue with custom object. There we implemented () oprator in Cmp. There we passed two Elements of priority queue and we compared them. But, here, we just need to pass one element of the hash and calculate the hash as following.
 
-struct Cmp {
-    int operator()(const pair<int, int> &p1) const {//<<< Note that you need two "()". Parameter and function has to be const. You need to pass just one pair, not two. You also need to return int, not bool.
-        return p1.first * 8 + p1.second;
+struct HashFunc {//<<<This can be a struct and define it outside of the class
+    int operator()(const pair<int, int> &p) const {//<<<<You only need to pass the key as reference. 
+                                                   //<<<<The return value is int. parameter and function, both has to be cosnt. Otherwise, you will get compilatio  error.
+        return  p.first * p.second % 100;//<<<Define a hash function any way you like 
     }    
 };
 
-unordered_map<pair<int, int>, bool, Cmp> h;
-
+class Solution {
+public:
+    string fractionToDecimal(int numerator, int denominator) {
+        string res;
+        unordered_map<pair<int, int>, string, HashFunc> hash;//<<<Here you need to pass the hashfunc as third argument
+}        
+        
 Howwould you use hashset instead? I often forget this.
 
 It would be like:
