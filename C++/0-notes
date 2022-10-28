@@ -1028,6 +1028,12 @@ What's wrong with this? Even though the final result of the problem is an intege
         return 0;
     }
 
+52. https://leetcode.com/problems/minesweeper/
 
+I had hard time understanding the requirement. Most important part is:
+
+If a cell is unrevealed, and at least one of it's neighbor is revealed, just count how many mines are there around the cell (revealed or unreaveal mines). Then replace the cell with that number.
+
+If a cell is unrevealed and all it's neighbors are unrevealed, the recursively unreveal the neighbors.
 
     
