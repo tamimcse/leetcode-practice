@@ -1042,4 +1042,16 @@ If a cell is unrevealed, and at least one of it's neighbor is revealed, just cou
 
 If a cell is unrevealed and all it's neighbors are unrevealed, the recursively unreveal the neighbors.
 
+
+53. How would define a Trie node?
+
+struct Node {
+//  char ch;//<<<<Note that, in trie, edge represents the value. So, you don't really need this. I often mistakenly add this. Don't do it
+  unordered_map<char, Node *> child;//<<< You can have a hash instead of array 
+  bool isLeaf;
+  Node(char c) {
+//      ch = c;
+      isLeaf = false;
+  }  
+};
     
