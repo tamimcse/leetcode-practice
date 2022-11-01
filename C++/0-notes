@@ -1066,4 +1066,6 @@ Note that, heap is a magical data structure. You can throw number number to it a
 Now, remember https://leetcode.com/problems/lfu-cache/
 
 Can you use heap there as well?
+
+No, there we needed to modify the count on the fly. Heap is not good for that (unless you create your own heap). In order to use heap, we have to have frequency of the element readily avaialable like https://leetcode.com/problems/top-k-frequent-elements/
     
