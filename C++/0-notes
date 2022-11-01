@@ -1134,3 +1134,43 @@ public:
 };
 
 What's the time complexity? O (nlogk)
+
+55. https://leetcode.com/problems/find-median-from-data-stream/
+
+Here, you will need a min and max heap? What will be the condition of Cmp for min and max?
+
+It would be:
+
+struct CmpMin {
+    bool operator()(int a, int b) {
+        return a > b;
+    }    
+};
+
+struct CmpMax {
+    bool operator()(int a, int b) {
+        return a < b;
+    }    
+};
+
+class MedianFinder {
+    priority_queue<int, vector<int>, CmpMin> pqmin;//<<<Note for min, we need to cheak greater (the opposite)
+    priority_queue<int, vector<int>, CmpMax> pqmax;//<<<For max, we need to check smaller (the opposite)
+
+56. https://leetcode.com/problems/design-twitter/
+
+Here, it can be tempting to implememt tweets as:
+
+unordered_map<int, list<pair<int, int>>> tweets;
+
+This is because to find most recent 10 tweets, we need to access tweets like a linked list (get next node from current node). How would you implement the priority_queue then? 
+
+I think that I would implement it as:
+
+        priority_queue<pair<int, int>::iterator, vector<pair<int, int>::iterator>, Cmp> pq;
+        
+Problem with this approach is how would you if the iterator has reach the end?
+
+You also need to store the person's id in the node so that you can get the list. Another approach would be not to use list. Implement your own Linkedlist. This is actaully better.
+
+        
