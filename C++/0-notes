@@ -1056,4 +1056,14 @@ struct Node {
       isLeaf = false;
   }  
 };
+
+54. https://leetcode.com/problems/top-k-frequent-elements/ 
+
+How would you implement this?
+
+Note that, heap is a magical data structure. You can throw number number to it and then extract numbers in greater/smaller order without sorting.
+
+Now, remember https://leetcode.com/problems/lfu-cache/
+
+Can you use heap there as well?
     
