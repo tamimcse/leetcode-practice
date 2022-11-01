@@ -3,7 +3,7 @@ https://leetcode.com/problems/top-k-frequent-elements/
 */
 struct Cmp {
     bool operator()(pair<int, int> &p1, pair<int, int> &p2) {
-        return p1.second < p2.second;
+        return p1.second > p2.second;
     }    
 };
 
@@ -19,6 +19,8 @@ public:
         
         for (auto &e : hash) {
             pq.push(e);
+            if (pq.size() > k)
+                pq.pop();
         }
         
         for (int i = 0; i < k; i++) {

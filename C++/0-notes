@@ -1068,4 +1068,36 @@ Now, remember https://leetcode.com/problems/lfu-cache/
 Can you use heap there as well?
 
 No, there we needed to modify the count on the fly. Heap is not good for that (unless you create your own heap). In order to use heap, we have to have frequency of the element readily avaialable like https://leetcode.com/problems/top-k-frequent-elements/
-    
+
+Now, look at the following implementation. What's wrong with this? What is the runtime of the program?
+
+struct Cmp {
+    bool operator()(pair<int, int> &p1, pair<int, int> &p2) {
+        return p1.second < p2.second;
+    }    
+};
+
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> hash;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, Cmp> pq;
+        vector<int> res(k);
+        
+        for (auto e : nums)
+            hash[e]++;
+        
+        for (auto &e : hash) {
+            pq.push(e);
+        }
+        
+        for (int i = 0; i < k; i++) {
+            res[i] = pq.top().first;
+            pq.pop();
+        }
+        
+        return res;
+    }
+};
+
+Note that, we are creating a heap of size n. If we do that, cost of constructing the heap would be nlogn. So, no benefit. In order for the heap to be effective, the heap size should be k. Then insertion/deletetion will cost logk which is beneficial.    
