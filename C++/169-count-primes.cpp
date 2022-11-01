@@ -5,10 +5,10 @@ class Solution {
 public:
     int countPrimes(int n) {
         int k = sqrt(n), count = 0;
-        int *arr[] = new int[n]();
+        int *arr = new int[n]();
         
         for (int i = 2; i <= k; i++) {
-            m = i + i;
+            int m = i + i;
             while (m < n) {
                 arr[m] = 1;
                 m += i;
