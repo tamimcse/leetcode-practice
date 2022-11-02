@@ -1173,4 +1173,54 @@ Problem with this approach is how would you if the iterator has reach the end?
 
 You also need to store the person's id in the node so that you can get the list. Another approach would be not to use list. Implement your own Linkedlist. This is actaully better.
 
+57. https://leetcode.com/problems/subsets/
+
+How would you implemement this? 
+
+Note that, if you keep another vector to keep track, that's not right (will get TLE); why? In backtarcaking, if you have a same node again, you should use memorization. For this, you should use each state a vector. This is how we can implement it.
+
+struct HashFunc {
+    int operator()(const vector<int> &v) const {//<<<See we can use vector as a key. Don't forget the const, otherwise it will not work
+        long long sum = 0;
+        
+        for (auto e : v)
+            sum += e;
+        return sum;
+    }    
+};
+
+class Solution {
+    void subsets_inner(vector<int>& nums, 
+                       unordered_set<vector<int>, HashFunc> &us, vector<vector<int>> &res) {
+        int n = nums.size();
+        
+        if (us.count(nums))
+            return;
+        
+        res.push_back(nums);
+        us.insert(nums);
+        
+        if (n == 1)
+            return;
+        
+        for (int i = 0; i < n; i++) {
+            int tmp = nums[i];
+            nums.erase(nums.begin() + i);
+            subsets_inner(nums, us, res);
+            nums.insert(nums.begin() + i, tmp);//<<<This is how you can insert inside a vector
+        }
+    }
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> res;
+        vector<int> valid(n);
+        unordered_set<vector<int>, HashFunc> us;//<<<This is how you create a hash with custom function. YOu need 2 arguments, not 3
+        
+        res.push_back(vector<int>());//<<<This is how you can add an empty vector
+        subsets_inner(nums, us, res);
+        return res;
+    }
+};
+
         
