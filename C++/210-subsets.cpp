@@ -12,36 +12,24 @@ struct HashFunc {
 };
 
 class Solution {
-    vector<int> create_res(vector<int>& nums,
-                           vector<int>& valid) {
-        vector<int> res;
-        
-        for (int i = 0; i < nums.size(); i++) {
-            if (!valid[i])
-                res.push_back(nums[i]);
-        }
-        return res;
-    }
-    void subsets_inner(vector<int>& nums, vector<int>& valid,
-                       unordered_set<vector<int>, HashFunc> &us, 
-                       int count_dash, vector<vector<int>> &res) {
+    void subsets_inner(vector<int>& nums, 
+                       unordered_set<vector<int>, HashFunc> &us, vector<vector<int>> &res) {
         int n = nums.size();
         
-        vector<int> ret = create_res(nums, valid);
-        if (!us.count(ret)) {
-            res.push_back(ret);
-            us.insert(ret);
-        }
-            
-        if (count_dash == n - 1)
+        if (us.count(nums))
+            return;
+        
+        res.push_back(nums);
+        us.insert(nums);
+        
+        if (n == 1)
             return;
         
         for (int i = 0; i < n; i++) {
-            if (valid[i])
-                continue;
-            valid[i] = 1;
-            subsets_inner(nums, valid, us, count_dash + 1, res);
-            valid[i] = 0;
+            int tmp = nums[i];
+            nums.erase(nums.begin() + i);
+            subsets_inner(nums, us, res);
+            nums.insert(nums.begin() + i, tmp);
         }
     }
 public:
@@ -52,7 +40,7 @@ public:
         unordered_set<vector<int>, HashFunc> us;
         
         res.push_back(vector<int>());
-        subsets_inner(nums, valid, us, 0, res);
+        subsets_inner(nums, us, res);
         return res;
     }
 };
