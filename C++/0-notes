@@ -1225,4 +1225,13 @@ public:
 
 58. What is the difference between queue and dequeue?
 
-In deque, you add/delete from both front and back. In queue, you cannot delete from back. Note that, in queue, you have back() to access the back. But, you cannot delete it. 
+In deque, you add/delete from both front and back. In queue, you cannot delete from back. Note that, in queue, you have back() to access the back. But, you cannot delete it.
+
+59. How to initilize an array?
+
+class MyHashSet {
+    const static int size = 100;//<<It has to be cosnt static. Only const will not work. Also define it inside the class
+    Node *arr[size] = {NULL};//<<<You must initialize it. Ottherwise, it will have garbage value
+public:
+    MyHashSet() {
+    }
