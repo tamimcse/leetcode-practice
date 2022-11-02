@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/design-hit-counter/
+
+How can you make it scale such that it supports large number of hits per second? I know the way. Seem too trivial to implement. But, make sure you know it.
 */
 class HitCounter {
     queue<int> q;
