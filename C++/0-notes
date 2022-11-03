@@ -1255,7 +1255,11 @@ struct HashFunc {
 };
 unordered_set<pair<int, int>, HashFunc> visit;
         
-        
+61. https://leetcode.com/problems/minimum-knight-moves/
+
+How would you implement this?
+
+Will BFS scale?        
         
         
          
