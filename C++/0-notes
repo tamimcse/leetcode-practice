@@ -1235,3 +1235,27 @@ class MyHashSet {
 public:
     MyHashSet() {
     }
+    
+60. What's wrong with the code?
+
+struct HashFunc {
+    int operator()(const pair<int, int> &p) const {
+        return abs((p.first + p.second)) % 1000; //<<This will cause too many collision
+    }  
+};
+unordered_set<pair<int, int>, HashFunc> visit;        
+
+Better approach would be:
+
+
+struct HashFunc {
+    int operator()(const pair<int, int> &p) const {
+        return abs((p.first * p.second)) % 10000000;//<<< The keys are more spreadout
+    }  
+};
+unordered_set<pair<int, int>, HashFunc> visit;
+        
+        
+        
+        
+         
