@@ -1263,9 +1263,84 @@ Note that, there is a contstraint. How would you use that?
 
 I tend to use BFS. If the any nodes we visit exceeds the constrants, I prune those nodes. But, it's not right. Search can go outside of the constrained space, but come back to map properly.
 
-I also tend to consider A* search given my previous experience. But, can you do better? Bi-directional search!!!! Use bideirectional search instead of A* all the time!!! More intuitive.
+Will BFS scale? 
 
-Will BFS scale?        
+No.. I then also tend to consider A* search given my previous experience. But, can you do better? Bi-directional search!!!! Use bideirectional search instead of A* all the time!!! More intuitive.
+
+I then implemented bi-direcrectional search. But, I was getting TLE. Then I realized that I was doing BFS less efficieently. In BFS, I add a node. Then in queue, I extract a node from the queue. I check if it's visited. If it's already visited, then continue. Otherwise, mark it visited. And then expand all the edges of the node by adding them to the queue. We can make it little more efficienet by checking if the new adjacent node is already visited. If it's not aready visited, then add it to the queue.
+
+But, we can actually make BFS more efficient. When add the first node to the queue, also mark it visited before entering into the loop. In the loop, you simply extract the node, process it. Then add all the adjacent nodes to the queue if they are not already visited. Note that, when we are adding a node to the queue, we immemdiately mark it visited. So, we don't need to check if it's visited inside the top of the loop. The bidirectional search code is as follows:
+
+struct Node {
+    int x;
+    int y;
+    int level;
+    Node (int x_, int y_, int level_) {
+        x = x_;
+        y = y_;
+        level = level_;
+    }
+};
+
+struct HashFunc {
+    int operator()(const pair<int, int> &p) const {
+        return abs((p.first * p.second)) % 10000;
+    }  
+};
+class Solution {
+    int arr[8][2] = {{-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, 
+                  {1, -2}, {2, -1}, {2, 1}, {1, 2}};
+public:
+    int minKnightMoves(int x, int y) {
+        queue<Node> q1, q2;
+        unordered_map<pair<int, int>, int, HashFunc> visit1, visit2;
+        
+        q1.push(Node(0, 0, 0));
+        visit1[make_pair(0, 0)] = 0;//<<<mark it when adding to queue
+        q2.push(Node(x, y, 0));
+        visit2[make_pair(x, y)] = 0;//<<<mark it when adding to queue
+        while (!q1.empty() && !q2.empty()) {
+            Node n1 = q1.front();
+            q1.pop();
+            
+            Node n2 = q2.front();
+            q2.pop();
+                                    //<<<Note that, here we don't need to check if the node it visited or not. We know that it's already visited bc when we add it, we immediately mark it visited.   
+            auto it4 = visit2.find(make_pair(n1.x, n1.y));
+            if (it4 != visit2.end())
+                return n1.level + it4->second;
+            
+            auto it5 = visit1.find(make_pair(n2.x, n2.y));
+            if (it5 != visit1.end())
+                return n2.level + it5->second;
+            
+            for (int i = 0; i < 8; i++) {
+                int to_add_x = n1.x + arr[i][0];
+                int to_add_y = n1.y + arr[i][1];
+                int to_add_level = n1.level + 1;
+                auto itr = visit1.find(make_pair(to_add_x, to_add_y));
+                if (itr == visit1.end()) {//<<<<When we add the children, we check if it's already visited, if not, we add to the queue and mark it visited immediately
+                    q1.push(Node(to_add_x, to_add_y, to_add_level));
+                    visit1[make_pair(to_add_x, to_add_y)] = to_add_level;//<<<<Marking it visited immediately
+                }
+            }            
+            for (int i = 0; i < 8; i++) {
+                int to_add_x = n2.x + arr[i][0];
+                int to_add_y = n2.y + arr[i][1];
+                int to_add_level = n2.level + 1;
+                auto itr = visit2.find(make_pair(to_add_x, to_add_y));
+                if (itr == visit2.end()) {//<<<<When we add the children, we check if it's already visited, if not, we add to the queue and mark it visited immediately
+                    q2.push(Node(to_add_x, to_add_y, to_add_level));
+                    visit2[make_pair(to_add_x, to_add_y)] = to_add_level;//<<<<Marking it visited immediately
+                }
+            }
+        }
+        return 0;
+    }
+}; 
+
+
+Also, note how we implement         
         
         
          
