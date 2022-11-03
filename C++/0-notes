@@ -1343,7 +1343,51 @@ public:
 Also, note how we implement bidirectional search. In every ieration, we need to check if the current node exists in other set. Sometimes, I mistakenly write a loop on all the nodes of a visit hash and check if any of the element exists in the other group. This is very unefficient and unnecessary.
 
 
-Also note that, instead of using pair<int, int> as key, we can use string as a key (e.g. "0, 1"). That certainly makes code cleaner because you don't need to create custom hash. I thought I would get better performance with that. But, after trying, I didn't see performance improvement over pair<int, int>.        
+Also note that, instead of using pair<int, int> as key, we can use string as a key (e.g. "0, 1"). That certainly makes code cleaner because you don't need to create custom hash. I thought I would get better performance with that. But, after trying, I didn't see performance improvement over pair<int, int>.
+
+62. https://leetcode.com/problems/find-all-anagrams-in-a-string/
+
+How would you implememt this?
+
+In sliding window, I tend to think that, when we find a unmatch, we need to move start all the way to past end. But, that's not right. If we don't find a match, we should increase start one step only (if needed, look at my solution below). 
+
+Also, when sliding window shoud stop? 
+
+It should go until (end < size).
+
+Here, in each iteration, check the end. If we find a match, then increase the end. Otherwise increase the start.
+
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int m = s.length(), n = p.length(), start = 0, end = 0;
+        int hash[26] = {0};
+        vector<int> res;
         
+        for (int i = 0; i < n; i++) {
+            hash[p[i] - 'a']++;
+        }
+        
+        while (end < m) {//<<<See when sliding window should stop
+            if (hash[s[end] - 'a']) {//<<< If we find a match, end should be incremeneted
+                hash[s[end] - 'a']--;
+                if (end - start + 1 == n) {
+                    res.push_back(start);
+                    hash[s[start] - 'a']++;
+                    start++;
+                    end++;
+                } else {
+                    end++;    
+                }
+            } else {//<<< If we don't find a match, start should be incremented
+                hash[s[start] - 'a']++;
+                start++; 
+            }
+        }
+        return res;
+    }
+};        
+        
+63.        
         
          
