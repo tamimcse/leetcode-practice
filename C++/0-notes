@@ -1180,7 +1180,7 @@ How would you implemement this?
 Note that, if you keep another vector to keep track, that's not right (will get TLE); why? In backtarcaking, if you have a same node again, you should use memorization. For this, you should use each state a vector. This is how we can implement it.
 
 struct HashFunc {
-    int operator()(const vector<int> &v) const {//<<<See we can use vector as a key. Don't forget the const, otherwise it will not work
+    int operator()(const vector<int> &v) const {//<<<See we can use vector as a key. Don't forget the const, otherwise it will not work. Also don't forget the reference. Otherwise it will not work. I often forget those
         long long sum = 0;
         
         for (auto e : v)
