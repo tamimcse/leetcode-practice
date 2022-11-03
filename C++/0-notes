@@ -1306,11 +1306,11 @@ public:
             Node n2 = q2.front();
             q2.pop();
                                     //<<<Note that, here we don't need to check if the node it visited or not. We know that it's already visited bc when we add it, we immediately mark it visited.   
-            auto it4 = visit2.find(make_pair(n1.x, n1.y));
+            auto it4 = visit2.find(make_pair(n1.x, n1.y));//<<<bi-directional search. Check if cur node is in other set
             if (it4 != visit2.end())
                 return n1.level + it4->second;
             
-            auto it5 = visit1.find(make_pair(n2.x, n2.y));
+            auto it5 = visit1.find(make_pair(n2.x, n2.y));//<<<bi-directional search. Check if cur node is in other set
             if (it5 != visit1.end())
                 return n2.level + it5->second;
             
@@ -1340,7 +1340,7 @@ public:
 }; 
 
 
-Also, note how we implement         
+Also, note how we implement bidirectional search. In every ieration, we need to check if the current node exists in other set. Sometimes, I mistakenly write a loop on all the nodes of a visit hash and check if any of the element exists in the other group. This is very unefficient and unnecessary.        
         
         
          
