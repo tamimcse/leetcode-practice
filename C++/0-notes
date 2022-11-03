@@ -1340,7 +1340,10 @@ public:
 }; 
 
 
-Also, note how we implement bidirectional search. In every ieration, we need to check if the current node exists in other set. Sometimes, I mistakenly write a loop on all the nodes of a visit hash and check if any of the element exists in the other group. This is very unefficient and unnecessary.        
+Also, note how we implement bidirectional search. In every ieration, we need to check if the current node exists in other set. Sometimes, I mistakenly write a loop on all the nodes of a visit hash and check if any of the element exists in the other group. This is very unefficient and unnecessary.
+
+
+Also note that, instead of using pair<int, int> as key, we can use string as a key (e.g. "0, 1"). That certainly makes code cleaner because you don't need to create custom hash. I thought I would get better performance with that. But, after trying, I didn't see performance improvement over pair<int, int>.        
         
         
          
