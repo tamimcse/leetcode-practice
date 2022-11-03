@@ -1263,6 +1263,7 @@ Note that, there is a contstraint. How would you use that?
 
 I tend to use BFS. If the any nodes we visit exceeds the constrants, I prune those nodes. But, it's not right. Search can go outside of the constrained space, but come back to map properly.
 
+I also tend to consider A* search given my previous experience. But, can you do better? Bi-directional search!!!! Use bideirectional search instead of A* all the time!!! More intuitive.
 
 Will BFS scale?        
         
