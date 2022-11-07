@@ -1388,6 +1388,17 @@ public:
     }
 };        
         
-63.        
+63. https://leetcode.com/problems/coin-change/
+
+How would you solve this?
+
+Note that, it's easy to confuse backtracking with DP. DP is also a combinatorial optimization prolem. The main difference between the two is backtracking is not an optimization pronlem whearas DP is. If a problem is a potential DP, try implementing in a bottom-up fashion. That leads to the solution usually.
+
+
+DP can be only be applied if following two rules hold (typically you don't need to consider these while solving a problem): 
+
+Overlapping subproblem
+Principle of optimality - local oprtimal leads to gloabal optimal.
+        
         
          
