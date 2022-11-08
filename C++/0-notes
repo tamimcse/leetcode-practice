@@ -1399,6 +1399,14 @@ DP can be only be applied if following two rules hold (typically you don't need 
 
 Overlapping subproblem
 Principle of optimality - local oprtimal leads to gloabal optimal.
+
+64. https://leetcode.com/problems/coin-change-ii/
+
+How would you implement this?
+
+Will backtacking work? Note that, in backtracking will produce same resulst multiple time. For intsance, if coins = {1, 2, 5} and amount = 6. In backtracking, it will produce
+{1, 1, 1, 1, 2}, {1, 1, 1, 2, 1},... Problem is the are the same. So, backtracking doesn't work if multiple solution with different order actaully mean the same solution. One way to solve this is to store the result and check if a result is already added. However, this can be a very expensive solution because you need to sort the result before checking. Can you do better?
+
         
         
          
