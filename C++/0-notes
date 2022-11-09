@@ -1411,6 +1411,8 @@ Will backtacking work? Note that, in backtracking will produce same result multi
 {1, 1, 1, 1, 2}, {1, 1, 1, 2, 1},... Problem is the are the same. So, backtracking doesn't work if multiple solution with different order actaully mean the same solution. One way to solve this is to store the result and check if a result is already added. However, this can be a very expensive solution because you need to sort the result before checking. Can you do better?
 
 Yes, this is also a DP. This is an example of DP which is not an optimization problem.
+
+How would you formulate it in bottom-up fashion? Note that, if you do bottom up on amount, it will not work because it will include same solution multiple times? How about bottom-up on coin array. Add one coin at a time.
         
         
          
