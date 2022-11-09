@@ -1392,7 +1392,9 @@ public:
 
 How would you solve this?
 
-Note that, it's easy to confuse backtracking with DP. DP is also a combinatorial optimization prolem. The main difference between the two is backtracking is not an optimization pronlem whearas DP is. If a problem is a potential DP, try implementing in a bottom-up fashion. That leads to the solution usually.
+Note that, it's easy to confuse backtracking with DP. DP is also a combinatorial optimization prolem. Sometimes, I wrongly think that the main difference between the two is that DP is an optimizaion problem whearas backtracking is not. But, that is not true. DP doesn't necessarily have to be optimization problem. For instance, counting all possible combination can also be DP. We will see soon. 
+
+If a problem is a potential DP, try implementing in a bottom-up fashion. That leads to the solution usually.
 
 
 DP can be only be applied if following two rules hold (typically you don't need to consider these while solving a problem): 
@@ -1400,13 +1402,15 @@ DP can be only be applied if following two rules hold (typically you don't need 
 Overlapping subproblem
 Principle of optimality - local oprtimal leads to gloabal optimal.
 
-64. https://leetcode.com/problems/coin-change-ii/
+
+https://leetcode.com/problems/coin-change-ii/
 
 How would you implement this?
 
-Will backtacking work? Note that, in backtracking will produce same resulst multiple time. For intsance, if coins = {1, 2, 5} and amount = 6. In backtracking, it will produce
+Will backtacking work? Note that, in backtracking will produce same result multiple times. For intsance, if coins = {1, 2, 5} and amount = 6. In backtracking, it will produce
 {1, 1, 1, 1, 2}, {1, 1, 1, 2, 1},... Problem is the are the same. So, backtracking doesn't work if multiple solution with different order actaully mean the same solution. One way to solve this is to store the result and check if a result is already added. However, this can be a very expensive solution because you need to sort the result before checking. Can you do better?
 
+Yes, this is also a DP. This is an example of DP which is not an optimization problem.
         
         
          
