@@ -1413,6 +1413,8 @@ Will backtacking work? Note that, in backtracking will produce same result multi
 Yes, this is also a DP. This is an example of DP which is not an optimization problem.
 
 How would you formulate it in bottom-up fashion? Note that, if you do bottom up on amount, it will not work because it will include same solution multiple times? How about bottom-up on coin array. Add one coin at a time.
+
+Try formulatimng the DP. I found it really hard!!!
         
         
          

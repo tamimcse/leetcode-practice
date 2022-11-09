@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/coin-change-ii/
+
+I found this pronblem quite hard
 */
 class Solution {
 public:
