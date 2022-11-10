@@ -1415,6 +1415,14 @@ Yes, this is also a DP. This is an example of DP which is not an optimization pr
 How would you formulate it in bottom-up fashion? Note that, if you do bottom up on amount, it will not work because it will include same solution multiple times? How about bottom-up on coin array. Add one coin at a time.
 
 Try formulatimng the DP. I found it really hard!!!
+
+64. https://leetcode.com/problems/word-break/
+
+How would you implemement this?
+
+How would you handle word ="aaaaab", dictionary = ["a", "aa", "aaa", "aaaa"]?
+
+If you can't figure out, see my own solution.
         
         
          
