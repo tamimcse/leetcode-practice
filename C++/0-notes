@@ -1424,5 +1424,16 @@ How would you handle word ="aaaaab", dictionary = ["a", "aa", "aaa", "aaaa"]?
 
 If you can't figure out, see my own solution.
         
-        
-         
+64. Consider following class
+
+class Node{
+public:    
+    unordered_map<char, Node*> child;
+    bool is_leaf;
+};        
+
+Do you need to define a constructor? Do you need to set the boolean to false erxplicitly?
+
+No, if don't need to define a constructor. Compiler will provide a constructor for you.
+
+You also don't need to set the boolean to false. It will be set to false by compiler.          
