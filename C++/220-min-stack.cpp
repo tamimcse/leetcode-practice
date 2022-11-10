@@ -1,5 +1,5 @@
 /*
-https://leetcode.com/problems/max-stack/
+https://leetcode.com/problems/min-stack/
 */
 class MinStack {
     stack<int> s1;
