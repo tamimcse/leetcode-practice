@@ -1510,4 +1510,47 @@ int main ()
   return 0;
 }
 
-Note that, keys of map are unique. You cannot have same key with mutiple times.        
+Note that, keys of map are unique. You cannot have same key with mutiple times. If you need same key twice, you will need multimap which is similar to map. Example taken from Dr. Nesterenko's example:
+
+int main () {
+   multimap<char,int> myMM; //<<<<<<You can declare a multimap like a map
+   srand(time(nullptr));
+
+   for(int i=0; i < 10; ++i)
+      myMM.insert(make_pair('a'+ rand()%5, rand()%100));//<<<<You need to use this approach. [] operator will not work 
+
+   // myMM['a']=55; //<<<<< not allowed
+   
+   // print content
+   cout << "elements in myMM:" << endl;
+   for(const auto& e: myMM) //<<<<You can iterate multiplemap like a map
+      cout << e.first << "\t" << e.second << endl;
+
+   /*
+   
+   cout << "all elements in myMM with key 'a'" << endl;
+   for(auto it=myMM.lower_bound('a'); it != myMM.upper_bound('a'); ++it) ///<<<<<If you weant to iterate the all the keys associated with a key, use this approach
+      cout << it->first << '\t' << it->second << endl;
+
+   */
+   auto it = myMM.find('a');//<<<<If we want to delete only one <key, val> at a time, use following approach
+   
+   while (it != myMM.end()){
+      cout << "erasing " << it->first << '\t' << it->second << endl;
+      myMM.erase(it);//<<<<If we want to delete only one <key, val> at a time, use following approach
+      it = myMM.find('a');//<<<<If we want to delete only one <key, val> at a time, use following approach
+   }
+
+   
+   // erasing all elements with key 'b'
+   cout << myMM.erase('b') << endl;//<<<< Note that this will delete all the <key, val> with key 'b'
+   
+   
+   myMM.erase(myMM.lower_bound('c'), myMM.upper_bound('c'));//<<<< Note that this will delete all the <key, val> with key 'b'
+   
+   // print content
+   cout << "elements in myMM:" << endl;
+   for(const auto& e: myMM) 
+      cout << e.first << "\t" << e.second << endl; 
+   
+}        
