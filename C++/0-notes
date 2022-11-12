@@ -1659,4 +1659,18 @@ public:
     }
 };         
 
- 
+67. https://leetcode.com/problems/maximum-subarray/
+
+How would you implement this? Note that, this is typical DP problem, bause this is a typical combinatorial optimization problem. We can simply solve it via:
+
+
+
+--------------------
+|  A  |   B  |  C  |
+...................-
+|     |   B  |  C  |
+--------------------
+|     |      |  C  |
+--------------------
+
+But, can we do better?
