@@ -113,14 +113,11 @@ int max_value(string s) {
   
   for (auto &e : dp)
     e.resize(n);
-    
-  cout << "kutta\n";  
+
     
   for (int i = 0; i < n; i++) {
     dp[i][i] = eval(s[i*2] - '0', s[i*2+1], s[i*2+2] - '0');
   }
-  
-  cout << "here \n";
   
   for (int i = 0; i < n; i++) {
     for (int j = i + 1; j < n; j++) {
@@ -145,7 +142,7 @@ int max_value(string s) {
 }
 
 int main() {
-  string s = "1*3+3*5+5+5*6";
+  string s = "3+3*5+5+5*6";
   cout << max_value (s) << endl;
   printMinAndMaxValueOfExp(s);
 }
