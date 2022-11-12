@@ -1606,3 +1606,57 @@ public:
     }
 };
 
+66. https://leetcode.com/problems/wiggle-sort-ii/
+
+How would you implement this?
+
+I typically sort this. Then merge one left half and right half. If you do that, you will not get right result. For instance, for [4, 5, 5, 6], result would be [4, 5, 5, 6] which is not right. Right result would be [5, 6, 5, 5]. How can you achieve that output?
+
+I tried to find a different algorithm, but couldn't find. But, note that you have following situation:
+
+               C
+     B    B
+
+A 
+
+To make it to work, you need to make it to:
+
+
+     C
+B              B
+
+         A
+         
+So, acoording to that, my solution was:
+
+class Solution {
+public:
+    void wiggleSort(vector<int>& nums) {
+        int n = nums.size(), secord_part_size = n/2;
+        vector<int> res(n);
+        
+        sort(nums.begin(), nums.end());
+        for (int i = 0, j = n - secord_part_size, k = 0; k < n; i++, j++) {
+            res[k++] = nums[i];
+            if (k < n)
+                res[k++] = nums[j];
+        }
+
+        for (int i = 1; i < n; i++) {
+            if (res[i] == res[i-1]) {//<<<Rearranging if two consecutive elements are the same.
+                int a1 = res[i-2];
+                int a2 = res[i];
+                int a3 = res[i+1];
+                res[i-2] = a2;
+                res[i-1] = a3;
+                res[i] = a1;
+                res[i+1] = a2;
+                i = 0;///After doing it, start over because doing so can cause create the same problem elsewhere
+            }
+        }
+
+        nums = res;
+    }
+};         
+
+ 

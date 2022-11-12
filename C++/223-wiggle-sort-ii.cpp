@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/wiggle-sort-ii/
+
+No need to solve O(n) or O(1) space solution. O(nlogn) with additional space is fine.
 */
 class Solution {
 public:
