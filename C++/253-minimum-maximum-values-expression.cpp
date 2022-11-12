@@ -136,13 +136,12 @@ int max_value(string s) {
     cout << "\n";
   }  
   
-  cout << "here 1 \n";
-  
   return dp[0][n-1];
 }
 
 int main() {
-  string s = "3+3*5+5+5*6";
-  cout << max_value (s) << endl;
+  string s = "3*5+5+5*6";
+  int res = max_value (s);
+  cout << "My result = " << res << endl;
   printMinAndMaxValueOfExp(s);
 }
