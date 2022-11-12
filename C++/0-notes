@@ -1676,3 +1676,26 @@ How would you implement this? Note that, this is typical DP problem, bause this 
 But, can we do better?
 
 If you can't find the solution by yourself, look at the solution (either my solution or leetcode solution)
+
+68. What if you are asked to write a simple main function in C++?
+
+#include <iostream>//<<<
+#include <string>
+using std::cout;//<<<Declare each using separatly. Otherwise clang++ will produce worning
+using std::string;//<<<Declare each using separatly. Otherwise clang++ will produce worning
+using std::endl;//<<<Declare each using separatly. Otherwise clang++ will produce worning
+
+//using std::cout;using std::string;using std::endl;//<<<Dr.Nesterenko uses them in the same line. This is preferred
+
+int max_value(string s) {
+  return 1;
+}
+
+int main() {
+  string s = "1*3+3*5+5+5*6";
+  cout << max_value (s) << endl;
+}
+
+To compile: clang++ -std=c++11 <filename> //<<<<Use clang++
+
+
