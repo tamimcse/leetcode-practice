@@ -1710,4 +1710,33 @@ int main() {
 To compile: clang++ -std=c++11 <filename> //<<<<Use clang++
 
 
+69. https://www.geeksforgeeks.org/minimum-maximum-values-expression/
+
+How would you solve this?
+
+I know that this is Matrix chain multiplication problem. But, I don't remember how the problem is solved. I can view this as a typical combinatorial optimization problem. So, I may think that I will consider only one operator first. Then only 2 operators, then only 3 operators....finally all the operrators. So, I can build a DP array like:
+
+--------------------
+|  A  |   B  |  C  |
+...................-
+|     |   B  |  C  |
+--------------------
+|     |      |  C  |
+--------------------
+
+Here, I need to calculate the elements diagonally. I mistakenly implement in row/column-wise travarsal which gives me wrong result.
+
+I also make another big mistake. I calculate dp[i][j] based on dp[i][j-1] and dp[i+1][j]. But, it will not work. This will skip lots of possible solution space. Why? It means, for intsance, you are calculating dp[0][5] based on dp[0][4] and dp[1][4]. But, there are many other ways you can break dp[0][4]. 
+
+For instance, you can calculate [0, 4] based on:
+
+1. [0,0] [1,4]
+2. [0,1] [2,4]
+3. [0,2] [3,4]
+4. [0,3] [4,4]
+
+Yes, matrix chanin multiplication problem as a combinatorial optimization problem, but, you cannot simple calculate it based on dp[i][j-1] and dp[i+1][j]. For each entry, you need an inner loop to check all possible ways to break the range.
+
+
+
 

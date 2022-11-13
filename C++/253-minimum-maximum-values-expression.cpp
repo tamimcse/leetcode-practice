@@ -148,7 +148,7 @@ int max_value(string s) {
 }
 
 int main() {
-  string s = "1*3+3*5+5+5*6";
+  string s = "3+3*5+5+5*6";
   int res = max_value (s);
   cout << "My result = " << res << endl;
   printMinAndMaxValueOfExp(s);
