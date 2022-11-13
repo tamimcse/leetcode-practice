@@ -108,7 +108,20 @@ int eval (int a, char op, int b) {
 }
 
 int max_value(string s) {
-  int n = s.length()/2;
+  vector<int> operands;
+  vector<char> operators;
+  
+  for (int i = 0, start = 0; i < s.length(); i++) {
+    if (!isdigit(s[i])) {
+      operands.push_back(atoi(s.substr(start, i - start).c_str()));
+      operators.push_back(s[i]);
+      start = i + 1;
+    } else if (i == s.length() - 1) {
+      operands.push_back(atoi(s.substr(start).c_str()));
+    }
+  }
+  
+  int n = operands.size();
   vector<vector<int>> dp(n);
   
   for (auto &e : dp)
@@ -116,34 +129,24 @@ int max_value(string s) {
 
     
   for (int i = 0; i < n; i++) {
-    dp[i][i] = eval(s[i*2] - '0', s[i*2+1], s[i*2+2] - '0');
+    dp[i][i] = operands[i];
   }
   
   for (int m = 1; m < n; m++) {
     for (int i = 0, j = m; j < n; i++, j++) {
       dp[i][j] = INT_MIN;
-      //cout << i << " " << j << endl;
       for (int k = i, m = i + 1; k < j; k++, m++) {
-        cout << "k = " << k << " m = " << m << endl;
-        int e = eval (dp[i][k], s[k*2+3], dp[m][j]);
+        int e = eval (dp[i][k], operators[k], dp[m][j]);
 	dp[i][j] = max(dp[i][j], e);
       }      
     } 
-  }
-
-  cout << "DP = \n";
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) {
-        cout << dp[i][j] << " ";
-    }
-    cout << "\n";
   }   
   
   return dp[0][n-1];
 }
 
 int main() {
-  string s = "3+3*5+5+5*6";
+  string s = "3+3*5+5+5*6+4+6*7+2";
   int res = max_value (s);
   cout << "My result = " << res << endl;
   printMinAndMaxValueOfExp(s);
