@@ -1737,6 +1737,11 @@ For instance, you can calculate [0, 4] based on:
 
 So, Yes, matrix chanin multiplication problem as a combinatorial optimization problem, but, you cannot simply calculate it based on dp[i][j-1] and dp[i+1][j]. For each entry, you need an inner loop to check all possible ways to break the range. Now, how would you implement this?
 
+If you try to implemement an inner loop, you will see another problem. If you try to break by operator, you one operand will be in both part. So, you can't really btreak by operator. 
+You need to break by operand.
+
+
+
 
 
 

@@ -121,20 +121,15 @@ int max_value(string s) {
   
   for (int m = 1; m < n; m++) {
     for (int i = 0, j = m; j < n; i++, j++) {
-      int e1 = eval (dp[i][j-1], s[j*2+1], s[j*2+2] - '0');
-      int e2 = eval (dp[i+1][j], s[i*2+1], s[i*2] - '0');
-      dp[i][j] = max (e1, e2);      
+      dp[i][j] = INT_MIN;
+      //cout << i << " " << j << endl;
+      for (int k = i, m = i + 1; k < j; k++, m++) {
+        cout << "k = " << k << " m = " << m << endl;
+        int e = eval (dp[i][k], s[k*2+3], dp[m][j]);
+	dp[i][j] = max(dp[i][j], e);
+      }      
     } 
   }
-/*  
-  for (int i = 0; i < n; i++) {
-    for (int j = i + 1; j < n; j++) {
-      int e1 = eval (dp[i][j-1], s[j*2+1], s[j*2+2] - '0');
-      int e2 = eval (dp[i+1][j], s[i*2+1], s[i*2] - '0');
-      dp[i][j] = max (e1, e2);
-    }
-  }  
-*/
 
   cout << "DP = \n";
   for (int i = 0; i < n; i++) {
