@@ -119,6 +119,14 @@ int max_value(string s) {
     dp[i][i] = eval(s[i*2] - '0', s[i*2+1], s[i*2+2] - '0');
   }
   
+  for (int m = 1; m < n; m++) {
+    for (int i = 0, j = m; j < n; i++, j++) {
+      int e1 = eval (dp[i][j-1], s[j*2+1], s[j*2+2] - '0');
+      int e2 = eval (dp[i+1][j], s[i*2+1], s[i*2] - '0');
+      dp[i][j] = max (e1, e2);      
+    } 
+  }
+/*  
   for (int i = 0; i < n; i++) {
     for (int j = i + 1; j < n; j++) {
       int e1 = eval (dp[i][j-1], s[j*2+1], s[j*2+2] - '0');
@@ -126,21 +134,21 @@ int max_value(string s) {
       dp[i][j] = max (e1, e2);
     }
   }  
- 
- cout << "dp = \n";
-  
- for (int i = 0; i < n; i++) {
+*/
+
+  cout << "DP = \n";
+  for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      cout << dp[i][j] << " ";
+        cout << dp[i][j] << " ";
     }
     cout << "\n";
-  }  
+  }   
   
   return dp[0][n-1];
 }
 
 int main() {
-  string s = "3*5+5+5*6";
+  string s = "1*3+3*5+5+5*6";
   int res = max_value (s);
   cout << "My result = " << res << endl;
   printMinAndMaxValueOfExp(s);

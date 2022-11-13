@@ -1686,13 +1686,13 @@ If you can't find the solution by yourself, look at the solution (either my solu
 #include <iostream>//<<<
 #include <string>
 #include<algorithm>//<<<Note that, this is not <algorithms>. This includes STL algorithms. This doesn't include STL data structures like vector, list, etc. You will need to include them sdeparately
-#include <vector>//<<<You need to include them separately
+#include <vector>//<<<You need to include them separately (I mistakenly think that including algorithm includes it, but that's not right)
 #include <fstream>//<<< This is needed for file operatij
 #include <bits/stdc++.h>//<<<This is needed for INT_MAX,...
 
-using std::cout;//<<<Declare each using separatly. Otherwise clang++ will produce worning
-using std::string;//<<<Declare each using separatly. Otherwise clang++ will produce worning
-using std::endl;//<<<Declare each using separatly. Otherwise clang++ will produce worning
+using std::cout;//<<<Declare each using separatly. Otherwise clang++ will produce warning
+using std::string;//<<<Declare each using separatly. Otherwise clang++ will produce warning
+using std::endl;//<<<Declare each using separatly. Otherwise clang++ will produce warning
 using std::vector;
 using std::max;//<<<Note that, this is std::max()
 
