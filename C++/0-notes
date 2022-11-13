@@ -1789,6 +1789,9 @@ What is the differnece between this problem and https://leetcode.com/problems/ma
 Even if we implemented maximum-subarray as 2D DP array (which is unefficient and there is a better way), there we needed to iterate over all possible subset. So, we didn't need the inner loop. On the other hand, in this problem, we needed to break the solution in all possible ways. So, we needed inner loop. I think, this is the essense of matrix chain multiplication problem.
 
 
+Later, I checked the solution of this problem and matrix chain multiplication problem from geeksforgeeks. They are also using the same approach. So, no need to travarse the array in row/column fashion. Travarse it in diagonal fashion!!!!
+
+
 
 
 
