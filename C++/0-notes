@@ -1793,6 +1793,28 @@ Later, I checked the solution of this problem and matrix chain multiplication pr
 
 
 
+70. Can you do this?
+
+    stack<string> s1;
+    s1.push('a');
+    
+ No. you cannot do that.
+ 
+ You also cannot do:
+    s1.push("" + 'a');
+    
+You need to do:
+   string tmp;
+   tmp += 'a';
+   s1.push(tmp); 
+   
+Following will not also work:
+   string tmp = "" + 'a';
+   s1.push(tmp); 
+      
+
+
+
 
 
 
