@@ -916,6 +916,30 @@ You can always start from "pos + 1". But, when you reach string::npos, adding 1 
     }
 };  
 
+
+Can you do this?
+
+    stack<string> s1;
+    s1.push('a');
+    
+ No. you cannot do that.
+ 
+ You also cannot do:
+    s1.push("" + 'a');
+    
+You need to do:
+   string tmp;
+   tmp += 'a';
+   s1.push(tmp); 
+   
+Following will not also work:
+   string tmp = "" + 'a';
+   s1.push(tmp); 
+
+How to insert one string to the beginning of another string?
+
+
+
 46. How to initalize a vector? Can you initialize a vector of vector? Can you initialize in class declaration or you need to do it inside function? 
 
 You can all of these. You can do it as:
@@ -1793,24 +1817,7 @@ Later, I checked the solution of this problem and matrix chain multiplication pr
 
 
 
-70. Can you do this?
-
-    stack<string> s1;
-    s1.push('a');
-    
- No. you cannot do that.
- 
- You also cannot do:
-    s1.push("" + 'a');
-    
-You need to do:
-   string tmp;
-   tmp += 'a';
-   s1.push(tmp); 
-   
-Following will not also work:
-   string tmp = "" + 'a';
-   s1.push(tmp); 
+70. 
       
 
 
