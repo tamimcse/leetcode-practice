@@ -837,6 +837,10 @@ So, if you need to copy part of the string to another string, use "+".
 Also note that, Following is not allowed!!!! (I often try this). Dr. Nesterenko's slide mentioned this
 s = "Hello" + " world";//<<< You cannot apply "+" operartor on "Hello"
 
+You also cannot do:
+
+string s = 'a';
+
 
 Also, how would you create a string of size 9?
 
@@ -937,8 +941,11 @@ Following will not also work:
    s1.push(tmp); 
 
 How to insert one string to the beginning of another string?
-
-
+   
+     s.insert(0, "hello");//<<<Note here we need to set the index, not the iterator
+     
+Following will not work, but sometimes I mistakenly try it:     
+     s.insert(s.begin(), "hello");
 
 46. How to initalize a vector? Can you initialize a vector of vector? Can you initialize in class declaration or you need to do it inside function? 
 
