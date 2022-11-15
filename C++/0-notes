@@ -1874,6 +1874,14 @@ public:
 };
 
 
+71. https://leetcode.com/problems/decode-ways/
 
+How would you implement this?
+
+You will think of recursion....Now, think, if you can solve it in a bottom up (DP) manner. You will see that it's possible. Everytime you solve something using recursion, think if you can solve it using bottom-up manner (DP). DP implementation is usually cleaner and less error prone.
+
+Also, note that this is not an optimization problem. This is more like a combinatorial problem, but still DP can be applied.
+
+If you can't figure out the solution, look at my own solution.
 
 
