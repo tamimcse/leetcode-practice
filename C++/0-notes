@@ -1834,7 +1834,44 @@ Note that, here you can sort the string because strings with different string le
             return s1.length() < s2.length();
         });
       
+But, do we really need to sort the string? We can use frequency array as key in a hash:
 
+struct HashFunc {//<<<<<It should be struct. If you declare it as class, it will not work.
+    int operator()(const vector<int> &v) const {//<<<Note that we need make it cost for hash. Cost is not needed for writing CmpFunc for priority_queue
+        int sum = 0;
+        
+        for (auto e : v) {//<<<Hash function can be as trivial as this. This will work. But, results may not be the best
+            sum += e;
+        }
+        return sum;
+    }    
+};
+
+class Solution {
+    vector<int> calc_key(string s) {
+        vector<int> freq(26);
+        
+        for (int i = 0; i < s.length(); i++) {
+            freq[s[i]-'a']++;
+        }
+        return freq;
+    }
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> res;
+        unordered_map<vector<int>, vector<string>, HashFunc> hash;//<<<<<<Frequency of the characters as hash. We can use a vector as key.
+        
+        for (auto &e : strs) {
+            vector<int> key = calc_key (e);
+            hash[key].push_back(e);
+        }
+        
+        for (auto it = hash.begin(); it != hash.end(); it++) {
+            res.push_back(it->second);//<<<<You can add vector<string> in push_back
+        }
+        return res;
+    }
+};
 
 
 
