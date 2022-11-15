@@ -1824,7 +1824,15 @@ Later, I checked the solution of this problem and matrix chain multiplication pr
 
 
 
-70. 
+70. https://leetcode.com/problems/group-anagrams/
+
+How would you implement this?
+
+Note that, here you can sort the string because strings with different string lengths doesn't need to be checked. How can you sort the array of string based on string length?
+
+        sort(strs.begin(), strs.end(), [](string &s1, string &s2) {
+            return s1.length() < s2.length();
+        });
       
 
 
