@@ -1913,5 +1913,37 @@ I generally think like this. I will take first element as pivot. Then I would ha
         sortArray (nums, s + 1, end);
     }
 
-But, this will not work. //<<<<<<<<It's hard to implement it in two pointer approach. Can you implement it in one pointer approach?
+But, this will not work. //<<<<<<<<This is not the right way to implement two pointer approach. In two pointer, we should only update start/end only once in each iteration.
 
+I saw different ways to implememt partuition. They both use one and two pointer approach. For instance, this is a one pointer approach to do partition:
+
+https://www.geeksforgeeks.org/quick-sort/
+
+Based on the concept, I implememented, my own one pointer approach to partition, but it gets TLE. It's as following:
+
+    void sortArray(vector<int>& nums, int start, int end) {
+        int pivot_idx = start, idx_to_replace = start;
+        
+        if (end - start + 1 == 2) {
+            if (nums[end] < nums[start]) {
+                swap (nums[end], nums[start]);
+            }
+            return;
+        }
+        
+        if (end - start + 1 < 2)
+            return;
+        
+        for (int i = start + 1; i <= end; i++) {
+            if (nums[i] < nums[pivot_idx]) {
+                swap (nums[i], nums[idx_to_replace]);
+                if (idx_to_replace == pivot_idx) {
+                    pivot_idx = i;
+                }
+                idx_to_replace++;
+            }
+        }
+        swap(nums[idx_to_replace], nums[pivot_idx]);
+        sortArray (nums, start, idx_to_replace - 1);
+        sortArray (nums, idx_to_replace + 1, end);
+    }
