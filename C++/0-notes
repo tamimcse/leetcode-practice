@@ -1947,3 +1947,6 @@ Based on the concept, I implememented, my own one pointer approach to partition,
         sortArray (nums, start, idx_to_replace - 1);
         sortArray (nums, idx_to_replace + 1, end);
     }
+    
+    
+Note that, two pointer is more efficient than than one pointer approach because in one pointer approch, you may need to swap a node to pivot which actually in the right partion anyway, so not needed to be swapped. Two pointer approach actually makes more sense here.    
