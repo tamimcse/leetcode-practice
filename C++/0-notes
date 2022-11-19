@@ -1949,4 +1949,6 @@ Based on the concept, I implememented, my own one pointer approach to partition,
     }
     
     
-Note that, two pointer is more efficient than than one pointer approach because in one pointer approch, you may need to swap a node to pivot which actually in the right partion anyway, so not needed to be swapped. Two pointer approach actually makes more sense here.    
+Note that, two pointer is more efficient than than one pointer approach because in one pointer approch, you may need to swap a node to pivot which actually in the right partion anyway, so not needed to be swapped. Two pointer approach actually makes more sense here.
+
+Note that, in two pointer, implement in a way that only low or high index is updated at most once in each iteration.////<<<<<<<<<<<<<<<<<    
