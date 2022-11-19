@@ -1884,4 +1884,34 @@ Also, note that this is not an optimization problem. This is more like a combina
 
 If you can't figure out the solution, look at my own solution.
 
+72. https://leetcode.com/problems/sort-an-array/
+
+How would implement this?
+
+You can use quick sort or merge sort? How would you implememt both approach?
+
+For quick sort, how would you implement partition?
+
+I generally think like this. I will take first element as pivot. Then I would have two index, i = start + 1, j = end. Then I use two pointer approach. Any time, I find two elements one is bigger than pivot and another is smaller than pivot, I sawp them. Then I put the pivot to actual position. So, the implementation looks like:
+
+    void sortArray(vector<int>& nums, int start, int end) {
+        int pivot = start, s = start + 1, e = end;
+        
+        while (e > s) {
+            while (s <= e && nums[s] < nums[pivot])
+                s++;
+            while (e >= s && nums[e] > nums[pivot]) {
+                e--;
+            }
+            
+            if (e > s) {
+                swap(nums[s++], nums[e--]);
+            }
+        }
+        swap(nums[pivot], nums[s]);
+        sortArray (nums, start, s - 1);
+        sortArray (nums, s + 1, end);
+    }
+
+But, this will not work. //<<<<<<<<It's hard to implement it in two pointer approach. Can you implement it in one pointer approach?
 
