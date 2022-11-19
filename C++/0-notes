@@ -1890,6 +1890,14 @@ How would implement this?
 
 You can use quick sort or merge sort? How would you implememt both approach?
 
+What is the run time of quick sort?
+
+No, it's not O(nlogn). It's O(n^2). Why? If your pivot is really the smallest element of the the array, it will call quick sort for rest of the element. It will not divide the array into two almost equal part. So, worst case run time for quick sort is O(n^2), but average case run time is O(nlong).
+
+If you want quarnteed O(nlogn), you need to implement merge sort.
+
+But, try to implement this problem in both quick sort and merge sort (although quick sort will get TLE. Note that, you can check if the array is already sorted, and skip it altogether sorting. I tried that with quick sort. It still gets TLE. It's because if the array is mostly sorted, it will also result in poor performance.)
+
 For quick sort, how would you implement partition?
 
 I generally think like this. I will take first element as pivot. Then I would have two index, i = start + 1, j = end. Then I use two pointer approach. Any time, I find two elements one is bigger than pivot and another is smaller than pivot, I sawp them. Then I put the pivot to actual position. So, the implementation looks like:
