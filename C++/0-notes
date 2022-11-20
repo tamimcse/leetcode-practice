@@ -1967,7 +1967,7 @@ Note that, in two pointer, implement in a way that only low or high index is upd
         int pivot = nums[start];
         int low = start + 1, high = end;
        
-        while (low < high) {
+        while (low < high) {///<<<<<<< Note, as we update index at a time, when low == high, we can immediately stop.
             if (nums[low] < pivot) {
                 low++;
             } else if (nums[high] > pivot) {
