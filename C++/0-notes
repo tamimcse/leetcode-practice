@@ -1960,3 +1960,32 @@ Based on the concept, I implememented, my own one pointer approach to partition,
 Note that, two pointer is more efficient than than one pointer approach because in one pointer approch, you may need to swap a node to pivot which actually in the right partion anyway, so not needed to be swapped. Two pointer approach actually makes more sense here.
 
 Note that, in two pointer, implement in a way that only low or high index is updated at most once in each iteration.////<<<<<<<<<<<<<<<<<    
+
+    void sortArray(vector<int>& nums, int start, int end) {
+        if (end <= start)
+            return;
+        int pivot = nums[start];
+        int low = start + 1, high = end;
+       
+        while (low < high) {
+            if (nums[low] < pivot) {
+                low++;
+            } else if (nums[high] > pivot) {
+                high--;
+            } else {
+                swap (nums[low], nums[high]);
+                low++;
+                high--;
+            }
+        }
+        if (nums[low] > pivot)
+            low--;
+        swap (nums[start], nums[low]);
+        sortArray (nums, start, low - 1);
+        sortArray (nums, low + 1, end);
+    }
+    
+    
+But, as mentioned earlier, quick sort isn't the right solution for this problem.
+
+How would you implemengt merge sort?    
