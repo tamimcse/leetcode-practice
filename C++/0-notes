@@ -2031,3 +2031,42 @@ second part            first part
 second part            second part  
 
 Now you can formulate the binary search.
+
+
+73. https://leetcode.com/problems/jump-game/
+
+How would you implement this?
+
+BFS would work. Where would you check if you have reached the last index? 
+
+
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int n = nums.size(), cur;
+        queue<int> q;
+        vector<int> visit(n);
+        
+        if (n == 1)
+            return true;
+        
+        visit[0] = 1;
+        q.push(0);
+        while (!q.empty()) {
+            cur = q.front();
+            q.pop();
+            //if (cur == n - 1)////<<<<<<<Doing this causes TLE
+            //	return false;
+            for (int i = 1; i <= nums[cur]; i++) {
+                int to_jump = i + cur;
+                if (to_jump == n - 1)///<<<<<<This is the right place to check
+                    return true;
+                if (to_jump < n && !visit[to_jump]) {
+                    q.push(to_jump);
+                    visit[to_jump] = 1;
+                }
+            }
+        }
+        return false;
+    }
+};
