@@ -1994,3 +1994,40 @@ How would you implemengt merge sort? If you can't remember, look at my own solut
 72. https://leetcode.com/problems/search-in-rotated-sorted-array/
 
 How would you implement this?
+
+Here, I mistakenlt plot the points as:
+
+
+         A
+       A
+    A 
+  A
+A             
+              A
+                A
+                  A
+                  
+Actually, the plot should be:
+
+         A
+       A
+    A 
+  A
+A         
+    
+            A
+          A
+        A 
+        
+Now, you can see that there are two segments. I still had hard time formulating binary search for it.
+
+If start and end are in one segment, it's like ordinary binary search. But, if start and end span two line segments, then it's complicated. How would you formulate the condition? I tend to only consider mid, and based on that, I try to make a decision. That's wrong. There is another important criteria: target. So, there can be following situation:
+
+mid                    target
+-------------------------------------
+first part             first part
+first part             second part
+second part            first part
+second part            second part  
+
+Now you can formulate the binary search.
