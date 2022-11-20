@@ -2,6 +2,8 @@
 https://leetcode.com/problems/sort-an-array/
 
 Note that, quicksort is O(n^2), so you will get TLE (details would be found in note). You need to use merge sort. But, for practice, implement using both.
+
+Later, I found that even my merge sort implementation looks good, it still gets TLE!!!!!
 */
 
 

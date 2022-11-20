@@ -1988,4 +1988,4 @@ Note that, in two pointer, implement in a way that only low or high index is upd
     
 But, as mentioned earlier, quick sort isn't the right solution for this problem.
 
-How would you implemengt merge sort?    
+How would you implemengt merge sort? If you can't remember, look at my own solution.   
