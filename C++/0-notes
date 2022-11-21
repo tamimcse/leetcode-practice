@@ -2105,3 +2105,11 @@ public:
         return count;
     }
 };
+
+75. https://leetcode.com/problems/longest-common-subsequence/
+
+How would you implement this? I know that this is DP. But, think, how would you implement it without DP?
+
+This seems like applying backtracking on both string and check equality in each stage. This seems like extremely complicated alogirithm without DP. But, DP can help us to solve it very easily. Note that, if you encounter similar problem, it's likly to be DP as well.
+
+How would you implement it in DP? In DP, try to solve any problem in bottom up manner. If you can't, try to solve larger problem from smaller problem. I was able to solve it owbn my own without looking at the solution.  
