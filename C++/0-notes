@@ -946,6 +946,10 @@ How to insert one string to the beginning of another string?
      
 Following will not work, but sometimes I mistakenly try it:     
      s.insert(s.begin(), "hello");
+     
+Also, you cannot insert a character into a string. You need to convert the character to string before inserting  
+     chat c = 'a';
+     s.insert (0, c);//<<<<This doesn't work!!!!!!     
 
 46. How to initalize a vector? Can you initialize a vector of vector? Can you initialize in class declaration or you need to do it inside function? 
 
