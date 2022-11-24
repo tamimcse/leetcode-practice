@@ -330,6 +330,10 @@ Also, note that priority queue can have size as: pq.size()
 
 Note that, we generally don't create a heap of size n (I sometimes think of this). We create an empty heap and then add/delete elements to it.
 
+Also, pushing in priority queue is:
+
+pq.push(elem);///<<<Not pq.insert (). Sometimes I mistakenly think so
+
 32. https://leetcode.com/problems/validate-binary-search-tree/
 
 How would you implement this? It may look simple on the surface, but note that all the nodes in left subtree has to be smaller. Try to find the solution. Look at my solution if you can't find.
