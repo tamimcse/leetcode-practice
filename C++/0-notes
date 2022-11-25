@@ -2125,3 +2125,24 @@ How would you implement this? I know that this DP. If I had to implement it othe
 How would you formulate it in DP?
 
 Try to solve it in a bottom up fashion or try to solve larger problem from smaller problem. I was able to formulate DP without looking at the solution.  
+
+76. Note that, following will not work.
+
+int arr[] = {3, 4, 4, 6};
+
+It should be:
+
+int arr[4] = {3, 4, 4, 6};
+
+Also, C++ doesn't have exponent operator. So, following would not work:
+
+int a = 2^i;
+
+It should be:
+
+int a = pow (2, i);
+
+
+77. https://leetcode.com/problems/gray-code/
+
+How would you implement this? If can't figure, look at the leetcode solution and my solution.
