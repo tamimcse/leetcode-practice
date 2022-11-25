@@ -2180,4 +2180,8 @@ Yes, if you define a constructor, compiler will no longer provide the deafult co
  Test t;
  
  
- 79.
+ 79. How to append one vector 'b' to vector 'a'? Vector 'a' can be empty or non empty.
+ 
+ a.insert(a.end(), b.begin(), b.end());//<<<This will append 'b' to the end of 'a'. This will work even if 'a' is empty.
+ 
+ 
