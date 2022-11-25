@@ -2146,3 +2146,38 @@ int a = pow (2, i);
 77. https://leetcode.com/problems/gray-code/
 
 How would you implement this? If can't figure, look at the leetcode solution and my solution.
+
+78. If you define a constructor in C++, do you still implement deafult constructor to use it?
+
+Yes, if you define a constructor, compiler will no longer provide the deafult constructor. For instance, following will not work:
+
+ Class Test{
+    int a;
+    int b;
+    Test (int a_, int b_) {
+      a = a_;
+      b = b_;
+    }
+ }
+ 
+ Test t;//<<<It will invoke deafult constrctor which doen't exist.
+ 
+ Following will work:
+ 
+  Class Test{
+    int a;
+    int b;
+    Test () {//<<<<You need to define default constructor manually
+      a = 0;
+      b = 0;
+    }
+    Test (int a_, int b_) {
+      a = a_;
+      b = b_;
+    }
+ }
+ 
+ Test t;
+ 
+ 
+ 79.
