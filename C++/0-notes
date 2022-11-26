@@ -2233,5 +2233,27 @@ It will produce something like:
 |     |      |  C  |
 --------------------
 
-So, you can use the for loop a get all the subset of size 1, 2, 3...n. So, in those cases, you can use for loop for creating subset.        
+So, you can use the for loop a get all the subset of size 1, 2, 3...n. So, in those cases, you can use for loop for creating subset.
+
+I often try to solve https://leetcode.com/problems/maximum-product-subarray/ as follows. But it gets TLE!!!!
+
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int res = INT_MIN;
+        int n = nums.size();
+        int prod;
+        
+        for (int i = 0; i < n; i++) {
+            prod = nums[i];
+            res = max (prod, res);
+            for (int j = i + 1; j < n; j++) {
+                prod *= nums[j];
+                res = max (res, prod);
+            }
+        }
+        
+        return res;
+    }
+};        
          
