@@ -2256,4 +2256,7 @@ public:
         return res;
     }
 };        
-         
+
+Can you do it at O(n)? Then answer is probably you can and the answer would be DP, because this is a combinatorial optumization problem. Note that, the previous solution already looks like a DP bacuse it's creating a 2D array and checking all possible combination. How can you make it O(n) DP?
+
+If you can't figure out, note that, in DP, we calculate the solution in bottom up manner. So, try to visualize how the bottom up solution will look like. Visualize how the final solution can be calculated based on smaller solution. If still can't figure out, look at my own solution.        
