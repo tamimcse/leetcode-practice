@@ -2210,4 +2210,28 @@ Now, will this work for other situation?
 I found that the same rule holds if the rectangles are positioned differently. So, we can use the formula.
 
 
- 
+81. https://leetcode.com/problems/maximum-product-subarray/
+
+How would you implement it?
+
+Also, when can you implement combinatorial optimization using to a nested loop?
+
+Think about the following loop.
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                cout << "i = " << i << " j = " << j << endl; 
+            }
+        }
+It will produce something like:
+
+--------------------
+|  A  |   B  |  C  |
+...................-
+|     |   B  |  C  |
+--------------------
+|     |      |  C  |
+--------------------
+
+So, you can use the for loop a get all the subset of size 1, 2, 3...n. So, in those cases, you can use for loop for creating subset.        
+         
