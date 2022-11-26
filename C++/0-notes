@@ -2186,6 +2186,28 @@ Yes, if you define a constructor, compiler will no longer provide the deafult co
  
  80. https://leetcode.com/problems/rectangle-area/
  
- How would you implement this? If you can't figure out, take a look my own solution.
+ How would you implement this? If you can't figure out, take a look my own solution. There the idea is:
  
+ Here, main question is how can you find the points of intersection rectangle?
+ 
+ If a rectangle is like, how would you calculate the intersection point?
+ 
+          ----------------
+          |               |
+          |               |
+ -------------------      |
+ |        |        |      |
+ |        |        |      |
+ |        ---------|-------
+ |                 |
+ ------------------
+ 
+Bottom left of intersection would be: <max (ax1, bx1), max (ay1, by1)> (take maximum of the lower left)
+Top right of intersection would be: <min (ax2, bx2), min (ay2, by2)>  (take minimum of upper left)
+
+Now, will this work for other situation?
+
+I found that the same rule holds if the rectangles are positioned differently. So, we can use the formula.
+
+
  
