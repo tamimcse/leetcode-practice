@@ -2184,4 +2184,8 @@ Yes, if you define a constructor, compiler will no longer provide the deafult co
  
  a.insert(a.end(), b.begin(), b.end());//<<<This will append 'b' to the end of 'a'. This will work even if 'a' is empty.
  
+ 80. https://leetcode.com/problems/rectangle-area/
+ 
+ How would you implement this? If you can't figure out, take a look my own solution.
+ 
  
