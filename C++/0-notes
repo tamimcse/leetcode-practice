@@ -2259,4 +2259,46 @@ public:
 
 Can you do it at O(n)? Then answer is probably you can and the answer would be DP, because this is a combinatorial optumization problem. Note that, the previous solution already looks like a DP bacuse it's creating a 2D array and checking all possible combination. How can you make it O(n) DP?
 
-If you can't figure out, note that, in DP, we calculate the solution in bottom up manner. So, try to visualize how the bottom up solution will look like. Visualize how the final solution can be calculated based on smaller solution. If still can't figure out, look at my own solution.        
+If you can't figure out, note that, in DP, we calculate the solution in bottom up manner. So, try to visualize how the bottom up solution will look like. Visualize how the final solution can be calculated based on smaller solution. If still can't figure out, look at my own solution.
+
+82. https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+How would you implement this?
+
+At first, I think, I would use recursivly make pointers of childer to chield of children as:
+
+class Solution {
+    void connnect_sibling(Node* n1, Node* n2) {
+        Node *a, *b;
+        
+        if (!n1)
+            return;
+        n1->next = n2;
+        
+        queue<Node*> q;
+        if (n1 && n1->left)
+            q.push(n1->left);
+        if (n1 && n1->right)
+            q.push(n1->right);
+        if (n2 && n2->left)
+            q.push(n2->left);
+        if (n2 && n2->right)
+            q.push(n2->right);
+        
+        while (q.size() > 1) {
+            a = q.front(); 
+            q.pop();
+            b = q.front();
+            connnect_sibling (a, b);
+        }
+    }
+public:
+    Node* connect(Node* root) {
+        if (!root)
+            return root;
+        connnect_sibling (root->left, root->right);
+        return root;
+    }
+};
+
+But, this will not work!! This is because a child of a node may need to point to children of cousin. The above code will work for pointing to child of of siblings, but not for cousines. Now, how can you implement this?        
