@@ -2301,4 +2301,6 @@ public:
     }
 };
 
-But, this will not work!! This is because a child of a node may need to point to children of cousin. The above code will work for pointing to child of of siblings, but not for cousines. Now, how can you implement this?        
+But, this will not work!! This is because a child of a node may need to point to children of cousin. The above code will work for pointing to child of of siblings, but not for cousines. Now, how can you implement this?
+
+Level order travarsal...        
