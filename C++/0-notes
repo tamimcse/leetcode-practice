@@ -2408,4 +2408,26 @@ public:
 So, how can we implememt this. I then used brutforce approach and calculate tree-height for each node. We store the node and height in a priority_queue. That approach gets TLE.
 
 What would be the algorithm to find the root for MHT?
+
+85. Sometimes, I need to use queue of pairs. Code as following: it makes it simpler.
+
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        queue<pair<TreeNode*, int>> q;
+        vector<int> res;
+        int level;
+        TreeNode* n;
+        
+        if (!root)
+            return res;
+        
+        q.push(make_pair(root, 0));
+        while (!q.empty()) {
+            n = q.front().first;//<<<<Store the first and second to actual variable so that it makes more sense.
+            level = q.front().second;//<<<<Store the first and second to actual variable so that it makes more sense.
+            q.pop();
+            .....
+    }
+};
   
