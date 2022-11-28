@@ -2303,4 +2303,14 @@ public:
 
 But, this will not work!! This is because a child of a node may need to point to children of cousin. The above code will work for pointing to child of of siblings, but not for cousines. Now, how can you implement this?
 
-Level order travarsal...        
+Level order travarsal...      
+
+83. https://leetcode.com/problems/minimum-height-trees/
+
+How would you implememt this?
+
+Here, I think of using map<int, int> where each entry contains the frequency. I do this because I want to access the most frequent node first, then next most frequent and so on. So, will this work? 
+
+No!!! map<int, int> keeps key-value pairs sorted on key, not the value!!!!!! Here, I need access element in the order of their frequency. So, what can we do?
+
+We can simply sort them.   
