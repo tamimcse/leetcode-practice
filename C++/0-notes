@@ -2305,7 +2305,22 @@ But, this will not work!! This is because a child of a node may need to point to
 
 Level order travarsal...      
 
-83. https://leetcode.com/problems/minimum-height-trees/
+83. Suppose, you need to implement vector<pair<index(int), freq(int)>>. You need to sort it. How would you implement that?
+
+Instead of doing that, we can create another array of indices and sort that array based on the freq as:
+
+        vector<int> freq(n);//<<<<Actual frequncy
+        vector<int> indices(n);//<<<Create an additional array
+        
+        for (int i = 0; i < n; i++) {//<<<<Set the indices
+            indices[i] = i;
+        } 
+
+        sort(indices.begin(), indices.end(), [&](int a, int b) {//<<<Sort the indices based on the freqency
+            return freq[a] <= freq[b];
+        });
+
+84. https://leetcode.com/problems/minimum-height-trees/
 
 How would you implememt this?
 
