@@ -2450,4 +2450,41 @@ The solution is to use std::advance().
         auto it = us.begin();
         advance(it, idx);///<<<This will work. Note that, this is not "it.advance(idx)". I sometimes mistakenly think so.
         
+87. https://leetcode.com/problems/insert-delete-getrandom-o1/
+
+How would you implemement this?
+
+class RandomizedSet {
+    unordered_set<int> us;
+public:
+    RandomizedSet() {
+        srand(time(nullptr));//<<<<It has to be done only once. Doing this inside getRandom() will cause producing the same # again and again
+    }
+    
+    bool insert(int val) {
+        if (us.count(val) == 0) {
+            us.insert(val);
+            return true;
+        }
+        return false;
+    }
+    
+    bool remove(int val) {
+        if (us.count(val)) {
+            us.erase(val);
+            return true;
+        }
+        return false;
+    }
+    
+    int getRandom() {
+        int size = us.size();
+        int idx = rand() % size;///<<Get random number
+        auto it = us.begin();
+        advance(it, idx);///<<< advancing iterator
+        return *it;
+    }
+};
+        
+        
         
