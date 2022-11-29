@@ -2430,4 +2430,10 @@ public:
             .....
     }
 };
-  
+
+86. How would you generate random number?
+
+        srand(time(nullptr));///<<<<I forget about "time(nullptr)"
+        int rand_num = rand() % size; ///<<<< I forget that rand() generates a random number between 0 and RAND_MAX
+        
+These are taken from Dr. Nesterenko's example.
