@@ -2437,3 +2437,17 @@ public:
         int rand_num = rand() % size; ///<<<< I forget that rand() generates a random number between 0 and RAND_MAX
         
 These are taken from Dr. Nesterenko's example.
+
+
+87. How can you advance an iterator?
+
+For instance, following doesn't work
+	unordered_set<int> us;
+        auto it = us.begin();
+        it = it + idx;//<<<This will get compilation error.
+
+The solution is to use std::advance().
+        auto it = us.begin();
+        advance(it, idx);///<<<This will work. Note that, this is not "it.advance(idx)". I sometimes mistakenly think so.
+        
+        
