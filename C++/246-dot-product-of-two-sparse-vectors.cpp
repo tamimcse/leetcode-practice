@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/dot-product-of-two-sparse-vectors/
+
+Here, I used runlength encoding. But, there can be simplier solution like using hash<index, val> as mentioned in leetcode solution
 */
 class SparseVector {
 public:
