@@ -2523,4 +2523,8 @@ Isn't creating multiple copies of the vector expensive?
 Here, we are not actually creating a new copy of the vector. _v1 and _v2 will point the actual vector. If you change _v1 or _v2, actual vector will be changed. So, even though we are defineing an object in class, we are not creating separate copies.
 The class will need to create a separate copy of the vector            
         
-        
+90. https://leetcode.com/problems/multiply-strings/
+
+How would you implement this?
+
+I tend to use in ordernary integer fashion. But, note that, this will cause overflow even after using "long long". Right way to implement the logic keeping everything in string.       
