@@ -2527,4 +2527,10 @@ The class will need to create a separate copy of the vector
 
 How would you implement this?
 
-I tend to use in ordernary integer fashion. But, note that, this will cause overflow even after using "long long". Right way to implement the logic keeping everything in string.       
+I tend to use in ordernary integer fashion. But, note that, this will cause overflow even after using "long long". Right way to implement the logic keeping everything in string.
+
+91. https://leetcode.com/problems/serialize-and-deserialize-bst/
+
+How would you implememnt this?
+
+If you can't figure it out, look at my own solution.       
