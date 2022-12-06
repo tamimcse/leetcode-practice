@@ -2533,4 +2533,25 @@ I tend to use in ordernary integer fashion. But, note that, this will cause over
 
 How would you implememnt this?
 
-If you can't figure it out, look at my own solution.       
+If you can't figure it out, look at my own solution.
+
+92. https://leetcode.com/problems/detect-cycles-in-2d-grid/
+
+How would you implement this?
+
+DFS. How would you implement DFS?
+
+It seems that I was doing DFS inefficiently. Think about the graph. For instance, you start with A. Then you will visit B for instance. From B, you can visit C or A. How would you prevent from visit A from B? 
+
+  B----C
+ /      |
+A-------D
+
+YOu will mark A visited. But, that will not work, because at some point in D, you will come accross A again. How would you differentiate if it's cycle or you are just getting back from B?
+
+The trick is, for un-directed graph, you also need to keep track of the node you are visiting from. For instance, when visiting B, you also need to pass that it's coming from A. That way, it will know that, it should not visit A from B.
+
+
+
+
+You start with A. 
