@@ -863,6 +863,11 @@ tmp.erase(tmp_idx);//<<< Erase everything from tmp_idx to the end.
 s.erase(0, num_spaces);//<<<It will erase num_spaces spaces from index 0
 
 
+Sometimes, to erase one character, I write code like://<<<<<<<<<
+
+s.erase(i);//<<<<<<This will erase everything from index i to end!!!!!!!, so don't do that, unless that's what you want
+
+
 How to create substring? This is often used;
 
 string sub = s.substr(offset, len);
