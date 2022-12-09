@@ -2572,9 +2572,9 @@ Now, there are two problems:
 1. Is this really a DP?
 2. How would you formulate DP?
 
-Let's first assume that it's a DP. That is, we will try to solve the prblem using bottom-up approach. I was able to do that without looking at the solution.
+Let's first assume that it's a DP. That is, I will try to solve the prblem using bottom-up approach. I was able to do that without looking at the solution.
 
 How do you formulate it?
 
-It was not very clear in the beginning. In many problem, I try to visualize how top-down solution works on paper. From there, we can have a hint on how bottom-up solution would look like. Then, just draw a DP table and see if you can formulate the problem there. If you can, you got it.
+It was not very clear in the beginning. In many problem, I try to visualize how top-down solution works on paper. From there, I can have a hint on how bottom-up solution would look like. Then, I just draw a DP table and see if I can formulate the problem there. If I can, I got it.
 
