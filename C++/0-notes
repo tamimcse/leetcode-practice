@@ -2578,3 +2578,12 @@ How do you formulate it?
 
 It was not very clear in the beginning. In many problem, I try to visualize how top-down solution works on paper. From there, I can have a hint on how bottom-up solution would look like. Then, I just draw a DP table and see if I can formulate the problem there. If I can, I got it.
 
+94. How to delete all the consecutive '*' in a string?
+
+        for (int i = 1; i < p.length();) {
+            if (p[i] == '*' && p[i-1] == '*')
+                p.erase(i, 1);
+            else
+                i++;    
+        }
+This is taken from Dr. Nesterenko's approach.
