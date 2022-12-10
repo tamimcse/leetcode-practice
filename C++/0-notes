@@ -2587,3 +2587,11 @@ It was not very clear in the beginning. In many problem, I try to visualize how 
                 i++;    
         }
 This is taken from Dr. Nesterenko's approach.
+
+94. https://leetcode.com/problems/wildcard-matching/
+
+How would you implememt this?
+
+If you think, it's a recursion and likely be a DP problem like edit distance. How can you be sure if it's a DP and how to formulate the DP? 
+
+I was able to solve this without looking at the solution. First. I thought of how top-down approach will work. Then I had an idea how bottom up approach will work. Then I created a DP array and tried to solve the propblem on paper using DP table. If I can formulate on the table, then it's DP problem (no need to think about principle of optimality and overlapping subproblem).
