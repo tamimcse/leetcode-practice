@@ -2716,3 +2716,73 @@ So, solution is, don't mark it unvisited when backtrack. Instead mark it as a di
         return ret;
     }   
 
+
+96. https://leetcode.com/problems/course-schedule-ii/
+
+How would you implement this?
+
+This problem looks an extension of previous problem. We can simple implement a DFS to do that. Now, when in DFS would you add the course?
+
+When we reach at the end, we bracktack. And then we should add the course. Not when we visit a node. So, to find the actual result, we need to reverse it before returning.
+
+Now, think about it. Will it work for this graph?
+
+      ------------------
+      |                |
+      |                |
+      |                v
+a---->b------->c------>d         e
+      |        |                ^ ^
+      |        |                | |
+      |        ------------------ |
+      |                           |
+      -----------------------------     
+      
+It will work if we start with node a. But, it will not work if we start with node b or c. So, here we cannot start from arbitrary node in DFS. We missed this point in course-schedule problem. There also we cannot start from arbitrary node. That may result wrong result because for instance, if we start with c, c and c, d, e will be visited. So, when we start from a, those nodes (c, d, e) will not be considered which may for cycle. So, in directed grapg in DFS, we need to start from a node with indegree 0. So, the code should look like:
+
+class Solution {
+    void dfs (int numCourses, vector<vector<int>> &adj_list,
+              vector<int> &visit, int a, vector<int> &res, bool &iscycle) {
+        visit[a] = 1;
+        for (auto &e: adj_list[a]) {
+            if (visit[e] == 1) {
+                iscycle = true;
+                return;
+            }
+            if (visit[e] == 2)
+                continue;      
+            dfs(numCourses, adj_list, visit, e, res, iscycle);
+            if (iscycle)
+                return;
+        }
+        visit[a] = 2;
+        res.push_back(a);///<<<When backtracking, adding the node to result
+    }
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<int> res;
+        vector<vector<int>> adj_list(numCourses);
+        vector<int> visit(numCourses);
+        vector<int> indegress(numCourses);
+
+        for (auto &e : prerequisites) {
+            adj_list[e[1]].push_back(e[0]);
+            indegress[e[0]]++;
+        }
+
+        for (int i = 0; i < numCourses; i++) {
+            if (indegress[i] == 0 && visit[i] == 0) {////<<<<Only start from a node with indegree 0.
+                bool iscycle = false;
+                dfs(numCourses, adj_list, visit, i, res, iscycle);
+                if (iscycle)
+                    return vector<int>();
+            }
+        }
+        
+        if (res.size() != numCourses)
+            return vector<int>();
+
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
