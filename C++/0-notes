@@ -2779,10 +2779,24 @@ public:
             }
         }
         
-        if (res.size() != numCourses)
+        if (res.size() != numCourses)////<<<<Explained below
             return vector<int>();
 
         reverse(res.begin(), res.end());
         return res;
     }
 };
+
+
+Note that, starting only from 0 indegree node has other consequnces. For instance, think about the graph.
+
+   -->b------>C------>d
+  /                   |
+ /                    |
+/                     v   
+a<--------------------e
+
+
+Here, there is no node with indegree 0. So, these nodes will not be visited at all. That's why, in the solution we check if we visited all the nodes
+
+
