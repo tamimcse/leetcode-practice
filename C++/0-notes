@@ -2604,4 +2604,41 @@ I can implement this using checking cycle in DFS. However, implementing DFS can 
 
 For instance, in https://leetcode.com/problems/detect-cycles-in-2d-grid/ I had to implement DFS to detect the cycle in an undirected grapph. There the issue was how to you prevent DFS to go back to the previous node, because it's undirected graph. I carefully used direction there. Based on the direction, I don't go to the node where I came from.
 
+Now, we have a directed graph. So, we don't have that problem. Also, I used to implement DFS like a backtrcking solution where I don't return the result. This is not right. You can actually return the result. I found not retrurning the result is more easy, but it may lead to less readable code. So, return the result instaed as:
 
+class Solution {
+    bool is_cycle (int numCourses, vector<vector<int>> &adj_list,
+              vector<bool> &visit, vector<bool> &path, int a) {//<<<<<<<<<<
+        bool ret = false;
+        path[a] = true;
+        visit[a] = true;
+        
+        for (auto &e: adj_list[a]) {
+            if (visit[e])
+                return true;
+            ret = is_cycle(numCourses, adj_list, visit, path, e);
+            if (ret)
+                break;    
+        }
+        visit[a] = false;
+        return ret;
+    }
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int>> adj_list(numCourses);
+        vector<bool> visit(numCourses, false);
+        vector<bool> path(numCourses, false);
+
+        for (auto &e : prerequisites) {
+            adj_list[e[1]].push_back(e[0]);
+        }
+
+        for (int i = 0; i < numCourses; i++) {
+            if (!path[i]) {
+                if (is_cycle(numCourses, adj_list, visit, path, i))//<<<<DFS
+                    return false;
+            }
+        }
+        return true;
+    }
+}; 
