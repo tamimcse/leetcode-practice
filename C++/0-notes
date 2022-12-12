@@ -2642,3 +2642,59 @@ public:
         return true;
     }
 }; 
+
+
+
+Now DFS in directed graph has own set of challenges. In DFS, we simply mark a node visited and call DFS on its adjacent nodes. Now, will this work for following graph?
+
+     
+   -->b------>C------>d
+  /                   ^
+ /                    |
+/                     |   
+a-------------------->e
+
+
+Here, we will visit a, b, c, d and mark them visited. Then we will visit a, e and d and mistakenly call it cycle. But, it's not a cycle.
+
+
+To solve this prolem, when we backtracking from a node, we will mark it unvisited again. That way, when it visits a, e , d, it will not result in mistaken cycle. The code will look like:
+
+    bool is_cycle (int numCourses, vector<vector<int>> &adj_list,
+              vector<bool> &visit, int a) {
+        bool ret = false;
+        path[a] = true;//<<<<<<<<<<
+        
+        for (auto &e: adj_list[a]) {
+            if (visit[e])
+                return true;
+            ret = is_cycle(numCourses, adj_list, visit, path, e);
+            if (ret)
+                break;    
+        }
+        visit[a] = false;//<<<<<<<<
+        return ret;
+    }
+
+
+Now, this approach has another performance problem. Think about the graph:
+
+
+      ------------------
+      |                |
+      |                |
+      |                v
+a---->b------->c------>d         e
+      |        |                ^ ^
+      |        |                | |
+      |        ------------------ |
+      |                           |
+      -----------------------------        
+      
+Here, we will visit a, b, c, d , backtrack, e, backtrack, backtrack, d, backtrack, e  
+
+So, note that we are visiting d and e multiple times unncessarily. This causes TLE. But, if we mark a node unvisited, we have no way of knowing if we visited it before.
+
+
+So, solution is, don't mark it unvisited when backtrack. Instead mark it as a differet color. When visit node for the first time, mark it as 1. When backtracking from the node, mark it as 2. That way, we can distingush beteen the two situation.    
+
