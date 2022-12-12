@@ -2696,5 +2696,23 @@ Here, we will visit a, b, c, d , backtrack, e, backtrack, backtrack, d, backtrac
 So, note that we are visiting d and e multiple times unncessarily. This causes TLE. But, if we mark a node unvisited, we have no way of knowing if we visited it before.
 
 
-So, solution is, don't mark it unvisited when backtrack. Instead mark it as a differet color. When visit node for the first time, mark it as 1. When backtracking from the node, mark it as 2. That way, we can distingush beteen the two situation.    
+So, solution is, don't mark it unvisited when backtrack. Instead mark it as a differet color. When visit node for the first time, mark it as 1. When backtracking from the node, mark it as 2. That way, we can distingush beteen the two situation. The code should look like:
+
+    bool is_cycle (int numCourses, vector<vector<int>> &adj_list,
+              vector<int> &visit, int a) {
+        bool ret = false;
+        visit[a] = 1;  ///<<<<< mark it 1 for the first time
+        
+        for (auto &e: adj_list[a]) {
+            if (visit[e] == 1)//<<<<< It's one, that means we found a cycle because it's still under consideration
+                return true;
+            if (visit[e] == 2)///<<<<<If the node is 2, that means we already backtracked from the node, so don't need to visit agaian
+                continue;      
+            ret = is_cycle(numCourses, adj_list, visit, e);
+            if (ret)
+                break;   
+        }
+        visit[a] = 2;////<<<<<When backtracking (done with the node), mark it as 2 (dead)
+        return ret;
+    }   
 
