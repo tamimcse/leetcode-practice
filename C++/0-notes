@@ -2706,7 +2706,7 @@ So, solution is, don't mark it unvisited when backtrack. Instead mark it as a di
         for (auto &e: adj_list[a]) {
             if (visit[e] == 1)//<<<<< It's one, that means we found a cycle because it's still under consideration
                 return true;
-            if (visit[e] == 2)///<<<<<If the node is 2, that means we already backtracked from the node, so don't need to visit agaian
+            if (visit[e] == 2)///<<<<<If the node is 2, that means we already backtracked from the node, so don't need to visit again
                 continue;      
             ret = is_cycle(numCourses, adj_list, visit, e);
             if (ret)
