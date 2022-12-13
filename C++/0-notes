@@ -2890,7 +2890,14 @@ public:
 };
 
 
-       
+98. What's wrong with the code?
+
+if (nums[m] > (nums[k] * 2))
+
+
+It should be:
+
+if (nums[m] > ((long long)nums[k] * 2))       
 
 
 
