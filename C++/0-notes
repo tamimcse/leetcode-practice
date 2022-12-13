@@ -2799,4 +2799,99 @@ a<--------------------e
 
 Here, there is no node with indegree 0. So, these nodes will not be visited at all. That's why, in the solution we check if we visited all the nodes
 
+97. https://leetcode.com/problems/count-of-smaller-numbers-after-self/
+
+How would you solve this?
+
+Merge sort..How would you implement merge sort? What would be the base condition of merge sort?
+
+I typically think that, when array size is 2, then we should stop and sort it. But, it can be better. Base condition can be array size = 1. That means, when only one element, then 
+return. Merging logic will merge two arrays of size 1. ////<<<<<<<<
+
+How would you implement merging? Would you use in-place merging or allocate extra place?
+
+Let's think about in-place merging first. For instance, we need to merge this:
+
+[1   5   8]   [2 6 7]
+
+In in-place merging, it will work like:
+
+[1  5  7]     [2  6  8] ----> add count of 8 to 3
+[1  5  6]     [2  7  8] ----> add count of 7 to 2 /////<<<< But this is wrong. Here, 7 was in right array, then moved to left, and then move to right again. When it moves from left to right, we simply cannot add the count. That will be wrong. 
+
+This is why, in-place merging will not work (to my knowledge) for this problem.
+
+We need to create a temporary array and merge them. Now think again, how would you calculate the count in merging here (with temp array):
+
+A[1  5  7]     B[2  6  8]
+
+One solution can be: any time, a number moves from B to A's position, we can increment count of all the following elements of A. For instance, merging of A and B will look like:
+
+A[1  5  7]     B[2  6  8]
+
+Merging [1  2]  --> incremement count of 5 and 7 by 1. 
+
+Merging [1  2 5  6] ---> increment count of 7 by 1.
+
+This approach will work. But, we will need an inner loop to increment count of all the following elements of A. This will cause TLE. Can we do better?
+
+
+
+Yes, simply count how many times a number is moving from B to A. Every time you are merging a number from A, add that count to that index like:
+
+class Solution {
+    void countSmaller(vector<int>& nums, vector<int>& indices,
+                      int start, int end, vector<int> &res) {
+        int to_insert;                  
+        int mid = (start + end) >> 1;
+
+        if (start == end)////<<<<<<Base condition is array size 1
+            return;
+
+        countSmaller (nums, indices, start, mid, res);
+        countSmaller (nums, indices, mid + 1, end, res);
+
+        vector<int> tmp(end - start + 1);/////<<<Create a temporary array. Don't try to create one array and reuse it for merging evertime. It's probably not too 
+                                         //////expensive to create a temp array
+
+        int num_moves = 0;
+        for (int i = 0, j = start, k = mid + 1; i < end - start + 1; i++) {
+            if (j <= mid && k <= end) {
+                if (nums[indices[j]] <= nums[indices[k]]) {
+                    res[indices[j]] += num_moves;////<<<When you are merging a number from A, use the count
+                    tmp[i] = indices[j++]; 
+                } else {
+                    num_moves++;///////<<<<< When a number moves from B to A, increment the count.
+                    tmp[i] = indices[k++];
+                }
+            } else if (j <= mid) {
+                res[indices[j]] += num_moves;////<<<When you are merging a number from A, use the count
+                tmp[i] = indices[j++];
+            } else {
+                tmp[i] = indices[k++];
+            }
+        }
+        move(tmp.begin(), tmp.end(), indices.begin() + start);////<<<< This is how you can do something like memcpy()
+    }
+public:
+    vector<int> countSmaller(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<int> res(n);
+        vector<int> indices(n);///<<<Note that, we cannot modify the actual array. So, use this approach. I sometimes think of using hash for this, but don't do that.
+
+        for (int i = 0; i < n; i++)///<<<<Use index to sort the array
+            indices[i] = i;
+
+        countSmaller(nums, indices, 0, n - 1, res);
+
+        return res;
+    }
+};
+
+
+       
+
+
+
 
