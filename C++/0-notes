@@ -2855,7 +2855,7 @@ class Solution {
                                          //////expensive to create a temp array
 
         int num_moves = 0;
-        for (int i = 0, j = start, k = mid + 1; i < end - start + 1; i++) {
+        for (int i = 0, j = start, k = mid + 1; i < end - start + 1; i++) {//////<<<<Note that here, index should run from start-to-end,  not 0-to-n
             if (j <= mid && k <= end) {
                 if (nums[indices[j]] <= nums[indices[k]]) {
                     res[indices[j]] += num_moves;////<<<When you are merging a number from A, use the count
@@ -2897,8 +2897,78 @@ if (nums[m] > (nums[k] * 2))
 
 It should be:
 
-if (nums[m] > ((long long)nums[k] * 2))       
+if (nums[m] > ((long long)nums[k] * 2))////<<<<<This is very important to keep in mind
 
 
+99. https://leetcode.com/problems/reverse-pairs/  
 
+How would you implement this?     
+
+Merge sort. How would you implement this during merging?
+
+
+For instance, you have these two sorted arrays. How would you implement intended logic while merging?
+
+A[2, 7, 9]   B[3, 4, 10]
+
+
+I mistakenly think that, we need to implement the logic while merging logic. But, that's not necessarily true. You can implement the logic given you are given two sorted arrays. Then you can implement naive merging. ///////<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+Now, how would you implement the logic given you are given two sorted arrays?
+
+The solution I came up was, I will iterate both array from right to left. The steps are shown below.
+        i             j 
+A[2, 7, 9]   B[3, 4, 10]    A[i] > 2 * B[j] is false
+       
+        i         j
+A[2, 7, 9]   B[3, 4, 10]    A[i] > 2 * B[j] is true. count += 2
+
+     i            j
+A[2, 7, 9]   B[3, 4, 10]    A[i] > 2 * B[j] is false
+
+     i         j
+A[2, 7, 9]   B[3, 4, 10]    A[i] > 2 * B[j] is true. count += 1
+
+.....
+
+
+The code will look like:
+
+    void reversePairs(vector<int>& nums, int start, int end, int &count) {
+        int to_insert;                  
+        int mid = (start + end) >> 1;
+
+        if (start == end)
+            return;
+
+        reversePairs (nums, start, mid, count);
+        reversePairs (nums, mid + 1, end, count);
+
+        for (int i = end, j = mid; (i >= mid + 1) && (j >= start);) {////<<<<< Actual countining calculation based on the sorted arrays
+            if (nums[j] > (long long)nums[i] * 2) {
+                count += i - mid;
+                j--;
+            } else {
+                i--;
+            }
+        }
+
+        vector<int> tmp(end - start + 1);
+
+        for (int i = 0, j = start, k = mid + 1; i < end - start + 1; i++) {////<<<<< Actaul merging
+            if (j <= mid && k <= end) {
+                if (nums[j] < nums[k]) {
+                    tmp[i] = nums[j++]; 
+                } else {
+                    tmp[i] = nums[k++];
+                }
+            } else if (j <= mid) {
+                tmp[i] = nums[j++];
+            } else {
+                tmp[i] = nums[k++];
+            }
+        }
+        move(tmp.begin(), tmp.end(), nums.begin() + start);
+    }
 
