@@ -2900,6 +2900,27 @@ It should be:
 if (nums[m] > ((long long)nums[k] * 2))////<<<<<This is very important to keep in mind
 
 
+What's wrong with following code?
+
+if (prefix_sum[j] - prefix_sum[i] >= lower)
+
+It should be:
+
+if ((long long)prefix_sum[j] - prefix_sum[i] >= lower)
+
+
+Yes, simple addition and subtraction can also cause overflow.
+
+What's wrong with following code?
+
+int a = b + c;
+
+It should be:
+
+long long a = (long long)b + c;///<<<Note that, you need "long long" in both operation and destination
+
+
+
 99. https://leetcode.com/problems/reverse-pairs/  
 
 How would you implement this?     
