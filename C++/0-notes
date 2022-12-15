@@ -2972,3 +2972,39 @@ The code will look like:
         move(tmp.begin(), tmp.end(), nums.begin() + start);
     }
 
+100. https://leetcode.com/problems/range-sum-query-2d-immutable/
+
+How would you implement this?
+
+I initialially thought storing prefix sum would work. But, will it?
+
+We will need prefix sum, but it should contain different things. For instance, you are given following input. What would your prefix sum matrix look like? How would you calculate 
+range sum from there?
+
+--------------------------
+|  2  |   3  |  -1 |  -2  |
+...........................
+|  4  |   3  |  -2 |  5   |
+---------------------------
+|  1  |   2  |  3  |  4   |
+---------------------------
+|  -2  |  3  |  2  |  2   |
+---------------------------
+
+Each point i, j will contain sum of all the elements of submatrix (0,0) and (i,j) as following
+
+--------------------------
+|  2  |   5  |   4 |  2  |
+...........................
+|  6  |   12 |   9 |  11 |
+---------------------------
+|  9  |   15 |     |     |
+---------------------------
+|  7  |     |     |      |
+---------------------------
+
+
+Then you can use geometric concept to calculate range sum. If you can't find the solution, look at my own solution.
+
+
+Now, how would you calculate prefix sum of the matrix? Note that, it's easy to calculate prefix sum of all the elements from (0, 0) to (i,j). But, calculing prefix sum in submatrix can be tricky. But, we can calculate it like DP. First calculte the prefix sum of first column. Then  first row. Then based on left and up value, we can calculate the current value. For deatils, look at my own solution.
