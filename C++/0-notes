@@ -3008,3 +3008,25 @@ Then you can use geometric concept to calculate range sum. If you can't find the
 
 
 Now, how would you calculate prefix sum of the matrix? Note that, it's easy to calculate prefix sum of all the elements from (0, 0) to (i,j). But, calculing prefix sum in submatrix can be tricky. But, we can calculate it like DP. First calculte the prefix sum of first column. Then  first row. Then based on left and up value, we can calculate the current value. For deatils, look at my own solution.
+
+
+101. How to calculate prefix sum of an array?
+
+I tend to do this as:
+
+  int running_sum = 0;
+  for (int i = 0; i < n; i++) {
+    running_sum += nums[i];
+    prefix_sum[i] = running_sum;
+  }
+
+But, can you do it better?
+
+It can be better written as:
+
+        prefix_sum[0] = sums[0];
+        for (int i = 1; i < n; i++) {
+            prefix_sum[i] = prefix_sum[i-1] + nums[i]; 
+        }
+
+
