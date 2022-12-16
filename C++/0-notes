@@ -3078,7 +3078,26 @@ My implementation is getting TLE although same algorithm in C is working fine.
 Moral of the story: I tend to think that, when we need to count how many elements migrate from right partition to left partition, only then we use merge sort. But, that's not true.
 We can use merge sort for any application. When we need to iterate an array and the array is not sorted and our algorithm can be improved with sorted array, it's possible to use merge sort and apply our operation on the partition rather than the whole array.  
 
-103. https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+
+103. How to use inline_merge()? 
+
+Following example shows it.
+
+class Solution {
+    void countRangeSum (vector<long long> &prefix_sum, int start, int end, 
+                        int lower, int upper, int &count) {
+        int n = prefix_sum.size();
+        int mid = (start + end) >> 1;
+
+        if (start == end)
+            return;
+            
+        inplace_merge(prefix_sum.begin() + start, prefix_sum.begin() + mid + 1,/////<<<Start of the second part
+                      prefix_sum.begin() + end + 1);//<<<<<<<<<<<End of the second part + 1
+    }
+
+
+104. https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
 How would you implement it?
 
