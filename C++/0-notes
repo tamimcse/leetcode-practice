@@ -3050,7 +3050,35 @@ It can be better written as:
             prefix_sum[i] = prefix_sum[i-1] + nums[i]; 
         }
 
-102. https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+
+102. https://leetcode.com/problems/count-of-range-sum/
+
+How would you implememt this?
+
+I remember from memory that it's a merge sort, but how would you implement merge sort in this problem?
+
+Typical way to solve this problem is to create prefix sum array. Then, for each element, find the difference from other elements and check if the difference is in the range. This will require O(n^2). Can you do it better?
+
+The trick is, when we do merge sort, we have two partitions sorted. If partition are sorted, we don't need to check all the combination. For instance, we have two partitions:
+
+A[-2 0 3 5] B[-5 -1 0 4 5] Target range is [-4, 4]
+
+How would you find the count of range sum?
+
+
+I tend to find a O(n) solution, but that's not possible.
+
+For each element of A, find the smallest element in B for B[j] - A[i] >= lower. Also find the largest element in B for which B[k] - A[i] <= upper.
+Then, for A[i], the count += k - j + 1;
+
+This is how we can avoid serach the whole array.
+
+My implementation is getting TLE although same algorithm in C is working fine.
+
+Moral of the story: I tend to think that, when we need to count how many elements migrate from right partition to left partition, only then we use merge sort. But, that's not true.
+We can use merge sort for any application. When we need to iterate an array and the array is not sorted and our algorithm can be improved with sorted array, it's possible to use merge sort and apply our operation on the partition rather than the whole array.  
+
+103. https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
 How would you implement it?
 
