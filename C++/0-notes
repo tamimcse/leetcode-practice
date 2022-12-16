@@ -3050,4 +3050,16 @@ It can be better written as:
             prefix_sum[i] = prefix_sum[i-1] + nums[i]; 
         }
 
+102. https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+
+How would you implement it?
+
+I tend to think of using sliding window algorithm. But, is it the right solution?
+
+I tend to think that if I don't find a match, from where I would start looking in the 'pattern' string. But, is it the right solution?
+
+Later I figured out that this is not a sliding-window algorithm at all. In brut-force approach, we check the whole pattern for the each character of the haystack string. But, this is not right. Anytime we find a un-match, we can skip check for all the character that doesn't match the first character of the 'pattern'. This solution is accepted in leetcode.
+
+
+But, look carefully. This is same is native implememtation. In naive implementation, we also skip if it doesn't match the first character of the pattern. And naive solution is also accepted in leetcode.
 
