@@ -3071,7 +3071,7 @@ I tend to find a O(n) solution, but that's not possible.
 For each element of A, find the smallest element in B for B[j] - A[i] >= lower. Also find the largest element in B for which B[k] - A[i] <= upper.
 Then, for A[i], the count += k - j + 1;
 
-This is how we can avoid serach the whole array.
+This is how we can avoid serach the whole array. If needed, look at my own solution.
 
 My implementation is getting TLE although same algorithm in C is working fine.
 
