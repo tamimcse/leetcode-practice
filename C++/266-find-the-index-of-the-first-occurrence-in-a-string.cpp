@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
-Implement both naive solution and KMP. Note that, naive solution is also accepted by leetcode
+Implement both naive solution and KMP. Note that, naive solution is also accepted by leetcode. I didn't implement KMP, because it only improves certain kinds of pattren (where many substrings of patten are prefix of pattern)
 */
 class Solution {
 public:

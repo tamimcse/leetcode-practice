@@ -3063,3 +3063,33 @@ Later I figured out that this is not a sliding-window algorithm at all. In brut-
 
 But, look carefully. This is same is native implememtation. In naive implementation, we also skip if it doesn't match the first character of the pattern. And naive solution is also accepted in leetcode.
 
+
+Better solution in KMP algorithm. KMP algorithm is only good if the pattern string has lots of repeattative characters. If there is not much repeative characters, KMP will not provide any improvement. So, it may not make much sense.
+
+For instance, if pattern and string is as following: 
+
+AAAAAAAAbbbbbAAAAAAA -- pattern
+      ^ 
+      |
+AAAAAABAbBBBBAAAAAA  --- input text
+
+
+Here, we found an unmatch. In this case, naive approach would do as follows:
+
+ AAAAAAAAbbbbbAAAAAAA -- pattern
+ ^ 
+ |
+AAAAAABAbBBBBAAAAAA  --- input text
+
+
+KMP will instead do as following:    
+
+AAAAAAAAbbbbbAAAAAAA -- pattern
+     ^ 
+     |
+AAAAAABAbBBBBAAAAAA  --- input text
+
+
+Note that, KMP will be beneficial only of pattern has lots of substrings that can be prefix of the pattern. As this is such a unique characteristics, we don't implement KMP
+
+
