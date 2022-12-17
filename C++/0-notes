@@ -887,6 +887,8 @@ pos = s.find('.', start);//<<<This will start from index 'start'
 if (pos == string::npos)//<<<not that, this is string::npos, not s::npos. What is string::npos. This is actaully a static const int whose value is -1.
   cout << "The string was not found";
   
+I sometimes mistakely think that we can use substr() to find substr. Note the difference between substr() and find().!!!!////<<<<<<<<<<<<  
+  
 If you want to search multuple times in a string for example in https://leetcode.com/problems/compare-version-numbers/.
 
 You can always start from "pos + 1". But, when you reach string::npos, adding 1 will make it start searching from the beginning. So, idea is if you reach the end, you should start looking from index = length_of_the_string. For instance, this is the solution of the above problem:
