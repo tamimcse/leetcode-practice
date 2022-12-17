@@ -3343,6 +3343,13 @@ Now, try another approach. Find how many digits it needs. And use backtracking t
     
 Unfortunately this approach also get TLE.
 
+Why it's still getting TLE??????
+
+Note that, you are generating all possible strings first and then checking all of them. Do you really need that? 
+
+Everytime you generate a string, you can immediately check if it's a substring. If not, you can immediately tell that it's not a substring. That fixes the TLE error.
+
+
 
 105. https://leetcode.com/problems/clumsy-factorial/
 
