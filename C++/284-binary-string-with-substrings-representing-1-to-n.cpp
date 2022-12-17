@@ -81,3 +81,47 @@ public:
         return true;
     }
 };
+
+
+
+/**********This gets TLE ******************************************/
+class Solution {
+    vector<string> getBinStr(int n) {
+        vector<string> res;
+        queue<string> q;
+        string cur;
+
+        q.push("1");
+        int i = 0;
+        while (i < n) {
+            cur = q.front();
+            res.push_back(cur);
+            i++;
+            q.pop();
+            q.push(cur + "0");
+            q.push(cur + "1");
+        }
+
+        int max_len = res.back().length();///Remove all the numbers whose length is smaller
+        for (auto it = res.begin(); it != res.end();) {
+            if (it->length() < max_len) {
+                it = res.erase(it);
+            } else {
+                it++;
+            }
+        }
+        return res;
+    }
+public:
+    bool queryString(string s, int n) {
+        int m = s.length();
+        vector<string> pat = getBinStr(n);
+
+        for (auto &e : pat) {
+            cout << "e = " << e << endl;
+            if (s.find(e) == string::npos)
+                return false;
+        }
+        return true;
+    }
+};
