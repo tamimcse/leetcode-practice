@@ -3168,4 +3168,59 @@ AAAAAABAbBBBBAAAAAA  --- input text
 
 Note that, KMP will be beneficial only of pattern has lots of substrings that can be prefix of the pattern. As this is such a unique characteristics, we don't implement KMP
 
+105. https://leetcode.com/problems/binary-string-with-substrings-representing-1-to-n/
 
+How would you implement this?
+
+I found this problem difficult. Sometimes, I found problem difficcult because I try to over-optimize it. If it seems difficult, find a naive version first, then try to optimize it. Don't try to optimize it from the get go.
+
+Sometimes, it helps to avoid complexities if you know what can be done and what can't be done.
+
+For instance, we already know that there is no good solution to find sub string in a string (KMP only help in certain case). So, we know that, we have no scope of optimizing of checking all the substrings.
+
+So, we can try to optimize string generation from number. How can you generate bitstring of all the number from 1 to n?
+
+We can do it it a loop. If right-most bit of a number is 0, in next number, right-most bit will be 1.
+
+If right-most bit is 1, the we need to do as:
+
+10001000111 to 10001001000
+
+How can we do that?
+
+You can manually count how many 1's do you have in a loop. Can you do better?
+
+If      a = 10001000111
+       a+1= 10001001000
+-----------------------
+a ^ (a+1) = 00000001111
+
+From here, you simply can count show many 1's do you have. 
+
+The code looks like:
+
+    vector<string> getBinStr(int n) {
+        vector<string> res;
+        string s = "1";
+
+        res.push_back(s);
+        for (int i = 1; i < n; i++) {
+            if ((i & 1) == 0) {
+                s[s.length() - 1] = '1';
+            } else {
+                int num = ((i ^ (i + 1)) >> 1) + 1;
+                int count = log10(num) / log10(2);
+                if (s.length() == count) {
+                    s.insert(0, "1");
+                }
+                s[s.length() - count - 1] = '1';
+                for (int k = s.length() - count; k < s.length(); k++) {
+                    s[k] = '0';
+                }
+            }
+            res.push_back(s);
+        }
+        return res;
+    }
+    
+Unfortunately it still gets TLE.    
