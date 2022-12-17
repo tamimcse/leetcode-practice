@@ -3223,4 +3223,24 @@ The code looks like:
         return res;
     }
     
-Unfortunately it still gets TLE.    
+Unfortunately it still gets TLE. Another solution can be as follows:
+
+    vector<string> getBinStr(int n) {
+        vector<string> res;
+        queue<string> q;
+        string cur;
+
+        q.push("1");
+        int i = 0;
+        while (i < n) {
+            cur = q.front();
+            res.push_back(cur);
+            i++;
+            q.pop();
+            q.push(cur + "0");
+            q.push(cur + "1");
+        }
+        return res;
+    }
+    
+The idea is taken from https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/. Unfortunately, it also gets TLE        
