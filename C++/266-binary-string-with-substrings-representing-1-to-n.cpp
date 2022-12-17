@@ -182,3 +182,57 @@ public:
         return true;
     }
 };
+
+
+/******This works!!!!!!!*****************/
+class Solution {
+    void get_bitstr(int num_digits, string cur_str, string &s, bool &res) {
+        if (cur_str.length() == num_digits) {
+            if (s.find(cur_str) == string::npos) {
+                res = false;
+            }
+            return;
+        }
+        if (cur_str != "" && cur_str != "0")
+            get_bitstr(num_digits, cur_str + "0", s, res);
+        if (!res)
+            return;    
+        get_bitstr(num_digits, cur_str + "1", s, res);
+    }
+
+    string binary(int a) {
+        string s;
+        int res;
+
+        while (a) {
+            s += to_string(a % 2);
+            a = a/2;
+        }
+        reverse(s.begin(), s.end());
+        return s;
+    }
+
+    void getBinStr(int n, string &s, bool &res) {
+        int num_bit_digits = (log10(n) / log10(2)) + 1;
+
+        if ((n & (n+1))) {
+            while (((log10(n) / log10(2)) + 1) == num_bit_digits) {
+                if (s.find(binary(n)) == string::npos) {
+                    res = false;
+                    return;
+                }
+                n--;
+            }
+        }        
+        num_bit_digits = (log10(n) / log10(2)) + 1;
+        string cur_str;
+        get_bitstr (num_bit_digits, cur_str, s, res);
+    }
+public:
+    bool queryString(string s, int n) {
+        int m = s.length();
+        bool res = true;
+        getBinStr(n, s, res);
+        return res;
+    }
+};
