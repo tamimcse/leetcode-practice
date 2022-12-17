@@ -125,3 +125,60 @@ public:
         return true;
     }
 };
+
+
+/*******This solution also gets TLE******/
+class Solution {
+    void get_bitstr(int num_digits, string cur_str, vector<string> &res) {
+       // cout << "cur_str = " << cur_str << endl;
+        if (cur_str.length() == num_digits) {
+            res.push_back(cur_str);
+            return;
+        }
+        if (cur_str != "" && cur_str != "0")
+            get_bitstr(num_digits, cur_str + "0", res);
+        get_bitstr(num_digits, cur_str + "1", res);
+    }
+
+    string binary(int a) {
+        string s;
+        int res;
+
+        while (a) {
+            s += to_string(a % 2);
+            a = a/2;
+        }
+        reverse(s.begin(), s.end());
+        return s;
+    }
+
+    vector<string> getBinStr(int n) {
+        vector<string> res;
+        int num_bit_digits = (log10(n) / log10(2)) + 1;
+
+        if ((n & (n+1))) {
+            while (((log10(n) / log10(2)) + 1) == num_bit_digits) {
+                res.push_back(binary(n));
+                n--;
+            }
+        }
+        if (n == 0)
+            return res;    
+        num_bit_digits = (log10(n) / log10(2)) + 1;
+        string cur_str;
+        get_bitstr (num_bit_digits, cur_str, res);
+        return res;
+    }
+public:
+    bool queryString(string s, int n) {
+        int m = s.length();
+        vector<string> pat = getBinStr(n);
+
+        for (auto &e : pat) {
+           // cout << "e = " << e << endl;
+            if (s.find(e) == string::npos)
+                return false;
+        }
+        return true;
+    }
+};
