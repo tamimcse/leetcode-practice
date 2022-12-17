@@ -3359,4 +3359,7 @@ can you solve this using recursion?
 
 It seems so, but, if you write it as an equation on paper, and represent the equation a a function of itself, you can see that it's not possible. So, you need different approach. If you can't figure out the solution, take a look at my own solution.    
 
+106. https://leetcode.com/problems/binary-tree-maximum-path-sum/
+
+How would you solve this? If you can't figure out, look at my own solution.
 
