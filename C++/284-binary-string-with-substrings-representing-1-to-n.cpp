@@ -4,6 +4,8 @@ https://leetcode.com/problems/binary-string-with-substrings-representing-1-to-n/
 Actual problem was:
 
 https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/
+
+This is not an easy problem. Try to solved it in different ways.
 */
 
 
@@ -30,6 +32,40 @@ class Solution {
                 }
             }
             res.push_back(s);
+        }
+        return res;
+    }
+public:
+    bool queryString(string s, int n) {
+        int m = s.length();
+        vector<string> pat = getBinStr(n);
+
+        for (auto &e : pat) {
+            if (s.find(e) == string::npos)
+                return false;
+        }
+        return true;
+    }
+};
+
+
+/**********This gets TLE ******************************************/
+
+class Solution {
+    vector<string> getBinStr(int n) {
+        vector<string> res;
+        queue<string> q;
+        string cur;
+
+        q.push("1");
+        int i = 0;
+        while (i < n) {
+            cur = q.front();
+            res.push_back(cur);
+            i++;
+            q.pop();
+            q.push(cur + "0");
+            q.push(cur + "1");
         }
         return res;
     }
