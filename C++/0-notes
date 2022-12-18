@@ -3384,4 +3384,14 @@ As leetcode solution suggested, there can be at most 2 such nodes. Those nodes a
 
 One initial intuition is to calculate degrees of each node. Nodes with highest degree would be our result nodes. But, this may give us wrong result. In order to find correct result, find all the nodes that are on  the periphery of the tree and cut them. Repeat this process until you have 1 or 2 nodes left. This idea is taken from leetcode. Take a look at my own solution if it's not clear. 
 
+109. https://leetcode.com/problems/all-possible-full-binary-trees/
+
+How would you implememnt this?
+
+At first it may seem like backtarcking. But, can you really use backtracking?
+
+No, because you need to create a separate tree of every combination? How would you solve this? 
+
+If you can't figure it out, look at my own solution.
+
 
