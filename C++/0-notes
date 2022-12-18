@@ -3363,3 +3363,13 @@ It seems so, but, if you write it as an equation on paper, and represent the equ
 
 How would you solve this? If you can't figure out, look at my own solution.
 
+107. How to get the first element of a unordered_set?
+
+Following doesn't work for unordered_set (it works for vector):
+
+int a = us.front();
+
+Right solution is:
+
+int a = *us.begin();//////<<<<<Note that, you don't need to do *(us.begin())
+

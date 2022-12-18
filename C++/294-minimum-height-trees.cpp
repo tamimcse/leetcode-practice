@@ -42,3 +42,51 @@ public:
         return res;
     }
 };
+
+
+/*******This solution works ************/
+
+
+class Solution {
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        vector<unordered_set<int>> adj_list(n);
+        vector<int> res;
+
+        for (auto &e : edges) {
+            adj_list[e[0]].insert(e[1]);
+            adj_list[e[1]].insert(e[0]);
+        }
+
+        unordered_set<int> nodes;
+        for (int i = 0; i < n; i++) {
+            nodes.insert(i);
+        }
+        while (nodes.size() > 2) {
+            unordered_set<int> us;
+            int j;
+            for (auto it = nodes.begin(); it != nodes.end();) {
+                int i = *it;
+                if (us.count(i)) {
+                    it++;
+                    continue;
+                }
+                if (adj_list[i].size() == 1) {
+                    j = *adj_list[i].begin();
+                    adj_list[j].erase(i);
+                    adj_list[i].erase(j);
+                    us.insert(i);
+                    us.insert(j);
+                    it = nodes.erase(it);
+                } else {
+                    it++;
+                }
+            }
+        }
+
+        for (auto e : nodes) {
+            res.push_back(e);
+        }
+        return res;
+    }
+};
