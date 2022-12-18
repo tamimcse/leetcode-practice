@@ -1,8 +1,9 @@
 /*
 https://leetcode.com/problems/count-of-range-sum/
-
-I was getting TLE although same algorithm in C is working fine
 */
+
+
+/*********It was getting TLE********************************/
 class Solution {
     void countRangeSum (vector<long long> &prefix_sum, int start, int end, 
                         int lower, int upper, int &count) {
