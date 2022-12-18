@@ -3373,3 +3373,15 @@ Right solution is:
 
 int a = *us.begin();//////<<<<<Note that, you don't need to do *(us.begin())
 
+
+108. https://leetcode.com/problems/minimum-height-trees/
+
+How would you implememt this?
+
+You can implememnt a nieve solution where you can the height for each node as root. This will cause TLE. What would be an efficient solution for this problem?
+
+As leetcode solution suggested, there can be at most 2 such nodes. Those nodes are centroids (located center of the tree/graph). How can you find the nodes?
+
+One initial intuition is to calculate degrees of each node. Nodes with highest degree would be our result nodes. But, this may give us wrong result. In order to find correct result, find all the nodes that are on  the periphery of the tree and cut them. Repeat this process until you have 1 or 2 nodes left. This idea is taken from leetcode. Take a look at my own solution if it's not clear. 
+
+
