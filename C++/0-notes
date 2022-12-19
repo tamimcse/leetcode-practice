@@ -3413,4 +3413,26 @@ No, because you need to create a separate tree of every combination? How would y
 
 If you can't figure it out, look at my own solution.
 
+110. https://leetcode.com/problems/basic-calculator/
+
+How would you implememt this?
+
+For instance, you have this expression: 5 - 3 + 1
+
+Which direction (left-to-right or right-to-left) would you evaluate it? Does it really matter if you only have + and -?
+
+Yes, it matters. If you evaluate right to left, answer is 1. If you evaluate left to right, answer is 3. You  should evaluate from left to right.
+
+Now, how would you implement this?
+
+You can use stack. When you get ')', you need to evalaute everything you found so far from last '('. How can you do that?
+
+Can you evealuate this using this stack? 
+
+No, if you use this stack to evaluate it, you are evaluting it from right to left. But, you need to evaluate left to right.
+
+To do so, you need to put everything till last '(' into another stack. That way, your expression is reversed. Now, if you evaluate it, it will be left to right.
+
+
+Implementing -4 or -() also have some challenges. This is a quite tough problem. Look at the my own solution if needed.
 
