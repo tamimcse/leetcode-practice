@@ -3077,10 +3077,29 @@ I tend to find a O(n) solution, but that's not possible.
 For each element of A, find the smallest element in B for B[j] - A[i] >= lower. Also find the largest element in B for which B[k] - A[i] <= upper.
 Then, for A[i], the count += k - j + 1;
 
-This is how we can avoid serach the whole array. If needed, look at my own solution.
+This however gets TLE. How can I improve this?
 
-My implementation is getting TLE although same algorithm in C is working fine.
+For instance, 
 
+A[-2 0 3 5] B[-5 -1 0 4 5] Target range is [-4, 4]
+
+In the first iteration, it looks like following:
+
+A[-2 0 3 5] B[-5 -1 0 4 5] Target range is [-4, 4] Increment count += 3
+   ^           ^    ^
+               lo   hi
+For next element of A, do we really need to start from the beginning of B and end of B?
+
+No, for next element of A, we can start from the range we found in last iteration (lo, hi). This will avoid lots of checking. But, will it work?
+
+Not really. We can start from lo, but we cannot start from hi. This is because next element of A is higher than previous element. So, element higher than hi can also produce right solution. So, keeping track of hi and lo will not work. 
+
+How can we still solve it?
+
+We can keep track of lo and then count incrementally how many elements fall into the range. So the code will look like:
+
+
+          
 Moral of the story: I tend to think that, when we need to count how many elements migrate from right partition to left partition, only then we use merge sort. But, that's not true.
 We can use merge sort for any application. When we need to iterate an array and the array is not sorted and our algorithm can be improved with sorted array, it's possible to use merge sort and apply our operation on the partition rather than the whole array.  
 
