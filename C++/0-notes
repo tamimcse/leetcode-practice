@@ -3446,3 +3446,79 @@ It may seem that this is a recursion problem. But, if you notice carefully, recu
 
 If we want to perform some part of the computation before other, stack can be very useful. For instance, here we want to compute '*' or '/' before +/- (like clumsy factorial). So, we can execute those using stack. Then we will only have +/-. Then we can solve those without worrying about * or /.
 
+112. https://leetcode.com/problems/target-sum/
+
+How would you implement this?
+
+It's easy to think of this as backtracking problem as. For each element, try + and -. The code will look like:
+
+class Solution {
+    int calc_sum (vector<int>& nums, vector<char>& ops) {
+        int n = nums.size();
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += ops[i] == '+' ? nums[i] : -nums[i];
+        }
+        return sum;
+    }
+    void findTargetSumWays(vector<int>& nums, int target,
+                        vector<char>& ops, int idx, int &count) {
+        int n = nums.size();
+        if (idx == n) {
+            if (calc_sum (nums, ops) == target)
+                count++;
+            return;
+        }
+        ops[idx] = '+';
+        findTargetSumWays (nums, target, ops, idx + 1, count);
+        ops[idx] = '-';
+        findTargetSumWays (nums, target, ops, idx + 1, count);
+    }
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        vector<char> ops(nums.size());
+        int count = 0;
+
+        findTargetSumWays (nums, target, ops, 0, count);
+        return count;
+    }
+};
+
+
+But, it will get TLE. Can you do better?
+
+Do you really need to check all the combination and check the combination that work? Problem  with this approach it will produce all possible combination most of which are not useful.
+
+Can you only produce the combination  that are useful? 
+
+Start with target. For instance, target = 3 and input array A = [1, 1, 1, 1, 1]
+
+                        3
+                      /   \
+                    2      4 
+                   / \    / \
+                 1    3  3   5
+                 
+Here, we are using bottom up approach. From the target, we are backtracking towards the root. Note that, such bottom-up approch are often more efficient than top-down approach. This bottom-up approach is similar idea as DP, though we are not using DP. We can use backtracking to implement the bottom-up approach. The solution would look like:
+
+class Solution {
+    void findTargetSumWays(vector<int>& nums, int target, int idx, int &count) {
+        int n = nums.size();
+        if (idx == n) {
+            if (target == 0)
+                count++;
+            return;
+        }
+
+        findTargetSumWays (nums, target + nums[idx], idx + 1, count);
+        findTargetSumWays (nums, target - nums[idx], idx + 1, count);
+    }
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int count = 0;
+
+        findTargetSumWays (nums, target, 0, count);
+        return count;
+    }
+};                 
