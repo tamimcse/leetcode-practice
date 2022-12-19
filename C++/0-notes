@@ -3436,3 +3436,13 @@ To do so, you need to put everything till last '(' into another stack. That way,
 
 Implementing -4 or -() also have some challenges. This is a quite tough problem. Look at the my own solution if needed.
 
+111. https://leetcode.com/problems/basic-calculator-ii/
+
+How would you implement this?
+
+Note that this problem is easier than basic-calculator. 
+
+It may seem that this is a recursion problem. But, if you notice carefully, recursion will not work (like clumsy factorial problem). This problem can be solve using stack (like clumsy factorial).
+
+If we want to perform some part of the computation before other, stack can be very useful. For instance, here we want to compute '*' or '/' before +/- (like clumsy factorial). So, we can execute those using stack. Then we will only have +/-. Then we can solve those without worrying about * or /.
+
