@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/target-sum/
+
+Very interesting problem.
 */
 
 /********This gets TLE*************/
@@ -32,6 +34,30 @@ public:
         int count = 0;
 
         findTargetSumWays (nums, target, ops, 0, count);
+        return count;
+    }
+};
+
+
+/*********This solution works************/
+class Solution {
+
+    void findTargetSumWays(vector<int>& nums, int target, int idx, int &count) {
+        int n = nums.size();
+        if (idx == n) {
+            if (target == 0)
+                count++;
+            return;
+        }
+
+        findTargetSumWays (nums, target + nums[idx], idx + 1, count);
+        findTargetSumWays (nums, target - nums[idx], idx + 1, count);
+    }
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int count = 0;
+
+        findTargetSumWays (nums, target, 0, count);
         return count;
     }
 };
