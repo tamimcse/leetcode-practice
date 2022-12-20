@@ -3542,4 +3542,8 @@ Note that, if we can reach (1,1) from (0, 1) and (1, 0). Do we really need to co
 If we (1,1) already marked as a smaller value, we may skipping adding to BFS again. This also casues TLE. Can there be a better solution?
 
 
-Yes, you can easiy implement bottom-up DP like approach to solve this problem. If you can't  figure out the solution, take a look at my own solution. You will see the correct solution and the solution that gets TLE.                
+Yes, you can easiy implement bottom-up DP like approach to solve this problem. If you can't  figure out the solution, take a look at my own solution. You will see the correct solution and the solution that gets TLE.
+
+115. https://leetcode.com/problems/spiral-matrix/
+
+How would you implement this? If you can't figure out, take a look at my own solution.                
