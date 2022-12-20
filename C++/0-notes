@@ -3521,4 +3521,10 @@ public:
         findTargetSumWays (nums, target, 0, count);
         return count;
     }
-};                 
+};
+
+113. https://leetcode.com/problems/3sum-smaller/
+
+How would you implement this?
+
+Note that, I faced this problem in count-of-range-sum as sub problem. There I was getting TLE. But, my current solution works fine here. If you can't figure out the solution, take a look at my own solution.                
