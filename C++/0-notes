@@ -3556,4 +3556,10 @@ I found a pattern. It moves following number of moves in one direction:
 
 1, 1, 2, 2, 3, 3,...
 
-Based on this observaton, I implemented my solution. If you can't figure out, look at my own solution.                
+Based on this observaton, I implemented my solution. If you can't figure out, look at my own solution.
+
+117. https://leetcode.com/problems/pacific-atlantic-water-flow/
+
+How would you implement this?
+
+If you can't figure out the solution, look at my own solution.                
