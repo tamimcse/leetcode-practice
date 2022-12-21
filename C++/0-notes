@@ -3578,4 +3578,16 @@ Note that, typical DFS will visit same node multiple times. But, do you really n
 
 Also note that, here, we can come to a previsited node from a different path and we don't want to visit it again. So, we should use visit = 1 to make mark as active (on the path). When the node is finised visiting, mark it as 2 (dead). It also means that longest path from the node is calculated. 
 
+119. https://leetcode.com/problems/shortest-path-in-binary-matrix/
+
+How would you implemement this?
+
+This is BFS. From the question, I wasn't clear what the adjacent nodes would be. It shoud be all the 8 adjacent nodes.
+
+How would you implement visit here?
+
+I tend to use a hashset to implement visit. Even though it's possible, better solution is to use visit array.
+
+If you can't figure out the solution, look at my own solution.
+
                 
