@@ -3562,4 +3562,12 @@ Based on this observaton, I implemented my solution. If you can't figure out, lo
 
 How would you implement this?
 
-If you can't figure out the solution, look at my own solution.                
+If you can't figure out the solution, look at my own solution.
+
+Note that, here, during DFS, I didn't use visit array. In the past, we used visit array, we set visit of a node to 1 when visit for the first time. When we done with node, we set the visit = 2. But, we didn't do it here. Will that affect here?
+
+Here, we simply need to mark the nodes, from where water can come to see. Here, we don't don't need to worry about coming back to node using another path. So, we don't need visit.
+
+
+
+                
