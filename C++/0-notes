@@ -3568,6 +3568,14 @@ Note that, here, during DFS, I didn't use visit array. In the past, we used visi
 
 Here, we simply need to mark the nodes, from where water can come to see. Here, we don't don't need to worry about coming back to node using another path. So, we don't need visit.
 
+118. https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
 
+How would you implemement this?
+
+Clearly we can do DFS. Can we optimize it?
+
+Note that, typical DFS will visit same node multiple times. But, do you really need that. When you visit a node in DFS, you calculate the longest path from that node. So, we should store the result. Subsequently, if you come across the node, you can reuse the result.
+
+Also note that, here, we can come to a previsited node from a different path and we don't want to visit it again. So, we should use visit = 1 to make mark as active (on the path). When the node is finised visiting, mark it as 2 (dead). It also means that longest path from the node is calculated. 
 
                 
