@@ -3590,4 +3590,22 @@ I tend to use a hashset to implement visit. Even though it's possible, better so
 
 If you can't figure out the solution, look at my own solution.
 
+120. https://leetcode.com/problems/subarray-sum-equals-k
+
+
+How would you implememt this?
+
+You can naive approach, but it will take O(n^2). You can use prefixSum, but it will also take O(n^2). Can you make it better?
+
+Note that, this problem is very similar to count-of-range-sum. We can use the same merge-sort to implement this. The cost is O(nlogn). But, it still gets TLE. Can you do better?
+Say, O(n)?
+
+For every element of A[i], check if (A[i] - target) exists in the hash map. If yes, increment the count, otherwise simply add it to hashmap. The solution is taken from #4 at:
+
+https://leetcode.com/problems/subarray-sum-equals-k/solution/ 
+
+For implementation, you can take a look at my own as well. This is a very interesting problem!!!!!!!!!!
+
+
+
                 
