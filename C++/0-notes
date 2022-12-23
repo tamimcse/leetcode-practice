@@ -3607,5 +3607,18 @@ https://leetcode.com/problems/subarray-sum-equals-k/solution/
 For implementation, you can take a look at my own as well. This is a very interesting problem!!!!!!!!!!
 
 
+121. https://leetcode.com/problems/find-smallest-common-element-in-all-rows/
+
+How would you implement this?
+
+This is same as merging merge-k-sorted-lists. 
+
+Look at my own solution if you cannot figure it out.
+
+122. How can you know that unordered_map<int, int> has just one key-value pair?
+
+Yes, you can use hash.size().
+
+
 
                 
