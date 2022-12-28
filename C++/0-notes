@@ -3654,7 +3654,22 @@ This is BFS, right? Now, how would you find all possible paths? In word-ladder, 
 
 One approach can be keep track if we have found the shortest path. If we found the shortest path, and we are visiting path longer than the path, we can immediately stop.
 
-Now, can you do traditional BFS?
+Now, how to keep track of the path?
+
+In addition to keeping track of the current node, we also should keep the path in queue like:
+
+
+hit
+
+hit hot 
+hit hot  dot
+hit hot  lot
+hit hot  dot dog
+hit hot  lot log
+
+Note that, this approach requires a lot of copying!!!!!!
+
+Now, can you use traditional BFS?
 
 Think about the following tree:
 
