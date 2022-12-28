@@ -3644,6 +3644,26 @@ auto it = hash.find (key);
 if (it != hash.end())
   hash.erase (it->first);
   
+You can also do:
+
+unordered_set<string> copiedList
+copiedList.erase(copiedList.find(beginWord));////<<<<<<<<One line!!
+
+
+Can you do the same for vector? like as follows?
+
+      vector<string> wordList;
+      if (wordList.find(beginWord) == wordList.end())
+         wordList.push_back(beginWord);
+  
+No, vector doesn't have the find()!!!!!!!!!!///<<<<<<<<< Above code will not work
+
+But, you can do this!!!!
+
+        if (find (wordList.begin(), wordList.end(), beginWord) != wordList.end())
+            wordList.push_back(beginWord);  
+  
+  
 125. How can you initialize a set with vector?
 
 
