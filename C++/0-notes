@@ -3629,6 +3629,21 @@ If you can't figure out the solution, take a look at the solution.
 
 How would you implement this? If you can't figure out the solution, look at my own solution.
 
+124. If you need to delete elements from a list, which data structure would you use?
+
+Note that, delete is: search + earse. 
+
+So, vector will cost O(n) + O(n)
+    list will cost  O(n) + O(1)
+    hash will cost O(1) + O(1)
+    tree will cost O(long) + O(1)
+    
+So, you should use hash or tree. What would be the code?
+
+auto it = hash.find (key);
+if (it != hash.end())
+  hash.erase (it->first);
+
 
 
                 
