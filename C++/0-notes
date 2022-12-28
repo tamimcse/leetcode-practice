@@ -3644,11 +3644,18 @@ auto it = hash.find (key);
 if (it != hash.end())
   hash.erase (it->first);
   
-You can also do:
+Can you do the following?
 
 unordered_set<string> copiedList
-copiedList.erase(copiedList.find(beginWord));////<<<<<<<<One line!!
+copiedList.erase(copiedList.find(beginWord));////<<<<<<<<Wrong
 
+
+No, it will cause issue if find() returns end iterator. It should be:
+
+      if (copiedList.find(beginWord) != copiedList.end())
+            copiedList.erase(copiedList.find(beginWord));
+            
+Follow this convention. Don't use 'auto it'.            
 
 Can you do the same for vector? like as follows?
 
