@@ -3818,4 +3818,9 @@ public:
     }
 };
 
-                
+Why is it getting TLE?  One reason can be we are copying all possible paths which is expensive.
+
+
+In leetcode solution, it talks about BFS + backtarcking. This sounds like simple BFS to create a graph that starts with startWord and ends with endWord. It then simpple DFS to visit all possible path from endWord to startWord (they are calling it backtracing). Another leetcode solution talks about bi-directional search.
+
+Now, BFS + DFS makes sense, because it doesn't requires object copying. Let's try it.                 
