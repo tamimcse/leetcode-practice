@@ -3643,7 +3643,66 @@ So, you should use hash or tree. What would be the code?
 auto it = hash.find (key);
 if (it != hash.end())
   hash.erase (it->first);
+  
+125. https://leetcode.com/problems/word-ladder-ii/
 
+Very interstsing problem!!!
+
+How would you implement this?
+
+This is BFS, right? Now, how would you find all possible paths? In word-ladder, whenever we found the shortest path, we immediately stop. But, we cannot do that here. 
+
+One approach can be keep track if we have found the shortest path. If we found the shortest path, and we are visiting path longer than the path, we can immediately stop.
+
+Now, can you do traditional BFS?
+
+Think about the following tree:
+
+                               red
+                             /     \
+                          ted       rex
+                        /    \         \
+                 >>>>tex     tad        tex<<<<<
+                    /         /         /
+                  tax        tax       tax
+                  
+                  
+Here, in level 3, we have tex twice. In typical BFS, when we visit tex for the first time, we mark it as visited. We will not visit the second tex. But in this case, we need to visit both. How to do that? Also note that, if tex appears after level 3, we don't want visit it that time.
+
+So, we want to visit a node after the node is expanded.
+
+
+So, in typical BFS, do we do the following:
+
+q.insert(start);                                
+visit[start] = true;///<<<<<<<<<<<<<<<<<<<
+while (!q.empty()) {
+  int cur = q.front();
+  q.pop();
+  
+  for (auto e : adj[cur]) {
+    if (!visit[e]) {
+      q.push(e);
+      visit[e] = true;///<<<<<<<<<<<<<<<<<<<
+    }
+  }
+}
+
+But, here, we should do the following:
+
+q.insert(start);                                
+while (!q.empty()) {
+  int cur = q.front();
+  q.pop();
+  visit[cur] = true;///////<<<<<<Only visit it when expanding.
+  for (auto e : adj[cur]) {
+    if (!visit[e]) {
+      q.push(e);
+    }
+  }
+}
+
+Note here, previously, when visiting level 2, we were marking 'tex' as visited. Here, we are not. So, both 'tex' will be added to queue. Then 'tex' will be set visited twice, nothing wrong with that.
 
 
                 
