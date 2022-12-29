@@ -3845,7 +3845,46 @@ public:
     }
 };
 
-Why is it getting TLE?  One reason can be we are copying all possible paths which is expensive.
+Why is it getting TLE?  One reason can be we are copying all possible paths which is expensive. Another important reason is one directional BFS will create so many path that will not lead to endWord. For instance, in the previous figure, we only showed the nodes that will lead to endWord. But, following figure shows all the nodes BFS will explore:
+
+
+                               red
+                             /     \
+                          ted       rex
+                        /    \      /   \
+                     tex     tad   rox   tex
+                    /  \      /    |     /
+                  tax  ten  tax   box tax
+                  
+                  
+Note that, in naive BFS, the problem space will be too huge, but it doesn't need to be.
+
+How can we improve that?
+
+Bi-directional search.
+
+Can we use Bi-directional search here?
+
+No, there, we are not just finding any path. We need to find shortest path. How can we achive that?
+
+
+BFS + Backtracking
+
+Backtracking is simply start searching from the opposite direction. We can use BFS or DFS when searching in opposite direction (DFS makes more sense here). 
+
+So, the idea is we use BFS to find the shortest path. Along the way, we create a graph that we will travarse in the opposite direction.
+
+Once we reach the endWord, we can do DFS from endWord towards startWord. Note that, in this approch, all the unnecessary path in the previous picture that doesn't lead to endWord will not be considered!!!!!!!
+
+This is why, it will not result in TLE.
+
+
+
+
+DFS. BFS doesn't make much sense                   
+                  
+                  
+                  
 
 
 In leetcode solution, it talks about BFS + backtarcking. This sounds like simple BFS to create a graph that starts with startWord and ends with endWord. It then simpple DFS to visit all possible path from endWord to startWord (they are calling it backtracing). Another leetcode solution talks about bi-directional search.
