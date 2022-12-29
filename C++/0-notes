@@ -3778,95 +3778,9 @@ while (!q.empty()) {
 Note here, previously, when visiting level 2, we were marking 'tex' as visited. Here, we are not. So, both 'tex' will be added to queue. Then 'tex' will be set visited twice, nothing wrong with that.
 
 
-I implemented this as following. But, it gets TLE. Why is that?
+I implemented this as following. But, it gets TLE. Why is that?//////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-class Solution {
-    bool is_adjacent (string &s1, string &s2) {
-        int n = s1.length();
-        int count = 0;
-
-        if (s1 == s2)
-            return false;
-
-        for (int i = 0; i < n; i++) {
-            if (s1[i] != s2[i]) {
-                count++;
-                if (count > 1)
-                    return false;
-            }
-        }
-        return true;
-    }
-public:
-    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-        vector<vector<string>> res;
-        int start = -1, end;
-        int max_depth = -1;
-
-        for (int i = 0; i < wordList.size(); i++) {
-            if (wordList[i] == beginWord)
-                start = i;
-            if (wordList[i] == endWord)
-                end = i;
-        }
-        if (start == -1) {
-            wordList.push_back(beginWord);
-            start = wordList.size() - 1;
-        }
-
-        int n = wordList.size();
-
-        vector<vector<int>> adj_list (n);
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (is_adjacent (wordList[i], wordList[j])) {
-                    adj_list[i].push_back(j);
-                    adj_list[j].push_back(i);
-                }
-            }
-        }
-
-        queue<pair<int, int>> q;
-        vector<int> visit(n);
-        queue<vector<int>> res_q;
-
-        q.push(make_pair(start, 1));
-        res_q.push({start});
-        while (!q.empty()) {
-            int cur_word = q.front().first;
-            int level = q.front().second;
-            vector<int> cur_vec = res_q.front();
-            q.pop();
-            res_q.pop();
-            visit[cur_word] = true;/////<<<<Visit when expanding a node
-            for (int i : adj_list[cur_word]) {
-                if (max_depth > 0 && level > max_depth)
-                    return res;
-                if (visit[i])
-                    continue;    
-
-                if (i == end) {
-                    vector<string> tmp;
-                    for (int e : cur_vec) {
-                        tmp.push_back(wordList[e]);
-                    }
-                    tmp.push_back(endWord);
-                    res.push_back(tmp);
-                    max_depth = level;
-                    continue;
-                }
-                q.push(make_pair(i, level + 1));
-                vector<int> tmp = cur_vec;
-                tmp.push_back(i);
-                res_q.push(tmp);
-            }
-        }
-
-        return  res;
-    }
-};
-
-Why is it getting TLE?  One reason can be we are copying all possible paths which is expensive. Another important reason is one directional BFS will create so many path that will not lead to endWord. For instance, in the previous figure, we only showed the nodes that will lead to endWord. But, following figure shows all the nodes BFS will explore:
+One reason can be we are copying all possible paths which is expensive. Another important reason is one directional BFS will create so many path that will not lead to endWord. For instance, in the previous figure, we only showed the nodes that will lead to endWord. But, following figure shows all the nodes BFS will explore:///<<<<<<<<<<<<<<<<<<
 
 
                                red
@@ -3882,14 +3796,14 @@ Note that, in naive BFS, the problem space will be too huge, but it doesn't need
 
 How can we improve that?
 
-Bi-directional search.
+Bi-directional search.////<<<<<<<<<
 
 Can we use Bi-directional search here?
 
 No, there, we are not just finding any path. We need to find shortest path. How can we achive that?
 
 
-BFS + Backtracking
+BFS + Backtracking////<<<<<<<<<
 
 Backtracking is simply start searching from the opposite direction. We can use BFS or DFS when searching in opposite direction (DFS makes more sense here). 
 
@@ -3897,6 +3811,71 @@ So, the idea is we use BFS to find the shortest path. Along the way, we create a
 
 Once we reach the endWord, we can do DFS from endWord towards startWord. Note that, in this approch, all the unnecessary path in the previous picture that doesn't lead to endWord will not be considered!!!!!!!
 
-This is why, it will not result in TLE.
+This is why, it will not result in TLE. This approach is taken from leetcode approach 1.
 
+I implemented this approach as follows. This does not work. But, still take a look at the notes.///<<<<<<<<
+
+class Solution {
+    void dfs (string cur, unordered_map<string, vector<string>> &adj_list,
+              vector<string> &path, vector<vector<string>> &res, string &end) {
+        path.push_back(cur);
+        if (cur == end) {
+            vector<string> cur_path = path;
+            reverse(cur_path.begin(), cur_path.end());
+            res.push_back(cur_path);
+            path.pop_back();
+            return;
+        }
+        for (auto &e : adj_list[cur]) {
+            dfs (e, adj_list, path, res, end);
+        }
+        path.pop_back();
+    }
+public:
+    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
+        unordered_map<string, vector<string>> adj_list;//////<<<<You can also implement adjacency list as hash when your keys are string, not int (0-n)
+        queue<string> q;
+        unordered_set<string> visit;//////<<<<<<<Note that you can implement visit array as a set, if you don't know how many nodes you have
+        string cur;
+
+        q.push(beginWord);
+        while (!q.empty()) {
+            cur = q.front();
+            q.pop();
+            visit.insert(cur);//////<<<<Here we are marking as visited after popping from the queue
+            //cout << cur << " ";
+            for (auto &e : wordList) {
+                if (visit.count(e) || !is_adjacent(e, cur))
+                    continue;    
+                adj_list[e].push_back(cur);
+                cout << "Adding edge between " << e << " and " << cur << endl;
+                q.push(e);
+                if (e == endWord) {
+                    goto backtrack;
+                }
+            }
+        }
+
+backtrack:
+
+        while (!q.empty()) {
+            cur = q.front();
+            q.pop();
+            if (visit.count(cur) == 0 && is_adjacent(endWord, cur)) {
+                adj_list[endWord].push_back(cur);
+                visit.insert(cur);
+                cout << "Adding edge between " << endWord << " and " << cur << endl;
+            }
+        }
+        
+        vector<vector<string>> res;
+        vector<string> path;
+
+        dfs (endWord, adj_list, path, res, beginWord);
+        return res;
+    }
+};
+
+
+But, this also gives wrong result. Why?
               
