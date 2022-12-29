@@ -92,3 +92,95 @@ public:
         return  res;
     }
 };
+
+
+/**********This also gets TLE******************/
+class Solution {
+    unordered_map<string, vector<string>> adj_list;
+    vector<string> path;
+
+    bool is_adjacent (string &s1, string &s2) {
+        int n = s1.length();
+        int count = 0;
+
+        if (s1 == s2)
+            return false;
+
+        for (int i = 0; i < n; i++) {
+            if (s1[i] != s2[i]) {
+                count++;
+                if (count > 1)
+                    return false;
+            }
+        }
+        return true;
+    }
+    vector<string> findNeighbors(vector<string> &list, unordered_set<string> &visit,
+                                string node) {
+        vector<string> res;
+        for (int i = 0; i < list.size(); i++) {
+            if (visit.count(list[i]) == 0 && is_adjacent(list[i], node))
+                res.push_back(list[i]);
+        }
+        return res;
+    }
+
+    void dfs (string cur, string end, vector<vector<string>> &res) {
+        cout << cur << " ";
+        path.push_back(cur);
+        if (cur == end) {
+            reverse(path.begin(), path.end());
+            res.push_back(path);
+            reverse(path.begin(), path.end());
+            path.pop_back();
+            return;
+        }
+
+        for (auto &e : adj_list[cur]) {
+            dfs (e, end, res);
+        }
+        path.pop_back();
+    }
+public:
+    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
+        if (find(wordList.begin(), wordList.end(), beginWord) == wordList.end())
+            wordList.push_back(beginWord);
+        queue<pair<string, int>> q;
+        string cur_str;
+        int cur_lev;
+        unordered_set<string> visit;
+        
+        int max_depth = -1;
+        q.push(make_pair(beginWord, 1));
+        while (!q.empty()) {
+            cur_str = q.front().first;
+            cur_lev = q.front().second;
+            q.pop();
+            if (visit.count(cur_str))
+                continue;
+            vector<string> neigh = findNeighbors (wordList, visit, cur_str);
+            for (auto e : neigh)
+                adj_list[e].push_back(cur_str); 
+            visit.insert(cur_str);
+            cout << cur_str << endl;
+            bool found_end = false;
+            for (auto &e : neigh) {
+                if (e == endWord) {
+                    found_end = false;
+                    break;
+                }
+                cout << "Pushing " << e << endl;        
+                q.push(make_pair(e, cur_lev + 1));
+            }
+            if (found_end)
+                break;
+        }
+
+        vector<vector<string>> res;
+        
+        cout << "DFS = ";
+
+        dfs (endWord, beginWord, res);
+        return  res;
+    }
+};
