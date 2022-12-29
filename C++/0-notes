@@ -3899,15 +3899,4 @@ Once we reach the endWord, we can do DFS from endWord towards startWord. Note th
 
 This is why, it will not result in TLE.
 
-
-
-
-DFS. BFS doesn't make much sense                   
-                  
-                  
-                  
-
-
-In leetcode solution, it talks about BFS + backtarcking. This sounds like simple BFS to create a graph that starts with startWord and ends with endWord. It then simpple DFS to visit all possible path from endWord to startWord (they are calling it backtracing). Another leetcode solution talks about bi-directional search.
-
-Now, BFS + DFS makes sense, because it doesn't requires object copying. Let's try it.                 
+              
