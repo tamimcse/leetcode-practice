@@ -3681,7 +3681,28 @@ unordered_set<int> us (v.begin(), v.end());/////<<<<<<<
 
 Yes, std::move() does shallow copy. So, it's more efficient.   
   
-127. https://leetcode.com/problems/word-ladder-ii/
+127. Where do you check if you have reached the end of BFS? You can do it at the beginning of while loop after popping the item from queue. You can also do it in the for loop when expanding. Which one is better? For instance, you can do it in following positions:
+
+q.insert(start);                                
+visit[start] = true;
+while (!q.empty()) {
+  int cur = q.front();
+  q.pop();
+  ///<<<<<<<<You can check if you have reach the end
+  for (auto e : adj[cur]) {
+      ///<<<<<<<<You can check if you have reach the end
+    if (!visit[e]) {
+      q.push(e);
+      visit[e] = true;
+    }
+  }
+}
+
+Which one would be better?
+
+You should do it in the for loop (the second one). When  you reach the node, you should immediately say that you reached the end. The first place (after popping the item from queue) is inefficient. You are adding the nodes to the queue. The the node will be popped from the queue. So, you are adding one extra level of items to the queue which is not very efficient. In case of large tree, one extra level can add a lot of extra nodes. 
+  
+128. https://leetcode.com/problems/word-ladder-ii/
 
 Very interstsing problem!!!
 
