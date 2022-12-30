@@ -3928,4 +3928,84 @@ If you can't figure this out, take a look at my own implementation.
 
 130. https://leetcode.com/problems/add-two-numbers-ii/
 
-How would you implement this? If you can't figure it out, look at my own solution.         
+How would you implement this? If you can't figure it out, look at my own solution.
+
+131. https://leetcode.com/problems/sum-of-two-integers/
+
+How would you implememt this?
+
+I typically use binary addition algorithm. But, will it work?
+
+
+For instance, if a = 15, b = -20, will it work?
+
+No, binary addition will treat -20 as a positive #. So, it will not work.
+
+How to solve this?
+
+If one number is positive and another is negative, you need implement binary subtraction algorithm as well.
+
+Now, can the binary subtraction alkgorithm handle situtation like a = 5 , b = -8?
+
+No, the result is negative. So, the algorithm will keep having borrow as 1. So, you need to handle the case manually and stop when  you reach position 64. If you try to shift more than 64, the program will crash.
+
+
+The code will look like:
+
+class Solution {
+    int add (int a, int b) {
+        long long sum = 0, carry = 0;
+        long long lsb1, lsb2, bit_pos = 0, res;
+
+        while (a || b || carry) {
+            lsb1 = a & 1;
+            lsb2 = b & 1;
+            a = a >> 1;
+            b = b >> 1;
+            res = lsb1 ^ lsb2 ^ carry;
+            carry = (lsb1 & lsb2) || (lsb1 & carry) || (lsb2 & carry) ? 1 : 0;
+            sum = sum | (res << bit_pos);
+            bit_pos++;
+        }
+        return sum;        
+    }
+    int sub (int a, int b) {
+        long long sub = 0, borrow = 0;
+        long long lsb1, lsb2, bit_pos = 0, res;
+
+        while (a || b || borrow) {
+            lsb1 = a & 1;
+            lsb2 = b & 1;
+            a = a >> 1;
+            b = b >> 1;
+            int tmp = lsb2;
+            lsb2 = lsb2 ^ borrow;
+            borrow = tmp & borrow;
+            res = lsb1 ^ lsb2;
+            if (!borrow && !lsb1 && lsb2)
+                borrow = 1;
+            if (!a && !b && bit_pos == 64)/////<<<<<In subtraction, if you reach 64-th bit position, stop 
+                break;    
+            sub = sub | (res << bit_pos);
+            bit_pos++;
+        }
+        return sub;        
+    }
+public:
+    int getSum(int a, int b) {
+        if (a >= 0 && b >= 0)
+            return add (a, b);///<<<If both numbers are postive, use add
+        else if (a < 0 && b < 0)
+            return  -add(abs(a), abs (b));///<<<If both numbers are negative, use add
+        else if (b < 0)
+            return sub (a, abs(b));///<<<<Otherwise, use subtract
+        else
+            return sub (b, abs(a));///<<<<Otherwise, use subtract
+    }
+};
+
+
+
+If you can't figure out the solution, take a look at my own implementation.
+
+       
