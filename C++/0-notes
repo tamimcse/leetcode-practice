@@ -3919,4 +3919,9 @@ public:
         return res;
     }
 };
-              
+
+How can you implememt it such that it works for any kinds of character? String itself can have unicode characters.
+
+Instead of using a character as a delemeter, use a fixed length string what will tell the size of the next chunk (leetcode approach 2).
+
+If you can't figure this out, take a look at my own implementation.         
