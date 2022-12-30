@@ -1,3 +1,35 @@
 /*
 https://leetcode.com/problems/encode-and-decode-strings/
 */
+class Codec {
+public:
+
+    // Encodes a list of strings to a single string.
+    string encode(vector<string>& strs) {
+        string res = strs[0];
+
+
+        for (int i = 1; i < strs.size(); i++) {
+            res += 257;
+            res += strs[i];
+        }
+        return res;
+    }
+
+    // Decodes a single string to a list of strings.
+    vector<string> decode(string s) {
+        vector<string> res;
+        int start = 0;
+        int end;
+
+        do {
+            end = s.find(257, start);
+            if (end == string::npos)
+                res.push_back(s.substr(start));
+            else
+                res.push_back(s.substr(start, end - start));
+            start = end + 1;    
+        } while (end != string::npos);
+        return res;
+    }
+};
