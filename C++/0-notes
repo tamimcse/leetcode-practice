@@ -4008,4 +4008,12 @@ public:
 
 If you can't figure out the solution, take a look at my own implementation.
 
-       
+132. https://leetcode.com/problems/perfect-squares/
+
+How would implement this?
+
+If you can't figure out, look at my own solutions.
+
+Note that, many problems initially look like backtracking. Then when you try to solve it as a bottom-up approach, you see that it's possible. The problem suddenly becomes a DP.
+
+DP is also much smaller and easier to implement (I know, I will have hard time to comprehend in the future day when  I see this line :) )       
