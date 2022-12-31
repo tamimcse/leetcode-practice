@@ -4047,4 +4047,6 @@ This is because in this problem, A can be matched wuth B, C and D. Which one wil
 
 From this realization, the problem seems a lot like backtracking where we need to explore all the options. But, from our experuience, we know that many backtracking problem can be solved in bottom up fashion in DP.
 
-Here, I figured out a solution by myself. We can partition the array into two parts and in each part we need to consider the largest slope. Now, we need to consider all the partion points. If you can't figure out the solution, look at my own solution
+Here, I figured out a solution by myself. We can partition the array into two parts and in each part we need to consider the largest slope. Now, we need to consider all the partion points. If you can't figure out the solution, look at my own solution.
+
+BTW, this leetcode also uses the same approch and calls in bidirectional DP.
