@@ -4016,4 +4016,35 @@ If you can't figure out, look at my own solutions.
 
 Note that, many problems initially look like backtracking. Then when you try to solve it as a bottom-up approach, you see that it's possible. The problem suddenly becomes a DP.
 
-DP is also much smaller and easier to implement (I know, I will have hard time to comprehend in the future day when  I see this line :) )       
+DP is also much smaller and easier to implement (I know, I will have hard time to comprehend in the future day when  I see this line :) ) 
+
+133. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+
+How would you implememt this?
+
+Take a look at best-time-to-buy-and-sell-stock and best-time-to-buy-and-sell-stock-ii
+
+There, we basically find all the upword slopes.
+
+
+       /\
+  /\  /  \
+ /  \/    \  /
+/          \/
+
+Now, how would you implemenet best-time-to-buy-and-sell-stock-iii?
+
+I sometimes try to store all the upward slopes and add the largest 2 upward slopes. But, that will not work. Why is that?
+
+        C
+  B    /\
+  /\  /  \   D
+ /  \/    \  /
+/          \/
+A
+
+This is because in this problem, A can be matched wuth B, C and D. Which one will you consider? You need to consider all the options.
+
+From this realization, the problem seems a lot like backtracking where we need to explore all the options. But, from our experuience, we know that many backtracking problem can be solved in bottom up fashion in DP.
+
+Here, I figured out a solution by myself. We can partition the array into two parts and in each part we need to consider the largest slope. Now, we need to consider all the partion points. If you can't figure out the solution, look at my own solution
