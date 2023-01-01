@@ -4050,3 +4050,64 @@ From this realization, the problem seems a lot like backtracking where we need t
 Here, I figured out a solution by myself. We can partition the array into two parts and in each part we need to consider the largest slope. Now, we need to consider all the partion points. If you can't figure out the solution, look at my own solution.
 
 BTW, this leetcode also uses the same approch and calls in bidirectional DP.
+
+134. https://leetcode.com/problems/trapping-rain-water/
+
+How would you implement this?
+
+In the past, I found this problem very hard to implement. That's mainly because I tend to think in terms of all the points. 
+
+What is the general idea here?
+
+               |
+|              |          |
+|              |          |     |
+|         |    |          |     |
+|    |    |    |     |    |     |
+----------------------------------
+start
+
+
+Start with the first point. When we find another point greater or same as the 'start' point, we found the end. Now we simply can calculate the amount of water trapped in start and end.
+
+But, this will not work for the following:
+
+|
+|          |
+|          |     |
+|          |     |
+|          |     |
+----------------------------------
+
+
+To solve this, we can simply reverse the vector and apply previous logic.
+
+The who code should look like:
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int res = 0;
+        int n = height.size();
+        int start = 0;
+
+        for (int i = 1; i < n; i++) {
+            if (height[i] >= height[start]) {////<<<<<<We found the end for the start
+                for (int j = start + 1; j < i; j++) {
+                    res +=  height[start] - height[j];
+                }
+                start = i;
+            }
+        }
+
+        if (start != n - 1) {
+            vector<int> rest (height.begin() + start, height.end());////<<<<<Consider the rest of the input that wasn't handled in the first pass
+            reverse (rest.begin(), rest.end());
+            res += trap (rest);
+        }
+
+        return res;
+    }
+};
+
+
