@@ -4166,5 +4166,10 @@ public:
 
 vector<int> dp;
 
-return *max_element(dp.begin(), dp.end())
+return *max_element(dp.begin(), dp.end())///<<<See we can do it one line!!!!!!!!
+
+
+136. How to initialize the 2D vector ?
+
+vector<vector<int>> dp(k + 1, vector<int>(prices.size()));///<<<See we can do it one line!!!!!!!!
 
