@@ -4238,3 +4238,23 @@ return *max_element(dp.begin(), dp.end())///<<<See we can do it one line!!!!!!!!
 
 vector<vector<int>> dp(k + 1, vector<int>(prices.size()));///<<<See we can do it one line!!!!!!!!
 
+
+138. https://leetcode.com/problems/interval-list-intersections/
+
+How would you implemement this?
+
+If you can't figure out my solution, take a look at my own solution.
+
+
+139. https://leetcode.com/problems/merge-intervals/
+
+How would you implemement this?
+
+If you can't figure out the solution, take a look my own solution.
+
+
+I found this problem extreamly hard when I looked at it in the beginning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+This is beacuse I didn't consider sorting the list at all. I was trying iterate over the list and figure out a solution which is extreamly hard!!!!!!!!
+
+KEEP IN MIND, INTERVALS PROBLEM MAY LOOK EXTREAMELY HARD IF YOU DON'T SORT THEM. SO, CONSIDER SORTING THEM. THEN DO WHATEVER YOU WANT TO DO.////////<<<<<<<<<<<<
