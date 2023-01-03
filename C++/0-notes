@@ -3761,7 +3761,7 @@ while (!q.empty()) {
   }
 }
 
-But, here, we should do the following:
+But, here, my gut says do the following. Will it work?
 
 q.insert(start);                                
 while (!q.empty()) {
@@ -3775,7 +3775,12 @@ while (!q.empty()) {
   }
 }
 
-Note here, previously, when visiting level 2, we were marking 'tex' as visited. Here, we are not. So, both 'tex' will be added to queue. Then 'tex' will be set visited twice, nothing wrong with that.
+Here, both 'tex' in level 3 will be added to queue. Then 'tex' will be set visited twice, nothing wrong with that.
+
+But, it will still not work!!!!!!!!!!!!!!!!!/////<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+Yes, we will need to typical BFS. Here, I will explain why.
 
 
 I implemented this as following. But, it gets TLE. Why is that?//////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

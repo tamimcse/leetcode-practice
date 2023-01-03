@@ -48,22 +48,28 @@ class Solution {
 public:
     vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
         unordered_map<string, vector<string>> adj_list;
-        queue<string> q;
-        unordered_set<string> visit;
-        string cur;
+        queue<pair<string, int>> q;
+        unordered_map<string, int> visit;
+        string cur_str;
+        int cur_lev;
 
-        q.push(beginWord);
+        q.push(make_pair(beginWord, 1));
+        visit[cur_str] = 1;
         while (!q.empty()) {
-            cur = q.front();
+            cur_str = q.front().first;
+            cur_lev = q.front().second;
             q.pop();
-            visit.insert(cur);
-            //cout << cur << " ";
             for (auto &e : wordList) {
-                if (visit.count(e) || !is_adjacent(e, cur))
-                    continue;    
-                adj_list[e].push_back(cur);
-                cout << "Adding edge between " << e << " and " << cur << endl;
-                q.push(e);
+                if (visit.find(e) != visit.end() && cur_lev + 1 == visit[e] && is_adjacent(e, cur_str)) {
+                    adj_list[e].push_back(cur_str);
+                    continue;
+                }
+                if (visit.find(e) != visit.end() || !is_adjacent(e, cur_str))
+                    continue;
+                adj_list[e].push_back(cur_str);
+                visit[e] = cur_lev + 1;
+                
+                q.push(make_pair(e, cur_lev + 1));
                 if (e == endWord) {
                     goto backtrack;
                 }
@@ -73,12 +79,13 @@ public:
 backtrack:
 
         while (!q.empty()) {
-            cur = q.front();
+            if (q.front().second > cur_lev)
+                break;
+            cur_str = q.front().first;
             q.pop();
-            if (visit.count(cur) == 0 && is_adjacent(endWord, cur)) {
-                adj_list[endWord].push_back(cur);
-                visit.insert(cur);
-                cout << "Adding edge between " << endWord << " and " << cur << endl;
+            if (is_adjacent(endWord, cur_str)) {
+                adj_list[endWord].push_back(cur_str);
+                visit[cur_str] = cur_lev + 1;
             }
         }
         
