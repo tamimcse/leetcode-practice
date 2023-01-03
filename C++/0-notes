@@ -4102,6 +4102,71 @@ Here, I figured out a solution by myself. We can partition the array into two pa
 
 BTW, this leetcode also uses the same approch and calls in bidirectional DP.
 
+134. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+
+How would you implement this?
+
+Very intersting problem. Note that, this problem has lots of similarities with Design Space Exploration. 
+
+From the problem, I have a gut feeling that this will be DP. But, how would you formulate DP here?
+
+Note that, the different between the best-time-to-buy-and-sell-stock-iii and best-time-to-buy-and-sell-stock-iv is that we need to find k number of transaction instead of 2. Can we extend the idea of best-time-to-buy-and-sell-stock-iii to this problem?
+
+
+Unfortunately no.
+
+I couldn't find the solution for myself. Sometimes, simulating how top-down will work and extrapolate bottom up solution is not easy like in this problem. In such case, try to formulate it directly without thinking about bottom-up or top-down.
+
+I found the solution  hint at https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/solutions/2555708/easy-solution-explained-beginner-friendly-best-method/
+
+Leetcode solution seem complicated. This is the excerpt of the solution.
+
+dp[i][j] means max profit at day j with at most i transactions.
+
+so there are two possible situations on day j:
+
+do nothing on day j, which means at most i transactions are all done before day j, so dp[i][j] = dp[i][j-1]
+
+sell at price[j], which means before day j there will be at most i-1 transactions.
+
+and because you sell the stock on day j, you must have already bought it before day j.the last time you bought it before day j could be any day between [0, j-1].
+
+let's say the last time you bought it on day jj, where jj is in range [0, j-1].
+
+
+My implementation is as follows.
+
+class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        int n = prices.size();
+        vector<vector<int>> dp (k, vector<int>(n));////<<<<Initialize a 2D vector
+
+        int min_found = prices[0];
+        for (int i = 1; i < n; i++) {
+            dp[0][i] = max (dp[0][i-1], prices[i] - min_found);
+            min_found = min (min_found, prices[i]);
+        }
+
+        for (int i = 1; i < k; i++) {///<<<We are calculating result of k based on k - 1 results
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = dp[i-1][j];
+                dp[i][j] = max (dp[i][j], dp[i][j-1]);
+                if (prices[j] < prices[j-1])////<<<<If current value is smaller than yesterday's value, no reason check further.
+                    continue;
+                for (int m = 1; m < j; m++) {
+                    dp[i][j] = max (dp[i][j], dp[i-1][m] + 
+                                    prices[j] - prices[m]);
+                }
+            }
+        }
+        return dp[k-1][n-1];
+    }
+};
+
+
+Note that, if you are asked to caluclate something using k attemps, try if you can do for 1, 2, 3...k-1, k..
+
 135. https://leetcode.com/problems/trapping-rain-water/
 
 How would you implement this?
