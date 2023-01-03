@@ -3780,12 +3780,24 @@ Here, both 'tex' in level 3 will be added to queue. Then 'tex' will be set visit
 But, it will still not work!!!!!!!!!!!!!!!!!/////<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
-Yes, we will need to typical BFS. Here, I will explain why.
+Yes, we will need to typical BFS. Here, I will explain why. Think about the tree:
+
+           hot
+         /     \
+      dot       lot<<<<<<
+    /     \       |
+ dog    lot<<<    log
+ 
+Our previous code will mistakenly add dot--lot even though it shouldn't be added because there is a lot in the previous level. So, stick to generic BFS.
+
+Now, how would you solve the problem where you need to add same node multiple times if they appear twice in a level?
+
+Simple!! Store the level in visit. If you are visit a node twice and they are in the same level, allow it.
 
 
-I implemented this as following. But, it gets TLE. Why is that?//////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+I implemented that. But, it gets TLE. Why is that?//////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-One reason can be we are copying all possible paths which is expensive. Another important reason is one directional BFS will create so many path that will not lead to endWord. For instance, in the previous figure, we only showed the nodes that will lead to endWord. But, following figure shows all the nodes BFS will explore:///<<<<<<<<<<<<<<<<<<
+One reason can be we are copying all possible paths which is expensive. Another more important reason is one directional BFS will create so many path that will not lead to endWord. For instance, in the previous figure, we only showed the nodes that will lead to endWord. But, following figure shows all the nodes BFS will explore:///<<<<<<<<<<<<<<<<<<
 
 
                                red
@@ -3818,11 +3830,39 @@ Once we reach the endWord, we can do DFS from endWord towards startWord. Note th
 
 This is why, it will not result in TLE. This approach is taken from leetcode approach 1.
 
-I implemented this approach as follows. This does not work. But, still take a look at the notes.///<<<<<<<<
+I implemented this approach as follows. This is quite a hard pronblem.
+
 
 class Solution {
+    bool is_adjacent (string &s1, string &s2) {
+        int n = s1.length();
+        int count = 0;
+
+        if (s1 == s2)
+            return false;
+
+        for (int i = 0; i < n; i++) {
+            if (s1[i] != s2[i]) {
+                count++;
+                if (count > 1)
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    void add_edges (string dest, vector<string>& wordList,
+                    unordered_set<string> &visit,
+                    unordered_map<string, vector<string>> &adj_list) {
+        for (auto &e : wordList) {
+            if (e != dest && visit.count(e) == 0 && is_adjacent(e, dest))
+                adj_list[e].push_back(dest);
+        }
+    }
+
     void dfs (string cur, unordered_map<string, vector<string>> &adj_list,
-              vector<string> &path, vector<vector<string>> &res, string &end) {
+              vector<string> &path, vector<vector<string>> &res, string &end) {//////<<<<<DFS implementatoion can be very simply if it's directed graph!!!!!
+                                                                               //////<<<<You don't need to keep track of two visit value
         path.push_back(cur);
         if (cur == end) {
             vector<string> cur_path = path;
@@ -3839,23 +3879,30 @@ class Solution {
 public:
     vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
         unordered_map<string, vector<string>> adj_list;//////<<<<You can also implement adjacency list as hash when your keys are string, not int (0-n)
-        queue<string> q;
-        unordered_set<string> visit;//////<<<<<<<Note that you can implement visit array as a set, if you don't know how many nodes you have
-        string cur;
+        queue<pair<string, int>> q;
+        unordered_map<string, int> visit;//////<<<<<<<Note that you can implement visit array as a set, if you don't know how many nodes you have
+                                         //////<<<<As we need to store the level of the found node, we use hash
+        string cur_str;
+        int cur_lev;
 
-        q.push(beginWord);
+        q.push(make_pair(beginWord, 1));
+        visit[cur_str] = 1;
         while (!q.empty()) {
-            cur = q.front();
+            cur_str = q.front().first;
+            cur_lev = q.front().second;
             q.pop();
-            visit.insert(cur);//////<<<<Here we are marking as visited after popping from the queue
-            //cout << cur << " ";
             for (auto &e : wordList) {
-                if (visit.count(e) || !is_adjacent(e, cur))
-                    continue;    
-                adj_list[e].push_back(cur);
-                cout << "Adding edge between " << e << " and " << cur << endl;
-                q.push(e);
-                if (e == endWord) {
+                if (visit.find(e) != visit.end() && cur_lev + 1 == visit[e] && is_adjacent(e, cur_str)) {////<<<<If we visited the node in the same level, we still need to 
+                                                                                                         ////<<<<<consider the node
+                    adj_list[e].push_back(cur_str);
+                    continue;
+                }
+                if (visit.find(e) != visit.end() || !is_adjacent(e, cur_str))
+                    continue;
+                adj_list[e].push_back(cur_str);
+                visit[e] = cur_lev + 1;
+                q.push(make_pair(e, cur_lev + 1));
+                if (e == endWord) {////<<<<When foudnd the end word, jump . The code would be cleaner
                     goto backtrack;
                 }
             }
@@ -3864,12 +3911,13 @@ public:
 backtrack:
 
         while (!q.empty()) {
-            cur = q.front();
+            if (q.front().second > cur_lev)
+                break;
+            cur_str = q.front().first;
             q.pop();
-            if (visit.count(cur) == 0 && is_adjacent(endWord, cur)) {
-                adj_list[endWord].push_back(cur);
-                visit.insert(cur);
-                cout << "Adding edge between " << endWord << " and " << cur << endl;
+            if (is_adjacent(endWord, cur_str)) {
+                adj_list[endWord].push_back(cur_str);
+                visit[cur_str] = cur_lev + 1;
             }
         }
         
@@ -3881,8 +3929,6 @@ backtrack:
     }
 };
 
-
-But, this also gives wrong result. Why?
 
 
 129. https://leetcode.com/problems/encode-and-decode-strings/
