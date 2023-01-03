@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/word-ladder-ii
 
-very interesting problem!!!
+Very very very very interesting problem!!!
 */
 class Solution {
     bool is_adjacent (string &s1, string &s2) {
