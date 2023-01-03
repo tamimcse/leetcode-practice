@@ -4258,3 +4258,12 @@ I found this problem extreamly hard when I looked at it in the beginning!!!!!!!!
 This is beacuse I didn't consider sorting the list at all. I was trying iterate over the list and figure out a solution which is extreamly hard!!!!!!!!
 
 KEEP IN MIND, INTERVALS PROBLEM MAY LOOK EXTREAMELY HARD IF YOU DON'T SORT THEM. SO, CONSIDER SORTING THEM. THEN DO WHATEVER YOU WANT TO DO.////////<<<<<<<<<<<<
+
+
+140. https://leetcode.com/problems/interval-list-intersections/
+     https://leetcode.com/problems/merge-intervals/
+     https://leetcode.com/problems/meeting-rooms-ii/
+     
+Can you use projection approach that I learned from geeksforgeeks?
+
+No, it will be too un-efficient. Project approach is only good if interval is small. But, here 0 <= starti < endi <= 10^6. So, projection will not be a good idea
