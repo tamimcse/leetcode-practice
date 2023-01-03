@@ -4102,7 +4102,7 @@ Here, I figured out a solution by myself. We can partition the array into two pa
 
 BTW, this leetcode also uses the same approch and calls in bidirectional DP.
 
-134. https://leetcode.com/problems/trapping-rain-water/
+135. https://leetcode.com/problems/trapping-rain-water/
 
 How would you implement this?
 
@@ -4162,14 +4162,14 @@ public:
 };
 
 
-135. How to find the maximum value from a vector?
+136. How to find the maximum value from a vector?
 
 vector<int> dp;
 
 return *max_element(dp.begin(), dp.end())///<<<See we can do it one line!!!!!!!!
 
 
-136. How to initialize the 2D vector ?
+137. How to initialize the 2D vector ?
 
 vector<vector<int>> dp(k + 1, vector<int>(prices.size()));///<<<See we can do it one line!!!!!!!!
 
