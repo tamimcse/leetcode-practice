@@ -4292,4 +4292,9 @@ This however will not work, because it will result 5 in the picture. However, th
 
 How to solve it properly?
 
+I later figured out a solution. If you can't figure out the solution yourself, take a look at my own solution.
 
+
+I found this problem extreamly hard at the beginning, but later was able to solve it easily.
+
+MORAL: IF SOMETHING LOOKS HARD, TRY NAIVE BRUTFORCE WAY TO SOLVE IT. BRUTFORCE WAY WORKED HERE!!!!!!!!!!////<<<<<<<<<<<
