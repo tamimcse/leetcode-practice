@@ -4267,3 +4267,29 @@ KEEP IN MIND, INTERVALS PROBLEM MAY LOOK EXTREAMELY HARD IF YOU DON'T SORT THEM.
 Can you use projection approach that I learned from geeksforgeeks?
 
 No, it will be too un-efficient. Project approach is only good if interval is small. But, here 0 <= starti < endi <= 10^6. So, projection will not be a good idea
+
+141. https://leetcode.com/problems/meeting-rooms-ii/
+
+How would you implement this?
+
+I tend to use following approach
+
+
+    --------------  -----------
+          ------------------  ----
+---------------------------------
+
+Sort all the intervals by 'start'.
+cur_start = intervals[0][0];
+cur_end = intervals[0][1];
+
+for (int i = 1; i < n; i++) {
+  check if i-th interval overlaps with [cur_start, cur_end]; if yes, increment the count
+}
+
+
+This however will not work, because it will result 5 in the picture. However, the result should be 3.
+
+How to solve it properly?
+
+
