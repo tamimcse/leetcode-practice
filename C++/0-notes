@@ -4353,3 +4353,9 @@ public:
        */
     }
 };
+
+145. https://leetcode.com/problems/employee-free-time/
+
+How would you implement this?
+
+If you can't figure out, look at my own solution.
