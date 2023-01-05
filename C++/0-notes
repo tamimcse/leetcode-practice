@@ -4388,5 +4388,11 @@ How would you implement this?
 
 If you can't figure out the solution, take a look at my own solution.
  
-Note that, I used greedy approch here as well, but naive greedy approch directly doesn't work for few cases. In those cases, I had to modify my current greedy solution. This is also kind of greedy approch. But, when we come across an element, we are just checking if we could improve our greedy solution by replcing a previous element with this element. 
+Note that, I used greedy approch here as well, but naive greedy approch directly doesn't work for few cases. In those cases, I had to modify my current greedy solution. This is also kind of greedy approch. But, when we come across an element, we are just checking if we could improve our greedy solution by replcing a previous element with this element.
+
+148. https://leetcode.com/problems/meeting-rooms-iii/ 
+
+How would you implement this?
+
+If you can't figure out the solution, take a look at my own solution.
  
