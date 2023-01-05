@@ -4317,3 +4317,39 @@ https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/
 How would you solve this?
 
 If you can't figure out, take a look at my solution or text.
+
+144. https://leetcode.com/problems/maximum-profit-in-job-scheduling/
+
+How would you implememt this?
+
+If you can't figure out the solution, take a look at my own solution.
+
+There is a caveat in the implementation. Here, I store the indices in  an indices array and sort the array based on the endTime. The code looks as follows:
+
+class Solution {
+public:
+    int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
+        int n = startTime.size();
+        vector<int> indices(n);
+        vector<int> dp(n);
+
+        for (int i = 0; i < n; i++) {
+            indices[i] = i;
+        }
+
+        sort (indices.begin(), indices.end(), [&](int a, int b) {
+            if (endTime[a] != endTime[b])////<<<<I often forget to mention what to do if they are the same
+                return endTime[a] < endTime[b];////<<<<
+            return profit[a] > profit[b];/////<<<<
+        });
+       ////......
+       
+       /* Another mistake I made was I wrote the code as://////<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        sort (indices.begin(), indices.end(), [&](int a, int b) {
+            if (endTime[indices[a]] != endTime[indices[b]])///<<<<<<<<This is not right. We are already getting element of 'indices', so no need to do that
+                return endTime[indices[a]] < endTime[indices[b]];
+            return profit[indices[a]] > profit[indices[b]];
+        });       
+       */
+    }
+};
