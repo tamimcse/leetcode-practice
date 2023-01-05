@@ -4363,4 +4363,30 @@ How would you implement this?
 
 If you can't figure out, look at my own solution.
 
+
+146. Look at these problems:
+
+https://leetcode.com/problems/interval-list-intersections/
+https://leetcode.com/problems/merge-intervals/
+https://leetcode.com/problems/meeting-rooms-ii/
+https://leetcode.com/problems/non-overlapping-intervals/
+https://www.geeksforgeeks.org/find-maximum-meetings-in-one-room/
+https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/
+https://leetcode.com/problems/maximum-profit-in-job-scheduling/
+https://leetcode.com/problems/employee-free-time/
+
+
+All these problem looked very hard at the beginning. But, when we draw the proble on the paper and sort the intervals based on start or end, the problem becomes very simple. Then often need O(n^2) or O(n) runtime.
+
+Why is that?
+
+This is because, they all follow greedy algorithm. Greedy approch works surprisingly well here!!!!!!!!///////<<<<<<<<<<<<<<
+
+147. https://leetcode.com/problems/course-schedule-iii/
+
+How would you implement this?
+
+If you can't figure out the solution, take a look at my own solution.
+ 
+Note that, I used greedy approch here as well, but naive greedy approch directly doesn't work for few cases. In those cases, I had to modify my current greedy solution. This is also kind of greedy approch. But, when we come across an element, we are just checking if we could improve our greedy solution by replcing a previous element with this element. 
  
