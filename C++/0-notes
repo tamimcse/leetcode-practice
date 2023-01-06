@@ -4485,3 +4485,11 @@ How would you solve this?
 if you can't figure out, take a look at my own solution.
 
 NOTE THAT, HUGE NUMBER OF BACKTRACKING PROBLEM CAN BE SOLVED USING DP. AND THEY SHOULD BE SOLVED USING DP!!!!!!!.///////<<<<<<<<<<<< 
+
+
+152. When to use move()?
+
+For instance, you created a copy of another vector. You update the copy. Now you will assign the updated copy to another opbject. This will create another copy which is not necessary.
+You should use move in this case. For instance, this is the solution of https://leetcode.com/problems/palindrome-partitioning/.
+
+

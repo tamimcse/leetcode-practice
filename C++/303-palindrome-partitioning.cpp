@@ -36,10 +36,10 @@ public:
                     vector<vector<string>> tmp = dp[j+1];
                     for (auto &e : tmp)
                         e.push_back(substr);
-                    copy (tmp.begin(), tmp.end(), back_inserter(prev));
+                    move (tmp.begin(), tmp.end(), back_inserter(prev));
                 }
             }
-            dp[i] = prev;
+            dp[i] = move(prev);
         }
         for (auto &e : dp[0] ) {
             reverse (e.begin(), e.end());
