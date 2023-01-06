@@ -4524,4 +4524,10 @@ You should use move in this case. For instance, this is the solution of https://
         }
         return dp[0];
     }
+    
+153. https://leetcode.com/problems/partition-labels/
+
+How would you solve this?
+
+if you can't figure out, take a look at my own solution.
 
