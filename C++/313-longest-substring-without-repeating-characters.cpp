@@ -6,26 +6,24 @@ class Solution {
 public:
     
     int lengthOfLongestSubstring(string s) {
-        int start = 0, end = 0, max_found = 0;
-        int arr[256] = {0};
-        
-        for (end = 0; end < s.length(); end++) {
-            if (!arr[s[end]]) {
-                arr[s[end]] = 1;
-                if (end - start + 1 > max_found)
-                    max_found = end - start + 1;
+        int n = s.length();
+        unordered_set<char> set;
+
+        int res = 0;
+        for (int end = 0, start = 0; end < n; end++) {
+            if (set.count(s[end]) == 0) {
+                set.insert(s[end]);
             } else {
-               while (1) {
-                   if (s[start] == s[end]) {
-                       start++;
-                       break;
-                   }
-                   arr[s[start]] = 0;
-                   start++;
-               } 
+                while (start < end) {
+                    if (s[start] == s[end]) {
+                        start++;
+                        break;
+                    }
+                    set.erase(s[start++]);
+                }
             }
+            res = max<long> (res, set.size());
         }
-        
-        return max_found;
+        return res;
     }
 };
