@@ -4492,4 +4492,36 @@ NOTE THAT, HUGE NUMBER OF BACKTRACKING PROBLEM CAN BE SOLVED USING DP. AND THEY 
 For instance, you created a copy of another vector. You update the copy. Now you will assign the updated copy to another opbject. This will create another copy which is not necessary.
 You should use move in this case. For instance, this is the solution of https://leetcode.com/problems/palindrome-partitioning/.
 
+    vector<vector<string>> partition(string s) {
+        int n = s.length();
+        deque<vector<vector<string>>> dp(n);
+
+        dp[n-1].push_back({{s[n-1]}});
+        for (int i = n - 2; i >= 0; i--) {
+            vector<vector<string>> prev = dp[i+1];
+            for (auto &e : prev) {
+                string tmp = "";
+                tmp += s[i];
+                e.push_back(tmp);
+            }
+            string substr = s.substr(i);
+            if (is_palindrome(substr)) {
+                prev.push_back({substr});
+            }
+            for (int j = i + 1; j < n - 1; j++) {
+                string substr = s.substr(i, j - i + 1);
+                if (is_palindrome(substr)) {
+                    vector<vector<string>> tmp = dp[j+1];/////<<<<<<Create a temp based on another vector
+                    for (auto &e : tmp)////<<<<<<<<<<Update the temp
+                        e.push_back(substr);
+                    move (tmp.begin(), tmp.end(), back_inserter(prev));/////<<<Adding the temp to another vector. Here, we should use move() instead of copy(). 
+                }
+            }
+            dp[i] = move(prev);/////<<<<For the same reason here we should use move()
+        }
+        for (auto &e : dp[0] ) {
+            reverse (e.begin(), e.end());
+        }
+        return dp[0];
+    }
 
