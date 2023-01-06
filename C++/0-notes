@@ -3144,6 +3144,12 @@ move(tmp.begin(), tmp.end(), indices.begin() + start); /////<<< Source.begin(), 
 Note that, the destination vector has to be pre-allocated in both case.
  
  
+What if destination is not pre-allocated? 
+
+Then the copy code should look like:
+
+copy(v1.begin(), v1.end(), back_inserter(v2));/////<<< Source.begin(), Source.end, Destination.begin()
+ 
 
 104. https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
