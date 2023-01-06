@@ -4471,3 +4471,11 @@ I followed the leetcode solution. Difference from original binary search is:
 2. In general binary search, we compare with nums[0] or nums[n-1]. Here, compare with nums[start] or numsp[end].
 
 If these stratements are not clear, take a look at my implementation. 
+
+151. https://leetcode.com/problems/palindrome-partitioning/
+
+How would you solve this?
+
+if you can't figure out, take a look at my own solution.
+
+NOTE THAT, HUGE NUMBER OF BACKTRACKING PROBLEM CAN BE SOLVED USING DP. AND THEY SHOULD BE SOLVED USING DP!!!!!!!.///////<<<<<<<<<<<< 
