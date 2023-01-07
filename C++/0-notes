@@ -4586,3 +4586,23 @@ https://leetcode.com/problems/the-kth-factor-of-n/
 How would you solve this?
 
 if you can't figure out, take a look at my own solution.
+
+
+158. https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/
+
+How would you solve this?
+
+At first I usually do brutforce approach which is O(n^2). IU will get TLE. How to fix that?
+
+
+The problem seem a lot like merge sort problem. But, I couldn't solve it using merge sort. ///////<<<<<<<<
+
+Can I solve it by sorting the number? 
+
+Doesn't really. Sorting the number doesn't help.///////<<<<<<<<<<
+
+A very intersting approach is to you can reduce all the numbers between 0-60 and count the frequency. Then from the frequncy, you can calculate the number of pairs.
+
+If you still can't figure out the solution, take a look at my own solution.
+
+Keep in mind that, when you need to calculate the number of pairs, besides merge sort, frequncy can also be very helpful!!!!!!!!!!/////<<<<<<<<<
