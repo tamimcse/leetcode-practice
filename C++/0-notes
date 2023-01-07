@@ -4548,3 +4548,12 @@ b. Grpah problems. Some graph probles are really hard. Some DFS, BFS, bidirectio
 c. I found sliding window the hardest so far. They may look like backtracking or DP, but they are not!!!!!!
 
 DP is not really hard most of the time.
+
+157. As I found sliding window so tough, i retracked and decided to solve other problems.
+
+
+https://leetcode.com/problems/the-kth-factor-of-n/
+
+How would you solve this?
+
+if you can't figure out, take a look at my own solution.
