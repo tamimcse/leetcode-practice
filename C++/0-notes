@@ -4540,3 +4540,11 @@ if you can't figure out, take a look at my own solution.
 155. Sometimes you may get compile error using min/max when the two data type of the arguments don't match. Use following approach in that case:
 
  res = max<long> (res, set.size());
+ 
+156. These are the topic I found dificult:
+
+a. Intervals (but later found easy after sorting based on start/end and iterate to get O(n^2) solution) 
+b. Grpah problems. Some graph probles are really hard. Some DFS, BFS, bidirectional search etc can be hard too
+c. I found sliding window the hardest so far. They may look like backtracking or DP, but they are not!!!!!!
+
+DP is not really hard most of the time.
