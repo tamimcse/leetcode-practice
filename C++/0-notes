@@ -4537,6 +4537,35 @@ How would you solve this?
 
 if you can't figure out, take a look at my own solution.
 
+
+Take a look how I am implememting sliding window algorithm:
+
+class Solution {
+public:
+    
+    int lengthOfLongestSubstring(string s) {
+        int n = s.length();
+        unordered_set<char> set;
+
+        int res = 0;
+        for (int end = 0, start = 0; end < n; end++) {///<<<<<<<We always increment end from 0 to n. That is, in each iteration, forward the sliding window by 1 item
+            if (set.count(s[end]) == 0) {
+                set.insert(s[end]);
+            } else {
+                while (start < end) {///////<<<<<<<<Inside loop, we move the start as needed
+                    if (s[start] == s[end]) {
+                        start++;
+                        break;
+                    }
+                    set.erase(s[start++]);
+                }
+            }
+            res = max<long> (res, set.size());/////<<<Note that max may need template if the two argumements don't have the same type
+        }
+        return res;
+    }
+};
+
 155. Sometimes you may get compile error using min/max when the two data type of the arguments don't match. Use following approach in that case:
 
  res = max<long> (res, set.size());
