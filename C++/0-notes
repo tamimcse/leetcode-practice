@@ -4606,3 +4606,34 @@ A very intersting approach is to you can reduce all the numbers between 0-60 and
 If you still can't figure out the solution, take a look at my own solution.
 
 Keep in mind that, when you need to calculate the number of pairs, besides merge sort, frequncy can also be very helpful!!!!!!!!!!/////<<<<<<<<<
+
+
+159. https://leetcode.com/problems/count-pairs-in-two-arrays/
+
+How would you implement this?
+
+Crealy brutfornce will take O(n^2) and get TLE. I remember Sohan talked about this problem. He used merge sort. This problem does actually look like merge sort. How would you solve this?
+
+I couldn't formulate it in merge sort.
+
+Now, how would you implement this?
+
+This solution came from https://leetcode.com/problems/count-pairs-in-two-arrays/solutions/3005095/c-binary-search-o-n-log-n/
+
+Intuition
+--------------------
+a[i]+a[j]>b[i]+b[j]
+⇒a[i]+a[j]−(b[i]+b[j])>0
+⇒(a[i]−b[i])+(a[j]−b[j])>0
+
+Now we can have a diff array where diff[i] = a[i] - b[i].
+
+Now we simply need to find how many pair (i, j) in diff array where diff[i] + diff[j]  > 0;
+
+
+How can we solve this?
+
+We can sort the diff array. If it's sorted, we don't need to check all the numbers for each number. Rather we can stop early.
+
+Take a look at my own solution if you can't figure out the solution.
+Now, we can sort the diff array. Now we simply need to find 
