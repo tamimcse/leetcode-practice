@@ -4622,9 +4622,9 @@ This solution came from https://leetcode.com/problems/count-pairs-in-two-arrays/
 
 Intuition
 --------------------
-a[i]+a[j]>b[i]+b[j]
-⇒a[i]+a[j]−(b[i]+b[j])>0
-⇒(a[i]−b[i])+(a[j]−b[j])>0
+a[i]+a[j] > b[i]+b[j]
+⇒a[i]+a[j] − (b[i]+b[j]) > 0
+⇒(a[i]−b[i]) + (a[j]−b[j]) > 0
 
 Now we can have a diff array where diff[i] = a[i] - b[i].
 
@@ -4636,4 +4636,4 @@ How can we solve this?
 We can sort the diff array. If it's sorted, we don't need to check all the numbers for each number. Rather we can stop early.
 
 Take a look at my own solution if you can't figure out the solution.
-Now, we can sort the diff array. Now we simply need to find 
+
