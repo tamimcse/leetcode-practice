@@ -4637,3 +4637,13 @@ We can sort the diff array. If it's sorted, we don't need to check all the numbe
 
 Take a look at my own solution if you can't figure out the solution.
 
+160. https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+
+Implement using both extra space and O(1) space.
+
+How would you do that?
+
+If you can't figure out the solution, take a look at my own solution.
+
