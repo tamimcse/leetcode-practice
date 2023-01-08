@@ -4661,5 +4661,38 @@ How would you do that?
 
 If you can't figure out the solution, take a look at my own solution.
 
+163. https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+
+How would you implement this?
+
+Hard part is how can you effciently check if subarray sum is 0. Naive algorithm will take O(n^2). Can you do it it O(n)?
+
+Think about it. For instance, your numbers are: 
+
+3 4 -2 -2 5 7
 
 
+If you take prefix sum:
+
+3 7 5  3  8 15
+^      ^ 
+This can be pictualially shown as (numbers are different):
+
+      |
+      |       |
+   |  |       |
+|  |  |   |   |
+|  |  |   |   |
+-------------------
+3  5  8   3   7
+^         ^
+
+It illustrates that if you get the same value multiple times, it means that sum of all the number between that two point is 0!!!!!!!!!/////<<<<<< 
+
+I got the idea from leetcode offcial solution.
+
+Use this approach to solve the problem. Note that, if prefix sum of index i is 3 and prefix sum of index j is 3 (j > i), all the numbers from i + 1,....j should be deleted. Note that, i-th number should not be deleted.///////<<<<<<<< 
+
+Again if the prefix sum is 0, all the numbers from  the beginning to the current number should be deleted.
+
+If you can't figure out the solution, take a look at my own solution.
