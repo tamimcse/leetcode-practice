@@ -4653,3 +4653,13 @@ How would you do that?
 
 If you can't figure out the solution, take a look at my own solution.
 
+162. https://leetcode.com/problems/reverse-nodes-in-k-group/
+
+Implemement using O(1) space, although think how would you implement if you can use extra space.
+
+How would you do that?
+
+If you can't figure out the solution, take a look at my own solution.
+
+
+
