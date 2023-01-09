@@ -4696,3 +4696,51 @@ Use this approach to solve the problem. Note that, if prefix sum of index i is 3
 Again if the prefix sum is 0, all the numbers from  the beginning to the current number should be deleted.
 
 If you can't figure out the solution, take a look at my own solution.
+
+164. https://leetcode.com/problems/beautiful-arrangement/
+
+Very common problem in the interview!!!
+
+How would you solve this?
+
+I tried to find if we can find a good heuristic to apply greedy approch. So, I couldn't find such. At that, point the problem is obvious a backtracking problem. Now, can you solve it in a bottom-up approach like DP and will that be better?/////////<<<<<<<<<<<
+
+I tried to implememt using bottom-up DP. But, found out it's getting TLE.!!!!///////<<<<<<<<<<<<<
+
+Why is that? 
+
+Here, DP and backtracking is actaully the same. You can not exploring less option by going through bottom up approch. So, it will not help!!!!!!!!!!!!/////<<<<<<<
+It will also make thing worse, because you are coping elements unnncessarily from one stage to another stage which is expensive!!!!!//////////<<<<<<<<<
+
+
+So, moral of the story: If DP doesn't explore fewer option, backtracking is better than DP!!!!!!!!//////<<<<<<<<
+
+But, still take a look at DP solution for few implementation stuff. 
+
+    int countArrangement(int n) {
+        vector<vector<unordered_set<int>>> dp(n+1);
+
+        vector<unordered_set<int>> v;
+        for (int i = 1; i <= n; i++) {
+            if (isBeautiful (i, n)) {
+                v.push_back({i});///////<<<<<<You can create+initialize a set using {} (like a vector)
+            }
+        }
+        dp[n] = v;
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= n; j++) {
+                if (isBeautiful (j, i)) {
+                    for (auto e : dp[i+1]) {
+                        if (e.count(j) == 0) {
+                            unordered_set<int> s = e;///<<<<<In DP, you are copying elements from one stage to another which is expensive. 
+                                                     ////<<<<<<<Backtacking doesn
+                            't need that.
+                            s.insert(j);
+                            dp[i].push_back(s);
+                        }
+                    }
+                }
+            }
+        }
+        return dp[1].size();
+    }
