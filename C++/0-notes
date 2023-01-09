@@ -4744,3 +4744,11 @@ But, still take a look at DP solution for few implementation stuff.
         }
         return dp[1].size();
     }
+    
+    
+Now, to solve it properly, implement backtracking solution.
+
+Also, note that, if you ever feel like you are copiing elements from one stage to another stage of DP, but it's not really needed. You could simply have one copy, it's a symptom that the pronblem can be backtracking instead of DP.///<<<<
+
+If you can't figure out the solution, take a look at my own solution.
+    

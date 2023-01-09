@@ -2,6 +2,8 @@
 https://leetcode.com/problems/beautiful-arrangement/
 
 Very common problem in the interview!!!
+
+You need to check why DP gets TLE and backtacking doesn't.
 */
 
 /***This gets TLE**********************************/
@@ -37,4 +39,32 @@ public:
     }
 };
 
+/******This solution works!!!!!!************************/
+class Solution {
+    bool isBeautiful (int idx, int val) {
+        return val % idx == 0 || idx % val == 0;
+    }
 
+    void countArrangement(int n, int start, unordered_set<int> &s,
+                            int &count) {
+        if (s.size() == n) {
+            count++;
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            if (isBeautiful (i, start) && s.count(i) == 0) {
+                s.insert(i);
+                countArrangement (n, start + 1, s, count);
+                s.erase(i);
+            }
+        }
+    }
+public:
+    int countArrangement(int n) {
+        unordered_set<int> s;
+        int count = 0;
+
+        countArrangement (n, 1, s, count);
+        return count;
+    }
+};
