@@ -4797,3 +4797,12 @@ enum class Direction {NORTH = 0, WEST, SOUTH, EAST};////<<<<<<Right
 170. Can you use arithmatic operator on enum?
 
 Probably, probably not. But, I had issue adding/subtracting number to my enum variable. If you want to do that, better use an integer array. //////<<<<<<<<<<<<<<<
+
+
+171. What's wrong with this code?
+
+unordered_set<pair<int, int>, vector<pair<int, int>>, HashFunc> set;
+
+It should be:
+
+unordered_set<pair<int, int>, HashFunc> set;//<<<<<<Holy shit!!!! I'm mixing unordered_set and priority_queue!!!
