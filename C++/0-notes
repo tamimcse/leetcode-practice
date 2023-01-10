@@ -4798,6 +4798,8 @@ enum class Direction {NORTH = 0, WEST, SOUTH, EAST};////<<<<<<Right
 
 Probably, probably not. But, I had issue adding/subtracting number to my enum variable. If you want to do that, better use an integer array. //////<<<<<<<<<<<<<<<
 
+Moral of the story: DON'T USE ENUM TO REPTRESENT DIRECTION OR ANYTHING. USE int (You don't really need int array!!!!!!)//////<<<<<<<<<<
+
 
 171. What's wrong with this code?
 
