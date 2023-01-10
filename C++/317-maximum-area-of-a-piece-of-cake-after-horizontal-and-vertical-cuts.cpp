@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/
 
-Interesting problem.
+Interesting problem. Solve it using O(n).
 */
 class Solution {
 public:

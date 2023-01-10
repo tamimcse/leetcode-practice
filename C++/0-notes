@@ -4769,3 +4769,19 @@ If you can't figure out the solution, take a look at my own solution.
 How would you solve this?
 
 If you can't figure out the solution, take a look at my own solution. 
+
+168. https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/
+
+How would you solve this?
+
+I tend to figure out a O(n^2). But, can you solve it in O(n)?///////<<<<<<<<<<<<<<<<<
+
+If you think carefully, in O(n^2) solution, we iterating through all possible width and for each width, we iterate through all possible height. But, as we are only interested in max area, we can simply take the max_width and max_height and multupply that.////////////<<<<<<<<<<<<
+
+If you can't figure out the solution, take a look at my own solution. 
+
+Also note that, the problem asked us to modulo 10^9 + 7 solution.
+
+You can do it by simply doing this:
+
+return ((long long)max_width * max_height) % 1000000007;///////<<<<<<<<<<<<<<<<<<<<<<<
