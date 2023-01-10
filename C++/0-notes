@@ -4785,3 +4785,11 @@ Also note that, the problem asked us to modulo 10^9 + 7 solution.
 You can do it by simply doing this:
 
 return ((long long)max_width * max_height) % 1000000007;///////<<<<<<<<<<<<<<<<<<<<<<<
+
+169. How do declare enum class?
+
+class enum Direction {NORTH = 0, WEST, SOUTH, EAST};/////<<<Wrong, but I often try it
+
+class Enum Direction {NORTH = 0, WEST, SOUTH, EAST};/////<<<Wrong, but I often try it
+
+enum class Direction {NORTH = 0, WEST, SOUTH, EAST};////<<<<<<Right
