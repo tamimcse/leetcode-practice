@@ -4903,3 +4903,15 @@ Here we cleverly need to create key in each iteration. I later realized that thi
 
 This is why even though we set out to implement set/hash and trie based approch, we will implement on trie based approch.
 
+
+Now, how would you implememt using Trie?
+
+First, need to construct the Trie. How would you do that?
+
+I consider partitioning the array repeatedly based on bit position. But, you realize that would be insane :) Cost of doing that will be extremly high//////<<<<<
+
+
+So, how would you do that?
+
+Like what we did before. Add one number to trie at a time.////////<<<<<<<
+
