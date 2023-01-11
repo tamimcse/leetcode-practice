@@ -4915,3 +4915,11 @@ So, how would you do that?
 
 Like what we did before. Add one number to trie at a time.////////<<<<<<<
 
+
+Now, you have created the Trie. How would you find the largest XOR from trie?///////////<<<<<<<<
+
+This may look simple. I tried to do recursion on Trie (like calculting height of the Trie) to find out the largest number. But, it's really hard!!!!!!!!//////<<<<<<<<<<<<
+
+So, leetcode suggested an approach where for each number, find the number in Trie that gives the largest XOR. This is easy. Just one way trie travarsal from root to leaf. In this way find the max XOR.
+
+MORAL: IF YOU NEED TO TRAVARSE MULTIPLE PATH OF THE TRIE AT THE SAME TIME, YOU ARE DOING IN WRONG. DEVELOP YOUR ALGORITHM SUCH A WAY THAT YOU ONLY TRAVARSE ONE PATH FROM ROOT TO LEAF./////<<<<<<<<
