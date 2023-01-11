@@ -4884,16 +4884,18 @@ Let us assume that nums is:
 The above code will do the following:
 
  In each itertion from MSB to LSB:
-     check if there is 0 and 1 bits in the number; if yes, the result's corresponding bit should be 1.
+     check if there is 0 and 1 bits in the corresponding position of the number; if yes, the result's corresponding bit should be 1.
      
      
 But, this is not right. Actual algorithm should partition the numbers in each iteration as:
 
 
 itr 0:    [00011  01010  00010  01000]  [11001]
-itr 1:    [00011  00010]   [11001]
+itr 1:    [00011  00010]   [11001]   ----->>>01010, 01000 will not result largest XOR
 itr 2:....
 
 So, this is not a good candidate for set. This actually resembles to Trie.
+
+Now, if you still want to implememnt this using set, how would you do that?
 
 
