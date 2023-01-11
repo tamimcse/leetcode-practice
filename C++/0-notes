@@ -4829,7 +4829,7 @@ Use the above approach
 
 173. https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/description/
 
-Very very interesting problem!!
+Very very very very interesting problem!!
 
 How would you implement this?
 
@@ -4842,5 +4842,58 @@ You can find the maximum number and calculate the number of bits in the number!!
 Now, can we solve it without creating Trie? Trie sounds like an overkill.
 
 We can solve it using set (as suggested in leetcode solution). When iterating the array, we store the key in the set. If we find the opposite already exist in the set, then we can say that position will be 1.
+
+
+Based on the idea, I implemented following:
+
+class Solution {
+public:
+    int findMaximumXOR(vector<int>& nums) {
+        int n = nums.size();
+        int max_elem = *max_element (nums.begin(), nums.end());
+        int num_bits = log10 (max_elem)/log10(2) + 1;
+
+        int res = 0;
+        for (int i = num_bits; i >= 1; i--) {
+            int mask = 1 << (i-1);
+            unordered_set<int> set;
+
+            for (auto e : nums) {
+                if (set.count(((e >> (i-1)) & 1) ^ 1)) {
+                    res |= mask;
+                    break;
+                }
+                set.insert((e >> (i-1)) & 1);
+            }
+        }
+        return res;
+    }
+};
+
+But, this will not work!!!!!!!!!!!!!!!////////<<<<<<<
+
+Why? 
+
+Let us assume that nums is:
+
+  3           10            5             25               2               8
+------------------------------------------------------------------------------------
+00011       01010         00101         11001            00010           01000
+
+
+The above code will do the following:
+
+ In each itertion from MSB to LSB:
+     check if there is 0 and 1 bits in the number; if yes, the result's corresponding bit should be 1.
+     
+     
+But, this is not right. Actual algorithm should partition the numbers in each iteration as:
+
+
+itr 0:    [00011  01010  00010  01000]  [11001]
+itr 1:    [00011  00010]   [11001]
+itr 2:....
+
+So, this is not a good candidate for set. This actually resembles to Trie.
 
 
