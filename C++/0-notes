@@ -4923,3 +4923,17 @@ This may look simple. I tried to do recursion on Trie (like calculting height of
 So, leetcode suggested an approach where for each number, find the number in Trie that gives the largest XOR. This is easy. Just one way trie travarsal from root to leaf. In this way find the max XOR.
 
 MORAL: IF YOU NEED TO TRAVARSE MULTIPLE PATH OF THE TRIE AT THE SAME TIME, YOU ARE DOING IN WRONG. DEVELOP YOUR ALGORITHM SUCH A WAY THAT YOU ONLY TRAVARSE ONE PATH FROM ROOT TO LEAF./////<<<<<<<<
+
+If the solution itsn't clear, take a look at leetcode solution or my my own solution.
+
+174. How to calculate the number of bits in a number?
+
+        int num_bits = log10 (max_elem)/log10(2) + 1;
+             
+Now, what's wrong with this?
+
+log10(0) is undefine!!!!!!!!///<<<<<<
+
+So, the right solution would be:        
+
+     int num_bits = max_elem == 0 ? 1 : log10 (max_elem)/log10(2) + 1;////////<<<<<<
