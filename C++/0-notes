@@ -4826,3 +4826,21 @@ That approch works. But, can you do better?
 leetcode solution says that is a theoretical proof that you can find it with just one iteration. If you come back to (0, 0) after first iteration or if your direction is not NORTH after the first iteration, then it will come back to (0, 0)./////////////////<<<<<<<<<<<<<<<<<
 
 Use the above approach
+
+173. https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/description/
+
+Very very interesting problem!!
+
+How would you implement this?
+
+You can use trie. But, how would you construct the trie? Also is there a simpler approach than trie? Do you consider all the bit or only the bit needed?///////<<<<<
+
+You should only use the bits that matter. But, is there a simple approach to to know how many bits you should consider?
+
+You can find the maximum number and calculate the number of bits in the number!!!!!!!!////////<<<<<<<<<
+
+Now, can we solve it without creating Trie? Trie sounds like an overkill.
+
+We can solve it using set (as suggested in leetcode solution). When iterating the array, we store the key in the set. If we find the opposite already exist in the set, then we can say that position will be 1.
+
+
