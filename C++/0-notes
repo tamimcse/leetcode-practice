@@ -4881,7 +4881,7 @@ Let us assume that nums is:
 00011       01010         00101         11001            00010           01000
 
 
-The above code will do the following:
+The above code will do the following://////<<<<<<<
 
  In each itertion from MSB to LSB:
      check if there is 0 and 1 bits in the corresponding position of the number; if yes, the result's corresponding bit should be 1.
@@ -4894,8 +4894,12 @@ itr 0:    [00011  01010  00010  01000]  [11001]
 itr 1:    [00011  00010]   [11001]   ----->>>01010, 01000 will not result largest XOR
 itr 2:....
 
-So, this is not a good candidate for set. This actually resembles to Trie.
+So, this is not a good candidate for set. This actually resembles to Trie.//////<<<<<<<
 
-Now, if you still want to implememnt this using set, how would you do that?
+Now, if you still want to implememnt this using set, how would you do that?//////<<<<<<<
 
+Here we cleverly need to create key in each iteration. I later realized that this clever key generation is not really worth it. Also, note that, as leetcode mentions, this set based approach is less efficient than trie based apprach, because here we explore many options which we wouldn''t in tree based approch.//////<<<<<<<
+
+
+This is why even though we set out to implement set/hash and trie based approch, we will implement on trie based approch.
 
