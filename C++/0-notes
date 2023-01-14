@@ -5004,4 +5004,6 @@ This can be solved using BFS + graph coloring. This has been proposed in leetcod
 https://leetcode.com/problems/is-graph-bipartite/solutions/127708/is-graph-bipartite/
 https://www.geeksforgeeks.org/bipartite-graph/
 
+If you can't figure out the solution, take a look at my own solution.
+
 
