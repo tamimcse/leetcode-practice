@@ -5051,4 +5051,6 @@ https://www.geeksforgeeks.org/topological-sorting/
 
 Note that, sometimes I forget that in DFS, I visit the depth node first and start node last. I tend to think in my mind visiting start, then incrementally go into depth, but that's not the case. We visit the start last. //////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+If you keep that mind, you can visualize why DFS will work even if you start from any node.
+
 
