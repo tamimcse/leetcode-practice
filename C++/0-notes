@@ -4944,7 +4944,7 @@ How would you implement this?
 
 I tend to do this:
 
- For each node n:
+ For each node n://////<<<<<
     get list of nodes adjacent to node n. Let's say if the list is L, check if there is edge betweeen any of the two nodes in L; if yes, then it's not a bipartite graph.
     
     
@@ -4972,13 +4972,23 @@ Here, adjacent list is:
 
 There is no edge between any two nodes in the adjacency list (same arrow). However, it's not a bi-partite graph. 
  
-This is a bi-partite graph because we can grouo[1, 2]
- 
+Now, again, how would you solve this?
 
-1 ------3    
- \     /
-   \  /
-    \
-  /  \        
- /    \
-2------4
+I tend to come up with union-join apprach. Here, I maintain two sets. I then iterate each edge, for ech end point of the edge, I try to add the two points to two sets.////<<<<<<
+
+This approach may work, but, if you try to implement it, it's too clumsy!!!!!!!//////<<<<<<<<
+
+
+How can you simplify this?
+
+I then tend to iterate over the nodes instead of edges. I maintain two set. I iterate over the nodes. At each iteration, I try to add the node to one of the set. /////<<<<<<
+
+But, this simple apprach may add a node to wrong set. ////<<<<<<<
+
+To solve the problem, I sort the nodes based on dergrees. I insert nodes with highest degree first. This approach sound like it will work. And it does work most of the time. But, it may not work all of the time because we don't have any correctness proof.///////////<<<<<<
+
+
+How can we then solve this?
+
+
+Note that, even though it's a graph problem, we use traditional data structure such set and has to solve the problem. We so far tried to use common sense which doesn't seem to be working. Can we use BFS or DFS to solve this?///////////<<<<<<<<<<<<
