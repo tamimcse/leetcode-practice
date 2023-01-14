@@ -5012,4 +5012,43 @@ How would you implememt this?
 
 if you can't figure out the solution, take a look at my own solution.
 
+177. For instance, you are given this graph. How would you implememt topological sorting?
+
+
+4------->1
+^        ^
+|         \
+|          3
+|          ^       
+|         /
+2------->0
+
+What I tend to do is calculate indegrees of all the nodes. Start with an 0 indegree node and do DFS. This approach is clumsy and not efficient./////<<<<<<<
+
+Can you do topological sorting using DFS starting from any node?////////////////<<<<<<<
+
+Thankfully, you can !!!!!!!!!//////<<<<<<<<<<<<<<
+
+For instance, start with 3. Then  you will visit 1 and 3 (note we visit depth first). Then start with 2. Then you will visit 4, 0 and 2. 
+If we put them side by side, you get:////<<<<<<<<<<<<<<
+
+[1, 3] [4, 0, 2]
+
+So, your result is:
+
+[1, 3, 4, 0, 2]
+
+If you just reverse it, you get:
+
+[2, 0, 4, 3, 1].
+
+
+Instead of reversing these, you can store them in a stack. Then reversing is easy.
+
+I got these idea from:
+
+https://www.geeksforgeeks.org/topological-sorting/
+
+Note that, sometimes I forget that in DFS, I visit the depth node first and start node last. I tend to think in my mind visiting start, then incrementally go into depth, but that's not the case. We visit the start last. //////////////////<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
