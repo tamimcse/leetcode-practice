@@ -4993,4 +4993,15 @@ To solve the problem, I sort the nodes based on dergrees. I insert nodes with hi
 How can we then solve this?
 
 
-Note that, even though it's a graph problem, we use traditional data structure such set and has to solve the problem. We so far tried to use common sense which doesn't seem to be working. Can we use BFS or DFS to solve this?///////////<<<<<<<<<<<<
+Note that, even though it's a graph problem, we use traditional data structure such set and has to solve the problem. We so far tried to use common sense which doesn't seem to be working!!!!///////////<<<<<<<<<<<<
+
+So, how can we solve this????
+
+This is actually a graph coloring problem. This is same as checking if the graph can be colored with 2 colors such that adjacent nodes don't have the same color.////<<<<<
+
+This can be solved using BFS + graph coloring. This has been proposed in leetcode and geekforgeeks:
+
+https://leetcode.com/problems/is-graph-bipartite/solutions/127708/is-graph-bipartite/
+https://www.geeksforgeeks.org/bipartite-graph/
+
+
