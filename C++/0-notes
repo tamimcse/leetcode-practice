@@ -5068,15 +5068,67 @@ How would you implement this?
 
 Another very very very intesresting problem!
 
-Also, the problem isn't very clear. What does it mean by sequnce? Here, they mean longest range where each element of the range is a member of the array.
+Also, the problem isn't very clear. What does it mean by sequnce? Here, they mean longest range where each element of the range is a member of the array.///////<<<<<<<<
 
 
 How would you implement this?
 
-Note that, if you have ordering, you can represent this as a graph. You can use DFS to find the longest sequnce. Now two questions:
+Note that, if you have ordering, you can represent this as a graph. You can use DFS to find the longest sequnce. Now two questions://////////<<<<<<<<<<<<<<
 
 a. Is DFS the best approch here?
 b. If you are asked to implement sequntial DFS, how would you do that?
+
+Let's answer b first. Let's implement this using sequential DFS. Can you use arbitarry node as start?/////////<<<<<<<<<<<<
+
+No, we shouldn't. That would be unnecessary!!!! Although we were able to perform toplogical sorting woth DFS with any start node, that approach should be used here. Here, we need to find out the longest consecutive sequnce. So, we really should find a node with 0 indegree as start node. This is not only fine but also necessary/////<<<<
+
+Now, how would you implememnt sequential DFS:
+
+                stack<int> s;/////<<<<<<Use a stack.
+                unordered_set<int> visit;////<<<<Keep track of nodes that are being visited
+
+                s.push(e);
+                while (!s.empty()) {
+                    int cur = s.top();
+                    if (visit.count(cur)) {///<<<<<<<Don't pop stack immediately. Only delete it if the visit is true
+                                           /////<<<<<<Here, visit == true means, the node has been expanded.
+                        res = max<long> (res, s.size());
+                        s.pop();
+                        continue;
+                    }
+                    visit.insert(cur);
+                    for (auto adj : adjList[cur]) {
+                    	if (visit.count(adj))
+                        	s.push(adj);
+                    }
+                }
+                
+How does it compare with recursive DFS?
+
+    void dfs (unordered_map<char, vector<char>> &adjList,
+                char start, unordered_map<char, int> &visit,
+                vector<char> &res, bool &cycle) {
+        visit[start] = 1;////<<<<<When visit for the first time, mark it as 1. That means it's on the path
+        for (auto ch : adjList[start]) {
+            if (visit[ch] == 1) {////<<<<<<If we come accross a node with visit 1, that means we found a loop.
+                cycle = true;
+                return;
+            }
+            if (visit[ch] == 0) {///<<<<<Expand the node 
+                dfs (adjList, ch, visit, res, cycle);
+                if (cycle)
+                    return;
+            }
+        }
+        visit[start] = 2;////<<<<<<If we are here, means all the subsequnt nodes has been visited, so mark it as 2 (dead)
+        res.push_back(start);
+    }                
+
+Note that recursive approach needs to 2 color whereas sequntiual approach needs one color. In DFS, we really need to distinguish between dead node and active nodes on the path, so we use 2 color approach. In sequential solution, one color + stack is enough.
+
+
+
+
 
  
 
