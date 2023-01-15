@@ -1,9 +1,7 @@
 /*
 https://www.geeksforgeeks.org/given-array-strings-find-strings-can-chained-form-circle/
 
-I think, we can use simple DFS to detect cycle. After detecting cycle, we need to check the length of the cycle to see if all the nodes have been visited.
 
-I havn't implemented it.
 
 */
 #include <iostream>
