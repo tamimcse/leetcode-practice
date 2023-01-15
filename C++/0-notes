@@ -5070,3 +5070,13 @@ Another very very very intesresting problem!
 
 Also, the problem isn't very clear. What does it mean by sequnce? Here, they mean longest range where each element of the range is a member of the array.
 
+
+How would you implement this?
+
+Note that, if you have ordering, you can represent this as a graph. You can use DFS to find the longest sequnce. Now two questions:
+
+a. Is DFS the best approch here?
+b. If you are asked to implement sequntial DFS, how would you do that?
+
+ 
+
