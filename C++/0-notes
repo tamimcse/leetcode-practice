@@ -5127,6 +5127,10 @@ How does it compare with recursive DFS?
 Note that recursive approach needs to 2 color whereas sequntiual approach needs one color. In DFS, we really need to distinguish between dead node and active nodes on the path, so we use 2 color approach. In sequential solution, one color + stack is enough./////<<<<<<<<<<<<<<<<<<<<<<<
 
 
+Now answer #a. Is DFS the best approch here? Can we simplify it?
+
+
+
 
 
 
