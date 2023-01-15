@@ -5073,12 +5073,7 @@ Also, the problem isn't very clear. What does it mean by sequnce? Here, they mea
 
 How would you implement this?
 
-Note that, if you have ordering, you can represent this as a graph. You can use DFS to find the longest sequnce. Now two questions://////////<<<<<<<<<<<<<<
-
-a. Is DFS the best approch here?
-b. If you are asked to implement sequntial DFS, how would you do that?
-
-Let's answer b first. Let's implement this using sequential DFS. Can you use arbitarry node as start?/////////<<<<<<<<<<<<
+Note that, if you have ordering, you can represent this as a graph. You can use DFS to find the longest sequnce. How would you use sequential DFS to implement this? Can you use arbitarry node as start?/////////<<<<<<<<<<<<
 
 No, we shouldn't. That would be unnecessary!!!! Although we were able to perform toplogical sorting woth DFS with any start node, that approach should be used here. Here, we need to find out the longest consecutive sequnce. So, we really should find a node with 0 indegree as start node. This is not only fine but also necessary/////<<<<
 
@@ -5127,7 +5122,15 @@ How does it compare with recursive DFS?
 Note that recursive approach needs to 2 color whereas sequntiual approach needs one color. In DFS, we really need to distinguish between dead node and active nodes on the path, so we use 2 color approach. In sequential solution, one color + stack is enough./////<<<<<<<<<<<<<<<<<<<<<<<
 
 
-Now answer #a. Is DFS the best approch here? Can we simplify it?
+Now, if you use traditional sequntila DFS, you will get TLE for this problem.////////<<<<<<<
+
+In this problem, each node will have just one successor. So, do we still need stack or recursive DFS? //////////<<<<<<
+
+No, we can implement a DFS using a simple loop because there will be just one path.//////////<<<<<<<<
+
+If you can't figure out the solution, take a look at my own solution.
+
+
 
 
 
