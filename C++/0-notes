@@ -5062,3 +5062,11 @@ Very very intesrting problem. If you can't figure out the solution, take a look 
 
 MORAL: IF YOU NEED SOME SORT OF ORDERING, IT CAN BE A GRAPH PROBLEM!!!!!!!!!!!!!!!!!!!!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+179. https://leetcode.com/problems/longest-consecutive-sequence/
+
+How would you implement this?
+
+Another very very very intesresting problem!
+
+Also, the problem isn't very clear. What does it mean by sequnce? Here, they mean longest range where each element of the range is a member of the array.
+
