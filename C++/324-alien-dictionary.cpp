@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/alien-dictionary/
 
-Very very very intersting problem
+Very very very intersting problem. The test case here is clearly wrong.
 */
 class Solution {
     void dfs (unordered_map<char, vector<char>> &adjList,
@@ -57,7 +57,6 @@ public:
             if (visit[it->first])
                 continue;
             bool cycle = false;
-            cout << "starting with " << it->first << endl;
             dfs (adjList, it->first, visit, res, cycle);
             if (cycle)
                 return "";
