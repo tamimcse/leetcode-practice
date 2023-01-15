@@ -5077,7 +5077,7 @@ Note that, if you have ordering, you can represent this as a graph. You can use 
 
 No, we shouldn't. That would be unnecessary!!!! Although we were able to perform toplogical sorting woth DFS with any start node, that approach should be used here. Here, we need to find out the longest consecutive sequnce. So, we really should find a node with 0 indegree as start node. This is not only fine but also necessary/////<<<<
 
-Now, how would you implememnt sequential DFS:
+Now, how would you implememnt sequential DFS. This is a psudocode:
 
                 stack<int> s;/////<<<<<<Use a stack.
                 unordered_set<int> visit;////<<<<Keep track of nodes that are being visited
@@ -5128,7 +5128,7 @@ In this problem, each node will have just one successor. So, do we still need st
 
 No, we can implement a DFS using a simple loop because there will be just one path.//////////<<<<<<<<
 
-If you can't figure out the solution, take a look at my own solution.
+If you can't figure out the solution, take a look at my own solution.//////<<<<<<<<<<<<<<<<<<
 
 
 
