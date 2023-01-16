@@ -5130,7 +5130,23 @@ No, we can implement a DFS using a simple loop because there will be just one pa
 
 If you can't figure out the solution, take a look at my own solution.//////<<<<<<<<<<<<<<<<<<
 
+180. https://leetcode.com/problems/max-value-of-equation/
 
+Very very very very interesting problem!!!!!
+
+How would you solve this?
+
+If you can't figure out the solution, take a look at leetcodee solution or my own solution.
+
+One more question? Do you use DFS or BFS here?/////////<<<<<<<<<<<<<<<<<<
+
+You can do both. In DFS in undirected graph, how would you prevent from next node to come back to the currennt node??????????///////////////////////////<<<<<<<<<<<<
+
+When we add a node to stack, mark it as visited[node] = 1. It means that, node is already added. When adding to node to stack, we need to check if visit[node] == 1; if yes, node is already added to stack, no node need to add any more. This will prevent from next node to coming back to current node.!!!!!!!/////////////////////////<<<<<<<<<<<<<<<<<<<
+
+When we expand a node, we need to mark it as  visited[node] = 2 (dead).  This will distinguish a node from active (on the path) to dead node.//////<<<<<<
+
+Note that, previously I thought I don't need two color in DFS if I use stack. But, that's not true. We still need two color if we want to implememt DFS properly. But, many be not needed in directed graph!!!!!!!!!!!!//////<<<<<<<<<<<
 
 
 
