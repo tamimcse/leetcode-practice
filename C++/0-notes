@@ -5149,9 +5149,94 @@ When we expand a node, we need to mark it as  visited[node] = 2 (dead).  This wi
 Note that, previously I thought I don't need two color in DFS if I use stack. But, that's not true. We still need two color if we want to implememt DFS properly. But, many be not needed in directed graph!!!!!!!!!!!!//////<<<<<<<<<<<
 
 
+181. https://leetcode.com/problems/longest-string-chain/
+
+How would you implement this?
+
+I tend to use DFS which is fine. Now few questions:///////<<<<<<<<<<<<<<<<
+
+a. How can implement DFS such that it would work for undirected graph? DFS doesn't really need two color, but we want to implement using two color to practice undirected graph.
+b. How can you find all the nodes with 0 indegrees?
+c. How can you find the maximum depth in DFS?
+
+Answer of b: Note that, finding elements with 0 indegress will require checking each edge again. Instead maintain a list of nodes that don't have 0 indegreess. It's easier to calculate. When 
+add an edge a->b, add b to the list.//////////<<<<<<
+
+Answer of c: I take max of stack size here. But, will it work? No, think about this graph://////////////<<<<<<<<<<<<<<
+
+b     bca------->bdca
+\      ^           ^
+ \    /            |
+  v  /             |
+   ba------------>bda 
+  ^
+ /
+a
 
 
+Here, if we start with b, we will add ba, then we will add bca and bda, then we will add bdca. Note that, stack size doesn't really represent the real depth. In DFS, we need to calculate the depth manually./////////<<<<<<<<<<<
 
 
+The code shows all the tricks.
+
+    int dfs (string &start) {
+        int res = 0;
+
+        stack<string> s;
+        unordered_map<string, int> visit;
+        s.push(start);
+        int depth = 0;
+        while (!s.empty()) {
+            string cur = s.top();
+            if (visit[cur] == 2) {//////<<<<<The node is expanded, need to be deleted. Don't delete all the top of the stack
+                res = max(res, depth);//////<<<<Max depth is calculated based on depth variable instead of stack size. I mistakenly use stack size often
+                depth--;////<<<<<<<<<We reached the end of a path, so decrease the depth
+                s.pop();
+                continue;
+            }
+            for (auto str : adjList[cur]) {
+                if (visit[str] == 2)////////<<<<<The node is already expanded
+                    continue;
+                visit[str] = 1;//////<<<<<Means it's already added to stack, but not expanded
+                s.push(str);
+            }
+            depth++;/////////<<<<<Increaing the path
+            visit[cur] = 2;
+        }
+        return res;
+    }
+public:
+    int longestStrChain(vector<string>& words) {
+        n = words.size();
+        unordered_set<string> not_indegree_zero;/////<<<Mainintain a list of nodes whose indegrees are not 0, it's easy to create instead of 0-indegree nodes
+
+        sort (words.begin(), words.end(), [](string &s1, string &s2) {
+            return s1.length() < s2.length(); 
+        });
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (words[i].length() == words[j].length())
+                    continue;
+                if (words[i].length() + 1 < words[j].length())
+                    break;
+                if (isPredeccessor(words[i], words[j])) {
+                    adjList[words[i]].push_back(words[j]);
+                    not_indegree_zero.insert(words[j]);///////<<<<<Add to the list
+                }
+            }
+        }
+
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (not_indegree_zero.count(words[i]))//////<<<< If a node already in not_indegree_zero list, ignore it
+                continue;
+            int len = dfs (words[i]);
+            res = max (res, len);
+        }
+        return res;
+    }
+};
+ 
  
 
