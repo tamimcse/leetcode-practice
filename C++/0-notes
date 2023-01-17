@@ -5238,5 +5238,13 @@ public:
     }
 };
  
+182. https://leetcode.com/problems/regions-cut-by-slashes/description/
+
+
+Very intersting problem!!
+
+
+How would you solve this? If you can't figure out, take a look at leetcode solution or my own solution. 
+
  
 
