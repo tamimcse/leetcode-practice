@@ -5246,5 +5246,7 @@ Very intersting problem!!
 
 How would you solve this? If you can't figure out, take a look at leetcode solution or my own solution. 
 
+Note that, here I tend to create 2 nodes per cell. But, it's very difficult to implemement the logic that way. As suggested in leetcode, if you divide each cell into 4 nodes, it becomes very easy.
+
  
 
