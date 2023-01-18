@@ -5248,5 +5248,15 @@ How would you solve this? If you can't figure out, take a look at leetcode solut
 
 Note that, here I tend to create 2 nodes per cell. But, it's very difficult to implemement the logic that way. As suggested in leetcode, if you divide each cell into 4 nodes, it becomes very easy.
 
+183. https://leetcode.com/problems/tree-diameter/
+
+How would you solve it?
+
+I tend think of cutting off leaves at each step, and counting the path. I had an issue to solve this problem with that approach. Remember that, we are trying to find centraoid in this way. Problem is centraoid can be or two node. So, if I only have two node, i should stop.//////////////<<<<<<<<<<<<<<<<<<<<
+
+Now, leetcode suggested to use the same approach to find centraoid. Then from centroid to do BFS to find two longest path. ////////<<<<<<
+
+This is an interesting approach too. But, I think, cacluating it while calculating centraoid would be more efficient./////<<<<
+
  
 
