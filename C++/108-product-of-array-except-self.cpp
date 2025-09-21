@@ -1,43 +1,8 @@
 /*
 https://leetcode.com/problems/product-of-array-except-self/
 
-Implement it using and without division operator
+Implement it without division operator and using extra space and without extra space
 */
-class Solution {
-public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-        long prod = 1;        
-        int count_zero = 0;
-        vector<int> res;
-        res.resize(nums.size());
-        
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i])
-                prod *= nums[i];
-            if(!nums[i])
-                count_zero++;
-        }
-        
-        if (count_zero > 1) {
-            for (int i = 0; i < nums.size(); i++) {
-                res[i] = 0;
-            }   
-            return res;
-        }
-        
-        if (count_zero == 1) {
-            for (int i = 0; i < nums.size(); i++) {
-                res[i] = (nums[i] != 0) ? 0 : prod;
-            }
-            return res;            
-        }
-        
-        for (int i = 0; i < nums.size(); i++) {
-            res[i] = prod/nums[i];
-        }
-        return res;
-    }
-};
 
 class Solution {
 public:
@@ -64,6 +29,29 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             res[i] = left[i] * right[i];
         }
+        return res;
+    }
+};
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> res(n);
+
+        res[0] = 1;
+        int mul = 1;
+        for (int i = 1; i < n; i++) {
+            mul = mul * nums[i-1];
+            res[i] = mul;
+        }
+
+        mul = 1;
+        for (int i = n - 2; i >= 0; i--) {
+            mul = mul * nums[i+1];
+            res[i] =res[i] * mul;
+        }
+        
         return res;
     }
 };
