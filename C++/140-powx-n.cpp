@@ -1,5 +1,7 @@
 /*
 https://leetcode.com/problems/powx-n/
+
+Don't ignore the problem.
 */
 class Solution {
 public:
