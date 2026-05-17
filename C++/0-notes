@@ -5258,5 +5258,9 @@ Now, leetcode suggested to use the same approach to find centraoid. Then from ce
 
 This is an interesting approach too. But, I think, cacluating it while calculating centraoid would be more efficient./////<<<<
 
- 
+183. https://leetcode.com/problems/longest-increasing-subsequence/
+
+Very interesting problem!!!
+
+How would you solve this? If you can't figure out, take a look at leetcode solution or my own solution.
 
