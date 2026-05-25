@@ -31,3 +31,21 @@ public:
         return 0;
     }
 };
+
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int len = nums.size();
+        vector<int> canJmp(len);
+
+        canJmp[len-1] = 1;
+        for (int i = len - 2; i >= 0; i--) {
+            for (int j = 1; j <= nums[i]; j++) {
+                if (i + j < len && canJmp[i+j]) {
+                    canJmp[i] = canJmp[i] ? min (canJmp[i], canJmp[i+j] + 1) : (canJmp[i+j] + 1);
+                }
+            }
+        }
+        return canJmp[0] - 1;   
+    }
+};
