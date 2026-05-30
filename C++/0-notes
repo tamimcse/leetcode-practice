@@ -5264,3 +5264,9 @@ Very interesting problem!!!
 
 How would you solve this? If you can't figure out, take a look at leetcode solution or my own solution.
 
+184. https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/
+
+How would you implement this? There are different ways. You can use Stack. You can use stack in a way that you only need to push and pop. But, you can also implement in a way that you need to iterate the stack. How would you implement then? Can you iterarte an stack?
+
+No, we cannot iterate an stack, But, note that you can use vector as a stack. So, if you need to iterate a stack, you should use vector instead. 
+
