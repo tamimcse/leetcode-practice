@@ -964,7 +964,14 @@ Also, you cannot insert a character into a string. You need to convert the chara
      
 Anytime, you need to insert a character at the beginning, do:
 
-s.insert(0, "A");////<<<<<<<<<<<<<< I often forget this. I also do: s.insert("A", 0)          
+s.insert(0, "A");////<<<<<<<<<<<<<< I often forget this. I also do: s.insert("A", 0)    
+
+How to insert a character in the middle of a string? 
+
+For instance, s.insert(5, "A"); will not work. It should be:
+
+s.insert(5, 1, "A");// Insert 1 A at index 5
+
 
 46. How to initalize a vector? Can you initialize a vector of vector? Can you initialize in class declaration or you need to do it inside function? 
 
@@ -5269,4 +5276,8 @@ How would you solve this? If you can't figure out, take a look at leetcode solut
 How would you implement this? There are different ways. You can use Stack. You can use stack in a way that you only need to push and pop. But, you can also implement in a way that you need to iterate the stack. How would you implement then? Can you iterarte an stack?
 
 No, we cannot iterate an stack, But, note that you can use vector as a stack. So, if you need to iterate a stack, you should use vector instead. 
+
+Also, do you really need to insert same element multiple times in a stack? No, you can just have an object and count.
+
+185. 
 
