@@ -5279,5 +5279,7 @@ No, we cannot iterate an stack, But, note that you can use vector as a stack. So
 
 Also, do you really need to insert same element multiple times in a stack? No, you can just have an object and count.
 
-185. 
+185. https://leetcode.com/problems/find-median-from-data-stream/
+
+How would you implement this? Note that, anytime you think, you may need sorted double linked list, probably you can use heap instead.
 
