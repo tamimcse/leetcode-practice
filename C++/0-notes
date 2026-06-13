@@ -5283,3 +5283,26 @@ Also, do you really need to insert same element multiple times in a stack? No, y
 
 How would you implement this? Note that, anytime you think, you may need sorted double linked list, probably you can use heap instead.
 
+186. Can you use reference as a member variable? 
+
+Of course, you can. You will need to use initializer list of the reference as follows:
+
+class Cmp {
+public:
+    unordered_map<int, deque<pair<int, int>>>& tweets;
+
+    Cmp (unordered_map<int, deque<pair<int, int>>>& _tweets): tweets(_tweets){}
+};
+
+Without initializer list, it will not work.
+
+187. How would you implement a priority queue that takes stateful functor?
+
+It's easier to use lamda instead of using custom functor as:
+
+        auto cmp = [=](Feed &f1, Feed &f2) {
+            return tweets[f1.tweetterId][f1.tweetIdx].second < tweets[f2.tweetterId][f2.tweetIdx].second;
+        };
+        
+        priority_queue<Feed, vector<Feed>, decltype(cmp)> pq(cmp);
+
