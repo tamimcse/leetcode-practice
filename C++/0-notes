@@ -5306,3 +5306,15 @@ It's easier to use lamda instead of using custom functor as:
         
         priority_queue<Feed, vector<Feed>, decltype(cmp)> pq(cmp);
 
+
+Note that, similar approch can be used for unordered_set as follows:
+
+        auto func = [](const pair<int, int> &p){
+            return (p.first * p.second) % 100;
+        };
+        unordered_set<pair<int, int>, decltype(func)> visit(100, func);//Must provide the # of bucket
+        
+        Here, there are several points:
+        1. You cannot simply create an unordered_set of pair. You need to provide hash function
+        2. In the hash function, you need to pass the argument as const.
+        3. While declaring the unordered_set, you need to pass the # of bucket as "visit(100, func)".
