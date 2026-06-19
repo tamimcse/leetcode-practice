@@ -5304,7 +5304,7 @@ It's easier to use lamda instead of using custom functor as:
             return tweets[f1.tweetterId][f1.tweetIdx].second < tweets[f2.tweetterId][f2.tweetIdx].second;
         };
         
-        priority_queue<Feed, vector<Feed>, decltype(cmp)> pq(cmp);
+        priority_queue<Feed, vector<Feed>, decltype(cmp)> pq(cmp);//You need to pass cmp as both template and argument
 
 
 Note that, similar approch can be used for unordered_set as follows:
@@ -5317,4 +5317,5 @@ Note that, similar approch can be used for unordered_set as follows:
         Here, there are several points:
         1. You cannot simply create an unordered_set of pair. You need to provide hash function
         2. In the hash function, you need to pass the argument as const.
+        3. In unordered_set, you need to pass 2 template parameters, not 3 unlike priority_queue
         3. While declaring the unordered_set, you need to pass the # of bucket as "visit(100, func)".
