@@ -2468,6 +2468,13 @@ The solution is to use std::advance().
         auto it = us.begin();
         advance(it, idx);///<<<This will work. Note that, this is not "it.advance(idx)". I sometimes mistakenly think so.
         
+ How to get iterator to the last element?
+ 
+ std::prev(vec.end()); or
+ auto last_it = vec.end() - 1;  or
+ auto last_it = vec.rbegin();
+ 
+        
 87. https://leetcode.com/problems/insert-delete-getrandom-o1/
 
 How would you implemement this?
